@@ -1,0 +1,111 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div id="container-body">
+				<div id="breadcrumb">
+					#parse("../_include/breadcrumb.vm")
+				</div>
+				<section id="customer-details">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+
+					#parse("_include/customer-menu.vm")
+	
+					<div style="float: left; width: 80%;">
+						#foreach($customerAdress in $customerAdresses.customerAddressList)
+						<div class="form-horizontal well">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">${customerAdresses.addressNameLabel}</label>
+									<div class="controls">
+										${customerAdress.addressName}
+										#if(${customerAdress.isDefaultBilling})
+											$customerAdresses.defaultBillingAddressLabel
+										#end
+										#if(${customerAdress.isDefaultShipping})
+											$customerAdresses.defaultShippingAddressLabel
+										#end
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										${customerAdress.title} ${customerAdress.lastname} ${customerAdress.firstname}
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										${customerAdress.address1}
+									</div>
+								</div>
+								#if($customerAdress.address2 != '')
+								<div class="control-group">
+									<div class="controls">
+										${customerAdress.address2}
+									</div>
+								</div>
+								#end
+								#if($customerAdress.addressAdditionalInformation != '')
+								<div class="control-group">
+									<div class="controls">
+										${customerAdress.addressAdditionalInformation}
+									</div>
+								</div>
+								#end
+								<div class="control-group">
+									<div class="controls">
+										${customerAdress.postalCode} ${customerAdress.city}
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										${customerAdress.countyCode} ${customerAdress.countryCode}
+									</div>
+								</div>
+							</fieldset>
+							<div style="text-align: right;">
+								<a href="$customerAdress.editUrl" alt="$customerAdress.editLabel">$customerAdress.editLabel</a> | <a href="$customerAdress.deleteUrl" alt="$customerAdress.deleteLabel">$customerAdress.deleteLabel</a>
+							</div>
+						</div>
+						#end
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>
+			</div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>

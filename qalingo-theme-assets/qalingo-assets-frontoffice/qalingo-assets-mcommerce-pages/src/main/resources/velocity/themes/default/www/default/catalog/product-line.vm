@@ -1,0 +1,172 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+		<script type="text/javascript">
+		  window.onload = function () {
+			//vars
+			var conveyor = $(".content-conveyor", $("#carousel-content")),
+			item = $(".item", $("#carousel-content"));
+
+			//set length of conveyor
+			conveyor.css("width", item.length * parseInt(item.css("width")));
+
+			//config
+			var sliderOpts = {
+				max: (item.length * parseInt(item.css("width"))) - parseInt($(".viewer", $("#carousel-content")).css("width")),
+				slide: function(e, ui) { 
+					conveyor.css("left", "-" + ui.value + "px");
+				}
+			};
+			//create slider
+			$("#slider").slider(sliderOpts);
+			
+			$('#shortcut-cat2').bind('click', function() {
+				 alert($('#cat2 .item').position().left);
+				alert($('#cat3 .item').position().left);
+			});
+			
+			};
+		</script>
+		<style>
+			#line-background {
+				width: 1170px;
+				height: 360px;
+				background-color:white;
+				background-image:url('${productCategory.backgroundImage}');
+				background-repeat:no-repeat;
+				background-position:right top;
+			}
+
+			#carousel-content { 
+				width:1170px; 
+				margin:auto; 
+			}
+			.viewer { 
+				width:1150px; 
+				height:120px; 
+				overflow:hidden;
+				position:relative;
+			}
+			.content-conveyor {
+				width:1150px;
+				height:335px;
+				position:relative;
+			}
+			.item { width:100px; float:left; font-family:Tahoma; text-align:center;}
+			.item h2 { font-size:100%; margin:10px 0; }
+			.item dl { margin:10px 0; }
+			.item dt, .item dd { float:left; width:149px; text-align:right; margin:0; font-size:70%; }
+			.item dt { font-weight:bold; margin-right:5px; }
+			.item dd { text-align:left; }
+			.item img { padding:1px; }
+
+			.ui-slider {
+				z-index: 100;
+			}
+
+			.ui-slider-handle {
+				z-index: 200;
+			}
+
+			.shortcut-cat {
+				float:left;
+				padding-left: 100px;
+				z-index: 1000;
+			}
+
+		</style>
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div class="container">
+				<div id="container-body">
+					<div id="breadcrumb">
+						#parse("../_include/breadcrumb.vm")
+					</div>
+					<div id="line-background">
+						<div style="padding-top: 5px; padding-left: 10px;">
+							<h1>${productCategory.iconImage} ${productCategory.name}</h1>
+							description :${productCategory.description}<br/>
+						</div>
+					</div>
+					<div id="line-carousel" style="text-align: center;">
+						<div id="carousel-content" class="ui-corner-all">		
+							<div class="viewer ui-corner-all">
+								<div class="content-conveyor ui-helper-clearfix">
+									<div id="cat1">
+									#foreach($productMarketing in $productCategory.productMarketings)
+											<div class="item">
+												<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
+												<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+											</div>
+									#end
+									</div>
+									<div id="cat2">
+									#foreach($productMarketing in $productCategory.productMarketings)
+											  <div class="item">
+																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+											  </div>
+									#end
+									</div>
+									<div id="cat3">
+									#foreach($productMarketing in $productCategory.productMarketings)
+											  <div class="item">
+																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+											  </div>
+									#end
+									</div>
+									<div id="cat4">
+									#foreach($productMarketing in $productCategory.productMarketings)
+											  <div class="item">
+																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+											  </div>
+									#end
+									</div>
+								</div>
+							</div>
+							<div id="slider">
+								<div id="shortcut-cat1" class="shortcut-cat">cat1</div>
+								<div id="shortcut-cat2" class="shortcut-cat">cat2</div>
+								<div id="shortcut-cat3" class="shortcut-cat">cat3</div>
+								<div id="shortcut-cat4" class="shortcut-cat">cat4</div>
+							</div>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>

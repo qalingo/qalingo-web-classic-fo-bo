@@ -1,0 +1,63 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+	<header >
+		<div>
+			<div style="float: left;">
+				<a href="${common.homeUrl}"><img src="${common.themeResourcePrefixPath}/img/www-logo.png" alt="" /></a>
+			</div>
+			<div style="float: right; margin-top: 5px;">
+				<form id="quickSearchForm" name="quickSearchForm" action="${quickSearch.urlFormSubmit}" method="POST">
+					<input type="text" id="text" name="text" value="" style="width: 200px; margin-bottom: 0px;" />
+					<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
+				</form>
+			</div>
+			<div style="clear: both;"></div>			
+		</div>
+		<div style="padding-bottom: 10px;">
+			<div style="float: left;">($common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentLocalization.name)</div>
+			<div style="float: right;">
+				#if($!customer)
+					<span class="user-my-account-link">${customer.lastname} ${customer.firstname}</span> - 
+					<a href="${common.customerDetailsUrl}" alt="${common.customerDetailsLabel}">${common.customerDetailsLabel}</a> - 
+					<a href="${common.logoutUrl}" alt="${common.logoutLabel}">${common.logoutLabel}</a>
+				#else
+					<a href="${common.createAccountUrl}" alt="${common.createAccountLabel}">${common.createAccountLabel}</a> - 
+					<a href="${common.loginUrl}" alt="${common.loginLabel}">${common.loginLabel}</a>					
+				#end
+				#if($!headerCart)
+					#if($!headerCart.cartTotalItems > 0)
+					- <a href="${headerCart.cartUrl}" alt="">${headerCart.cartTotalSummaryLabel}</a>
+					#else
+					- ${headerCart.cartTotalSummaryLabel}
+					#end
+				#end
+			</div>
+		</div>
+		<div class="subnav" style="clear: both;">
+			<ul class="nav nav-pills">
+			#foreach($menu in $menus)
+				#if($menu.hasSubMenu)
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">$menu.name&nbsp;<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="$menu.url" alt="$menu.alt">$menu.name</a></li>
+							<li class="divider"></li>
+							#foreach($subMenu in $menu.subMenus)
+							<li><a href="$subMenu.url" alt="$subMenu.alt">$subMenu.name</a></li>
+							#end
+						</ul>
+					</li>
+				#else
+					<li><a href="$menu.url" alt="$menu.alt">$menu.name</a></li>				
+				#end
+			#end
+			</ul>
+		</div>
+	</header>

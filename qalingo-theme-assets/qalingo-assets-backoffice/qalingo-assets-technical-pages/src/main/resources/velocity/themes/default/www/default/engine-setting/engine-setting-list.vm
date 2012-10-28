@@ -1,0 +1,89 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+	</head>
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div id="container-body">
+				<div id="breadcrumb">
+					#parse("../_include/breadcrumb.vm")
+				</div>
+			
+				<section id="engine-setting-list">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					
+					<div style="float: left; width: 15%;">
+						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
+							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
+						</form>
+						#parse("../_include/short-link-menu.vm")
+					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<div>
+							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+								#parse("../_include/pagination-pagelistholder.vm")
+								<div>
+									<table class="table" style="width: 100%">
+										<thead>
+											<tr>
+												<th width="350px">Name</th>
+												<th width="450px">Description</th>
+												<th width="150px"></th>
+											</tr>
+										</thead>
+										<tbody>
+											#foreach($engineSetting in $pagedListHolder.pageList)
+											<tr>
+												<td>${engineSetting.name}</td>
+												<td>${engineSetting.description}</td>
+												<td>
+													<a href="$engineSetting.engineSettingDetailsUrl" alt="" class="btn">details</a>
+												</td>
+											</tr>
+											#end
+										</tbody>  
+									</table> 
+								</div>
+							</div>
+						</div>					
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>
+			</div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>

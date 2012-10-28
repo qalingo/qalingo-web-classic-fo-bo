@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+    under the Apache License Version 2.0 (release version ${license.version})
+            http://www.apache.org/licenses/LICENSE-2.0
+
+                      Copyright (c) Hoteia, 2012-2013
+    http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- WURFLManager, automatically exported in ServletContext, if you need outside Spring. See Javadoc -->
+	<bean id="wurflHolder" class="net.sourceforge.wurfl.core.GeneralWURFLEngine">
+		<constructor-arg index="0" value="${wurfl.xml.path}" />
+		<property name="cacheProvider" ref="deviceCacheProvider" />
+		<property name="capabilitiesHolderFactory" ref="capabilitiesHolderFactory" />
+	</bean>
+
+	<!-- DeviceCacheProvider -->
+	<bean id="deviceCacheProvider" class="net.sourceforge.wurfl.core.cache.LRUMapCacheProvider" />
+
+	<!-- CapabilitiesHolderFactory -->
+	<bean id="capabilitiesHolderFactory" class="net.sourceforge.wurfl.core.DefaultCapabilitiesHolderFactory" />
+
+</beans>

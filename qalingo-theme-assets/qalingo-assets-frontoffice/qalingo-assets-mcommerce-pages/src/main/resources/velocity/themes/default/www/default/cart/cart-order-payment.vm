@@ -1,0 +1,119 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div class="container">
+				<div id="container-body">
+					<div id="breadcrumb">
+						#parse("../_include/breadcrumb.vm")
+					</div>
+					<div>
+						<form id="cartForm" name="cartForm" action="cart-order-payment.html" method="POST">
+						<div id="cart-payment-content">
+							<div style="width: 48%; float:left; padding: 5px; border: 1px solid #E5E5E5;">
+								<form id="paymentForm" name="paymentForm" action="cart-order-payment.html" method="POST">
+								#springBind("paymentForm")
+								#if($status.errors.hasErrors()) 
+								<div id="errors" class="alert alert-error">
+									## Global error messages 
+									#foreach($e in $status.errorMessages) 
+										<p>${e}</p> 
+									#end 
+									## Field error messages 
+									#foreach($fieldError in $status.errors.fieldErrors) 
+										#springBind("paymentForm.${fieldError.field}") 
+										#foreach($errorMessage in $status.errorMessages) 
+											${errorMessage}<br/>
+										#end 
+									#end 
+								</div>
+								#end 
+								<div>
+									<div style="width: 450px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+										<div style="padding-top: 5px; padding-bottom: 5px;">
+											<div style="float: left; width: 150px;">
+												<label for="cardHolder" class="label-form">$cart.cardHolderLabel</label>
+											</div>
+											<div style="float: left;">
+												<input type="text" id="cardHolder" name="cardHolder" value="" style="width: 200px;" />
+											</div>
+										</div>
+										<div style="clear: both;"></div>
+										<div style="padding-top: 5px; padding-bottom: 5px;">
+											<div style="float: left; width: 150px;">
+												<label for="cardNumber" class="label-form">$cart.cardNumberLabel</label>
+											</div>
+											<div style="float: left;">
+												<input type="text" id="cardNumber" name="cardNumber" value="" style="width: 200px;" />
+											</div>
+											<div style="float: left; width: 40px; padding-left: 10px;">
+												<label for="cardCrypto" class="label-form">$cart.cardCryptoLabel</label>
+											</div>
+											<div style="float: left;">
+												<input type="text" id="cardCrypto" name="cardCrypto" value="" style="width: 30px;" />
+											</div>
+										</div>
+										<div style="clear: both;"></div>
+										<div style="padding-top: 5px; padding-bottom: 5px;">
+											<div style="float: left; width: 150px;">
+												<label for="cardMonth" class="label-form">$cart.cardExpirationDateLabel $cart.cardExpirationMonthLabel</label>
+											</div>
+											<div style="float: left;">
+												<input type="text" id="cardMonth" name="cardMonth" value="" style="width: 20px;" />
+											</div>
+											<div style="float: left; width: 50px; padding-left: 10px;">
+												<label for="cardYear" class="label-form">$cart.cardExpirationYearLabel</label>
+											</div>
+											<div style="float: left;">
+												<input type="text" id="cardYear" name="cardYear" value="" style="width: 20px;" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="width: 48%; float:right; padding: 5px; border: 1px solid #E5E5E5;">
+								#parse("../_include/cart-details.vm")
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; border: 1px solid #E5E5E5; text-align: right;">
+							<span style="padding-right: 55px;"><button class="btn btn-primary" type="submit">$cart.step3SubmitLabel</button></span>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>

@@ -1,0 +1,64 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div id="container-body">
+				<div id="breadcrumb">
+					#parse("../_include/breadcrumb.vm")
+				</div>
+			
+				<section id="login">
+					<div class="page-header"></div>
+					<div style="padding-bottom: 50px;">
+						<div style="float: left; width: 48%;">
+							<div class="well" style="width: 423px; height: 202px; margin: auto; padding: auto; text-align: left;">
+								<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase; margin-bottom: 15px;">
+									<h3>$common.createAccountSectionTitle</h3>
+								</div>
+								<div>$common.createAccountSectionText</div>
+								<div style="padding-top: 5px; text-align: right;">
+									<a href="$common.createAccountUrl" alt="$common.createAccountLabel" class="btn">$common.createAccountLabel</a>
+								</div>
+							</div>
+						</div>
+						<div style="float: left;  width: 48%;">
+							#parse("../_include/form-login.vm")
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</section>
+			</div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>

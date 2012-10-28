@@ -1,0 +1,17 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<div style="height: 55px; color: #c9c7c4;">
+	<div style="width: 440px; float:left; text-align: left;">
+		<a href="$homeUrl"><img src="${common.themeResourcePrefixPath}/img/demo-web-logo-gray.png" border="0" alt="" title=""></a>
+	</div>
+	<div style="width: 540px; height: 100%; float:left; text-align: right;">
+		<a href="$headerCart.cartUrl" alt="" class="low-gray"><fmt:message key="header.link.cart"/>$headerCart.cartTotalItems</a>
+	</div>
+</div>

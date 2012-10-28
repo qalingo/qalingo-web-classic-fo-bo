@@ -1,0 +1,34 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container" style="width: auto;">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</a>
+							<div class="nav-collapse">
+								<ul class="nav">
+									#foreach( $headerMenu in $appHeaderLeftMenus )
+									<li><a href="$headerMenu.url" alt="$headerMenu.alt">$headerMenu.name</a></li>
+									#end
+								</ul>
+								<ul class="nav pull-right">
+									#foreach( $headerMenu in $appHeaderRightMenu )
+									<li><a href="$headerMenu.url" alt="$headerMenu.alt">$headerMenu.name</a></li>
+									#end
+									<li class="divider-vertical"></li>
+									<li><a href="${appSettingMenu.url}">$appSettingMenu.name</a></li>
+								</ul>
+							</div><!-- /.nav-collapse -->
+						</div>
+					</div><!-- /navbar-inner -->
+				</div><!-- /navbar -->

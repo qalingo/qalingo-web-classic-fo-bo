@@ -1,0 +1,72 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+						<div>
+							<div id="items-header">
+								<div id="item-header-label" style="float: left; width: 30%;">
+									Article
+								</div>
+								<div id="qty-header-label" style="float: left; width: 10%; text-align: center;">
+									Quantit�
+								</div>
+								<div id="price-header-label" style="float: left; width: 15%; text-align: center;">
+									Prix
+								</div>
+								<div id="sub-total-header-label" style="float: left; width: 45%;">
+									Sous-total
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							#foreach($orderItem in $order.orderItems)
+							<div id="items" style="padding-top: 5px;">
+								<div id="item-$velocityCount" style="float: left; width: 30%;">
+									${orderItem.skuCode}<br/>
+								</div>
+								<div id="qty-$velocityCount" style="float: left; width: 10%; text-align: center;">
+									${orderItem.quantity}<br/>
+								</div>
+								<div id="price-$velocityCount" style="float: left; width: 15%; text-align: center;">
+									xxx �
+								</div>
+								<div id="sub-total-$velocityCount" style="float: left; width: 45%;">
+									xxx �
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							#end
+						</div>
+						<div id="order-total-without-taxes" style="padding-top: 5px;">
+							<div style="float: left; width: 55%;">&nbsp;</div>
+							<div id="total" style="float: left; width: 45%;">
+								Total (avant frais de port): xxx �
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div id="order-delivery-price" style="padding-top: 5px;">
+							<div style="float: left; width: 55%;">&nbsp;</div>
+							<div id="total" style="float: left; width: 45%; border-top: 1px dashed #E5E5E5;">
+								Frais de port () : xxx �
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div id="order-taxes" style="padding-top: 5px;">
+							<div style="float: left; width: 55%;">&nbsp;</div>
+							<div id="total" style="float: left; width: 45%; border-top: 1px dashed #E5E5E5;">
+								Taxes : xxx �
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div id="order-total-ttc" style="padding-top: 5px;">
+							<div style="float: left; width: 55%;">&nbsp;</div>
+							<div id="total" style="float: left; width: 45%; border-top: 1px dashed #E5E5E5;">
+								Total TTC : xxx �
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+

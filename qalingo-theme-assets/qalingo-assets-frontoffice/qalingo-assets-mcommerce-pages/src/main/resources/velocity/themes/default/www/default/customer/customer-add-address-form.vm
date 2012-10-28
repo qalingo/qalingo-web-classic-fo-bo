@@ -1,0 +1,207 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+	</head>
+
+	<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div id="container-body">
+				<div id="breadcrumb">
+					#parse("../_include/breadcrumb.vm")
+				</div>
+			
+				<section id="customer-add-address">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+	
+					#parse("_include/customer-menu.vm")
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<form id="customerAddressForm" name="customerAddressForm" action="customer-add-address.html" method="POST">
+						#springBind("customerAddressForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("customerAddressForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end 
+						<div>
+							<div style="float: left; width: 400px; height: 250px; border: 0px solid #B8B6B6; padding-left: 10px; margin-bottom: 50px;">
+								<div style="padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="addressName" class="label-form">$customerAddress.addressNameLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="addressName" name="addressName" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="title" class="label-form">$customerAddress.titleLabel</label>
+									</div>
+									<div style="float: left;">
+										<select id="title" name="title" style="width: 205px; height: 25px;" >
+											<option value="">--</option>
+											#foreach($title in $titles)
+												#if($title.key == $customerAddressForm.title)
+												<option value="$title.key" selected="selected">$title.value</option>
+												#else
+												<option value="$title.key">$title.value</option>
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="lastname" class="label-form">$customerAddress.lastnameLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="lastname" name="lastname" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="firstname" class="label-form">$customerAddress.firstnameLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="firstname" name="firstname" value="" style="width: 200px;" />
+									</div>
+								</div>
+								
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="address1" class="label-form">$customerAddress.address1Label</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="address1" name="address1" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="address2" class="label-form">$customerAddress.address2Label</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="address2" name="address2" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="addressAdditionalInformation" class="label-form">$customerAddress.addressAdditionalInformationLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="" style="width: 200px;" />
+									</div>
+								</div>
+							</div>
+							<div style="float:left; width: 450px; height: 250px; border: 0px solid #B8B6B6; padding-left: 10px;">
+								<div style="clear: both; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="postalCode" class="label-form">$customerAddress.postalCodeLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="postalCode" name="postalCode" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="city" class="label-form">$customerAddress.cityLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="city" name="city" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="countyCode" class="label-form">$customerAddress.countyCodeLabel</label>
+									</div>
+									<div style="float: left;">
+										<select id="countyCode" name="countyCode" style="width: 205px; height: 25px;" >
+											<option value="">--</option>
+											#foreach($county in $counties)
+												#if($county.key == $customerAddressForm.countyCode)
+												<option value="$county.key" selected="selected">$county.value</option>
+												#else
+												<option value="$county.key">$county.value</option>
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="countryCode" class="label-form">$customerAddress.countryCodeLabel</label>
+									</div>
+									<div style="float: left;">
+										<select id="countryCode" name="countryCode" style="width: 205px; height: 25px;" >
+											<option value="">--</option>
+											#foreach($country in $countries)
+												#if($country.key == $customerAddressForm.countryCode)
+												<option value="$country.key" selected="selected">$country.value</option>
+												#else
+												<option value="$country.key">$country.value</option>
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 15px; height: 70px;">
+									<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
+										$legacy.warning
+									</p>
+								</div>
+							</div>
+							<div style="clear: both; width: 100%; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+								<button class="btn" onclick="javascript:window.location.href='$customerAddress.backUrl'">$customerAddress.cancelLabel</button>
+								<button class="btn btn-primary" type="submit">$customerAddress.createLabel</button>
+							</div>
+						</div>
+						</form>
+					</div>
+					<div style="clear: both;"></div>
+
+				</section>
+			</div>
+			
+			<div style="clear: both;"></div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>

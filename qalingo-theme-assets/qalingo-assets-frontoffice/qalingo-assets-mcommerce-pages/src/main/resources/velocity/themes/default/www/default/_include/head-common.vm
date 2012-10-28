@@ -1,0 +1,33 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+		<meta http-equiv="-content-type" content="text/html; charset=UTF-8">
+		<meta name="author" content="$seoPageMetaAuthor">
+		<meta name="keywords" content="$seoPageMetaKeywords">
+		<meta name="description" content="$seoPageMetaDescription" />
+		<meta name="imagetoolbar" content="no">
+		<link rel="icon" href="${common.themeResourcePrefixPath}/img/favicon.ico" />
+		<title>${seoPageTitle}
+		#if($!customer)
+			- (${customer.lastname} ${customer.firstname})
+		#end
+		</title>
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- style -->
+		<link href="${common.themeResourcePrefixPath}/css/main.css" rel="stylesheet" type="text/css">
+
+		<link href="${common.themeResourcePrefixPath}/js/library/jquery-ui-1.9.1.custom/css/smoothness/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" type="text/css">
+		<script src="${common.themeResourcePrefixPath}/js/library/jquery-ui-1.9.1.custom/js/jquery-1.8.2.js" type="text/javascript"></script>
+		<script src="${common.themeResourcePrefixPath}/js/library/jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+

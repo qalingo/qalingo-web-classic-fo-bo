@@ -1,0 +1,100 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version ${license.version})
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		#parse("../_include/head-common.vm")
+		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+		<script>
+		  function init() {
+			var zoom                 = 3;
+			var lonCenter            = -30.000;
+			var latCenter            = 45.000;
+			var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+			var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+			var positionCenter = new OpenLayers.LonLat(lonCenter, latCenter).transform(fromProjection, toProjection);
+
+			map = new OpenLayers.Map("map-store");
+			var mapnik = new OpenLayers.Layer.OSM();
+			map.addLayer(mapnik);
+
+			var markers = new OpenLayers.Layer.Markers("Markers");
+			map.addLayer(markers);
+
+			#foreach($store in $storeLocator.stores) 
+			marker = new OpenLayers.Marker(new OpenLayers.LonLat($store.longitude, $store.latitude).transform(fromProjection, toProjection));
+			openStoreInfo = function(evt) { 
+				$('#store-info-$store.code').dialog({
+					title: '$store.businessName informations',
+					modal: true,
+					buttons: {
+						Ok: function() {
+							$(this).dialog( "close" );
+						}
+					}
+				});
+				OpenLayers.Event.stop(evt);
+			};
+			marker.events.register('mousedown', marker, openStoreInfo);
+			markers.addMarker(marker);
+			#end
+			
+			map.addControl(new OpenLayers.Control.LayerSwitcher());
+			map.setCenter(positionCenter, zoom);
+		  }
+		</script>
+	</head>
+	<body data-spy="scroll" data-target=".subnav" data-offset="50" onload="init();">
+
+		#* Navbar *#
+		#parse("../_include/header.vm")
+
+		#* Start container *#
+		<div class="container">
+		
+			#* Header Content *#
+			#parse("../_include/menu.vm")
+
+			#* Main Content *#
+			<div id="container-body">
+				<div id="breadcrumb">
+					#parse("../_include/breadcrumb.vm")
+				</div>
+			
+				<section id="store-locator">
+					<div class="page-header">
+						<h1>${storeLocator.pageTitle}</h1>
+					</div>
+					<div style="padding-bottom: 50px;">
+						<div style="padding-bottom: 20px;">
+							${storeLocator.textHtml}
+						</div>
+						<div id="map-store" style="clear: both; width: 1170px; height: 400px;"></div>
+						#foreach($store in $storeLocator.stores) 
+						<div id="store-info-$store.code" style="display: none;">
+						$store.address1<br/>
+						$store.city<br/>
+						$store.country<br/>
+						</div>
+						#end
+					</div>
+				</section>
+			</div>
+			
+			#* Footer *#
+			#parse("../_include/footer.vm")
+
+		</div>
+		#* End container *#
+
+		#parse("../_include/bottom-javascript.vm")
+	
+	</body>
+</html>
