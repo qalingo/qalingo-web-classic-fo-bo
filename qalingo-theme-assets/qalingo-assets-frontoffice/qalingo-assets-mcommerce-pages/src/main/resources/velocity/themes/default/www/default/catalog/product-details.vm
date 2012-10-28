@@ -64,8 +64,8 @@
 				</div>
 				<div style="float: left; padding-top: 50px;">
 					<h1>${productSku.name}</h1>
-					<a href="${productSku.addToWishlistUrl}" alt="">add to wishlist</a><br/>
-					<a href="${productSku.addToCartUrl}" alt="">add to cart</a><br/>
+					<a href="${productSku.addToWishlistUrl}" alt="${productSku.addToWishlistLabel}">${productSku.addToWishlistLabel}</a><br/>
+					<a href="${productSku.addToCartUrl}" alt="${productSku.addToCartLabel}">${productSku.addToCartLabel}</a><br/>
 				</div>
 			</div>
 			#end

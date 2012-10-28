@@ -1,22 +1,22 @@
 #featured{ 
-	width:400px; 
+	width: 730px; 
+	height: 400px;
 	padding-right:250px; 
 	position:relative; 
-	border:5px solid #ccc; 
-	height:250px; 
 	overflow:hidden;
 	background:#fff;
 }
 #featured ul.ui-tabs-nav{ 
 	position:absolute; 
 	top:0;
-	left:400px; 
+	left: 680px; 
+	width: 300px; 
+	height:400px;
 	list-style:none; 
 	padding:0; margin:0; 
-	width:250px; 
-	height:250px;
 	overflow:auto;
 	overflow-x:hidden;
+	z-index: -1px;
 }
 #featured ul.ui-tabs-nav li{ 
 	padding:1px 0; padding-left:13px;  
@@ -30,14 +30,18 @@
 	border:1px solid #eee;
 }
 #featured ul.ui-tabs-nav li span{ 
-	font-size:11px; font-family:Verdana; 
+	font-size:11px;
 	line-height:18px; 
 }
 #featured li.ui-tabs-nav-item a{ 
+	width: 300px; 
+	height:90px;
 	display:block; 
-	height:60px; text-decoration:none;
-	color:#333;  background:#fff; 
-	line-height:20px; outline:none;
+	text-decoration:none;
+	color:#333;
+	background:#fff; 
+	line-height:20px;
+	outline:none;
 }
 #featured li.ui-tabs-nav-item a:hover{ 
 	background:#f2f2f2; 
@@ -47,21 +51,44 @@
 #featured ul.ui-tabs-nav li.ui-tabs-selected a, #featured ul.ui-tabs-nav li.ui-tabs-active a{ 
 	background:#ccc; 
 }
+
 #featured .ui-tabs-panel{ 
-	width:400px; height:250px; 
-	background:#999; position:relative;
+	width: 640px;
+	height: 370px; 
+	background: #ffffff;
+	position:relative;
 }
 #featured .ui-tabs-panel .info{ 
 	position:absolute; 
-	bottom:0; left:0; 
-	height:70px; 
+	bottom:0; 
+	left:0; 
+	width: 200px;
+	height: 400px;
+	padding-left: 10px;
 }
+
+#featured .ui-tabs-panel .product-image{ 
+	position:absolute; 
+	left: 150px; 
+}
+
 #featured .ui-tabs-panel .info a.hideshow{
-	position:absolute; font-size:11px; font-family:Verdana; color:#f0f0f0; right:10px; top:-20px; line-height:20px; margin:0; outline:none; background:#333;
+	position:absolute; 
+	font-size:11px; 
+	color:#f0f0f0; 
+	right:0px; 
+	bottom:0px; 
+	line-height:20px;
+	margin:0; 
+	outline:none; 
+	background:#333;
 }
 #featured .info h2{ 
-	font-size:1.2em; font-family:Georgia, serif; 
-	color:#fff; padding:5px; margin:0; font-weight:normal;
+	font-size:1.2em; 
+	color:#fff; 
+	padding:5px; 
+	margin:0; 
+	font-weight:normal;
 	overflow:hidden; 
 }
 #featured .info p{ 
@@ -78,4 +105,27 @@
 }
 #featured .ui-tabs-hide{ 
 	display:none; 
+}
+
+
+
+#featured .ui-widget-header {
+	background: none;
+}
+
+#featured .ui-state-default {
+	background: none;
+	border-width: 0px;
+}
+
+#featured .ui-widget-header {
+	border-width: 0px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding: 0 0;
+}
+
+.ui-widget-content {
+	border-width: 0px;
 }

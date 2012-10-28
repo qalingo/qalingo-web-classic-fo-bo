@@ -9,33 +9,39 @@
  *#
 						<div>
 							<div id="items-header">
-								<div id="item-header-label" style="float: left; width: 30%;">
-									Article
+								<div id="item-header-label" style="float: left; width: 15%;">
+									$order.orderItemNameLabel
 								</div>
 								<div id="qty-header-label" style="float: left; width: 10%; text-align: center;">
-									Quantit�
+									$order.orderItemQuantityLabel
+								</div>
+								<div id="action-header-label" style="float: left; width: 15%; text-align: center;">
+									$order.orderItemDeleteActionLabel
 								</div>
 								<div id="price-header-label" style="float: left; width: 15%; text-align: center;">
-									Prix
+									$order.orderItemPriceLabel
 								</div>
 								<div id="sub-total-header-label" style="float: left; width: 45%;">
-									Sous-total
+									$order.orderItemSubTotalLabel
 								</div>
 								<div style="clear: both;"></div>
 							</div>
 							#foreach($orderItem in $order.orderItems)
 							<div id="items" style="padding-top: 5px;">
-								<div id="item-$velocityCount" style="float: left; width: 30%;">
-									${orderItem.skuCode}<br/>
+								<div id="item-$velocityCount" style="float: left; width: 15%;">
+									${orderItem.name}
 								</div>
-								<div id="qty-$velocityCount" style="float: left; width: 10%; text-align: center;">
-									${orderItem.quantity}<br/>
+								<div id="quantity-$velocityCount" style="float: left; width: 10%; text-align: center;">
+									${orderItem.quantity}
+								</div>
+								<div id="action-$velocityCount" style="float: left; width: 15%; text-align: center;">
+									<a href="${orderItem.deleteUrl}" alt="">${orderItem.deleteLabel}</a>
 								</div>
 								<div id="price-$velocityCount" style="float: left; width: 15%; text-align: center;">
-									xxx �
+									${orderItem.price}
 								</div>
-								<div id="sub-total-$velocityCount" style="float: left; width: 45%;">
-									xxx �
+								<div id="amount-$velocityCount" style="float: left; width: 45%;">
+									${orderItem.amount}
 								</div>
 								<div style="clear: both;"></div>
 							</div>
@@ -44,29 +50,32 @@
 						<div id="order-total-without-taxes" style="padding-top: 5px;">
 							<div style="float: left; width: 55%;">&nbsp;</div>
 							<div id="total" style="float: left; width: 45%;">
-								Total (avant frais de port): xxx �
+								$order.orderItemsTotalLabel $order.orderItemsTotal
 							</div>
 							<div style="clear: both;"></div>
 						</div>
-						<div id="order-delivery-price" style="padding-top: 5px;">
+						#foreach($orderShipping in $order.orderShippings)
+						<div id="order-shipping-price-$orderShipping.orderShippingCode" style="padding-top: 5px;">
 							<div style="float: left; width: 55%;">&nbsp;</div>
 							<div id="total" style="float: left; width: 45%; border-top: 1px dashed #E5E5E5;">
-								Frais de port () : xxx �
+								$orderShipping.orderShippingTotalLabel $orderShipping.orderShippingTotal
 							</div>
 							<div style="clear: both;"></div>
 						</div>
-						<div id="order-taxes" style="padding-top: 5px;">
+						#end
+						#foreach($orderTax in $order.orderTaxes)
+						<div id="order-taxes-$orderTax.orderTaxCode" style="padding-top: 5px;">
 							<div style="float: left; width: 55%;">&nbsp;</div>
 							<div id="total" style="float: left; width: 45%; border-top: 1px dashed #E5E5E5;">
-								Taxes : xxx �
+								$orderTax.orderTaxTotalLabel $orderTax.orderTaxTotal 
 							</div>
 							<div style="clear: both;"></div>
 						</div>
+						#end
 						<div id="order-total-ttc" style="padding-top: 5px;">
 							<div style="float: left; width: 55%;">&nbsp;</div>
 							<div id="total" style="float: left; width: 45%; border-top: 1px dashed #E5E5E5;">
-								Total TTC : xxx �
+								$order.orderTotalLabel $order.orderTotal
 							</div>
 							<div style="clear: both;"></div>
 						</div>
-
