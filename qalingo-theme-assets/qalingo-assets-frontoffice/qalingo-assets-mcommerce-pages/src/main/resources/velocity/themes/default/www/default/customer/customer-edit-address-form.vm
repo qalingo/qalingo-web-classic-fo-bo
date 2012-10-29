@@ -55,7 +55,7 @@
 						</div>
 						#end 
 						<div>
-							<div style="float: left; width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding-left: 10px; margin-bottom: 50px;">
+							<div style="float: left; width: 400px; height: 350px; border: 0px solid #B8B6B6; padding-left: 10px; margin-bottom: 50px;">
 								<div style="padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
 										<label for="addressName" class="label-form">$customerAddress.addressNameLabel</label>
@@ -124,7 +124,7 @@
 								</div>
 
 							</div>
-							<div style="float:left; width: 550px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding-left: 10px;">
+							<div style="float:left; width: 450px; height: 350px; border: 0px solid #B8B6B6; padding-left: 10px;">
 								<div style="clear: both; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
 										<label for="postalCode" class="label-form">$customerAddress.postalCodeLabel</label>
@@ -178,7 +178,7 @@
 								
 								<div style="width: 600px; clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
 									<button class="btn" onclick="javascript:window.location.href='$customerAddress.backUrl'">$customerAddress.cancelLabel</button>
-									<button class="btn btn-primary" type="submit">$customerAddress.submitLabel</button>
+									<button class="btn btn-primary" type="submit">$customerAddress.updateLabel</button>
 								</div>
 								<div style="padding-top: 15px; height: 70px;">
 									<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">

@@ -15,9 +15,6 @@
 								<div id="qty-header-label" style="float: left; width: 10%; text-align: center;">
 									$order.orderItemQuantityLabel
 								</div>
-								<div id="action-header-label" style="float: left; width: 15%; text-align: center;">
-									$order.orderItemDeleteActionLabel
-								</div>
 								<div id="price-header-label" style="float: left; width: 15%; text-align: center;">
 									$order.orderItemPriceLabel
 								</div>
@@ -33,9 +30,6 @@
 								</div>
 								<div id="quantity-$velocityCount" style="float: left; width: 10%; text-align: center;">
 									${orderItem.quantity}
-								</div>
-								<div id="action-$velocityCount" style="float: left; width: 15%; text-align: center;">
-									<a href="${orderItem.deleteUrl}" alt="">${orderItem.deleteLabel}</a>
 								</div>
 								<div id="price-$velocityCount" style="float: left; width: 15%; text-align: center;">
 									${orderItem.price}

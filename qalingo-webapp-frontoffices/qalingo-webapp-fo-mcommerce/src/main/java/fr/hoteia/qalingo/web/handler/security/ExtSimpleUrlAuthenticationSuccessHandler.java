@@ -84,6 +84,16 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
 	    		final Localization currentLocalization = requestUtil.getCurrentLocalization(request);
 	    		final Retailer currentRetailer = requestUtil.getCurrentRetailer(request);
 	    		url = urlService.buildHomeUrl(request, currentMarketPlace, currentMarket, currentMarketArea, currentLocalization, currentRetailer);
+	        } else {
+	        	String cartDetails = "cart-details.html";
+	        	if(url.contains(cartDetails)){
+		    		final MarketPlace currentMarketPlace = requestUtil.getCurrentMarketPlace(request);
+		    		final Market currentMarket = requestUtil.getCurrentMarket(request);
+		    		final MarketArea currentMarketArea = requestUtil.getCurrentMarketArea(request);
+		    		final Localization currentLocalization = requestUtil.getCurrentLocalization(request);
+		    		final Retailer currentRetailer = requestUtil.getCurrentRetailer(request);
+		    		url = urlService.buildCartDeliveryAndOrderDetailsUrl(request, currentMarketPlace, currentMarket, currentMarketArea, currentLocalization, currentRetailer);
+	        	}
 	        }
 			
 	    	setDefaultTargetUrl(url);
