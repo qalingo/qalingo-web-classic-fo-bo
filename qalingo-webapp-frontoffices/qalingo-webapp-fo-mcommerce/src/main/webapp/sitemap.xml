@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Most of the code in the Qalingo project is copyrighted Hoteia and licensed
@@ -9,7 +10,6 @@
 
 
 -->
-﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
 	<url>
 		<loc>http://qalingo.hoteia.com</loc>

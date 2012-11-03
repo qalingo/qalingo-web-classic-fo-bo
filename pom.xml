@@ -32,8 +32,6 @@
 		<aspectj.version>1.7.0</aspectj.version>
 		<!-- Spring-security -->
 		<spring-security.version>3.1.2.RELEASE</spring-security.version>
-		<!-- Spring-ws -->
-		<spring-ws.version>2.1.0.RELEASE</spring-ws.version>
 		<!-- Spring-batch -->
 		<spring.batch.version>2.1.9.RELEASE</spring.batch.version>
 		<spring.batch.admin.version>1.2.1.RELEASE</spring.batch.admin.version>
@@ -303,53 +301,6 @@
 				<artifactId>spring-security-web</artifactId>
 				<version>${spring-security.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>org.springframework.ws</groupId>
-				<artifactId>spring-ws-core</artifactId>
-				<version>${spring-ws.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.ws</groupId>
-				<artifactId>spring-ws-support</artifactId>
-				<version>${spring-ws.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.ws</groupId>
-				<artifactId>spring-ws-security</artifactId>
-				<version>${spring-ws.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.ws</groupId>
-				<artifactId>spring-xml</artifactId>
-				<version>${spring-ws.version}</version>
-			</dependency>
-            
-			<!-- Spring Batch -->
-			<dependency>
-				<groupId>org.springframework.batch</groupId>
-				<artifactId>spring-batch-infrastructure</artifactId>
-				<version>${spring.batch.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.batch</groupId>
-				<artifactId>spring-batch-core</artifactId>
-				<version>${spring.batch.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.batch</groupId>
-				<artifactId>spring-batch-test</artifactId>
-				<version>${spring.batch.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.batch</groupId>
-				<artifactId>spring-batch-admin-manager</artifactId>
-				<version>${spring.batch.admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.batch</groupId>
-				<artifactId>spring-batch-admin-resources</artifactId>
-				<version>${spring.batch.admin.version}</version>
-			</dependency>
 			
 			<!-- AspectJ framework -->	
 			<dependency>
@@ -435,7 +386,6 @@
 				<version>1.1</version>
 			</dependency>
 
-            
 			<!-- Form Validation -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
@@ -443,21 +393,7 @@
 				<version>4.2.0.Final</version>
 			</dependency>
 			
-			<!-- JSON -->
-			<dependency>
-				<groupId>org.codehaus.jackson</groupId>
-				<artifactId>jackson-jaxrs</artifactId>
-				<version>${jackson-version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.codehaus.jackson</groupId>
-				<artifactId>jackson-mapper-asl</artifactId>
-				<version>${jackson-version}</version>
-			</dependency>
-	
-			<!-- Logs dependencies -->
+			<!-- Cache dependencies -->
 			<dependency>
 				<groupId>net.sf.ehcache</groupId>
 				<artifactId>ehcache-core</artifactId>
@@ -467,13 +403,6 @@
 				<groupId>net.sf.ehcache</groupId>
 				<artifactId>ehcache-web</artifactId>
 				<version>2.0.4</version>
-			</dependency>
-		
-			<!-- Quartz -->
-			<dependency>
-				<groupId>quartz</groupId>
-				<artifactId>quartz</artifactId>
-				<version>1.5.2</version>
 			</dependency>
 
 			<!-- MySQL database driver -->
@@ -540,6 +469,13 @@
 				<version>1.4.5</version>
 			</dependency>
             
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-servlet-api</artifactId>
+				<version>7.0.22</version>
+				<scope>provided</scope>
+			</dependency>
+			
 			<!-- Test dependencies -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -569,12 +505,6 @@
 				<groupId>org.jdom</groupId>
 				<artifactId>jdom</artifactId>
 				<version>1.1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.tomcat</groupId>
-				<artifactId>tomcat-servlet-api</artifactId>
-				<version>7.0.22</version>
-				<scope>provided</scope>
 			</dependency>
 			<!-- Support for testing Spring applications with tools such as JUnit and TestNG This artifact is generally always defined with 
 				a 'test' scope for the integration testing framework and unit testing stubs -->
