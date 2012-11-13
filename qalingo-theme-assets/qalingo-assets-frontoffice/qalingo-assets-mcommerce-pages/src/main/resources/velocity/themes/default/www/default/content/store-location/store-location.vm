@@ -1,0 +1,25 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+#set ($footer_script_content = "../content/store-location/store-location-footer.vm")
+
+			
+				<section id="store-locator">
+					<div class="page-header">
+						<h1>${storeLocator.pageTitle}</h1>
+					</div>
+					<div style="padding-bottom: 50px;">
+						<div style="padding-bottom: 20px;">
+							${storeLocator.textHtml}
+						</div>
+						<div id="map-store" style="clear: both; width: 1170px; height: 400px;"></div>
+						#foreach($store in $storeLocator.stores) 
+						<div id="store-info-$store.code" style="display: none;">
+						$store.address1<br/>
+						$store.city<br/>
+						$store.country<br/>
+						</div>
+						#end
+					</div>
+				</section>
+
+				

@@ -1,0 +1,47 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+				<div class="well" style="width: 423px; height: 202px; margin: auto; padding: auto; text-align: left;">
+					<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase;">
+						<h3>${security.loginFormTitle}</h3>
+					</div>
+					<div>
+					<form id="formSecurity" name="formSecurity" action="${security.loginUrl}" class="form-search" method="POST">
+						<div>
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="j_username" class="label-form">${security.loginLabel}</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" name="j_username" value="">
+								</div>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+						<div>
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="j_password" class="label-form">${security.passwordLabel}</label>
+								</div>
+								<div style="float: left;">
+									<input type="password" name="j_password">
+								</div>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+						<div style="padding-top: 5px;">
+							<input type="checkbox" name="_spring_security_remember_me"/>&nbsp;${security.rememberLabel}
+						</div>
+						<div style="padding-top: 5px; text-align: right;">
+							<span style="padding-right: 55px;"><a class="btn" href="$security.forgottenPasswordUrl" alt="$security.forgottenPasswordLabel">$security.forgottenPasswordLabel</a></span>
+							<button type="submit" class="btn">${security.submitLabel}</button>
+						</div>
+					</form>
+					</div>
+				</div>

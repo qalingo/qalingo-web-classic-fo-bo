@@ -1,0 +1,34 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+ 
+			<div id="menu-nav">
+				<div class="sub-navbar">
+					<div class="container">
+						<ul class="nav nav-pills menu-nav">
+						#foreach($menu in $menus)
+							#if($menu.hasSubMenu)
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">$menu.name&nbsp;<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="$menu.url" alt="$menu.alt">$menu.name</a></li>
+										<li class="divider"></li>
+										#foreach($subMenu in $menu.subMenus)
+										<li><a href="$subMenu.url" alt="$subMenu.alt">$subMenu.name</a></li>
+										#end
+									</ul>
+								</li>
+							#else
+								<li><a href="$menu.url" alt="$menu.alt">$menu.name</a></li>				
+							#end
+						#end
+						</ul>
+					</div>
+				</div>
+			</div>

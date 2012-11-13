@@ -1,0 +1,11 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="conditions-of-use">
+					<div class="page-header">
+						<h1>${conditions.pageTitle}</h1>
+					</div>
+					<div style="padding-bottom: 50px;">
+						${conditions.textHtml}
+					</div>
+				</section>

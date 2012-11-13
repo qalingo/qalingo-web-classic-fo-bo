@@ -1,0 +1,103 @@
+<style>
+
+#home-slideshow {
+	width: 1170px;
+	height: 537px;
+	position: relative;
+}
+
+#ribbon {
+	position: absolute;
+	top: -3px;
+	left: -15px;
+	z-index: 500;
+}
+
+#frame {
+	position: absolute;
+	z-index: 0;
+	width: 1170px;
+	height: 341px;
+	top: -3px;
+	left: -80px;
+}
+
+#slides {
+	position: absolute;
+	top: 0px;
+	z-index: 100;
+}
+
+.slides_container {
+	width: 1170px;
+	overflow: hidden;
+	position: relative;
+	display: none;
+}
+
+.slides_container div.slide {
+	width: 1170px;
+	height: 537px;
+	display: block;
+}
+
+#slides .next, #slides .prev {
+	position: absolute;
+	top: 170px;
+	width: 24px;
+	height: 43px;
+	display: block;
+	z-index: 101;
+}
+
+#slides .prev {
+	left: -25px;
+}
+
+#slides .next {
+	left: 1171px;
+}
+
+.pagination {
+	position: absolute;
+	top: 480px;
+	left: 800px;
+	margin: 26px auto 0;
+	width: 100px;
+	z-index: 1000;
+}
+
+.pagination li {
+	float: left;
+	margin: 0 1px;
+	list-style: none;
+}
+
+.pagination li a {
+	width: 12px;
+	height: 0;
+	padding-top: 0px;
+}
+
+.pagination li.current a {
+	background-position: 0 -12px;
+}
+
+.caption {
+	z-index: 500;
+	position: absolute;
+	bottom: -35px;
+	left: 0;
+	height: 30px;
+	padding: 5px 20px 20px 20px;
+	background: #000;
+	background: rgba(0,0,0,.5);
+	width: 1170px;
+	font-size: 1.3em;
+	line-height: 1.33;
+	color: #fff;
+	border-top: 1px solid #000;
+	text-shadow: none;
+}
+
+</style>

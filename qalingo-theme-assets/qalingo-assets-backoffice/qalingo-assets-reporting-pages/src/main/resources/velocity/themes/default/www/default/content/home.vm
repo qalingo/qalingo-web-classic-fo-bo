@@ -1,0 +1,13 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+	<div class="container">
+
+		<div class="row">	      	
+	      	<div class="span11">	
+				<div class="widget widget-table action-table">
+					${contentText}
+				</div>				
+			</div>
+		</div>
+	</div>

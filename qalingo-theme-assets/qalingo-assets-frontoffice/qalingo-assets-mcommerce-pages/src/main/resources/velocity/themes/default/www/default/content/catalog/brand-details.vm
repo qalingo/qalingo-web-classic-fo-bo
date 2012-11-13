@@ -1,0 +1,7 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+					<div>
+						name : ${productBrand.name}<br/>
+						description :${productBrand.description}<br/>
+					</div>

@@ -1,0 +1,57 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+		<link href="${common.themeResourcePrefixPath}/js/library/product-carousel/product-carousel.css" rel="stylesheet" type="text/css">
+		<script src="${common.themeResourcePrefixPath}/js/library/product-carousel/product-carousel.js" type="text/javascript"></script>
+		<style>
+			#product-carousel-gallery {
+				background:url('${common.themeResourcePrefixPath}/js/library/product-carousel/images/panel_1000x80.png') repeat-x bottom center #ffffff;
+			}
+			#product-carousel-gallery li.product-carousel-inact:hover {
+				background:url('${common.themeResourcePrefixPath}/js/library/product-carousel/images/pic_bg_5x5.png') repeat;
+			}
+			#product-carousel-gallery li.product-carousel-act, li.product-carousel-act:hover {
+				background:url('${common.themeResourcePrefixPath}/js/library/product-carousel/images/active_bg_107x80.png') no-repeat;
+			}
+		</style>
+		
+		<!--[if lte IE 7]>
+		<style type="text/css">
+		ul li{
+			display:inline;
+			/*float:left;*/
+		}
+		</style>
+		<![endif]-->
+
+
+					<div id="product-carousel">
+					
+	<div id="product-carousel-gallery">
+	
+		<div id="product-carousel-slides">
+			#foreach($productSku in $productMarketing.productSkus)
+			<div class="product-carousel-slide">
+				<div style="float: left;">
+					<img src="${productSku.backgroundImage}" width="920" height="400" alt="side" />
+				</div>
+				<div style="float: left; padding-top: 50px;">
+					<h1>${productSku.name}</h1>
+					<a href="${productSku.addToWishlistUrl}" alt="${productSku.addToWishlistLabel}">${productSku.addToWishlistLabel}</a><br/>
+					<a href="${productSku.addToCartUrl}" alt="${productSku.addToCartLabel}">${productSku.addToCartLabel}</a><br/>
+				</div>
+			</div>
+			#end
+		</div>
+		
+		<div id="product-carousel-menu">
+			<ul>
+				<li class="product-carousel-fbar">&nbsp;</li>
+				#foreach($productSku in $productMarketing.productSkus)
+				<li class="product-carousel-menuItem" style="width: 107px; text-align: center;"><a href="#"><img src="${productSku.carouselImage}" alt="thumbnail" width="70px" height="70px" /></a></li>
+				#end
+			</ul>
+		</div>
+    
+	</div>
+	<div style="clear: both;"></div>

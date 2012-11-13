@@ -1,0 +1,71 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+ 		
+        <footer>
+			<div class="extra">
+
+				<div class="extra-inner">
+
+					<div class="container">
+
+						<div class="row">
+							
+							<div class="span3">
+								<h4>Support</h4>
+								<ul>
+									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/issues?state=open" alt="Report a bug" target="_blank">Report a bug</a></li>
+									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="Wiki" target="_blank">Wiki</a></li>
+									<li><a href="http://www.twitter.com/QalingoEco" alt="Wiki" target="_blank">Feedback</a></li>
+								</ul>
+							</div> <!-- /span3 -->
+					
+							<div class="span3">
+								<h4>About Hoteia</h4>
+								<ul>
+									<li><a href="http://www.hoteia.com" alt="Hoteia.com" target="_blank">Hoteia.com</a></li>
+									<li><a href="http://blog.hoteia.com/" alt="Blog Hoteia" target="_blank">Blog Hoteia</a></li>
+									<li><a href="http://www.twitter.com/hoteia" alt="Hoteia on Twitter" target="_blank">Twitter</a></li>
+									<li><a href="http://www.faceboook.com/hoteia" alt="Hoteia on Facebook" target="_blank">Facebook</a></li>
+									<li><a href="https://plus.google.com/111065382984549498585" alt="Hoteia on Google+" target="_blank">Google+</a></li>
+								</ul>
+							</div> <!-- /span3 -->
+							
+							<div class="span3">
+								<h4>About Qalingo</h4>
+								<ul>
+									<li><a href="http://www.qalingo.com" alt="Qalingo.com" target="_blank">Qalingo.com</a></li>
+									<li><a href="http://www.twitter.com/QalingoEco" alt="Qalingo on Twitter" target="_blank">Twitter</a></li>
+								</ul>
+							</div> <!-- /span3 -->
+							
+						</div> <!-- /row -->
+
+					</div> <!-- /container -->
+
+				</div> <!-- /extra-inner -->
+
+			</div> <!-- /extra -->
+			<div class="footer">
+				<div class="footer-inner">
+					<div class="container">
+						<div class="row">
+							<div class="span12">
+								<div style="float: left;">
+									$legacy.copyright
+								</div>
+								<div style="float: right;">
+									<img src="${common.themeResourcePrefixPath}/img/footer-ico.png" width="40px" height="40px" />
+								</div>
+							</div> <!-- /span12 -->
+						</div> <!-- /row -->
+					</div> <!-- /container -->
+				</div> <!-- /footer-inner -->
+			</div> <!-- /footer -->
+        </footer>

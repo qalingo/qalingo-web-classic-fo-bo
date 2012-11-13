@@ -1,0 +1,14 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+		<div>
+			<div id="cart-payment-content" style="margin-top: 15px; margin-bottom: 15px;">
+				<div style="width: 48%; float:left; padding: 5px; border: 1px solid #E5E5E5;">
+					$order.confirmationMessage
+				</div>
+				<div style="width: 48%; float:right; padding: 5px; border: 1px solid #E5E5E5;">
+					#parse("../_include/order-details.vm")
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>

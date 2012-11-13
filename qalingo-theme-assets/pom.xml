@@ -53,115 +53,21 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>copy-css-to-delivery-assets</id>
+						<id>copy-resources-to-delivery-assets</id>
 						<phase>initialize</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${delivery.resources.dir}/${project.www.theme}/css</outputDirectory>
+							<outputDirectory>${delivery.resources.dir}/themes</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${source.resources.dir}/themes/${project.www.theme}/css</directory>
+									<directory>${source.resources.dir}/themes</directory>
 									<includes>
-										<include>**/*.png</include>
-										<include>**/*.css</include>
-									</includes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-flash-to-delivery-assets</id>
-						<phase>initialize</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${delivery.resources.dir}/${project.www.theme}/flash</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${source.resources.dir}/themes/${project.www.theme}/flash</directory>
-									<includes>
-										<include>**/*.jpg</include>
-										<include>**/*.gif</include>
-										<include>**/*.png</include>
-										<include>**/*.swf</include>
-										<include>**/*.xml</include>
-									</includes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-images-to-delivery-assets</id>
-						<phase>initialize</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${delivery.resources.dir}/${project.www.theme}/img</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${source.resources.dir}/themes/${project.www.theme}/img</directory>
-									<includes>
-										<include>**/*</include>
-										<include>**/*.gif</include>
-										<include>**/*.png</include>
-									</includes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-js-to-delivery-assets</id>
-						<phase>initialize</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${delivery.resources.dir}/${project.www.theme}/js</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${source.resources.dir}/themes/${project.www.theme}/js</directory>
-									<includes>
-										<include>**/*.js</include>
-										<include>**/*.css</include>
-										<include>**/*.png</include>
-										<include>**/*.gif</include>
-										<include>**/*.jpg</include>
-										<include>**/*.swf</include>
+										<include>**/*.*</include>
 									</includes>
 									<excludes>
-										<exclude>**/library/**</exclude>
-									</excludes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-libs-to-delivery-assets</id>
-						<phase>initialize</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${delivery.resources.dir}/${project.www.theme}/js/library</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${source.resources.dir}/themes/${project.www.theme}/js/library</directory>
-									<includes>
-										<include>**/*.js</include>
-										<include>**/*.css</include>
-										<include>**/*.png</include>
-										<include>**/*.jpg</include>
-									</includes>
-									<excludes>
-										<exclude>**/template-lib-to-exclude.js</exclude>
+										<exclude>**/example.js</exclude>
 									</excludes>
 									<filtering>false</filtering>
 								</resource>

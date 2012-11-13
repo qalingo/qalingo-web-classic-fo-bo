@@ -1,0 +1,201 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			
+				<section id="customer-create-account">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<form id="createAccountForm" name="createAccountForm" action="customer-create-account.html" method="POST">
+					#springBind("createAccountForm")
+					#if($status.errors.hasErrors()) 
+					<div id="errors" class="alert alert-error">
+						## Global error messages 
+						#foreach($e in $status.errorMessages) 
+							<p>${e}</p> 
+						#end 
+						## Field error messages 
+						#foreach($fieldError in $status.errors.fieldErrors) 
+							#springBind("createAccountForm.${fieldError.field}") 
+							#foreach($errorMessage in $status.errorMessages) 
+								${errorMessage}<br/>
+							#end 
+						#end 
+					</div>
+					#end 
+					<div>
+						<div style="float: left; width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding-left: 10px; margin-bottom: 50px;">
+							<div style="padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="title" class="label-form">$customerCreateAccount.titleLabel</label>
+								</div>
+								<div style="float: left;">
+									<select id="title" name="title" style="width: 205px; height: 25px;" >
+										<option value="">--</option>
+										#foreach($title in $titles)
+											#if($title.key == $createAccountForm.title)
+											<option value="$title.key" selected="selected">$title.value</option>
+											#else
+											<option value="$title.key">$title.value</option>
+											#end
+										#end
+									</select>
+								</div>
+							</div>
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="lastname" class="label-form">$customerCreateAccount.lastnameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="lastname" name="lastname" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="firstname" class="label-form">$customerCreateAccount.firstnameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="firstname" name="firstname" value="" style="width: 200px;" />
+								</div>
+							</div>
+							
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="address1" class="label-form">$customerCreateAccount.address1Label</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="address1" name="address1" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="address2" class="label-form">$customerCreateAccount.address2Label</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="address2" name="address2" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="addressAdditionalInformation" class="label-form">$customerCreateAccount.addressAdditionalInformationLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="postalCode" class="label-form">$customerCreateAccount.postalCodeLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="postalCode" name="postalCode" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="city" class="label-form">$customerCreateAccount.cityLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="city" name="city" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="countyCode" class="label-form">$customerCreateAccount.countyCodeLabel</label>
+								</div>
+								<div style="float: left;">
+									<select id="countyCode" name="countyCode" style="width: 205px; height: 25px;" >
+										<option value="">--</option>
+										#foreach($county in $counties)
+											#if($county.key == $createAccountForm.countyCode)
+											<option value="$county.key" selected="selected">$county.value</option>
+											#else
+											<option value="$county.key">$county.value</option>
+											#end
+										#end
+									</select>
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="countryCode" class="label-form">$customerCreateAccount.countryCodeLabel</label>
+								</div>
+								<div style="float: left;">
+									<select id="countryCode" name="countryCode" style="width: 205px; height: 25px;" >
+										<option value="">--</option>
+										#foreach($country in $countries)
+											#if($country.key == $createAccountForm.countryCode)
+											<option value="$country.key" selected="selected">$country.value</option>
+											#else
+											<option value="$country.key">$country.value</option>
+											#end
+										#end
+									</select>
+								</div>
+							</div>
+						</div>
+						<div style="float:left; width: 550px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding-left: 10px;">
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="email" class="label-form">$customerCreateAccount.emailLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="email" name="email" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="password" class="label-form">$customerCreateAccount.passwordLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="password" id="password" name="password" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="phone" class="label-form">$customerCreateAccount.phoneLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="phone" name="phone" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+								<label for="fax" class="label-form">$customerCreateAccount.faxLabel</label>
+								</div>
+								<div style="float: left;">
+								<input type="text" id="fax" name="fax" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="mobile" class="label-form">$customerCreateAccount.mobileLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="mobile" name="mobile" value="" style="width: 200px;" />
+								</div>
+							</div>
+							<div style="clear: both;"></div>
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="optin" class="label-form">$customerCreateAccount.optinLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="checkbox" id="optin" value="test">
+								</div>
+							</div>
+						  
+							<div style="width: 600px; clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+								<button class="btn" onclick="javascript:window.location.href='$customerCreateAccount.backUrl'">$customerCreateAccount.cancelLabel</button>
+								<button class="btn btn-primary" type="submit">$customerCreateAccount.submitLabel</button>
+							</div>
+							<div style="padding-top: 15px; height: 70px;">
+								<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
+									$legacy.warning
+								</p>
+							</div>
+						</div>
+						<div style="clear: both; padding-bottom: 20px;"></div>
+					</div>
+					</form>
+				</section>

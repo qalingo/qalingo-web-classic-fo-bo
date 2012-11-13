@@ -1,0 +1,18 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			
+				<section id="contact-us">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<div>
+						$customerCreateAccount.successMessage
+					</div>
+					<div style="padding-top: 15px; height: 70px;">
+						<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
+							$legacy.warning
+						</p>
+					</div>
+				</section>
+

@@ -1,0 +1,42 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="$localeLanguageCode">
+	<head>
+		<title>${seoPageTitle}
+		#if($!user)
+			- (${user.lastname} ${user.firstname})
+		#end
+		</title>
+		#parse("../_include/head-common.vm")
+		#parse($!head_content)
+	</head>
+	<body>
+
+		#parse("../_include/body-header.vm")
+			
+		#parse("../_include/body-menu.vm")
+
+		<div class="main">
+			<div class="main-inner">
+				<div class="container">
+					$screen_content
+				</div>
+			</div>
+		</div>
+
+        #parse("../_include/body-footer.vm")
+
+		#parse("../_include/body-bottom-javascript.vm")
+		
+		#parse($!footer_script_content)
+
+	</body>
+</html>

@@ -1,0 +1,13 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			
+				<section id="login">
+					<div class="page-header"></div>
+					<div style="padding-bottom: 50px;">
+						<div>
+							#parse("_include/body-form-login.vm")
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</section>

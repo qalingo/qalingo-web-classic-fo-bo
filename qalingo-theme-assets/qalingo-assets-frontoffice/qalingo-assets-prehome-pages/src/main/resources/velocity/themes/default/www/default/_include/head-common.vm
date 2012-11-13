@@ -1,0 +1,28 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.0)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+		<meta http-equiv="-content-type" content="text/html; charset=UTF-8">
+		<meta name="author" content="$seoPageMetaAuthor">
+		<meta name="keywords" content="$seoPageMetaKeywords">
+		<meta name="description" content="$seoPageMetaDescription" />
+		<meta name="imagetoolbar" content="no">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">    
+
+		<link rel="icon" href="${common.themeResourcePrefixPath}/img/favicon.ico" />
+		
+		<!-- style -->
+		<link href="${common.themeResourcePrefixPath}/css/main.css" rel="stylesheet" type="text/css">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+

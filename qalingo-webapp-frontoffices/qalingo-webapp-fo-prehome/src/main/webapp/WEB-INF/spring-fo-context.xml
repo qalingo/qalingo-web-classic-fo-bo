@@ -34,17 +34,4 @@
 	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	
-    <!-- Configure Velocity for sending e-mail -->
-    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
-        <property name="velocityProperties">
-            <props>
-                <prop key="resource.loader">class</prop>
-                <prop key="class.resource.loader.class">
-                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
-                </prop>
-                <prop key="velocimacro.library"></prop>
-            </props>
-        </property>
-    </bean>
-	
 </beans>

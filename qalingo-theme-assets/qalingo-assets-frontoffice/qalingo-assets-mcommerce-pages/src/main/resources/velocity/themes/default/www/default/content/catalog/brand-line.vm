@@ -1,0 +1,14 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+					<div>
+						name : ${productBrand.name}<br/>
+						description :${productBrand.description}<br/>
+						<br/><br/>
+						#foreach($productMarketing in $productBrand.productMarketings)
+							name : ${productMarketing.name}<br/>
+							description :${productMarketing.description}<br/>
+							product details : <a href="${productMarketing.productDetailsUrl}">productDetailsUrl</a><br/>
+							---------<br/>
+						#end
+					</div>

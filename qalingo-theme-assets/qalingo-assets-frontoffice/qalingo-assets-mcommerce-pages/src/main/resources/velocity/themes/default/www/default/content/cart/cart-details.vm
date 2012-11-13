@@ -1,0 +1,15 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+		<div>
+			<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; border: 1px solid #E5E5E5;">
+				#parse("../_include/cart-details.vm")
+			</div>
+			<div id="cart-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; border: 1px solid #E5E5E5;">
+				<div style="float: left; width: 55%;">&nbsp;</div>
+				<div id="total" style="float: left; width: 43%; text-align: right;">
+					<a href="$cart.cartAuthUrl">cartAuthUrl</a> | <a href="$cart.cartDeliveryAndOrderDetailsUrl">cartDeliveryAndOrderDetailsUrl</a>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>

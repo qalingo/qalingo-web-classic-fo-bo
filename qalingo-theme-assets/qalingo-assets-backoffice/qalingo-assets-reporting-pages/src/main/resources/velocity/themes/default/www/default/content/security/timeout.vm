@@ -1,0 +1,11 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)*
+
+				<section id="timeout">
+					<div class="page-header">
+						<h1>${security.timeoutPageTitle}</h1>
+					</div>
+					<div style="padding-bottom: 50px;">
+						${security.timeoutPageText}
+					</div>
+				</section>

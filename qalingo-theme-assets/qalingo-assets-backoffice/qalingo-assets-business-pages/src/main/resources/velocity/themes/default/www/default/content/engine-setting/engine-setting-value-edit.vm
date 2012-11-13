@@ -1,0 +1,45 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="engine-setting-edit">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+
+					<div style="float: left; width: 15%;">
+						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
+							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${quickSearch.labelSubmit}</button>
+						</form>
+						#parse("../_include/short-link-menu.vm")
+					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<div>
+						<form id="engineSettingValueForm" name="engineSettingValueForm" action="${engineSettingValueEdit.formSubmitUrl}" method="POST">
+						#springBind("engineSettingValueForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("engineSettingValueForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end 
+							<input type="hidden" id="id" name="id" value="${engineSettingValueForm.id}" />
+							<input type="text" id="value" name="value" value="${engineSettingValueForm.value}" style="width: 150px; margin-bottom: 0px;" />
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${engineSettingValueEdit.submitLabel}</button>
+						</form>
+						</div>
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>

@@ -1,0 +1,98 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="user-edit">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+
+					<div style="float: left; width: 15%;">
+						<form id="userQuickSearchForm" name="userQuickSearchForm" action="${quickSearch.urlUserFormSubmit}" method="POST">
+							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${quickSearch.labelSubmit}</button>
+						</form>
+						#parse("../_include/short-link-menu.vm")
+					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<form id="userForm" name="userForm" action="${userEdit.formSubmitUrl}" method="POST">
+						<input type="hidden" id="id" name="id" value="${userForm.id}" />
+						#springBind("userForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("userForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end
+						<div style="float: left; width: 50%;">
+							<button class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'">$userEdit.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$userEdit.submitLabel</button>
+							<br/><br/>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="lastname" class="label-form">$userEdit.lastnameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="lastname" name="lastname" value="${userForm.lastname}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="firstname" class="label-form">$userEdit.firstnameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="firstname" name="firstname" value="${userForm.firstname}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="email" class="label-form">$userEdit.emailLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="email" name="email" value="${userForm.email}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="login" class="label-form">$userEdit.loginLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="login" name="login" value="${userForm.login}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+
+								<div style="float: left; width: 100px;">
+								  <label class="checkbox">
+									#if(${userForm.active})
+									<input type="checkbox" id="active" name="active" value="${userForm.active}" checked="checked" />
+									#else
+									<input type="checkbox" id="active" name="active" value="${userForm.active}" />
+									#end
+									$userEdit.activeLabel
+								  </label>
+								</div>
+							</div>
+						</div>
+						<div style="float: left; width: 50%;">
+							
+						</div>
+						<div style="clear: both; padding-top: 15px;">
+							<button class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'">$userEdit.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$userEdit.submitLabel</button>
+						</div>
+						</form>
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>

@@ -1,0 +1,51 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($head_content = "../content/home-head-content.vm")
+#set ($footer_script_content = "../content/home-body-footer-script-content.vm")
+#set ($page_title = $seoPageTitle)
+
+<div class="container-body-fix">
+		<div id="home-slideshow">
+			<div id="slides">
+				<div class="slides_container">
+					<div class="slide">
+						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-1.jpg" width="1170" height="537" alt="Slide 1"></a>
+						<div class="caption" style="bottom:0">
+							<p>Image 1</p>
+						</div>
+					</div>
+					<div class="slide">
+						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-2.jpg" width="1170" height="537" alt="Slide 2"></a>
+						<div class="caption">
+							<p>Image 2</p>
+						</div>
+					</div>
+					<div class="slide">
+						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-3.jpg" width="1170" height="537" alt="Slide 3"></a>
+						<div class="caption">
+							<p>Image 3</p>
+						</div>
+					</div>
+					<div class="slide">
+						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-4.jpg" width="1170" height="537" alt="Slide 4"></a>
+						<div class="caption">
+							<p>Image 4</p>
+						</div>
+					</div>
+					<div class="slide">
+						<a href="/" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-5.jpg" width="1170" height="537" alt="Slide 5"></a>
+						<div class="caption">
+							<p>Image 5</p>
+						</div>
+					</div>
+					<div class="slide">
+						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-6.jpg" width="1170" height="537" alt="Slide 6"></a>
+						<div class="caption">
+							<p>Image 6</p>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="prev"><img src="${common.themeResourcePrefixPath}/js/library/images-with-captions/img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+				<a href="#" class="next"><img src="${common.themeResourcePrefixPath}/js/library/images-with-captions/img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+			</div>
+		</div>
+</div>

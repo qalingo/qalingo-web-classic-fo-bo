@@ -1,0 +1,71 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+
+				<section id="search-result">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<form id="searchForm" name="searchForm" action="/sc/search.html" method="POST">
+					#springBind("searchForm")
+					#if($status.errors.hasErrors()) 
+					<div id="errors" class="alert alert-error">
+						## Global error messages 
+						#foreach($e in $status.errorMessages) 
+							<p>${e}</p> 
+						#end 
+						## Field error messages 
+						#foreach($fieldError in $status.errors.fieldErrors) 
+							#springBind("searchForm.${fieldError.field}") 
+							#foreach($errorMessage in $status.errorMessages) 
+								${errorMessage}<br/>
+							#end 
+						#end 
+					</div>
+					#end 
+					<div>
+						<div style="width: 300px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+							<form id="searchForm" name="searchForm" action="/sc/search.html" method="POST">
+								<input type="text" id="text" name="text" value="" style="width: 200px; margin-bottom: 0px;" />
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button><br/>
+								#foreach($facetField in $facetFieldList)
+									#foreach($value in $facetField.values)
+										<input type="checkbox" id="$facetField.name" value="$value">&nbsp;$value<br/>
+									#end
+								#end
+							</form>
+						</div>
+						<div style="width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+							#parse("../_include/pagination-pagelistholder.vm")
+							<div>
+								<table class="table" style="width: 100%">
+									<thead>
+										<tr>
+											<th width="100px"></th>
+											<th width="250px"></th>
+											<th width="50px"></th>
+											<th width="50px"></th>
+											<th width="50px"></th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach( $searchProductItem in $pagedListHolder.pageList)
+										<tr>
+											<td>${searchProductItem.name}</td>
+											<td>${searchProductItem.description}</td>
+											<td></td>
+											<td>
+												<a class="btn" href="$searchProductItem.productDetailsUrl" alt="">details</a>
+											</td>
+											<td>
+												<a class="btn" href="$searchProductItem.addToCartUrl" alt="">add</a>
+											</td>
+										</tr>
+										#end
+									</tbody>  
+								</table> 
+							</div>
+						</div>
+					</div>
+					</form>
+				</section>

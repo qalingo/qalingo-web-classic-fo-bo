@@ -9,6 +9,8 @@
  */
 @import url("bootstrap/bootstrap.css");
 @import url("bootstrap/bootstrap-responsive.css");
-@import url("bootstrap/docs.css");
 
-@import url("qalingo-style.css");
+@import url("font/font-awesome.css");
+
+@import url("qalingo-fo.css");
+@import url("qalingo-fo-responsive.css");

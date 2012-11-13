@@ -1,0 +1,51 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="user-list">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					
+					<div style="float: left; width: 15%;">
+						<form id="userQuickSearchForm" name="userQuickSearchForm" action="${quickSearch.urlUserFormSubmit}" method="POST">
+							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
+						</form>
+						#parse("../_include/short-link-menu.vm")
+					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<div>
+							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+								#parse("../_include/pagination-pagelistholder.vm")
+								<div>
+									<table class="table" style="width: 100%">
+										<thead>
+											<tr>
+												<th width="300px">Firstname</th>
+												<th width="300px">Lastname</th>
+												<th width="100px">is active ?</th>
+												<th width="150px"></th>
+											</tr>
+										</thead>
+										<tbody>
+											#foreach($user in $pagedListHolder.pageList)
+											<tr>
+												<td>${user.firstname}</td>
+												<td>${user.lastname}</td>
+												<td>${user.activeLabel}</td>
+												<td>
+													<a class="btn" href="$user.userDetailsUrl" alt="">details</a>&nbsp;<a class="btn" href="$user.userEditUrl" alt="">edit</a>
+												</td>
+											</tr>
+											#end
+										</tbody>  
+									</table> 
+								</div>
+							</div>
+						</div>					
+					</div>
+					<div style="clear: both;"></div>
+				</section>
+
+				

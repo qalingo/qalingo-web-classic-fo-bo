@@ -1,0 +1,36 @@
+		<div class="subnavbar">
+
+			<div class="subnavbar-inner">
+			
+				<div class="container">
+
+					<ul class="mainnav">
+						#foreach($menu in $menus)
+						<li class="${menu.cssClass}">
+							<a href="${menu.url}">
+								<i class="${menu.cssIcon}"></i>
+								<span>${menu.name}</span>
+							</a>	    				
+						</li>
+						#end
+						
+						<li class="dropdown">					
+							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="icon-share-alt"></i>
+								<span>More Pages</span>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="${common.userDetailsUrl}">${common.userDetailsLabel}</a></li>
+								<li class="divider"></li>
+								<li><a href="${common.loginUrl}">${common.loginLabel}</a></li>
+							</ul>    				
+						</li>
+					
+					</ul>
+
+				</div> <!-- /container -->
+			
+			</div> <!-- /subnavbar-inner -->
+
+		</div> <!-- /subnavbar -->

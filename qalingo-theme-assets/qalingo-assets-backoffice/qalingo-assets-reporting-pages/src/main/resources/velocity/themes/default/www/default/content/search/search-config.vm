@@ -1,0 +1,21 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+			
+				<section id="batch-list">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					
+					<div style="float: left; width: 15%;">
+						#parse("../_include/short-link-menu.vm")
+					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<div>
+							SOLR Url : <a href="$solrUrl" alt="SOLR" target="_blank">$solrUrl</a>
+						</div>
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>
