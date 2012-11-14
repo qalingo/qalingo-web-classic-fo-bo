@@ -1,13 +1,13 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="cache-details">
+				<section id="faq">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
 					<div>
 						<br/><br/><br/><br/>
-						TODO : flush caches with JMX ?
+						TODO : faq 
 						<br/><br/><br/><br/>
 					</div>
 				</section>

@@ -12,13 +12,13 @@
 							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
 						</form>
-						#parse("../_include/short-link-menu.vm")
+						#parse("../../_include/body-short-link-menu.vm")
 					</div>
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
 						<div>
 							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
-								#parse("../_include/pagination-pagelistholder.vm")
+								#parse("../../_include/body-pagination-pagelistholder.vm")
 								<div>
 									<table class="table" style="width: 100%">
 										<thead>

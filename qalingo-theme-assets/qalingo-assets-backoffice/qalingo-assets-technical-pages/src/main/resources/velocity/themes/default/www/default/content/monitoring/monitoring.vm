@@ -1,0 +1,35 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="cache-details">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<div>
+						<div class="widget-content">
+							
+							<table class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>Port</th>
+										<th style="text-align: center;">Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Paypal</td>
+										<td>http://xxxxxxx</td>
+										<td style="color: green; text-align: center;"><i class="icon-ok"></i></td>
+									</tr>
+									<tr>
+										<td>Paybox</td>
+										<td>http://xxxxxxx</td>
+										<td style="color: red; text-align: center;"><i class="icon-bolt"></i></td>
+									</tr>
+								</tbody>
+							</table>
+							
+						</div> <!-- /widget-content -->
+					</div>
+				</section>

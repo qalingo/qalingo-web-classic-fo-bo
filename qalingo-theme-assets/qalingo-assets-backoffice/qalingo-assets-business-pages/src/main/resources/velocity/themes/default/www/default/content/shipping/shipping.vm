@@ -1,0 +1,16 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			
+				<section id="shipping">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					
+					<div>
+						shipping
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>

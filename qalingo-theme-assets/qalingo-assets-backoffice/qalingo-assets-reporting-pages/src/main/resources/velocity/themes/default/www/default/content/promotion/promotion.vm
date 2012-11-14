@@ -1,0 +1,13 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="promotion">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<div>
+						<br/><br/><br/><br/>
+						promotion
+						<br/><br/><br/><br/>
+					</div>
+				</section>

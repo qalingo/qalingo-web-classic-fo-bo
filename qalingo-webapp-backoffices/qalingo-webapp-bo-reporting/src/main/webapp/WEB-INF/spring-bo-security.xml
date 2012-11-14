@@ -33,15 +33,17 @@
     <http pattern="/forbidden.html**" security="none" />
 
    <http entry-point-ref="extLoginUrlAuthenticationEntryPoint">
-        <intercept-url pattern="/**/home*" access="ROLE_BO_REPORTING_USER" />
-        <intercept-url pattern="/**/welcome*" access="ROLE_BO_REPORTING_USER" />
-        <intercept-url pattern="/**/user-details*" access="ROLE_BO_REPORTING_USER" />
+        <intercept-url pattern="/**/home*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/welcome*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/user-details*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
-        <intercept-url pattern="/**/engine-setting*" access="ROLE_BO_REPORTING_ADMIN" />
-        <intercept-url pattern="/**/cache*" access="ROLE_BO_REPORTING_ADMIN" />
-        <intercept-url pattern="/**/user-list*" access="ROLE_BO_REPORTING_ADMIN" />
-        <intercept-url pattern="/**/batch*" access="ROLE_BO_REPORTING_ADMIN" />
-        <intercept-url pattern="/**/search*" access="ROLE_BO_REPORTING_ADMIN" />
+        <intercept-url pattern="/**/catalog*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/promotion*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/shipping*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/order*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/customer*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/reporting*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/faq*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
         <form-login authentication-failure-handler-ref="extSimpleUrlAuthenticationFailureHandler"
 					authentication-success-handler-ref="extSimpleUrlAuthenticationSuccessHandler"
