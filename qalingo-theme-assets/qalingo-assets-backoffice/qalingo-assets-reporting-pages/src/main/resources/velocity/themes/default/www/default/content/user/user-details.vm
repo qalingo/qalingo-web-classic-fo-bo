@@ -6,15 +6,7 @@
 						<h1>${mainContentTitle}</h1>
 					</div>
 
-					<div style="float: left; width: 15%;">
-						<form id="userQuickSearchForm" name="userQuickSearchForm" action="${quickSearch.urlUserFormSubmit}" method="POST">
-							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
-						</form>
-						#parse("../_include/short-link-menu.vm")
-					</div>
-
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					<div style="width: 100%;" class="form-horizontal well">
 						<div style="float: left; width: 50%;">
 							<a class="btn" href="$userDetails.backUrl" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
 							<br/><br/>
@@ -40,7 +32,7 @@
 							<br/><br/>
 							${userDetails.userConnectionLogLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableDateLabel}</td>
 									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableHostLabel}</td>
@@ -60,7 +52,7 @@
 						<div style="float: left; width: 50%;">
 							${userDetails.userGroupsLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
 									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
@@ -76,7 +68,7 @@
 							<br/><br/>
 							${userDetails.userRolesLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
 									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
@@ -92,7 +84,7 @@
 							<br/><br/>
 							${userDetails.userPermissionsLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
 									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>

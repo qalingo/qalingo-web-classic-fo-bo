@@ -63,7 +63,7 @@
 	<beans:bean id="accessDeniedHandler" class="fr.hoteia.qalingo.web.handler.security.ExtAccessDeniedHandlerImpl" />
 
 	<beans:bean id="extLoginUrlAuthenticationEntryPoint" class="fr.hoteia.qalingo.web.handler.security.ExtLoginUrlAuthenticationEntryPoint">
-		<beans:property name="boBusinessUrlService" ref="boBusinessUrlService" />
+		<beans:property name="backofficeUrlService" ref="backofficeUrlService" />
 		<beans:property name="requestUtil" ref="requestUtil" />
 		<beans:property name="redirectStrategy" ref="redirectStrategy" />
 		<beans:property name="loginFormUrl" value="/sc/login.html" />

@@ -29,7 +29,7 @@ import fr.hoteia.qalingo.core.common.domain.UserConnectionLog;
 import fr.hoteia.qalingo.core.common.service.UserConnectionLogService;
 import fr.hoteia.qalingo.core.common.service.UserService;
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
-import fr.hoteia.qalingo.web.service.BoTechnicalUrlService;
+import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
 @Component
 public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -46,7 +46,7 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
     protected RequestUtil requestUtil;
 	
 	@Autowired
-    protected BoTechnicalUrlService boTechnicalUrlService;
+    protected BackofficeUrlService backofficeUrlService;
 	
 	@Autowired
     protected ExtRedirectStrategy redirectStrategy;
@@ -75,7 +75,7 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
 			
 	        // SANITY CHECK
 	        if(StringUtils.isEmpty(url)){
-	    		url = boTechnicalUrlService.buildHomeUrl(request);
+	    		url = backofficeUrlService.buildHomeUrl(request);
 	        }
 	        
 	    	setDefaultTargetUrl(url);

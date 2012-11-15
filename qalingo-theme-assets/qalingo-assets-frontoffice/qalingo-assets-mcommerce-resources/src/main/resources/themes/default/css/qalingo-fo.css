@@ -345,7 +345,7 @@ footer {
 	text-shadow: none;
 	background-image: none;
 	background-repeat: no-repeat;
-	background-color: #2F353E;
+	background-color: #7d7e81;
 	border: none;
 	filter: none;
 	-webkit-transition: all .5s;
@@ -354,6 +354,11 @@ footer {
 	     -o-transition: all .5s;
 	        transition: all .5s;
 }
+
+.btn-primary {
+	background-color: #2F353E;
+}
+
 .btn:hover,
 .btn:active,
 .btn .active,

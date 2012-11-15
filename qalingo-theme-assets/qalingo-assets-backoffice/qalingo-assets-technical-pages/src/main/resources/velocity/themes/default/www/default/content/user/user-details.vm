@@ -40,7 +40,7 @@
 							<br/><br/>
 							${userDetails.userConnectionLogLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableDateLabel}</td>
 									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableHostLabel}</td>
@@ -60,7 +60,7 @@
 						<div style="float: left; width: 50%;">
 							${userDetails.userGroupsLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
 									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
@@ -76,7 +76,7 @@
 							<br/><br/>
 							${userDetails.userRolesLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
 									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
@@ -92,7 +92,7 @@
 							<br/><br/>
 							${userDetails.userPermissionsLabel}
 							<br/><br/>
-							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
+							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
 									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>

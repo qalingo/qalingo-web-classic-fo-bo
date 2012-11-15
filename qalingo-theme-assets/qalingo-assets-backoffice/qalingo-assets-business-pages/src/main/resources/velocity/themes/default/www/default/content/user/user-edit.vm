@@ -6,15 +6,7 @@
 						<h1>${mainContentTitle}</h1>
 					</div>
 
-					<div style="float: left; width: 15%;">
-						<form id="userQuickSearchForm" name="userQuickSearchForm" action="${quickSearch.urlUserFormSubmit}" method="POST">
-							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${quickSearch.labelSubmit}</button>
-						</form>
-						#parse("../_include/short-link-menu.vm")
-					</div>
-
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					<div style="width: 100%;" class="form-horizontal well">
 						<form id="userForm" name="userForm" action="${userEdit.formSubmitUrl}" method="POST">
 						<input type="hidden" id="id" name="id" value="${userForm.id}" />
 						#springBind("userForm")
@@ -70,16 +62,13 @@
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-
-								<div style="float: left; width: 100px;">
-								  <label class="checkbox">
-									#if(${userForm.active})
-									<input type="checkbox" id="active" name="active" value="${userForm.active}" checked="checked" />
+								<div style="float: left;">
+									${userEdit.activeLabel}
+									#if($userForm.active)
+										<span style="color: green">${userEdit.activeValueLabel}</span>
 									#else
-									<input type="checkbox" id="active" name="active" value="${userForm.active}" />
+										<span style="color: red">${userEdit.activeValueLabel}</span>
 									#end
-									$userEdit.activeLabel
-								  </label>
 								</div>
 							</div>
 						</div>

@@ -14,6 +14,16 @@ input, button, select, textarea {
   font-family: 'Open Sans';
 }
 
+h1 {
+    font-size: 25.5px;
+}
+
+.page-header {
+    margin-top: 0px;
+    margin-bottom: 10px;
+	padding-bottom: 0px;
+}
+
 .dropdown .dropdown-menu {
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -59,7 +69,7 @@ input, button, select, textarea {
     vertical-align: middle;
 	background-image: none;
 }
-
+	
 /*****************************************************************************
 	Navbar content
 *****************************************************************************/
@@ -123,12 +133,17 @@ input, button, select, textarea {
     text-decoration: none;
 }
 
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+	background: transparent;
+    color: #ffffff;
+}
+
 /*-------------------
       Subnavbar
 --------------------*/
 
 .subnavbar {
-	margin-bottom: 2.5em;
+	margin-bottom: 0px;
 	border-top: 1px solid #595959;
 }
     
@@ -300,7 +315,7 @@ input, button, select, textarea {
 	Main content
 *****************************************************************************/
 .main {
-	padding-top: 10px;
+	padding-top: 0px;
 	min-height: 400px;
 }
 

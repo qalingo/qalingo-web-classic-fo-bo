@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuc
 import org.springframework.stereotype.Component;
 
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
-import fr.hoteia.qalingo.web.service.BoTechnicalUrlService;
+import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
 @Component
 public class ExtLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
@@ -31,7 +31,7 @@ public class ExtLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
-    protected BoTechnicalUrlService boTechnicalUrlService;
+    protected BackofficeUrlService backofficeUrlService;
 	
 	@Autowired
     protected RequestUtil requestUtil;
@@ -48,7 +48,7 @@ public class ExtLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
         }
         
 		try {
-	        String url = boTechnicalUrlService.buildHomeUrl(request);
+	        String url = backofficeUrlService.buildHomeUrl(request);
 	        setDefaultTargetUrl(url);
 		} catch (Exception e) {
 			LOG.error("", e);

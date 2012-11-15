@@ -22,13 +22,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
-import fr.hoteia.qalingo.web.service.BoTechnicalUrlService;
+import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
 public class ExtLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationEntryPoint {
 	
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 	
-    protected BoTechnicalUrlService boTechnicalUrlService;
+    protected BackofficeUrlService backofficeUrlService;
 	
     protected RequestUtil requestUtil;
 	
@@ -50,7 +50,7 @@ public class ExtLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationE
 	protected String determineUrlToUseForThisRequest(HttpServletRequest request, HttpServletResponse response,
 													 AuthenticationException exception) {
 		try {
-			String url = boTechnicalUrlService.buildLoginUrl(request);
+			String url = backofficeUrlService.buildLoginUrl(request);
 			return url;
 		} catch (Exception e) {
 			LOG.error("", e);
@@ -94,7 +94,7 @@ public class ExtLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationE
 	protected String buildRedirectUrlToLoginPage(HttpServletRequest request, HttpServletResponse response, 
 												 AuthenticationException authException) {
 		try {
-			String url = boTechnicalUrlService.buildLoginUrl(request);
+			String url = backofficeUrlService.buildLoginUrl(request);
 			return url;
 		} catch (Exception e) {
 			LOG.error("", e);
@@ -102,8 +102,8 @@ public class ExtLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationE
 		return null;
 	}
 	
-	public void setBoTechnicalUrlService(BoTechnicalUrlService boTechnicalUrlService) {
-		this.boTechnicalUrlService = boTechnicalUrlService;
+	public void setBackofficeUrlService(BackofficeUrlService backofficeUrlService) {
+		this.backofficeUrlService = backofficeUrlService;
 	}
 	
 	public void setRequestUtil(RequestUtil requestUtil) {

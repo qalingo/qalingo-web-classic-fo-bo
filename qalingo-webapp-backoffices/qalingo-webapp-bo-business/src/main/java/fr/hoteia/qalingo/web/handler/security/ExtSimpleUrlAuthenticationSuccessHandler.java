@@ -24,13 +24,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import fr.hoteia.qalingo.core.common.domain.Localization;
 import fr.hoteia.qalingo.core.common.domain.User;
 import fr.hoteia.qalingo.core.common.domain.UserConnectionLog;
 import fr.hoteia.qalingo.core.common.service.UserConnectionLogService;
 import fr.hoteia.qalingo.core.common.service.UserService;
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
-import fr.hoteia.qalingo.web.service.BoBusinessUrlService;
+import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
 @Component
 public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -47,7 +46,7 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
     protected RequestUtil requestUtil;
 	
 	@Autowired
-    protected BoBusinessUrlService boBusinessUrlService;
+    protected BackofficeUrlService backofficeUrlService;
 	
 	@Autowired
     protected ExtRedirectStrategy redirectStrategy;
@@ -74,7 +73,7 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
 			
 	        // SANITY CHECK
 	        if(StringUtils.isEmpty(url)){
-	    		url = boBusinessUrlService.buildHomeUrl(request);
+	    		url = backofficeUrlService.buildHomeUrl(request);
 	        }
 	        
 	    	setDefaultTargetUrl(url);

@@ -23,7 +23,7 @@ import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.stereotype.Component;
 
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
-import fr.hoteia.qalingo.web.service.BoReportingUrlService;
+import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
 @Component(value="accessDeniedHandler")
 public class ExtAccessDeniedHandlerImpl extends AccessDeniedHandlerImpl {
@@ -31,7 +31,7 @@ public class ExtAccessDeniedHandlerImpl extends AccessDeniedHandlerImpl {
 	private final Logger LOG = LoggerFactory.getLogger(getClass());
 
 	@Autowired
-    protected BoReportingUrlService boReportingUrlService;
+    protected BackofficeUrlService backofficeUrlService;
 	
 	@Autowired
     protected RequestUtil requestUtil;
@@ -40,7 +40,7 @@ public class ExtAccessDeniedHandlerImpl extends AccessDeniedHandlerImpl {
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 					   AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		try {
-			String url = boReportingUrlService.buildForbiddenUrl(request);
+			String url = backofficeUrlService.buildForbiddenUrl(request);
 			setErrorPage(url);
 		} catch (Exception e) {
 			LOG.error("", e);
