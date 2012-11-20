@@ -24,6 +24,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import fr.hoteia.qalingo.core.Constants;
 import fr.hoteia.qalingo.core.common.domain.User;
 import fr.hoteia.qalingo.core.common.domain.UserConnectionLog;
 import fr.hoteia.qalingo.core.common.service.UserConnectionLogService;
@@ -62,6 +63,7 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
     	UserConnectionLog userConnectionLog = new UserConnectionLog();
     	userConnectionLog.setUserId(user.getId());
     	userConnectionLog.setLoginDate(new Date());
+    	userConnectionLog.setApp(Constants.APP_NAME_BO_TECHNICAL_CODE);
     	userConnectionLog.setHost(request.getRemoteHost());
     	userConnectionLog.setAddress(request.getRemoteAddr());
     	userConnectionLogService.saveOrUpdateUserConnectionLog(userConnectionLog);
