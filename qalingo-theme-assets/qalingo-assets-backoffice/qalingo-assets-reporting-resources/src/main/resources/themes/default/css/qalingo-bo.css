@@ -282,7 +282,6 @@ h1 {
 }
 
 .extra-inner {
-	padding: 20px 0;
 	color: #BBB;
 	background: #333333;
 }
@@ -297,7 +296,8 @@ h1 {
 }
 
 .extra h4 {
-	margin-bottom: 1em;
+	margin-top: 10px;
+	margin-bottom: 5px;
 	font-weight: 400;
 }
 
@@ -307,7 +307,7 @@ h1 {
 }
 
 .extra li {
-	margin-bottom: .6em;
+	margin-bottom: 3px;
 	list-style: none;
 }
 
