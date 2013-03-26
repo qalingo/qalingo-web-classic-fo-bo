@@ -7,10 +7,29 @@
 					<ul class="mainnav">
 						#foreach($menu in $menus)
 						<li class="${menu.cssClass}">
+							#if($menu.hasSubMenu)
+							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							#else
 							<a href="${menu.url}">
+							#end
 								<i class="${menu.cssIcon}"></i>
 								<span>${menu.name}</span>
-							</a>	    				
+								#if($menu.hasSubMenu)
+								<b class="caret"></b>
+								#end
+							</a>
+							#if($menu.hasSubMenu)
+							<ul class="dropdown-menu">
+								#foreach($subMenu in $menu.subMenus)
+								<li class="${subMenu.cssClass}">
+									<a href="${subMenu.url}">
+										<i class="${subMenu.cssIcon}"></i>
+										<span>${subMenu.name}</span>
+									</a>	    				
+								</li>
+								#end
+							</ul>
+							#end
 						</li>
 						#end
 						
@@ -21,6 +40,15 @@
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
+								#foreach($morePageMenu in $morePageMenus)
+								<li class="${morePageMenu.cssClass}">
+									<a href="${morePageMenu.url}">
+										<i class="${morePageMenu.cssIcon}"></i>
+										<span>${morePageMenu.name}</span>
+									</a>	    				
+								</li>
+								#end
+								<li class="divider"></li>
 								<li><a href="${common.userDetailsUrl}">${common.userDetailsLabel}</a></li>
 								<li class="divider"></li>
 								<li><a href="${common.loginUrl}">${common.loginLabel}</a></li>
@@ -29,6 +57,17 @@
 					
 					</ul>
 
+					<div style="float: right; color: #7D7E81;">
+						<div style="float: right; padding-left: 10px;">
+							MarketLanguage: <span style="color: #a1cd44;">${common.currentMarketLocalization.name}</span><br/>
+							Retailer: <span style="color: #a1cd44;">${common.currentRetailer.name}</span><br/>
+						</div>
+						<div style="float: right;">
+							Marketplace: <span style="color: #a1cd44;">${common.currentMarketPlace.name}</span><br/>
+							Market: <span style="color: #a1cd44;">${common.currentMarket.name}</span><br/>
+							MarketArea: <span style="color: #a1cd44;">${common.currentMarketArea.name}</span><br/>
+						</div>
+					</div>
 				</div> <!-- /container -->
 			
 			</div> <!-- /subnavbar-inner -->

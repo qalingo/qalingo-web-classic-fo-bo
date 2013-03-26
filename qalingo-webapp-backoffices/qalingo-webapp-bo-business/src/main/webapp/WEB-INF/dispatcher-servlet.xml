@@ -26,6 +26,7 @@
 
 	<!-- Configures core context -->
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-jax-rs.xml" />
 	
 	<mvc:annotation-driven validator="validator" />
 
@@ -51,4 +52,8 @@
 		<property name="contentType" value="text/html; charset=UTF-8" />
 	</bean>
 
+	<bean id="jsonFactory" class="fr.hoteia.qalingo.core.rest.util.impl.BoJsonFactoryImpl">
+		<property name="backofficeUrlService" ref="backofficeUrlService" />
+	</bean>
+	
 </beans>

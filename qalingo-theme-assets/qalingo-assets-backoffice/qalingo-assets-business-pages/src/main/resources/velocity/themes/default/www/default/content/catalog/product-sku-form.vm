@@ -1,0 +1,121 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="product-sku-edit">
+					<div class="page-header">
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						#if($!productSku.productSkuDetailsUrl)
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							Actions: <a href="${productSku.productSkuDetailsUrl}">${productSku.productSkuDetailsLabel}</a>
+						</div>
+						#end
+					</div>
+					<div style="clear: both; width: 100%; text-align: right;">
+						#if($!productSku.createdDate)
+						${productSku.dateCreateLabel} : ${productSku.createdDate} | 
+						#end
+						#if($!productSku.updatedDate)
+						${productSku.dateUpdateLabel} : ${productSku.updatedDate}
+						#end
+					</div>
+					<div class="form-horizontal well">
+						<form id="productSkuForm" name="productSkuForm" action="${productSku.formSubmitUrl}" method="POST">
+						<input type="hidden" id="id" name="id" value="${productSkuForm.id}" />
+						#springBind("productSkuForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("productSkuForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end
+						<div>
+							<button class="btn" onclick="javascript:window.location.href='$productSku.backUrl'">$productSku.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productSku.submitLabel</button>
+						</div>
+						<div style="clear: both;">
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="name" class="label-form">$productSku.businessNameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="name" name="name" value="${productSkuForm.name}" style="width: 150px; margin-bottom: 0px;" />
+									<br/>
+									$productSku.businessNameInformation
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="code" class="label-form">$productSku.codeLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="code" name="code" value="${productSkuForm.code}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="description" class="label-form">$productSku.descriptionLabel</label>
+								</div>
+								<div style="float: left;">
+									<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">${productSkuForm.description}</textarea>
+									<br/>
+									$productSku.descriptionInformation
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+							$productSku.productMarketingGlobalAttributesLabel
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								#set ($map = ${productSkuForm.globalAttributes} )
+								#foreach ($mapEntry in $map.entrySet())
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 400px;">
+										<label for="code" class="label-form">$mapEntry.key</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="globalAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+									</div>
+								</div>
+								#end
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+							$productSku.productMarketingMarketAreaAttributesLabel
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								#set ($map = ${productSkuForm.marketAreaAttributes} )
+								#foreach ($mapEntry in $map.entrySet())
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 400px;">
+										<label for="code" class="label-form">$mapEntry.key</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="marketAreaAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+									</div>
+								</div>
+								#end
+							</div>
+							#*
+	${productSku.descriptionLabel} : ${productSku.description}
+	${productSku.isDefaultLabel} : ${productSku.default}
+							*#
+							
+						</div>
+						<div style="clear: both; padding-top: 15px;">
+							<button class="btn" onclick="javascript:window.location.href='$productSku.backUrl'">$productSku.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productSku.submitLabel</button>
+						</div>
+						</form>
+					</div>
+				</section>
+				
+

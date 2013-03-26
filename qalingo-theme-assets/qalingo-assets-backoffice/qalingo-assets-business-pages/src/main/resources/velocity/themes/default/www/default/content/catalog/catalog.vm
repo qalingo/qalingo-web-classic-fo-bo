@@ -1,14 +1,99 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/catalog/catalog-data-body-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
-			
+<style>
+.tree {
+  margin:0;
+  padding:0;
+  font:11px Arial, Helvetica, sans-serif;
+}
+.tree a {
+  text-decoration:none;
+  color:#666;
+}
+.tree ul {
+    padding:3px 0;
+    margin:0;
+}
+.tree li {
+  background:top left no-repeat;
+  cursor:pointer;
+  display:block;
+  list-style:none;
+  padding:3px 20px;
+}
+.tree .file {
+  background-image: url('${common.themeResourcePrefixPath}/img/icons/file.png');
+}
+.tree .folder {
+  background-image: url('${common.themeResourcePrefixPath}/img/icons/folder.png');
+}
+.tree .counter {
+   color:#CC6600;
+}
+</style>
+
+    <style type="text/css">
+        #report { border-collapse:collapse;}
+        #report h4 { margin:0px; padding:0px;}
+        #report img { float:right;}
+        #report ul { margin:10px 0 10px 40px; padding:0px;}
+        #report th { background:#7CB8E2 url('${common.themeResourcePrefixPath}/js/library/jExpand/img/header_bkg.png') repeat-x scroll center left; color:#fff; padding:7px 15px; text-align:left;}
+        #report td { background:#C7DDEE none repeat-x scroll center left; color:#000; padding:7px 15px; }
+        #report tr.odd td { background:#fff url('${common.themeResourcePrefixPath}/js/library/jExpand/img/row_bkg.png') repeat-x scroll center left; cursor:pointer; }
+        #report div.arrow { background:transparent url('${common.themeResourcePrefixPath}/js/library/jExpand/img/arrows.png') no-repeat scroll 0px -16px; width:16px; height:16px; display:block;}
+        #report div.up { background-position:0px 0px;}
+    </style>
+	
+#macro( process $categories ) 
+	#foreach( $category in $categories ) 
+	<li>
+		<a href="#$category.code" class="find-products">$category.businessName <span class="counter">($category.countProduct)</span></a>
+		#if( $category.subCategories )
+		<ul>
+			#process( $category.subCategories )
+		</ul>
+		#end 
+	</li>
+	#end 
+#end 
+
 				<section id="catalog">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							Actions: <a href="${catalog.addRootCategoryUrl}">${catalog.addRootCategoryUrlLabel}</a>
+						</div>
 					</div>
-					<div>
-						<br/><br/><br/><br/>
-						catalog
-						<br/><br/><br/><br/>
+					<div style="clear: both; float: left;">
+						<ul id="tree">
+							<li>
+								<a href="#$catalog.code">$catalog.businessName</a>
+								<ul>
+									#process($catalog.categories) 
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div style="float: right;">
+<div>Product list for category : <span id="category-name" style="font-weight: bold;"></span>&nbsp;&nbsp;&nbsp;<span id="category-urls" style="font-weight: bold;"></span></div>				
+<table id="product-list" class="tablesorter" style="with: 700px;"> 
+<thead> 
+<tr> 
+    <th style="width: 100px; text-align: left;">Code</th> 
+    <th style="width: 200px; text-align: left;">Name</th>
+    <th style="width: 100px; text-align: left;">Position</th>
+    <th style="width: 100px; text-align: left;">Sku count</th> 
+    <th style="width: 200px; text-align: left;"></th> 
+</tr> 
+</thead> 
+<tbody>
+</tbody> 
+</table> 
 					</div>
 				</section>
+				
+

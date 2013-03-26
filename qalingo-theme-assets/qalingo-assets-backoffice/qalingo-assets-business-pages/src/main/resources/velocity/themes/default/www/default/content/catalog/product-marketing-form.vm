@@ -1,0 +1,126 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="product-marketing-edit">
+					<div class="page-header">
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						#if($!productMarketing.productDetailsUrl)
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							Actions: <a href="${productMarketing.productDetailsUrl}">${productMarketing.productDetailsLabel}</a>
+						</div>
+						#end
+					</div>
+					<div style="clear: both; width: 100%; text-align: right;">
+						#if($!productMarketing.createdDate)
+						${productMarketing.dateCreateLabel} : ${productMarketing.createdDate} | 
+						#end
+						#if($!productMarketing.updatedDate)
+						${productMarketing.dateUpdateLabel} : ${productMarketing.updatedDate}
+						#end
+					</div>
+					<div class="form-horizontal well">
+						<form id="productMarketingForm" name="productMarketingForm" action="${productMarketing.formSubmitUrl}" method="POST">
+						<input type="hidden" id="id" name="id" value="${productMarketingForm.id}" />
+						#springBind("productMarketingForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("productMarketingForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}
+								#end 
+							#end 
+						</div>
+						#end
+						<div>
+							<button class="btn" onclick="javascript:window.location.href='$productMarketing.backUrl'">$productMarketing.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productMarketing.submitLabel</button>
+						</div>
+						<div style="clear: both;">
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="name" class="label-form">$productMarketing.businessNameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="name" name="name" value="${productMarketingForm.name}" style="width: 150px; margin-bottom: 0px;" />
+									<br/>
+									$productMarketing.businessNameInformation
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="code" class="label-form">$productMarketing.codeLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="code" name="code" value="${productMarketingForm.code}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="description" class="label-form">$productMarketing.descriptionLabel</label>
+								</div>
+								<div style="float: left;">
+									<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">${productMarketingForm.description}</textarea>
+									<br/>
+									$productMarketing.descriptionInformation
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+							$productMarketing.productMarketingGlobalAttributesLabel
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								#set ($map = ${productMarketingForm.globalAttributes} )
+								#foreach ($mapEntry in $map.entrySet())
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 400px;">
+										<label for="code" class="label-form">$mapEntry.key</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="globalAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+									</div>
+								</div>
+								#end
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+							$productMarketing.productMarketingMarketAreaAttributesLabel
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								#set ($map = ${productMarketingForm.marketAreaAttributes} )
+								#foreach ($mapEntry in $map.entrySet())
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 400px;">
+										<label for="code" class="label-form">$mapEntry.key</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="marketAreaAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+									</div>
+								</div>
+								#end
+							</div>
+							#*
+	${productMarketing.descriptionLabel} : ${productMarketing.description}
+	${productMarketing.isDefaultLabel} : ${productMarketing.default}
+	${productMarketing.productBrandLabel} : ${productMarketing.brand.name} (${productMarketing.brand.code})
+	${productMarketing.productMarketingGlobalAttributesLabel} 
+	${productMarketing.productMarketingMarketAreaAttributesLabel} 
+	${productMarketing.productSkusLabel}
+	${productMarketing.productCrossLinksLabel}
+	${productMarketing.assetsLabel} 
+							*#
+						</div>
+						<div style="clear: both; padding-top: 15px;">
+							<button class="btn" onclick="javascript:window.location.href='$productMarketing.backUrl'">$productMarketing.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productMarketing.submitLabel</button>
+						</div>
+						</form>
+					</div>
+				</section>
+				
+

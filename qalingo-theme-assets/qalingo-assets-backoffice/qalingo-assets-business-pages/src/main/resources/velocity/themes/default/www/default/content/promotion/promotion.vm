@@ -1,6 +1,38 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/promotion/promotion-data-body-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
+<style>
+.tree {
+  margin:0;
+  padding:0;
+  font:11px Arial, Helvetica, sans-serif;
+}
+.tree a {
+  text-decoration:none;
+  color:#666;
+}
+.tree ul {
+    padding:3px 0;
+    margin:0;
+}
+.tree li {
+  background:top left no-repeat;
+  cursor:pointer;
+  display:block;
+  list-style:none;
+  padding:3px 20px;
+}
+.tree .file {
+  background-image: url('${common.themeResourcePrefixPath}/img/icons/file.png');
+}
+.tree .folder {
+  background-image: url('${common.themeResourcePrefixPath}/img/icons/folder.png');
+}
+.tree .counter {
+   color:#CC6600;
+}
+</style>
 				<section id="promotion">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
@@ -9,5 +41,43 @@
 						<br/><br/><br/><br/>
 						promotion
 						<br/><br/><br/><br/>
+						
+						
+						
+<ul id="tree">
+  <li><a href="categories/1">Bookmarks</a>
+    <ul>
+      <li><a href="categories/2">Recherche</a>
+        <ul>
+          <li><a href="http://google.com">Google</a></li>
+          <li><a href="http://yahoo.com">Yahoo</a></li>
+          <li><a href="http://bing.com">Bing</a></li>
+        </ul>
+      </li>
+      <li><a href="categories/3">Web Développement</a>
+        <ul>
+          <li><a href="categories/4">Designs</a>
+            <ul>
+              <li><a href="http://smashingmagazine.com">Smashing Magazine</a></li>
+            </ul>
+          </li>
+          <li><a href="categories/5">Développement</a>
+            <ul>
+              <li><a href="http://devthought.com/">Dev Thoughts</a></li>
+              <li><a href="http://net.tutsplus.com/">NetTuts</a></li>
+              <li><a href="http://ejohn.org/">John Resig Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="http://jaysalvat.com">Jay Salvat</a></li>
+      <li><a href="http://markitup.jaysalvat.com">MarkItUp!</a></li>
+      <li><a href="http://sundaymorning.jaysalvat.com">Sunday Morning</a></li>
+    </ul>
+  </li>
+</ul>
+						
 					</div>
 				</section>
+				
+

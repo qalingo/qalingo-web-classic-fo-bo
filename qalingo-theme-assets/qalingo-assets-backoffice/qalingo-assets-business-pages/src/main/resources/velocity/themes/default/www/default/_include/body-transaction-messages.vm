@@ -1,0 +1,17 @@
+
+
+					#if($!errorMessage)
+					<div class="alert alert-error" style="clear: both;">
+						$errorMessage
+					</div>
+					#end
+					#if($!infoMessage)
+					<div class="alert alert-info" style="clear: both;">
+						$infoMessage
+					</div>
+					#end
+					#if($!successMessage)
+					<div class="alert alert-success" style="clear: both;">
+						$successMessage
+					</div>
+					#end

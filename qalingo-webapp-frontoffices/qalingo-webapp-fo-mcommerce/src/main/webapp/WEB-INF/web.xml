@@ -76,9 +76,7 @@
         <filter-name>clickstreamFilter</filter-name>
         <filter-class>com.opensymphony.clickstream.ClickstreamFilter</filter-class>
     </filter>
-	
-	<!-- ClickstreamFilter mappings -->
-    <filter-mapping>
+	<filter-mapping>
         <filter-name>clickstreamFilter</filter-name>
         <url-pattern>*.html</url-pattern>
     </filter-mapping>

@@ -43,7 +43,7 @@ public class ExtSimpleUrlAuthenticationFailureHandler extends SimpleUrlAuthentic
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
 			throws IOException, ServletException {
 		try {
-			String url = backofficeUrlService.buildLoginUrl(request) + "?error=true";
+			String url = backofficeUrlService.buildLoginUrl() + "?error=true";
 			setDefaultFailureUrl(url);
 	        saveException(request, exception);
 	        redirectStrategy.sendRedirect(request, response, url);

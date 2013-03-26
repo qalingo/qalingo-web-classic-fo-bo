@@ -1,0 +1,176 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="product-marketing-details">
+				
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							${productMarketing.dateCreateLabel} : ${productMarketing.createdDate} | ${productMarketing.dateUpdateLabel} : ${productMarketing.updatedDate}
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+
+					#parse("../../_include/body-transaction-messages.vm")
+
+					<div class="widget">
+						
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="icon-pushpin"></i>
+								<h3>${mainContentTitle}</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								Actions: <a href="${productMarketing.productEditUrl}">${productMarketing.productEditLabel}</a>
+							</div>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								${productMarketing.businessNameLabel} : ${productMarketing.businessName}<br/>
+								${productMarketing.descriptionLabel} : ${productMarketing.description}<br/>
+								${productMarketing.isDefaultLabel} : ${productMarketing.default}<br/>
+								${productMarketing.codeLabel} : ${productMarketing.code}<br/>
+								${productMarketing.productBrandLabel} : ${productMarketing.brand.businessName} (${productMarketing.brand.code})
+							</div>
+							
+						</div> <!-- /widget-content -->
+							
+					</div>
+			
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${productMarketing.productMarketingMarketAreaAttributesLabel}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th style="width: 50%;">Key</th>
+										<th style="width: 50%;">Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									#set ($map = ${productMarketing.marketAreaAttributes} )
+									#foreach ($mapEntry in $map.entrySet())
+									<tr>
+										<td class="description">
+											$mapEntry.key
+										</td>
+										<td class="value">
+											$mapEntry.value
+										</td>
+									</tr>
+									#end
+								</tbody>
+							</table>
+							
+						</div> <!-- /widget-content -->
+					
+					</div>
+					
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${productMarketing.productMarketingGlobalAttributesLabel}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th style="width: 50%;">Key</th>
+											<th style="width: 50%;">Value</th>
+										</tr>
+									</thead>
+									<tbody>
+										#set ($map = ${productMarketing.marketAreaAttributes} )
+										#foreach ($mapEntry in $map.entrySet())
+										<tr>
+											<td class="description">
+												$mapEntry.key
+											</td>
+											<td class="value">
+												$mapEntry.value
+											</td>
+										</tr>
+										#end
+									</tbody>
+								</table>
+							</div>
+						</div> <!-- /widget-content -->
+					
+					</div>
+					
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${productMarketing.productSkusLabel}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Sku</th>
+											<th>Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($productSku in $productMarketing.productSkus) 
+										<tr>
+											<td class="description">
+												${productSku.businessNameLabel} : ${productSku.businessName} (${productSku.code})
+											</td>
+											<td class="value">
+												<a href="${productSku.productSkuDetailsUrl}">${productSku.productSkuDetailsLabel}</a> | <a href="${productSku.productSkuEditUrl}">${productSku.productSkuEditLabel}</a>
+											</td>
+										</tr>
+										#end
+									</tbody>
+								</table>
+							</div>
+						</div> <!-- /widget-content -->
+					
+					</div>
+
+					<div class="widget">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${productMarketing.productCrossLinksLabel}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+
+							</div>
+						</div> <!-- /widget-content -->
+					
+					</div>
+
+					<div class="widget">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${productMarketing.assetsLabel}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+
+							</div>
+						</div> <!-- /widget-content -->
+					
+					</div>
+
+				</section>
+				
+

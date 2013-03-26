@@ -40,7 +40,7 @@ public class ExtAccessDeniedHandlerImpl extends AccessDeniedHandlerImpl {
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 					   AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		try {
-			String url = backofficeUrlService.buildForbiddenUrl(request);
+			String url = backofficeUrlService.buildForbiddenUrl();
 			setErrorPage(url);
 		} catch (Exception e) {
 			LOG.error("", e);

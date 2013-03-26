@@ -50,7 +50,7 @@ public class ExtLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationE
 	protected String determineUrlToUseForThisRequest(HttpServletRequest request, HttpServletResponse response,
 													 AuthenticationException exception) {
 		try {
-			String url = backofficeUrlService.buildLoginUrl(request);
+			String url = backofficeUrlService.buildLoginUrl();
 			return url;
 		} catch (Exception e) {
 			LOG.error("", e);
@@ -94,7 +94,7 @@ public class ExtLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationE
 	protected String buildRedirectUrlToLoginPage(HttpServletRequest request, HttpServletResponse response, 
 												 AuthenticationException authException) {
 		try {
-			String url = backofficeUrlService.buildLoginUrl(request);
+			String url = backofficeUrlService.buildLoginUrl();
 			return url;
 		} catch (Exception e) {
 			LOG.error("", e);

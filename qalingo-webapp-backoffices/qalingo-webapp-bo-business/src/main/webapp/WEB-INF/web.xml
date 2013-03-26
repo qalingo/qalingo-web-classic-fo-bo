@@ -75,12 +75,23 @@
     <filter>
         <filter-name>clickstreamFilter</filter-name>
         <filter-class>com.opensymphony.clickstream.ClickstreamFilter</filter-class>
-    </filter>
-	
-	<!-- ClickstreamFilter mappings -->
+    </filter>	
     <filter-mapping>
         <filter-name>clickstreamFilter</filter-name>
         <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+	
+	<filter>
+        <filter-name>UrlParamsFilter</filter-name>
+        <filter-class>fr.hoteia.qalingo.web.filter.UrlParamsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+		<filter-name>UrlParamsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
     </filter-mapping>
 	
 	<!-- Servlets -->

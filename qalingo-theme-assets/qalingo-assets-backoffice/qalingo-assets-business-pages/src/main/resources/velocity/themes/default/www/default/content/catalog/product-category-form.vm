@@ -1,0 +1,142 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="product-category-edit">
+					<div class="page-header">
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						#if($!productCategory.categoryDetailsUrl)
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							Actions: <a href="${productCategory.categoryDetailsUrl}">${productCategory.categoryDetailsLabel}</a>
+						</div>
+						#end
+					</div>
+					<div style="clear: both; width: 100%; text-align: right;">
+						#if($!productCategory.createdDate)
+						${productCategory.dateCreateLabel} : ${productCategory.createdDate} | 
+						#end
+						#if($!productCategory.updatedDate)
+						${productCategory.dateUpdateLabel} : ${productCategory.updatedDate}
+						#end
+					</div>
+					#parse("../../_include/body-transaction-messages.vm")
+					<div class="form-horizontal well">
+						<form id="productCategoryForm" name="productCategoryForm" action="${productCategory.formSubmitUrl}" method="POST">
+						<input type="hidden" id="id" name="id" value="${productCategoryForm.id}" />
+						#springBind("productCategoryForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("productCategoryForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end
+						<div>
+							<button class="btn" onclick="javascript:window.location.href='$productCategory.backUrl'">$productCategory.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productCategory.submitLabel</button>
+						</div>
+						<div style="clear: both;">
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="name" class="label-form">$productCategory.businessNameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="name" name="name" value="${productCategoryForm.name}" style="width: 150px; margin-bottom: 0px;" />
+									<br/>
+									$productCategory.businessNameInformation
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="code" class="label-form">$productCategory.codeLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="code" name="code" value="${productCategoryForm.code}" style="width: 150px; margin-bottom: 0px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="description" class="label-form">$productCategory.descriptionLabel</label>
+								</div>
+								<div style="float: left;">
+									<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">${productCategoryForm.description}</textarea>
+									<br/>
+									$productCategory.businessNameInformation
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="description" class="label-form">default parent category</label>
+								</div>
+								<div style="float: left;">
+									<select id="defaultParentCategoryCode" name="defaultParentCategoryCode">
+										<option value=""></option>
+									#foreach($category in $categories)
+										#if($category.code == $productCategoryForm.defaultParentCategoryCode)
+										<option value="$category.code" selected="selected">$category.businessName</option>
+										#else
+										<option value="$category.code">$category.businessName</option>
+										#end
+									#end
+									</select>
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+							Global attributes
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								#set ($map = ${productCategoryForm.globalAttributes} )
+								#foreach ($mapEntry in $map.entrySet())
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 400px;">
+										<label for="code" class="label-form">$mapEntry.key</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="globalAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+									</div>
+								</div>
+								#end
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+							Market Area attributes
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								#set ($map = ${productCategoryForm.marketAreaAttributes} )
+								#foreach ($mapEntry in $map.entrySet())
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 400px;">
+										<label for="code" class="label-form">$mapEntry.key</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="marketAreaAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+									</div>
+								</div>
+								#end
+							</div>
+						</div>
+						
+						#*
+	${productCategory.businessNameLabel} : ${productCategory.name}
+	${productCategory.descriptionLabel} : ${productCategory.description}
+	${productCategory.codeLabel} : ${productCategory.code}
+						*#
+						
+						<div style="clear: both; padding-top: 15px;">
+							<button class="btn" onclick="javascript:window.location.href='$productCategory.backUrl'">$productCategory.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productCategory.submitLabel</button>
+						</div>
+						</form>
+					</div>
+				</section>
+				
+

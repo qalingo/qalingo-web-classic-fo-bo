@@ -35,5 +35,17 @@
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-jax-rs.xml" />
+	
+	<bean id="viewResolver" class="fr.hoteia.qalingo.core.web.servlet.VelocityLayoutViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.velocity.VelocityLayoutView" />
+        <property name="layoutUrl" value="default/www/default/layout/default.vm" />
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".vm" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="contentType" value="text/html; charset=UTF-8" />
+	</bean>
 	
 </beans>

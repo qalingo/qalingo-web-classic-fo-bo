@@ -1,0 +1,157 @@
+
+<script src="${common.themeResourcePrefixPath}/js/library/tablesorter/jquery.tablesorter.js" type="text/javascript" ></script> 
+
+<script type="text/javascript">
+	(function($) {
+		$.fn.tree = function(settings) {
+			var options = { expand: {} };
+			$.extend(options, settings);
+
+			return this.each(function(){
+				var $$ = $(this).addClass('tree');
+				var dragged = false;
+
+				// Applique la classe 'file' aux "li" qui n'ont pas d'enfants
+				$('li:not(:has(ul))', $$).addClass('file');
+
+				// Applique la classe 'folder' aux "li" qui ont des enfants
+				$('li:has(ul)', $$).addClass('folder');
+
+				// Masque tous les "ul" sous les dossiers
+				$('.folder ul', $$).hide();
+
+				// Active le déplacement des "li"
+				$('li', $$).draggable({
+					zIndex: 9999,
+					distance: 20,
+					revert: true,
+					start: function(e, ui) {
+						$('.delete', ui.helper).hide();
+						dragged = true;
+					}
+				}).disableSelection();
+
+				// Active le dépôt des "li" déplacés
+				$('.folder', $$).droppable({
+					accept: 'li',
+					greedy: true,
+					tolerance: 'pointer',
+					drop: function(e, ui) {
+						dragged = false;
+						$('ul:first', this).append(ui.draggable);
+						// Remet a jour les compteurs d'enfants
+						addCounters();
+						return false;
+					}
+				});
+
+				// Fonction comptant les enfants et affichant le compteur
+				function addCounters() {
+					// Nothing
+				}
+				addCounters();
+
+				// Affiche/masque le "ul" sous le folder lorsqu'il est cliqué
+				// et y  ajoute/supprime la classe "open" puis stoppe la propagation
+				// pour que les dossiers supérieurs ne "recoivent pas" le clic
+				$('.folder', $$).click(function(e) {
+					$('ul:first', this).slideToggle();
+					$(this).toggleClass('open');
+					e.stopPropagation();
+					return false;
+				});
+
+				// Stoppe la propagation du clic sur les fichiers
+				// pour que les dossiers supérieurs ne "reçoivent pas" le clic
+				// et se ferment
+				$('.file', $$).click(function(e) {
+					e.stopPropagation();
+				});
+
+				// Ouvre les éventuels dossiers (et les dossiers parents)
+				// précisés en option
+				$(options.expand, $$).each(function() {
+					$('ul:first', this).show();
+					$(this).addClass('open');
+					$(this).parents('.folder ul').show();
+					$(this).parents('.folder').addClass('open');
+				});
+
+				// Ajoute un lien "delete" à tous les fichiers
+				$('.file > a', $$).after(function() {
+					return ' <a href="#" class="delete" style="color: red;">supprimer</a>';
+				});    
+
+				// Les liens "delete" ne s'affiche que lorsque le "li" est survolé
+				$('.file').hover(function() {
+					if (!dragged) $('.delete', this).show();
+				}, function() {
+					$('.delete', this).hide();
+				});
+
+				// Lors que "delete" est cliqué, une fois confirmé, le "li" parent est détruit
+				$('.delete').click(function() {
+					if (confirm('Etes-vous sur ?')) {
+						$(this).parent().remove();
+						// Remet a jour les compteurs d'enfants
+						addCounters();
+					}
+					return false;
+				});
+
+			});
+		};
+	})(jQuery);
+
+	jQuery(document).ready(function($) {
+		$('#tree').tree();
+
+		$(".find-products").click(function(event) {
+			var href = $(this).attr("href");;
+			var split = href.split('#');
+			var code = split[1];
+			var catalogJson = $catalogJson;
+			findProductList(catalogJson.productCategories, code, true);
+		});
+		
+		function findProductList(productCategories, code, continueIteration) { 
+			$.each(productCategories, function(i, item){
+				/*
+				if(typeof(continueIteration) == "undefined"){
+					continueIteration = true;
+				}
+				alert(code + "/" + item.code + "/" + continueIteration);
+				*/
+				if(!continueIteration){
+					return false;
+				}
+				if(code == item.code){
+					/*
+					alert("match");
+					*/
+					continueIteration = false;
+					displayProductList(item);
+				}
+				if(item.productCategories.length > 0){
+					findProductList(item.productCategories, code, continueIteration);
+				}
+			});
+		}
+		
+		function displayProductList(category) {
+			$("#category-name").html(category.businessName);
+			$("#category-urls").html("<a href=\"" + category.addChildCategoryUrl + "\">add child category</a> | <a href=\"" + category.detailsUrl + "\">details</a> | <a href=\"" + category.editUrl + "\">edit</a>");
+			var html = "";
+			$.each(category.productMarketings, function(i, item){
+				html = html + "<tr><td>" + item.code + "</td><td>" + item.businessName + "</td><td>" + item.position + "</td><td>" + item.productSkus.length + "</td><td><a href=\"" + item.detailsUrl + "\">détails</a> | <a href=\"" + item.editUrl + "\">éditer</a></td></tr>";
+			});
+			$("#product-list tbody").html(html);
+		}
+	});
+</script>
+
+<script type="text/javascript">  		
+	$(document).ready(function(){
+		$("#product-list").tablesorter(); 
+	});
+</script> 	

@@ -25,10 +25,10 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import org.springframework.stereotype.Component;
 
 import fr.hoteia.qalingo.core.Constants;
-import fr.hoteia.qalingo.core.common.domain.User;
-import fr.hoteia.qalingo.core.common.domain.UserConnectionLog;
-import fr.hoteia.qalingo.core.common.service.UserConnectionLogService;
-import fr.hoteia.qalingo.core.common.service.UserService;
+import fr.hoteia.qalingo.core.domain.User;
+import fr.hoteia.qalingo.core.domain.UserConnectionLog;
+import fr.hoteia.qalingo.core.service.UserConnectionLogService;
+import fr.hoteia.qalingo.core.service.UserService;
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
 import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
@@ -77,7 +77,7 @@ public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthentic
 			
 	        // SANITY CHECK
 	        if(StringUtils.isEmpty(url)){
-	    		url = backofficeUrlService.buildHomeUrl(request);
+	    		url = backofficeUrlService.buildHomeUrl();
 	        }
 	        
 	    	setDefaultTargetUrl(url);
