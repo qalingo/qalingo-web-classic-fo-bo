@@ -12,7 +12,7 @@
         		<div class="row">
                     <div class="span12">
 						<div class="pull-left">
-							$legacy.copyright
+							$legalTerms.copyright
 						</div>
 						<div class="pull-right">
 						#foreach($footerMenu in $footerMenus)

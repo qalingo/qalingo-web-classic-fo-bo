@@ -49,10 +49,10 @@
 								</li>
 								#end
 								<li class="divider"></li>
-								<li><a href="${common.userDetailsUrl}">${common.userDetailsLabel}</a></li>
+								<li><a href="${common.userDetailsUrl}">$wording.get("bo.common.header_link_my_account")</a></li>
 								<li class="divider"></li>
-								<li><a href="${common.loginUrl}">${common.loginLabel}</a></li>
-							</ul>    				
+								<li><a href="${common.loginUrl}">$wording.get("bo.auth.forgotten_password_email_or_login")</a></li>
+							</ul>
 						</li>
 					
 					</ul>

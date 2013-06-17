@@ -29,8 +29,8 @@ import fr.hoteia.qalingo.core.domain.User;
 import fr.hoteia.qalingo.core.domain.UserConnectionLog;
 import fr.hoteia.qalingo.core.service.UserConnectionLogService;
 import fr.hoteia.qalingo.core.service.UserService;
+import fr.hoteia.qalingo.core.web.service.BackofficeUrlService;
 import fr.hoteia.qalingo.core.web.util.RequestUtil;
-import fr.hoteia.qalingo.web.service.BackofficeUrlService;
 
 @Component
 public class ExtSimpleUrlAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

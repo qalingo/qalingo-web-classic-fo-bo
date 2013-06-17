@@ -1,0 +1,69 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="product-category-edit">
+					<div class="page-header">
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						#if($!promotion.categoryDetailsUrl)
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							Actions: <a href="${promotion.categoryDetailsUrl}">${promotion.categoryDetailsLabel}</a>
+						</div>
+						#end
+					</div>
+					<div style="clear: both; width: 100%; text-align: right;">
+						#if($!promotion.createdDate)
+						${promotion.dateCreateLabel} : ${promotion.createdDate} | 
+						#end
+						#if($!promotion.updatedDate)
+						${promotion.dateUpdateLabel} : ${promotion.updatedDate}
+						#end
+					</div>
+					#parse("../../_include/body-transaction-messages.vm")
+					<div class="form-horizontal well">
+						<form id="promotionForm" name="promotionForm" action="${promotion.formSubmitUrl}" method="POST">
+						<input type="hidden" id="id" name="id" value="${promotionForm.id}" />
+						#springBind("promotionForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("promotionForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end
+						<div>
+							<button class="btn" onclick="javascript:window.location.href='$promotion.backUrl'">$promotion.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$promotion.submitLabel</button>
+						</div>
+						<div style="clear: both;">
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="name" class="label-form">$promotion.businessNameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="name" name="name" value="${promotionForm.name}" style="width: 150px; margin-bottom: 0px;" />
+									<br/>
+									$promotion.businessNameInformation
+								</div>
+							</div>
+						</div>
+						
+						<div style="clear: both; padding-top: 15px;">
+							<button class="btn" onclick="javascript:window.location.href='$promotion.backUrl'">$promotion.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$promotion.submitLabel</button>
+						</div>
+						</form>
+					</div>
+				</section>
+				
+

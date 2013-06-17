@@ -1,0 +1,69 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="product-category-edit">
+					<div class="page-header">
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						#if($!order.categoryDetailsUrl)
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							Actions: <a href="${order.categoryDetailsUrl}">${order.categoryDetailsLabel}</a>
+						</div>
+						#end
+					</div>
+					<div style="clear: both; width: 100%; text-align: right;">
+						#if($!order.createdDate)
+						${order.dateCreateLabel} : ${order.createdDate} | 
+						#end
+						#if($!order.updatedDate)
+						${order.dateUpdateLabel} : ${order.updatedDate}
+						#end
+					</div>
+					#parse("../../_include/body-transaction-messages.vm")
+					<div class="form-horizontal well">
+						<form id="orderForm" name="orderForm" action="${order.formSubmitUrl}" method="POST">
+						<input type="hidden" id="id" name="id" value="${orderForm.id}" />
+						#springBind("orderForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("orderForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end
+						<div>
+							<button class="btn" onclick="javascript:window.location.href='$order.backUrl'">$order.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$order.submitLabel</button>
+						</div>
+						<div style="clear: both;">
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="name" class="label-form">$order.businessNameLabel</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="name" name="name" value="${orderForm.name}" style="width: 150px; margin-bottom: 0px;" />
+									<br/>
+									$order.businessNameInformation
+								</div>
+							</div>
+						</div>
+						
+						<div style="clear: both; padding-top: 15px;">
+							<button class="btn" onclick="javascript:window.location.href='$order.backUrl'">$order.cancelLabel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$order.submitLabel</button>
+						</div>
+						</form>
+					</div>
+				</section>
+				
+

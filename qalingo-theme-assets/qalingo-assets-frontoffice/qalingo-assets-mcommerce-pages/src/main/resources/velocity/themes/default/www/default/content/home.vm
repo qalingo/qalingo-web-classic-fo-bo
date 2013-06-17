@@ -1,6 +1,6 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($head_content = "../content/home-head-content.vm")
-#set ($footer_script_content = "../content/home-body-footer-script-content.vm")
+#set ($footer_script_content = "../content/home-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 <div class="container-body-fix">

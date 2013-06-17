@@ -37,4 +37,6 @@
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-cache.xml" />
 	
+	<bean id="engineSettingService" class="fr.hoteia.qalingo.core.service.cache.impl.CacheEngineSettingServiceImpl" />
+	
 </beans>

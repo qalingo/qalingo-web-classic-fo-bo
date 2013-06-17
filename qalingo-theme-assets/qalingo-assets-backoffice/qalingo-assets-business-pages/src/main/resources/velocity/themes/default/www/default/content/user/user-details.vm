@@ -8,35 +8,35 @@
 
 					<div style="width: 100%;" class="form-horizontal well">
 						<div style="float: left; width: 50%;">
-							<a class="btn" href="$userDetails.backUrl" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
+							<a class="btn" href="$userDetails.backUrl" alt="">$wording.get("bo.user.back_label")</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$wording.get("bo.user.edit_label")</a>
 							<br/><br/>
-							${userDetails.loginLabel} : ${userDetails.login}
+							$wording.get("bo.user.login_label") : ${userDetails.login}
 							<br/><br/>
-							${userDetails.firstnameLabel} : ${userDetails.firstname}
+							$wording.get("bo.user.firstname_label") : ${userDetails.firstname}
 							<br/><br/>
-							${userDetails.lastnameLabel} : ${userDetails.lastname}
+							$wording.get("bo.user.lastname_label") : ${userDetails.lastname}
 							<br/><br/>
-							${userDetails.emailLabel} : ${userDetails.email}
+							$wording.get("bo.user.email_label") : ${userDetails.email}
 							<br/><br/>
-							${userDetails.passwordLabel} : *****************<br/><br/>
-							${userDetails.activeLabel} : 
+							$wording.get("bo.user.password_label") : *****************<br/><br/>
+							$wording.get("bo.user.active_label") : 
 							#if($userDetails.active)
-								<span style="color: green">${userDetails.activeValueLabel}</span>
+								<span style="color: green">$wording.get("bo.user.active_value_true")</span>
 							#else
-								<span style="color: red">${userDetails.activeValueLabel}</span>
+								<span style="color: red">$wording.get("bo.user.active_value_false")</span>
 							#end
 							<br/><br/>
-							${userDetails.dateCreateLabel} : ${userDetails.dateCreate}
+							$wording.get("bo.common.date_create_label") : ${userDetails.dateCreate}
 							<br/><br/>
-							${userDetails.dateUpdateLabel} : ${userDetails.dateUpdate}
+							$wording.get("bo.common.date_update_label") : ${userDetails.dateUpdate}
 							<br/><br/>
-							${userDetails.userConnectionLogLabel}
+							$wording.get("bo.user.last_login_label")
 							<br/><br/>
 							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
-									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableDateLabel}</td>
-									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableHostLabel}</td>
-									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableAddressLabel}</td>
+									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_date")</td>
+									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_host")</td>
+									<td style="width: 200px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_address")</td>
 								</tr>
 							#set ($userConnectionLog = $userDetails.userConnectionLogs) 
 							#foreach ($userConnectionLog in $userDetails.userConnectionLogs) 
@@ -50,12 +50,12 @@
 							<br/><br/>
 						</div>
 						<div style="float: left; width: 50%;">
-							${userDetails.userGroupsLabel}
+							$wording.get("bo.user.groups_label")
 							<br/><br/>
 							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
-									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
-									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
+									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_code")</td>
+									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_name")</td>
 								</tr>
 							#set ($map = $userDetails.userGroups) 
 							#foreach ($mapEntry in $map.entrySet()) 
@@ -66,12 +66,12 @@
 							#end
 							</table>
 							<br/><br/>
-							${userDetails.userRolesLabel}
+							$wording.get("bo.user.roles_label")
 							<br/><br/>
 							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
-									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
-									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
+									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_code")</td>
+									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_name")</td>
 								</tr>
 							#set ($map = $userDetails.userRoles) 
 							#foreach ($mapEntry in $map.entrySet()) 
@@ -82,12 +82,12 @@
 							#end
 							</table>
 							<br/><br/>
-							${userDetails.userPermissionsLabel}
+							$wording.get("bo.user.permissions_label")
 							<br/><br/>
 							<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
 								<tr style="border-bottom: 1px solid #000000;">
-									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableCodeLabel}</td>
-									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">${userDetails.tableNameLabel}</td>
+									<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_code")</td>
+									<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.table_name")</td>
 								</tr>
 							#set ($map = $userDetails.userPermissions) 
 							#foreach ($mapEntry in $map.entrySet()) 
@@ -99,7 +99,7 @@
 							</table>
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<a class="btn" href="$userDetails.backUrl" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
+							<a class="btn" href="$userDetails.backUrl" alt="">$wording.get("bo.user.back_label")</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$wording.get("bo.user.edit_label")</a>
 						</div>
 					</div>
 					

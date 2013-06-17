@@ -122,7 +122,7 @@
 							</div>
 							<div style="padding-top: 15px; height: 70px;">
 								<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
-									$legacy.warning
+									$legalTerms.warning
 								</p>
 							</div>
 						</div>

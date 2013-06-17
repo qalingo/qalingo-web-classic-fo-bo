@@ -1,5 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($footer_script_content = "../content/catalog/catalog-data-body-footer-script.vm")
+#set ($footer_script_content = "../content/catalog/catalog-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 <style>
@@ -65,7 +65,7 @@
 							<h1>${mainContentTitle}</h1>
 						</div>
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="${catalog.addRootCategoryUrl}">${catalog.addRootCategoryUrlLabel}</a>
+							Actions: <a href="${catalog.addRootCategoryUrl}">$wording.get("bo.catalog_category.add_master_category_label")</a>
 						</div>
 					</div>
 					<div style="clear: both; float: left;">

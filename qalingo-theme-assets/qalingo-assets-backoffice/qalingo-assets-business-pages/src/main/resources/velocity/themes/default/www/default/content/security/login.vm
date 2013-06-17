@@ -1,7 +1,6 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-			
 				<section id="login">
 					<div class="page-header"></div>
 					<div style="padding-bottom: 50px;">

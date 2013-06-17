@@ -9,14 +9,14 @@
  *#
 				<div class="well" style="width: 423px; height: 202px; margin: auto; padding: auto; text-align: left;">
 					<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase;">
-						<h3>${security.loginFormTitle}</h3>
+						<h3>$wording.get("fo.auth.login_form_login_title")</h3>
 					</div>
 					<div>
 					<form id="formSecurity" name="formSecurity" action="${security.loginUrl}" class="form-search" method="POST">
 						<div>
 							<div style="padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="j_username" class="label-form">${security.loginLabel}</label>
+									<label for="j_username" class="label-form">$wording.get("fo.auth.login_form_login_label")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" name="j_username" value="">
@@ -27,7 +27,7 @@
 						<div>
 							<div style="padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="j_password" class="label-form">${security.passwordLabel}</label>
+									<label for="j_password" class="label-form">$wording.get("fo.auth.login_form_password_label")</label>
 								</div>
 								<div style="float: left;">
 									<input type="password" name="j_password">
@@ -36,11 +36,11 @@
 						</div>
 						<div style="clear: both;"></div>
 						<div style="padding-top: 5px;">
-							<input type="checkbox" name="_spring_security_remember_me"/>&nbsp;${security.rememberLabel}
+							<input type="checkbox" name="_spring_security_remember_me"/>&nbsp;$wording.get("fo.auth.login_form_remember_label")
 						</div>
 						<div style="padding-top: 5px; text-align: right;">
 							<span style="padding-right: 55px;"><a class="btn" href="$security.forgottenPasswordUrl" alt="$security.forgottenPasswordLabel">$security.forgottenPasswordLabel</a></span>
-							<button type="submit" class="btn">${security.submitLabel}</button>
+							<button type="submit" class="btn">$wording.get("fo.auth.login_form_login_submit")</button>
 						</div>
 					</form>
 					</div>

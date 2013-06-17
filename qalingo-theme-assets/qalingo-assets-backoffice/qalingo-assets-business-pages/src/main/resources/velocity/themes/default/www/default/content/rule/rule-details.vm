@@ -1,0 +1,62 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="rule-details">
+				
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							${rule.dateCreateLabel} : ${rule.createdDate} | ${rule.dateUpdateLabel} : ${rule.updatedDate}
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+
+					#parse("../../_include/body-transaction-messages.vm")
+
+					<div class="widget">
+						
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="icon-pushpin"></i>
+								<h3>${mainContentTitle}</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								Actions: <a href="${rule.editUrl}">${rule.editLabel}</a>
+							</div>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								${rule.id}
+							</div>
+							
+						</div> <!-- /widget-content -->
+							
+					</div>
+			
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${rule.xxx}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th style="width: 50%;">Key</th>
+										<th style="width: 50%;">Value</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							
+						</div> <!-- /widget-content -->
+					
+					</div>
+
+				</section>
+				
+

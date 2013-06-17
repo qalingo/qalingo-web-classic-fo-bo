@@ -24,7 +24,7 @@
 		<from>^/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/product-axe-([a-z0-9-]+)(.html[^/]*)$</from>
 		<to>/sc/product-axe.html?market-place-code=$1&amp;market-code=$2&amp;market-area-code=$3&amp;locale-code=$4&amp;retailer-code=$5&amp;category-code=$8</to>
 	</rule>
-	
+
 	<rule match-type="regex">
 		<name>Category Rule</name>
 		<note></note>

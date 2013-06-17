@@ -1,12 +1,11 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-			
-				<section id="legacy">
+				<section id="legal-terms">
 					<div class="page-header">
-						<h1>${legacy.pageTitle}</h1>
+						<h1>${mainContentTitle}</h1>
 					</div>
-					<div style="padding-bottom: 50px;">
-						${legacy.textHtml}
+					<div>
+						
 					</div>
 				</section>

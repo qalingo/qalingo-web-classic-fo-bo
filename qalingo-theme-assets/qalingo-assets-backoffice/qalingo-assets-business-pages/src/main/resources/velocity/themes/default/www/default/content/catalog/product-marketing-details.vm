@@ -6,7 +6,7 @@
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							${productMarketing.dateCreateLabel} : ${productMarketing.createdDate} | ${productMarketing.dateUpdateLabel} : ${productMarketing.updatedDate}
+							$wording.get("bo.common.date_create_label") : ${productMarketing.createdDate} | $wording.get("bo.common.date_update_label") : ${productMarketing.updatedDate}
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -21,28 +21,69 @@
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								Actions: <a href="${productMarketing.productEditUrl}">${productMarketing.productEditLabel}</a>
+								Actions: <a href="${productMarketing.productEditUrl}">$wording.get("bo.product_marketing.edit_url_label")</a>
 							</div>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								${productMarketing.businessNameLabel} : ${productMarketing.businessName}<br/>
-								${productMarketing.descriptionLabel} : ${productMarketing.description}<br/>
-								${productMarketing.isDefaultLabel} : ${productMarketing.default}<br/>
-								${productMarketing.codeLabel} : ${productMarketing.code}<br/>
-								${productMarketing.productBrandLabel} : ${productMarketing.brand.businessName} (${productMarketing.brand.code})
+								$wording.get("bo.product_marketing.business_name_label") : ${productMarketing.businessName}<br/>
+								$wording.get("bo.product_marketing.description_label") : ${productMarketing.description}<br/>
+								$wording.get("bo.product_marketing.is_default_label") : ${productMarketing.default}<br/>
+								$wording.get("bo.product_marketing.code_label") : ${productMarketing.code}<br/>
+								$wording.get("bo.product_marketing.brand_label") : ${productMarketing.brand.businessName} (${productMarketing.brand.code})<br/>
+								$wording.get("bo.product_marketing.is_default_label") : 
+								#if($productMarketing.active)
+								<span style="color: green">$wording.get("common.common.is_default_true")</span>
+								#else
+								<span style="color: red">$wording.get("common.common.is_default_false")</span>
+								#end								
 							</div>
 							
 						</div> <!-- /widget-content -->
 							
+					</div>
+					
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>$wording.get("bo.product_marketing.global_attribute_list_label")</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th style="width: 50%;">Key</th>
+											<th style="width: 50%;">Value</th>
+										</tr>
+									</thead>
+									<tbody>
+										#set ($map = ${productMarketing.marketAreaAttributes} )
+										#foreach ($mapEntry in $map.entrySet())
+										<tr>
+											<td class="description">
+												$mapEntry.key
+											</td>
+											<td class="value">
+												$mapEntry.value
+											</td>
+										</tr>
+										#end
+									</tbody>
+								</table>
+							</div>
+						</div> <!-- /widget-content -->
+					
 					</div>
 			
 					<div class="widget widget-nopad">
 							
 						<div class="widget-header">
 							<i class="icon-list-alt"></i>
-							<h3>${productMarketing.productMarketingMarketAreaAttributesLabel}</h3>
+							<h3>$wording.get("bo.product_marketing.area_attribute_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">
@@ -76,42 +117,7 @@
 							
 						<div class="widget-header">
 							<i class="icon-list-alt"></i>
-							<h3>${productMarketing.productMarketingGlobalAttributesLabel}</h3>
-						</div> <!-- /widget-header -->
-						
-						<div class="widget-content">
-							<div style="width: 100%">
-								<table class="table table-bordered table-striped">
-									<thead>
-										<tr>
-											<th style="width: 50%;">Key</th>
-											<th style="width: 50%;">Value</th>
-										</tr>
-									</thead>
-									<tbody>
-										#set ($map = ${productMarketing.marketAreaAttributes} )
-										#foreach ($mapEntry in $map.entrySet())
-										<tr>
-											<td class="description">
-												$mapEntry.key
-											</td>
-											<td class="value">
-												$mapEntry.value
-											</td>
-										</tr>
-										#end
-									</tbody>
-								</table>
-							</div>
-						</div> <!-- /widget-content -->
-					
-					</div>
-					
-					<div class="widget widget-nopad">
-							
-						<div class="widget-header">
-							<i class="icon-list-alt"></i>
-							<h3>${productMarketing.productSkusLabel}</h3>
+							<h3>$wording.get("bo.product_marketing.sku_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">
@@ -127,10 +133,10 @@
 										#foreach($productSku in $productMarketing.productSkus) 
 										<tr>
 											<td class="description">
-												${productSku.businessNameLabel} : ${productSku.businessName} (${productSku.code})
+												$wording.get("bo.product_sku.business_name_label") : ${productSku.businessName} (${productSku.code})
 											</td>
 											<td class="value">
-												<a href="${productSku.productSkuDetailsUrl}">${productSku.productSkuDetailsLabel}</a> | <a href="${productSku.productSkuEditUrl}">${productSku.productSkuEditLabel}</a>
+												<a href="${productSku.productSkuDetailsUrl}">$wording.get("bo.product_sku.details_url_label")</a> | <a href="${productSku.productSkuEditUrl}">$wording.get("bo.product_sku.edit_url_label")</a>
 											</td>
 										</tr>
 										#end
@@ -145,12 +151,33 @@
 							
 						<div class="widget-header">
 							<i class="icon-list-alt"></i>
-							<h3>${productMarketing.productCrossLinksLabel}</h3>
+							<h3>$wording.get("bo.product_sku.cross_product_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Order</th>
+											<th>Name</th>
+											<th>Type</th>
+											<th>Description</th>
+											<th>Product</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($productCrossLink in $productMarketing.productCrossLinks) 
+										<tr>
+											<td class="description">${productCrossLink.orderItem}</td>
+											<td class="description">${productCrossLink.name}</td>
+											<td class="description">${productCrossLink.type}</td>
+											<td class="description">${productCrossLink.description}</td>
+											<td class="value"><a href="${productCrossLink.productDetailsUrl}">Product Details</a></td>
+										</tr>
+										#end
+									</tbody>
+								</table>
 							</div>
 						</div> <!-- /widget-content -->
 					
@@ -160,12 +187,37 @@
 							
 						<div class="widget-header">
 							<i class="icon-list-alt"></i>
-							<h3>${productMarketing.assetsLabel}</h3>
+							<h3>$wording.get("bo.product_sku.asset_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Code</th>
+											<th>Type</th>
+											<th>Description</th>
+											<th>Path</th>
+											<th>URL</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($asset in $productMarketing.assets) 
+										<tr>
+											<td class="description">${asset.name}</td>
+											<td class="description">${asset.code}</td>
+											<td class="description">${asset.type}</td>
+											<td class="description">${asset.description}</td>
+											<td class="description">${asset.path}</td>
+											<td class="value">
+												<a href="${asset.detailsUrl}">$wording.get("bo.asset.details_url_label")</a> | <a href="${asset.editUrl}">$wording.get("bo.asset.edit_url_label")</a>
+											</td>
+										</tr>
+										#end
+									</tbody>
+								</table>
 							</div>
 						</div> <!-- /widget-content -->
 					

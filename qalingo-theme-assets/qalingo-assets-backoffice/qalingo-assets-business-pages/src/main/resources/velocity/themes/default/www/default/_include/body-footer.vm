@@ -58,7 +58,7 @@
 						<div class="row">
 							<div class="span12">
 								<div style="float: left;">
-									$legacy.copyright
+									$legalTerms.copyright
 								</div>
 								<div style="float: right;">
 									<img src="${common.themeResourcePrefixPath}/img/footer-ico.png" width="40px" height="40px" />

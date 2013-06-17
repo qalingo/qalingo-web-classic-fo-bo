@@ -8,16 +8,16 @@
 						</div>
 						#if($!productMarketing.productDetailsUrl)
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="${productMarketing.productDetailsUrl}">${productMarketing.productDetailsLabel}</a>
+							Actions: <a href="${productMarketing.productDetailsUrl}">$wording.get("bo.product_marketing.details_url_label")</a>
 						</div>
 						#end
 					</div>
 					<div style="clear: both; width: 100%; text-align: right;">
 						#if($!productMarketing.createdDate)
-						${productMarketing.dateCreateLabel} : ${productMarketing.createdDate} | 
+						$wording.get("bo.common.date_create_label") : ${productMarketing.createdDate} | 
 						#end
 						#if($!productMarketing.updatedDate)
-						${productMarketing.dateUpdateLabel} : ${productMarketing.updatedDate}
+						$wording.get("bo.common.date_update_label") : ${productMarketing.updatedDate}
 						#end
 					</div>
 					<div class="form-horizontal well">
@@ -40,23 +40,23 @@
 						</div>
 						#end
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$productMarketing.backUrl'">$productMarketing.cancelLabel</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productMarketing.submitLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$productMarketing.backUrl'">$wording.get("bo.product_marketing.cancel_label")</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_marketing.submit_label")</button>
 						</div>
 						<div style="clear: both;">
 							<div style="padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="name" class="label-form">$productMarketing.businessNameLabel</label>
+									<label for="name" class="label-form">$wording.get("bo.product_marketing.business_name_label")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="name" name="name" value="${productMarketingForm.name}" style="width: 150px; margin-bottom: 0px;" />
 									<br/>
-									$productMarketing.businessNameInformation
+									$wording.get("bo.product_marketing.business_name_information")
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="code" class="label-form">$productMarketing.codeLabel</label>
+									<label for="code" class="label-form">$wording.get("bo.product_marketing.code_label")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="code" name="code" value="${productMarketingForm.code}" style="width: 150px; margin-bottom: 0px;" />
@@ -64,16 +64,16 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="description" class="label-form">$productMarketing.descriptionLabel</label>
+									<label for="description" class="label-form">$wording.get("bo.product_marketing.description_label")</label>
 								</div>
 								<div style="float: left;">
 									<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">${productMarketingForm.description}</textarea>
 									<br/>
-									$productMarketing.descriptionInformation
+									$wording.get("bo.product_marketing.description_information")
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-							$productMarketing.productMarketingGlobalAttributesLabel
+							$wording.get("bo.product_marketing.global_attribute_list_label")
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								#set ($map = ${productMarketingForm.globalAttributes} )
@@ -89,7 +89,7 @@
 								#end
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-							$productMarketing.productMarketingMarketAreaAttributesLabel
+							$wording.get("bo.product_marketing.area_attribute_list_label")
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								#set ($map = ${productMarketingForm.marketAreaAttributes} )
@@ -116,8 +116,8 @@
 							*#
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$productMarketing.backUrl'">$productMarketing.cancelLabel</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$productMarketing.submitLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$productMarketing.backUrl'">$wording.get("bo.product_marketing.cancel_label")</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_marketing.submit_label")</button>
 						</div>
 						</form>
 					</div>
