@@ -50,5 +50,8 @@
 		<property name="exposeSpringMacroHelpers" value="true" />
 		<property name="contentType" value="text/html; charset=UTF-8" />
 	</bean>
+	
+	<!-- Override -->
+	<bean id="viewBeanFactory" class="fr.hoteia.qalingo.web.mvc.factory.impl.ExtViewBeanFactoryImpl" />
 
 </beans>

@@ -35,5 +35,6 @@
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
-	
+	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
+		
 </beans>

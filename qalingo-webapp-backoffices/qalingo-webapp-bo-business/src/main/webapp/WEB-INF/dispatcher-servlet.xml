@@ -57,16 +57,19 @@
 	</bean>
 	
 	<!-- Configure the multipart resolver -->
-<bean id="multipartResolver"
-class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-<property name="maxUploadSize" value="100000" />
-<property name="uploadTempDir" ref="uploadDirResource" />
-</bean>
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000" />
+		<property name="uploadTempDir" ref="uploadDirResource" />
+	</bean>
 
-<bean id="uploadDirResource" class="org.springframework.core.io.FileSystemResource">
-<constructor-arg>
-<value>C:/dev/hoteia/qalingo</value>
-</constructor-arg>
-</bean>
+	<bean id="uploadDirResource" class="org.springframework.core.io.FileSystemResource">
+		<constructor-arg>
+		<value>/datas/upload/</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Override -->
+	<bean id="viewBeanFactory" class="fr.hoteia.qalingo.web.mvc.factory.impl.ExtViewBeanFactoryImpl" />
+	
 
 </beans>

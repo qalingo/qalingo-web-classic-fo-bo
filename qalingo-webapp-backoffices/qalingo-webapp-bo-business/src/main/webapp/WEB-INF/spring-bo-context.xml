@@ -47,5 +47,5 @@
 		<property name="exposeSpringMacroHelpers" value="true" />
 		<property name="contentType" value="text/html; charset=UTF-8" />
 	</bean>
-	
+		
 </beans>
