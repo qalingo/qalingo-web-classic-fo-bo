@@ -37,4 +37,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
 		
+	<!-- Configures view context -->
+	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
+	
 </beans>

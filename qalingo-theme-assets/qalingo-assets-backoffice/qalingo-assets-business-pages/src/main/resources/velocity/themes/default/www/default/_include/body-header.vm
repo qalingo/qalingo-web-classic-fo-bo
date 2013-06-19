@@ -88,7 +88,7 @@
 									<li><a href="${common.userDetailsUrl}">My Groups</a></li>
 
 									<li class="divider"></li>
-									<li><a href="${common.logoutUrl}">$wording.get("bo.auth.header_link_logout")</a></li>
+									<li><a href="${common.logoutUrl}">$wording.get("bo.auth.header_title_logout")</a></li>
 								</ul>
 							</li>
 							#end

@@ -28,29 +28,8 @@
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-jax-rs.xml" />
 	
-	<mvc:annotation-driven validator="validator" />
-
-	<!-- Forwards requests to the "/" resource to the "welcome" view -->
-	<mvc:view-controller path="/" view-name="home" />
-
-	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-		<property name="messageInterpolator">
-			<bean class="fr.hoteia.qalingo.core.i18n.message.SpringMessageSourceMessageInterpolator">
-				<property name="coreMessageSource" ref="coreMessageSource" />
-				<property name="messageSource" ref="messageSource" />
-			</bean>
-		</property>
-	</bean>
-	
-	<bean id="viewResolver" class="fr.hoteia.qalingo.core.web.servlet.VelocityLayoutViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.velocity.VelocityLayoutView" />
-        <property name="layoutUrl" value="default/www/default/layout/default.vm" />
-		<property name="cache" value="true" />
-		<property name="prefix" value="" />
-		<property name="suffix" value=".vm" />
-		<property name="exposeSpringMacroHelpers" value="true" />
-		<property name="contentType" value="text/html; charset=UTF-8" />
-	</bean>
+	<!-- Configures view context -->
+	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
 
 	<bean id="jsonFactory" class="fr.hoteia.qalingo.core.rest.util.impl.BoJsonFactoryImpl">
 		<property name="backofficeUrlService" ref="backofficeUrlService" />
