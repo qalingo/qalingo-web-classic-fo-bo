@@ -30,13 +30,6 @@
     <global-method-security pre-post-annotations="enabled" />
 
     <http pattern="/index.html**"       security="none" />
-    <http pattern="/contact-us.html**"  security="none" />
-    <http pattern="/faq.html**"         security="none" />
-    <http pattern="/follow-us.html**"   security="none" />
-    <http pattern="/legacy.html**"      security="none" />
-    <http pattern="/logout.html**"      security="none" />
-    <http pattern="/forbidden.html**"   security="none" />
-    <http pattern="/our-company.html**" security="none" />
     <http pattern="/welcome.html**"     security="none" />
     <http pattern="/home.html**"        security="none" />
 

@@ -32,6 +32,4 @@
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-fo-view.xml" />
 
-	</bean>
-
 </beans>
