@@ -20,6 +20,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			/WEB-INF/spring-fo-context.xml
+			/WEB-INF/spring-fo-security.xml		
 		</param-value>
 	</context-param>
 	
