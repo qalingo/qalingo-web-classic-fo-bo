@@ -33,7 +33,7 @@
     <http pattern="/contact-us.html**"  security="none" />
     <http pattern="/faq.html**"         security="none" />
     <http pattern="/follow-us.html**"   security="none" />
-    <http pattern="/legacy.html**"      security="none" />
+    <http pattern="/legal-terms.html**" security="none" />
     <http pattern="/logout.html**"      security="none" />
     <http pattern="/forbidden.html**"   security="none" />
     <http pattern="/our-company.html**" security="none" />

@@ -1,5 +1,4 @@
-#set ($layout = "default/www/default/layout/default.vm")
-#set ($page_title = $seoPageTitle)
+#set ($layout = "default/www/default/layout/empty.vm")
 
 				<section id="user-details">
 					<div class="page-header">

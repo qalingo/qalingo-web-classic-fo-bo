@@ -13,14 +13,14 @@
 						<div class="form-horizontal well">
 							<fieldset>
 								<div class="control-group">
-									<label class="control-label">${customerAdresses.addressNameLabel}</label>
+									<label class="control-label">$wording.get{"fo.customer.address_list_label_address_name"}</label>
 									<div class="controls">
 										${customerAdress.addressName}
 										#if(${customerAdress.isDefaultBilling})
-											$customerAdresses.defaultBillingAddressLabel
+											$wording.get{fo.customer.address_list_label_default_billing_address}
 										#end
 										#if(${customerAdress.isDefaultShipping})
-											$customerAdresses.defaultShippingAddressLabel
+											$wording.get{fo.customer.address_list_label_default_shipping_address}
 										#end
 									</div>
 								</div>
@@ -60,7 +60,7 @@
 								</div>
 							</fieldset>
 							<div style="text-align: right;">
-								<a href="$customerAdress.editUrl" alt="$customerAdress.editLabel">$customerAdress.editLabel</a> | <a href="$customerAdress.deleteUrl" alt="$customerAdress.deleteLabel">$customerAdress.deleteLabel</a>
+								<a href="$customerAdress.editUrl" alt="$wording.get{"fo.customer.form_address_label_edit"}">$wording.get{"fo.customer.form_address_label_edit"}</a> | <a href="$customerAdress.deleteUrl" alt="$wording.get{"fo.customer.form_address_label_delete"}">$wording.get{"fo.customer.form_address_label_delete"}</a>
 							</div>
 						</div>
 						#end

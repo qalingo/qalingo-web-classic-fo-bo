@@ -82,12 +82,12 @@
 							<div style="float: right;">
 								#if($!customer)
 									<i class="icon icon-user"></i><span class="user-my-account-link">${customer.lastname} ${customer.firstname}</span>&nbsp; 
-									<a href="${common.customerDetailsUrl}" alt="${common.customerDetailsLabel}">${common.customerDetailsLabel}</a>&nbsp; 
-									<a href="${common.logoutUrl}" alt="${common.logoutLabel}">${common.logoutLabel}</a>
+									<a href="${common.customerDetailsUrl}" alt="$wording.get("fo.common.header_link_my_account")">$wording.get("fo.common.header_link_my_account")</a>&nbsp; 
+									<a href="${common.logoutUrl}" alt="$wording.get("fo.common.header_link_logout")">$wording.get("fo.common.header_link_logout")</a>
 								#else
 									<i class="icon icon-user"></i>
-									<a href="${common.createAccountUrl}" alt="${common.createAccountLabel}" class="btn btn-login">${common.createAccountLabel}</a>&nbsp; 
-									<a href="${common.loginUrl}" class="btn btn-login">${common.loginLabel} &raquo;</a>
+									<a href="${common.createAccountUrl}" class="btn btn-login" alt="$wording.get("fo.common.header_link_create_account")" >$wording.get("fo.common.header_link_create_account")</a>&nbsp; 
+									<a href="${common.loginUrl}" class="btn btn-login" alt="$wording.get("fo.common.header_link_login")">$wording.get("fo.common.header_link_login") &raquo;</a>
 								#end
 								#if($!headerCart)
 									#if($!headerCart.cartTotalItems > 0)

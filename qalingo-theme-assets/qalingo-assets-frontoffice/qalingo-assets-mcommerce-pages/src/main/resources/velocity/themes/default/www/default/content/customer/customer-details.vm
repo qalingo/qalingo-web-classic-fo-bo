@@ -12,31 +12,31 @@
 					<div style="float: left; width: 80%;" class="form-horizontal well">
 						<fieldset>
 							<div class="control-group">
-								<label class="control-label">${customerDetails.lastnameLabel}</label>
+								<label class="control-label">$wording.get("fo.customer.form_account_label_lastname")</label>
 								<div class="controls" style="padding-top: 5px;">
 									${customerDetails.lastnameValue}
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">${customerDetails.firstnameLabel}</label>
+								<label class="control-label">$wording.get("fo.customer.form_account_label_firstname")</label>
 								<div class="controls" style="padding-top: 5px;">
 									${customerDetails.firstnameValue}
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">${customerDetails.emailLabel}</label>
+								<label class="control-label">$wording.get("fo.customer.form_account_label_email")</label>
 								<div class="controls" style="padding-top: 5px;">
 									${customerDetails.emailValue}
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">${customerDetails.dateCreateLabel}</label>
+								<label class="control-label">$wording.get("fo.customer.datecreate_label")</label>
 								<div class="controls" style="padding-top: 5px;">
 									${customerDetails.dateCreateValue}
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">${customerDetails.dateUpdateLabel}</label>
+								<label class="control-label">$wording.get("fo.customer.dateupdate_label")</label>
 								<div class="controls" style="padding-top: 5px;">
 									${customerDetails.dateUpdateValue}
 								</div>

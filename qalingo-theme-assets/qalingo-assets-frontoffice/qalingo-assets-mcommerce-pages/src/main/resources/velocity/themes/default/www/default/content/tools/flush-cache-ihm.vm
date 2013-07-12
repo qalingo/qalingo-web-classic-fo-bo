@@ -1,0 +1,13 @@
+#set ($layout = "default/www/default/layout/empty.vm")
+
+				<section id="user-details">
+					<div class="page-header">
+						<h1>CACHE IHM</h1>
+					</div>
+
+					<div style="width: 100%;" class="form-horizontal well">
+						cache is flushed
+					</div>
+					
+					<div style="clear: both;"></div>
+				</section>

@@ -50,8 +50,8 @@
 				<div class="info" >
 					<h2><a href="#" >${productSku.name}</a></h2>
 					<div>
-						<a href="${productSku.addToCartUrl}" alt="${productSku.addToCartLabel}">${productSku.addToCartLabel}</a><br/>
-						<a href="${productSku.removeFromWishlistUrl}" alt="${productSku.removeFromWishlistLabel}">${productSku.removeFromWishlistLabel}</a><br/>
+						<a href="${productSku.addToCartUrl}" alt="$wording.get("fo.product_marketing.product_add_to_cart")">$wording.get("fo.product_marketing.product_add_to_cart")</a><br/>
+						<a href="${productSku.removeFromWishlistUrl}" alt="$wording.get("fo.product_marketing.product_remove_from_wishlist")">$wording.get("fo.product_marketing.product_remove_from_wishlist")</a><br/>
 					</div>
 					<a class="hideshow" href="#" >Hide</a>
 				</div>

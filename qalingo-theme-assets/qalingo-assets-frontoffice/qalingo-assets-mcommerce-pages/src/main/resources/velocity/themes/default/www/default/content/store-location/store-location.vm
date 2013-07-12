@@ -5,12 +5,10 @@
 			
 				<section id="store-locator">
 					<div class="page-header">
-						<h1>${storeLocator.pageTitle}</h1>
+						<h1>$wording.get("fo.store_locator.header_title")</h1>
 					</div>
 					<div style="padding-bottom: 50px;">
-						<div style="padding-bottom: 20px;">
-							${storeLocator.textHtml}
-						</div>
+						<div style="padding-bottom: 20px;">$wording.get("fo.store_locator.content_text")</div>
 						<div id="map-store" style="clear: both; width: 1170px; height: 400px;"></div>
 						#foreach($store in $storeLocator.stores) 
 						<div id="store-info-$store.code" style="display: none;">
