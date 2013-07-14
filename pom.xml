@@ -58,23 +58,6 @@
 
 	<profiles>
 		<profile>
-			<id>demo</id>
-			<properties>
-				<project.www.theme>default</project.www.theme>
-				<spring.security.context.relative>true</spring.security.context.relative>
-				<env.name>demo</env.name>
-									
-				<notification.velocity.email.templates.path>/home/tomcat/servers/qalingo/jenkins/home/jobs/Build-deploy-FO-Resources-Qalingo/workspace/git/qalingo/parent-hoteia-qalingo/qalingo-theme-assets/qalingo-assets-frontoffice/qalingo-assets-mcommerce-pages/target/mcommerce-pages/velocity/themes</notification.velocity.email.templates.path>
-				<fo.mcommerce.velocity.www.pages.path>/home/tomcat/servers/qalingo/jenkins/home/jobs/Build-deploy-FO-Resources-Qalingo/workspace/git/qalingo/parent-hoteia-qalingo/qalingo-theme-assets/qalingo-assets-frontoffice/qalingo-assets-mcommerce-pages/target/mcommerce-pages/velocity/themes</fo.mcommerce.velocity.www.pages.path>
-				<fo.prehome.velocity.www.pages.path>/home/tomcat/servers/qalingo/jenkins/home/jobs/Build-deploy-FO-Resources-Qalingo/git/qalingo/parent-hoteia-qalingo/qalingo-theme-assets/qalingo-assets-frontoffice/qalingo-assets-prehome-pages/target/prehome-pages/velocity/themes</fo.prehome.velocity.www.pages.path>
-				<bo.technical.velocity.www.pages.path>/home/tomcat/servers/qalingo/jenkins/home/jobs/Build-deploy-FO-Resources-Qalingo/workspace/git/qalingo/parent-hoteia-qalingo/qalingo-theme-assets/qalingo-assets-backoffice/qalingo-assets-technical-pages/target/bo-technical-pages/velocity/themes</bo.technical.velocity.www.pages.path>
-				<bo.business.velocity.www.pages.path>/home/tomcat/servers/qalingo/jenkins/home/jobs/Build-deploy-FO-Resources-Qalingo/workspace/git/qalingo/parent-hoteia-qalingo/qalingo-theme-assets/qalingo-assets-backoffice/qalingo-assets-business-pages/target/bo-business-pages/velocity/themes</bo.business.velocity.www.pages.path>
-				<bo.reporting.velocity.www.pages.path>/home/tomcat/servers/qalingo/jenkins/home/jobs/Build-deploy-FO-Resources-Qalingo/workspace/git/qalingo/parent-hoteia-qalingo/qalingo-theme-assets/qalingo-assets-backoffice/qalingo-assets-reporting-pages/target/bo-reporting-pages/velocity/themes</bo.reporting.velocity.www.pages.path>
-				
-				<wurfl.xml.path>file:///home/tomcat/servers/qalingo/misc/wurfl/wurfl.zip</wurfl.xml.path>
-			</properties>
-		</profile>
-		<profile>
 			<id>dev</id>
 			<properties>
 				<project.www.theme>default</project.www.theme>
