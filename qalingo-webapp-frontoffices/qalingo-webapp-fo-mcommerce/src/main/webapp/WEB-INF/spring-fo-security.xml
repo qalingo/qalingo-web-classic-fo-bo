@@ -30,7 +30,7 @@
     <global-method-security pre-post-annotations="enabled" />
 
     <http pattern="/index.html**"       security="none" />
-    <http pattern="/contact-us.html**"  security="none" />
+    <http pattern="/contact.html**"  security="none" />
     <http pattern="/faq.html**"         security="none" />
     <http pattern="/follow-us.html**"   security="none" />
     <http pattern="/legal-terms.html**" security="none" />

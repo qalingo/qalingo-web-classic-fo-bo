@@ -2,7 +2,7 @@
 #set ($page_title = $seoPageTitle)
 
 			
-				<section id="contact-us">
+				<section id="customer-create-account">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
