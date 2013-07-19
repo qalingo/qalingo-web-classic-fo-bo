@@ -11,21 +11,7 @@
 						<div class="container-fluid">
 							<div class="row-fluid">
 								<div class="span4">
-									#foreach($followOption in $followUs.followOptions)
-									<dl class="dl-horizontal">
-										<dt style="width: 60px; text-align: center;">
-											<a href="$followOption.url" alt="$followOption.urlLabel" style="color: #AAAAAA; font-size: 40px;">
-												<i class="icon-$followOption.code" style="height: 50px; width: 50px; line-height: 50px;"></i>
-											</a>
-										</dt>
-										<dd style="margin-left: 80px;">
-											<p style="color: #9b9b9b; font-style: italic; font-size: 12px;">$followOption.text</p>
-											<a href="$followOption.url" target="_blank" style="color: #9b9b9b; font-size: 14px;" alt="$followOption.urlLabel">
-												$followOption.title
-											</a>
-										</dd>
-									</dl>
-									#end
+									#parse("_include/follow-us-options.vm")
 								</div>
 								<div class="span8">
 

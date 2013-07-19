@@ -6,35 +6,26 @@
 					<div class="page-header">
 						<h1>$wording.get("fo.follow_us.header_title")</h1>
 					</div>
-				
 					<div>
-						<div style="width: 400px; height: 350px; background-color: #ffffff; margin-top: 10px; padding: 10px; float:left;">
-						#foreach( $followOption in $followUs.followOptions )
-							<div style="height: 90px;">
-								<div style="width: 80px; float: left;">
-									<a href="$followOption.url" target="_blank">
-										<img border="0" src="$followOption.urlImg" title="" alt="$followOption.urlLabel">
-									</a>
+						<div class="container-fluid">
+							<div class="row-fluid">
+								<div class="span4">
+									#parse("_include/follow-us-options.vm")
 								</div>
-								<div style="float: left;">
-									<p style="color: #9b9b9b; font-style: italic; font-size: 12px;">$followOption.text</p>
-									<a href="$followOption.url" target="_blank" style="color: #9b9b9b; font-size: 14px;" alt="$followOption.urlLabel">
-										$followOption.title
-									</a>
+								<div class="span8">
+									<p>
+										$wording.get("fo.follow_us.form_success_message")
+									</p>
+		
+									<div style="width: 100%; padding-top: 20px;">
+										<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
+											$legalTerms.warning
+										</p>
+									</div>
 								</div>
-							</div>
-						#end
-						</div>
-						<div style="width: 700px; height: 350px; background-color: #ffffff; margin: 10px; padding: 10px; float:left;">
-							<div  style="height: 275px;">
-								$wording.get("fo.follow_us.form_success_message");
-							</div>
-							<div  style="height: 70px;">
-								<p style="color: #9b9b9b; font-style: italic; font-size: 12px;">
-									$legalTerms.warning
-								</p>
 							</div>
 						</div>
+						
 					</div>
 
 				</section>
