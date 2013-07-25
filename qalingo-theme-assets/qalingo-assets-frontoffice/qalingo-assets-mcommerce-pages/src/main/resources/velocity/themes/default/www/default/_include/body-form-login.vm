@@ -19,7 +19,7 @@
 									<label for="j_username" class="label-form">${security.loginLabel}</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" name="j_username" value="">
+									<input type="email" name="j_username" value="">
 								</div>
 							</div>
 						</div>

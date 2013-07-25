@@ -126,7 +126,7 @@
 									<label for="email" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_email")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="email" name="email" value="" style="width: 200px;" />
+									<input type="email" id="email" name="email" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
