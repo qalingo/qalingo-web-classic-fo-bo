@@ -41,19 +41,22 @@
     <http pattern="/home.html**"        security="none" />
 
    <http entry-point-ref="extLoginUrlAuthenticationEntryPoint">
-        <intercept-url pattern="/**/cart-delivery-order-information*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/cart-order-confirmation*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/cart-order-payment*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-details*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-details-form*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-address-list*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-add-address-form*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-add-address*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-edit-address-form*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-edit-address*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-wishlist*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/remove-from-wishlist*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/add-to-wishlist*" access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/retailer-create.html*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/retailer-commnet.html*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/retailer-vote.html*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/cart-delivery-order-information*"	access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/cart-order-confirmation*"			access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/cart-order-payment*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-details*"					access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-details-form*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-address-list*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-add-address-form*"			access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-add-address*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-edit-address-form*"		access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-edit-address*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-wishlist*"					access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/remove-from-wishlist*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/add-to-wishlist*"					access="ROLE_FO_CUSTOMER" />
 
         <form-login authentication-failure-handler-ref="extSimpleUrlAuthenticationFailureHandler"
 					authentication-success-handler-ref="extSimpleUrlAuthenticationSuccessHandler"
