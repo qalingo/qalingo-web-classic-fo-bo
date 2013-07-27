@@ -30,7 +30,7 @@
     <global-method-security pre-post-annotations="enabled" />
 
     <http pattern="/index.html**"       security="none" />
-    <http pattern="/contact.html**"  security="none" />
+    <http pattern="/contact.html**"		security="none" />
     <http pattern="/faq.html**"         security="none" />
     <http pattern="/follow-us.html**"   security="none" />
     <http pattern="/legal-terms.html**" security="none" />
@@ -48,11 +48,9 @@
         <intercept-url pattern="/**/cart-order-confirmation*"			access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/cart-order-payment*"				access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/customer-details*"					access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-details-form*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/customer-edit*"						access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/customer-address-list*"				access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-add-address-form*"			access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/customer-add-address*"				access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-edit-address-form*"		access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/customer-edit-address*"				access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/customer-wishlist*"					access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/remove-from-wishlist*"				access="ROLE_FO_CUSTOMER" />
