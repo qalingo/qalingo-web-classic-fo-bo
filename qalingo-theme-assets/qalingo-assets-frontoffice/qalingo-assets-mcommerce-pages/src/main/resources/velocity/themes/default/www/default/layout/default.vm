@@ -8,15 +8,25 @@
  *
  *#
 <!DOCTYPE html>
-<html lang="$localeLanguageCode">
+<!--[if IE 7]><html lang="$!localeLanguageCode" class="ie7"><![endif]-->  
+<!--[if IE 8]><html lang="$!localeLanguageCode" class="ie8"><![endif]-->  
+<!--[if IE 9]><html lang="$!localeLanguageCode" class="ie9"><![endif]-->  
+<!--[if !IE]><!--><html lang="$!localeLanguageCode"><!--<![endif]-->  
     <head>
-		<title>${seoPageTitle}
+		<title>$!seoPageTitle
 		#if($!customer)
 			- (${customer.lastname} ${customer.firstname})
 		#end
 		</title>
-		#parse("../_include/head-common.vm")		
+
+		#parse("../_include/head-common-meta.vm")
+
+		#parse($!head_meta)
+
+		#parse("../_include/head-common.vm")
+
 		#parse($!head_content)
+		
     </head>
     <body  style="background-color: #2F353E;">
         <div class="navbar navbar-inverse navbar-fixed-top">
