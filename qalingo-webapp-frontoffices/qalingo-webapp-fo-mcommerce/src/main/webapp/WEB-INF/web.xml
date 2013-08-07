@@ -134,11 +134,11 @@
     </filter-mapping>
 	
 	<filter>
-        <filter-name>RulesFilterFilter</filter-name>
-        <filter-class>fr.hoteia.qalingo.web.filter.RulesFilterFilter</filter-class>
+        <filter-name>RulesFilter</filter-name>
+        <filter-class>fr.hoteia.qalingo.web.filter.RulesFilter</filter-class>
     </filter>
     <filter-mapping>
-		<filter-name>RulesFilterFilter</filter-name>
+		<filter-name>RulesFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
