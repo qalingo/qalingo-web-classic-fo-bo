@@ -1,0 +1,45 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+
+
+		<link href="${common.themeResourcePrefixPath}/js/library/wishlist-slide/wishlist-slide.css" rel="stylesheet" type="text/css">
+
+<style type="text/css" >
+#featured li.ui-tabs-selected, #featured li.ui-tabs-active{ 
+	background:url('${common.themeResourcePrefixPath}/js/library/wishlist-slide/images/selected-item.gif') top left no-repeat;  
+}
+#featured .ui-tabs-panel .info{ 
+	background: url('${common.themeResourcePrefixPath}/js/library/wishlist-slide/images/transparent-bg.png'); 
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#featured").tabs({fx:[{opacity: "toggle", duration: 'slow'}, {opacity: "toggle", duration: 'normal'}],
+			show: function(event, ui){
+			}
+		});
+		$('#featured .ui-tabs-panel a.hideshow').click(function(){
+			if($(this).text()=='Hide'){
+			}
+			else{
+			}
+			return false;
+		});
+	});
+</script>
+
+			
+				<section id="customer-product-comment">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+	
+					#parse("_include/customer-menu.vm")
+
+					<div style="float: left; width: 80%;">
+					
+
+					</div>
+					<div style="clear: both;"></div>
+				</section>

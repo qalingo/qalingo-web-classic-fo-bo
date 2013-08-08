@@ -1,0 +1,164 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="customer-add-address">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+	
+					#parse("_include/customer-menu.vm")
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<form id="customerAddressForm" name="customerAddressForm" action="customer-add-address.html" method="POST">
+						#springBind("customerAddressForm")
+						#if($status.errors.hasErrors()) 
+						<div id="errors" class="alert alert-error">
+							## Global error messages 
+							#foreach($e in $status.errorMessages) 
+								<p>${e}</p> 
+							#end 
+							## Field error messages 
+							#foreach($fieldError in $status.errors.fieldErrors) 
+								#springBind("customerAddressForm.${fieldError.field}") 
+								#foreach($errorMessage in $status.errorMessages) 
+									${errorMessage}<br/>
+								#end 
+							#end 
+						</div>
+						#end 
+						<div>
+							<div style="float: left; width: 400px; height: 250px; border: 0px solid #B8B6B6; padding-left: 10px; margin-bottom: 50px;">
+								<div style="padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="addressName" class="label-form">$wording.get("fo.customer.form_address_label_address_name")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="addressName" name="addressName" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="title" class="label-form">$wording.get("fo.customer.form_create_account_label_title")</label>
+									</div>
+									<div style="float: left;">
+										<select id="title" name="title" style="width: 205px; height: 25px;" >
+											<option value="">--</option>
+											#foreach($title in $titles)
+												#if($title.key == $customerAddressForm.title)
+												<option value="$title.key" selected="selected">$title.value</option>
+												#else
+												<option value="$title.key">$title.value</option>
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="lastname" class="label-form">$wording.get("fo.customer.form_address_label_lastname")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="lastname" name="lastname" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="firstname" class="label-form">$wording.get("fo.customer.form_address_label_firstname")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="firstname" name="firstname" value="" style="width: 200px;" />
+									</div>
+								</div>
+								
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="address1" class="label-form">$wording.get("fo.customer.form_address_label_address1")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="address1" name="address1" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="address2" class="label-form">$wording.get("fo.customer.form_address_label_address2")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="address2" name="address2" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="addressAdditionalInformation" class="label-form">$wording.get("fo.customer.form_address_label_address_additional_information")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="" style="width: 200px;" />
+									</div>
+								</div>
+							</div>
+							<div style="float:left; width: 450px; height: 250px; border: 0px solid #B8B6B6; padding-left: 10px;">
+								<div style="clear: both; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="postalCode" class="label-form">$wording.get("fo.customer.form_address_label_address_postal_or_zip_code")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="postalCode" name="postalCode" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="city" class="label-form">$wording.get("fo.customer.form_address_label_address_city")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="city" name="city" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="stateCode" class="label-form">$wording.get("fo.customer.form_address_label_address_state")</label>
+									</div>
+									<div style="float: left;">
+										<select id="stateCode" name="stateCode" style="width: 205px; height: 25px;" >
+											<option value="">--</option>
+											#foreach($state in $states)
+												#if($state.key == $customerAddressForm.stateCode)
+												<option value="$state.key" selected="selected">$state.value</option>
+												#else
+												<option value="$state.key">$state.value</option>
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="countryCode" class="label-form">$wording.get("fo.customer.form_address_label_address_country")</label>
+									</div>
+									<div style="float: left;">
+										<select id="countryCode" name="countryCode" style="width: 205px; height: 25px;" >
+											<option value="">--</option>
+											#foreach($country in $countries)
+												#if($country.key == $customerAddressForm.countryCode)
+												<option value="$country.key" selected="selected">$country.value</option>
+												#else
+												<option value="$country.key">$country.value</option>
+												#end
+											#end
+										</select>
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 15px; height: 70px;">
+									<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
+										$legalTerms.warning
+									</p>
+								</div>
+							</div>
+							<div style="clear: both; width: 100%; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+								<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.customer.form_account_label_cancel")</button>
+								<button class="btn btn-primary" type="submit">$wording.get("fo.customer.form_address_label_create")</button>
+							</div>
+						</div>
+						</form>
+					</div>
+					<div style="clear: both;"></div>
+
+				</section>

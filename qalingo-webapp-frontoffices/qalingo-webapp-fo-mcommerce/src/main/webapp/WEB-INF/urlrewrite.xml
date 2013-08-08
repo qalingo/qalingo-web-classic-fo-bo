@@ -16,6 +16,16 @@
 <urlrewrite>
 	
 	<!--
+		CUSTOMER RULE
+	-->
+	<rule match-type="regex">
+		<name>Category Rule</name>
+		<note></note>
+		<from>/customer/([a-z0-9-]+)$</from>
+		<to>/sc/customer-details.html?customer-permalink=$1</to>
+	</rule>
+	
+	<!--
 		CATEGORY RULE
 	-->
 	<rule match-type="regex">
