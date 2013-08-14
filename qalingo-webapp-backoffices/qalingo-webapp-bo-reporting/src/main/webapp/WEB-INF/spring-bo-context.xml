@@ -20,24 +20,26 @@
 					   	   http://www.springframework.org/schema/context 
 						   http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="fr.hoteia.qalingo.web" />
+	<context:component-scan base-package="fr.hoteia.qalingo.web.handler.security" />
 
 	<!-- Turn on @Autowired, @PostConstruct etc support -->
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 	
 	<import resource="wurfl-default-ctx.xml" />
-	
+		
 	<import resource="classpath:resources-config.xml" />
-
+	<import resource="classpath:messages-config.xml" />
+	
 	<!-- Configures core context -->
 	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-jax-rs.xml" />
 	
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
-	
+		
 </beans>
