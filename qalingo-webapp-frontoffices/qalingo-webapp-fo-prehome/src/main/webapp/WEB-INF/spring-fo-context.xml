@@ -35,11 +35,9 @@
 	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
-	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-cache.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
 	
-	<bean id="engineSettingService" 
-		  class="fr.hoteia.qalingo.core.service.cache.impl.CacheEngineSettingServiceImpl" />
-	
+	<import resource="classpath:conf/spring/qalingo-fo-prehome.xml" />
+
 </beans>
