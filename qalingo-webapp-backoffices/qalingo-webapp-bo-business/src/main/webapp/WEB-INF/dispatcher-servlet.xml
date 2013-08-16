@@ -39,8 +39,8 @@
 	<bean id="jsonFactory" class="fr.hoteia.qalingo.core.rest.util.impl.BoJsonFactoryImpl">
 		<property name="backofficeUrlService" ref="backofficeUrlService" />
 	</bean>
-		
-	<!-- Override -->
-	<bean id="viewBeanFactory" class="fr.hoteia.qalingo.web.mvc.factory.impl.ExtViewBeanFactoryImpl" />
 	
+	<!-- Override -->
+	<import resource="classpath:conf/spring/ext-bo-business.xml" />	
+			
 </beans>

@@ -39,6 +39,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-fo-cache.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
 	
-	<import resource="classpath:conf/spring/qalingo-fo-mcommerce.xml" />
+	<!-- Override -->
+	<import resource="classpath:conf/spring/ext-core-mcommerce.xml" />
 	
 </beans>

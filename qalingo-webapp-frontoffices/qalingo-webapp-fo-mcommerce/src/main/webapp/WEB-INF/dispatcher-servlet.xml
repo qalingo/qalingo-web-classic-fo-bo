@@ -38,6 +38,7 @@
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-fo-view.xml" />
 
-	<import resource="classpath:conf/spring/qalingo-fo-mcommerce.xml" />
+	<!-- Override -->
+	<import resource="classpath:conf/spring/ext-fo-mcommerce.xml" />	
 
 </beans>

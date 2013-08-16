@@ -37,6 +37,6 @@
 	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
 
 	<!-- Override -->
-	<bean id="viewBeanFactory" class="fr.hoteia.qalingo.web.mvc.factory.impl.ExtViewBeanFactoryImpl" />
+	<import resource="classpath:conf/spring/ext-bo-reporting.xml" />	
 	
 </beans>

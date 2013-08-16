@@ -41,5 +41,8 @@
 	
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
-		
+
+	<!-- Override -->
+	<import resource="classpath:conf/spring/ext-core-business.xml" />
+	
 </beans>
