@@ -20,7 +20,5 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Override -->
-	<bean id="engineSettingService" 
-		  class="fr.hoteia.qalingo.core.service.cache.impl.CacheEngineSettingServiceImpl" />
 		  
 </beans>
