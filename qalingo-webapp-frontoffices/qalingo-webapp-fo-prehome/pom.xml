@@ -6,7 +6,7 @@
 		<artifactId>qalingo-webapp-frontoffices</artifactId>
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>qalingo-webapp-frontoffice-prehome</artifactId>
+	<artifactId>qalingo-webapp-fo-prehome</artifactId>
 	<packaging>war</packaging>
 	<name>{Q} Commerce Solution FO preHome webapp</name>
 	<description>{Q} Commerce Solution frontoffice preHome webapp</description>

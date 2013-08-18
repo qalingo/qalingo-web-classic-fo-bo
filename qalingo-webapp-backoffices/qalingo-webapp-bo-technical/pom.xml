@@ -6,7 +6,7 @@
 		<artifactId>qalingo-webapp-backoffices</artifactId>
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>qalingo-webapp-backoffice-technical</artifactId>
+	<artifactId>qalingo-webapp-bo-technical</artifactId>
 	<packaging>war</packaging>
 	<name>{Q} Commerce Solution BO technical webapp</name>
 	<description>{Q} Commerce Solution backoffice technical webapp</description>

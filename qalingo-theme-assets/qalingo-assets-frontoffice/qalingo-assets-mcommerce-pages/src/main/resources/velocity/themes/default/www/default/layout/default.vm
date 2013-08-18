@@ -95,7 +95,6 @@
 									<a href="$common.customerDetailsUrl" alt="$wording.get("fo.common.header_link_my_account")">$wording.get("fo.common.header_link_my_account")</a>&nbsp; 
 									<a href="$common.logoutUrl" alt="$wording.get("fo.common.header_link_logout")">$wording.get("fo.common.header_link_logout")</a>
 								#else
-									<i class="icon icon-user"></i>
 									<a href="$common.createAccountUrl" class="btn btn-login" alt="$wording.get("fo.common.header_link_create_account")" >$wording.get("fo.common.header_link_create_account")</a>&nbsp; 
 									<a href="$common.loginUrl" class="btn btn-login" alt="$wording.get("fo.common.header_link_login")">$wording.get("fo.common.header_link_login") &raquo;</a>
 								#end

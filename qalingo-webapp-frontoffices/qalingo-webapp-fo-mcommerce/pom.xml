@@ -6,7 +6,7 @@
 		<artifactId>qalingo-webapp-frontoffices</artifactId>
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>qalingo-webapp-frontoffice-mcommerce</artifactId>
+	<artifactId>qalingo-webapp-fo-mcommerce</artifactId>
 	<packaging>war</packaging>
 	<name>{Q} Commerce Solution FO mCommerce webapp</name>
 	<description>{Q} Commerce Solution Frontoffice mCommerce webapp</description>
