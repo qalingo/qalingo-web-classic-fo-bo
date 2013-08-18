@@ -6,8 +6,8 @@
 					<div class="page-header">
 						<h1>$wording.get("fo.contact.header_title")</h1>
 					</div>
-					<form id="contactUsForm" name="contactUsForm" action="$common.contactUrl" method="POST">
-					#set($beanName = "contactUsForm")
+					<form id="contactForm" name="contactForm" action="$common.contactUrl" method="POST">
+					#set($beanName = "contactForm")
 					#parse("../../_include/body-form-error-message.vm")
 					<div>
 						<div style="width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
@@ -35,7 +35,7 @@
 									<select id="country" name="country" style="width: 205px; height: 25px;" >
 										<option value="">--</option>
 										#foreach($country in $countries)
-											#if($country.key == $contactUsForm.country)
+											#if($country.key == $contactForm.country)
 											<option value="$country.key" selected="selected">$country.value</option>
 											#else
 											<option value="$country.key">$country.value</option>

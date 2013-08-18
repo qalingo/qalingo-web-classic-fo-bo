@@ -15,7 +15,7 @@
     <head>
 		<title>$!seoPageTitle
 		#if($!customer)
-			- (${customer.lastname} ${customer.firstname})
+			- ($customer.lastname $customer.firstname)
 		#end
 		</title>
 
@@ -91,19 +91,19 @@
 							<div style="float: left;">($common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentLocalization.name)</div>
 							<div style="float: right;">
 								#if($!customer)
-									<i class="icon icon-user"></i><span class="user-my-account-link">${customer.lastname} ${customer.firstname}</span>&nbsp; 
-									<a href="${common.customerDetailsUrl}" alt="$wording.get("fo.common.header_link_my_account")">$wording.get("fo.common.header_link_my_account")</a>&nbsp; 
-									<a href="${common.logoutUrl}" alt="$wording.get("fo.common.header_link_logout")">$wording.get("fo.common.header_link_logout")</a>
+									<i class="icon icon-user"></i><span class="user-my-account-link">$customer.lastname $customer.firstname</span>&nbsp; 
+									<a href="$common.customerDetailsUrl" alt="$wording.get("fo.common.header_link_my_account")">$wording.get("fo.common.header_link_my_account")</a>&nbsp; 
+									<a href="$common.logoutUrl" alt="$wording.get("fo.common.header_link_logout")">$wording.get("fo.common.header_link_logout")</a>
 								#else
 									<i class="icon icon-user"></i>
-									<a href="${common.createAccountUrl}" class="btn btn-login" alt="$wording.get("fo.common.header_link_create_account")" >$wording.get("fo.common.header_link_create_account")</a>&nbsp; 
-									<a href="${common.loginUrl}" class="btn btn-login" alt="$wording.get("fo.common.header_link_login")">$wording.get("fo.common.header_link_login") &raquo;</a>
+									<a href="$common.createAccountUrl" class="btn btn-login" alt="$wording.get("fo.common.header_link_create_account")" >$wording.get("fo.common.header_link_create_account")</a>&nbsp; 
+									<a href="$common.loginUrl" class="btn btn-login" alt="$wording.get("fo.common.header_link_login")">$wording.get("fo.common.header_link_login") &raquo;</a>
 								#end
 								#if($!headerCart)
 									#if($!headerCart.cartTotalItems > 0)
-									&nbsp;<i class="icon icon-shopping-cart"></i><a href="${headerCart.cartUrl}" alt="">${headerCart.cartTotalSummaryLabel}</a>
+									&nbsp;<i class="icon icon-shopping-cart"></i><a href="$headerCart.cartUrl" alt="">$headerCart.cartTotalSummaryLabel</a>
 									#else
-									&nbsp;<i class="icon icon-shopping-cart"></i>&nbsp;${headerCart.cartTotalSummaryLabel}
+									&nbsp;<i class="icon icon-shopping-cart"></i>&nbsp;$headerCart.cartTotalSummaryLabel
 									#end
 								#end
 							</div>
