@@ -12,7 +12,7 @@
 					<h3>$wording.get("fo.auth.login_form_login_title")</h3>
 				</div>
 				<div>
-				<form id="formSecurity" name="formSecurity" action="$!security.loginUrl" class="form-search" method="POST">
+				<form id="formSecurity" name="formSecurity" action="$!security.submitLoginUrl" class="form-search" method="POST">
 				#if($!authHasFail)
 					<div class="alert alert-error" style="margin-top: 5px; padding-top: 5px; padding-bottom: 5px;">$!authErrorMessage</div>
 				#end

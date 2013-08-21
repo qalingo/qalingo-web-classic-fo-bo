@@ -10,10 +10,53 @@
 						<span class="icon-bar"></span>
 					</a>
 					
-					<a class="brand" href="${common.homeUrl}">${appNameHtml}</a>		
+					<a class="brand" href="$!common.homeUrl">$!appNameHtml</a>
 					
 					<div class="nav-collapse">
-								
+						<ul class="nav nav-pills market-nav" style="margin-left: 20px;">
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($marketPlace in $marketPlaces)
+									<li><a href="$!marketPlace.url" alt="$!marketPlace.name">$!marketPlace.name</a></li>
+								#end
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Markets&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($market in $markets)
+									<li><a href="$!market.url" alt="$!market.name">$!market.name</a></li>
+								#end
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($marketArea in $marketAreas)
+									<li><a href="$!marketArea.url" alt="$!marketArea.name">$!marketArea.name</a></li>
+								#end
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($marketLanguage in $marketLanguages)
+									<li><a href="$!marketLanguage.url" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
+								#end
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($retailer in $retailers)
+									<li><a href="$!retailer.url" alt="$!retailer.name">$!retailer.name</a></li>
+								#end
+								</ul>
+							</li>
+						</ul>
+						
+					<div class="nav-collapse">
 						<ul class="nav pull-right">
 							<li class="dropdown">
 								
@@ -22,10 +65,11 @@
 									Settings
 									<b class="caret"></b>
 								</a>
+
 								
 								<ul class="dropdown-menu">
-									<li><a href="${common.userDetailsUrl}" alt="Account Settings">Account Settings</a></li>
-									<li><a href="${common.userDetailsUrl}" alt="Privacy Settings">Privacy Settings</a></li>
+									<li><a href="$!common.userDetailsUrl" alt="Account Settings">Account Settings</a></li>
+									<li><a href="$!common.userDetailsUrl" alt="Privacy Settings">Privacy Settings</a></li>
 									<li class="divider"></li>
 									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="Wiki" target="_blank">Wiki</a></li>
 								</ul>
@@ -36,22 +80,22 @@
 							<li class="dropdown">								
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<i class="icon-user"></i> 
-									${user.lastname} ${user.firstname}
+									$!user.lastname $!user.firstname
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="${common.userDetailsUrl}">My Profile</a></li>
-									<li><a href="${common.userDetailsUrl}">My Groups</a></li>
+									<li><a href="$!common.userDetailsUrl">My Profile</a></li>
+									<li><a href="$!common.userDetailsUrl">My Groups</a></li>
 
 									<li class="divider"></li>
-									<li><a href="${common.logoutUrl}">${common.logoutLabel}</a></li>
+									<li><a href="$!common.logoutUrl">$wording.get("bo.auth.header_title_logout")</a></li>
 								</ul>
 							</li>
 							#end
 
 						</ul>
 
-					</div><!--/.nav-collapse -->	
+					</div>
 
 					<div id="app-env" style="clear: both;">
 							<div>
@@ -63,22 +107,21 @@
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Backoffice Langues&nbsp;<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 										#foreach($language in $languages)
-											<li><a href="$language.url" alt="$language.name">$language.name</a></li>
+											<li><a href="$!language.url" alt="$!language.name">$!language.name</a></li>
 										#end
 										</ul>
 									</li>
 								</ul>
 							</div>
 						<div style="float: right;">
-							<form class="navbar-search pull-right">
-								<input type="text" class="search-query" placeholder="Search">
+							<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
+								<input id="search-text" name="search-text" type="text" class="search-query" placeholder="$wording.get("bo.search.form_search_label_text")">
 							</form>
 						</div>
 					</div>
-
-				</div> <!-- /container -->
+				</div>
 				
-			</div> <!-- /navbar-inner -->
+			</div>
 			
-		</div> <!-- /navbar -->
+		</div>
 </header>

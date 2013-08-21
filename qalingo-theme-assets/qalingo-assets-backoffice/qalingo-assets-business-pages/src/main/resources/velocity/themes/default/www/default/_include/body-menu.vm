@@ -6,14 +6,14 @@
 
 					<ul class="mainnav">
 						#foreach($menu in $menus)
-						<li class="${menu.cssClass}">
+						<li class="$menu.cssClass">
 							#if($menu.hasSubMenu)
 							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							#else
-							<a href="${menu.url}">
+							<a href="$menu.url">
 							#end
-								<i class="${menu.cssIcon}"></i>
-								<span>${menu.name}</span>
+								<i class="$menu.cssIcon"></i>
+								<span>$menu.name</span>
 								#if($menu.hasSubMenu)
 								<b class="caret"></b>
 								#end
@@ -49,9 +49,13 @@
 								</li>
 								#end
 								<li class="divider"></li>
-								<li><a href="${common.userDetailsUrl}">$wording.get("bo.common.header_link_my_account")</a></li>
+								<li><a href="$common.userDetailsUrl">$wording.get("bo.common.header_link_my_account")</a></li>
 								<li class="divider"></li>
-								<li><a href="${common.loginUrl}">$wording.get("bo.auth.forgotten_password_email_or_login")</a></li>
+								#if($!user)
+								<li><a href="$!common.loginUrl">$wording.get("bo.auth.header_title_login")</a></li>
+								#else
+								<li><a href="$!common.logoutUrl">$wording.get("bo.auth.header_title_logout")</a></li>
+								#end
 							</ul>
 						</li>
 					
@@ -59,17 +63,17 @@
 
 					<div style="float: right; color: #7D7E81;">
 						<div style="float: right; padding-left: 10px;">
-							MarketLanguage: <span style="color: #a1cd44;">${common.currentMarketLocalization.name}</span><br/>
-							Retailer: <span style="color: #a1cd44;">${common.currentRetailer.name}</span><br/>
+							MarketLanguage: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span><br/>
+							Retailer: <span style="color: #a1cd44;">$!common.currentRetailer.name</span><br/>
 						</div>
 						<div style="float: right;">
-							Marketplace: <span style="color: #a1cd44;">${common.currentMarketPlace.name}</span><br/>
-							Market: <span style="color: #a1cd44;">${common.currentMarket.name}</span><br/>
-							MarketArea: <span style="color: #a1cd44;">${common.currentMarketArea.name}</span><br/>
+							Marketplace: <span style="color: #a1cd44;">$!common.currentMarketPlace.name</span><br/>
+							Market: <span style="color: #a1cd44;">$!common.currentMarket.name</span><br/>
+							MarketArea: <span style="color: #a1cd44;">$!common.currentMarketArea.name</span><br/>
 						</div>
 					</div>
-				</div> <!-- /container -->
+				</div>
 			
-			</div> <!-- /subnavbar-inner -->
+			</div>
 
-		</div> <!-- /subnavbar -->
+		</div>
