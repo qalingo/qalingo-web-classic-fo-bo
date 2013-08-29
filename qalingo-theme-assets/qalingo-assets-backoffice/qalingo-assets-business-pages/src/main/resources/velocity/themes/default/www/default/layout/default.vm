@@ -15,8 +15,19 @@
 			- (${user.lastname} ${user.firstname})
 		#end
 		</title>
+
 		#parse("../_include/head-common.vm")
+		
 		#parse($!head_content)
+		
+		#if($!tracking)
+		#parse("../_include/head-async-tracking.vm")
+		#end
+
+		#if($!monitoring)
+		#parse("../_include/head-async-monitoring.vm")
+		#end
+
 	</head>
 	<body>
 

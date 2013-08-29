@@ -27,6 +27,14 @@
 
 		#parse($!head_content)
 		
+		#if($!tracking)
+		#parse("../_include/head-async-tracking.vm")
+		#end
+
+		#if($!monitoring)
+		#parse("../_include/head-async-monitoring.vm")
+		#end
+		
     </head>
     <body  style="background-color: #2F353E;">
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -137,6 +145,6 @@
 		#parse("../_include/body-bottom-javascript.vm")
 		
 		#parse($!footer_script_content)
-
+		
     </body>
 </html>

@@ -26,10 +26,10 @@
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 	
-	<import resource="wurfl-default-ctx.xml" />
-		
 	<import resource="classpath:resources-config.xml" />
 	<import resource="classpath:messages-config.xml" />
+
+	<import resource="wurfl-default-ctx.xml" />
 	
 	<!-- Configures core context -->
 	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />

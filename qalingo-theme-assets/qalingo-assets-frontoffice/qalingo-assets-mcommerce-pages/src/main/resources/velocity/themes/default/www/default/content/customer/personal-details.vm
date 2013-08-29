@@ -14,31 +14,31 @@
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.customer.form_account_label_lastname")</label>
 								<div class="controls" style="padding-top: 5px;">
-									${customerDetails.lastnameValue}
+									$!customer.lastnameValue
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.customer.form_account_label_firstname")</label>
 								<div class="controls" style="padding-top: 5px;">
-									${customerDetails.firstnameValue}
+									$!customer.firstnameValue
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.customer.form_account_label_email")</label>
 								<div class="controls" style="padding-top: 5px;">
-									${customerDetails.emailValue}
+									$!customer.emailValue
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">$wording.get("fo.customer.datecreate_label")</label>
+								<label class="control-label">$wording.get("fo.common.date_create_label")</label>
 								<div class="controls" style="padding-top: 5px;">
-									${customerDetails.dateCreateValue}
+									$!customer.dateCreateValue
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">$wording.get("fo.customer.dateupdate_label")</label>
+								<label class="control-label">$wording.get("fo.common.date_update_label")</label>
 								<div class="controls" style="padding-top: 5px;">
-									${customerDetails.dateUpdateValue}
+									$!customer.dateUpdateValue
 								</div>
 							</div>
 							#foreach($customerAttribute in $customerDetails.customerAttributes.entrySet())
