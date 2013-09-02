@@ -37,6 +37,19 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<filter>
+        <filter-name>openEntityManageInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+        <init-param>
+            <param-name>entityManagerFactoryBeanName</param-name>
+            <param-value>entityManagerFactory</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>openEntityManageInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -62,7 +75,7 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
     </filter-mapping>
-	
+		
 	<filter>
         <filter-name>UrlRewriteFilter</filter-name>
         <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
@@ -99,20 +112,7 @@
 		<filter-name>UrlRewriteFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<filter>
-        <filter-name>openEntityManageInViewFilter</filter-name>
-        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
-        <init-param>
-            <param-name>entityManagerFactoryBeanName</param-name>
-            <param-value>entityManagerFactory</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>openEntityManageInViewFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-	
+		
 	<!-- Servlets -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
