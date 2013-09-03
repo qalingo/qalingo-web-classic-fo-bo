@@ -7,3 +7,29 @@
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
+---------------------------------------------------------------------------------------------------------
+#replaceWordingKeyParams($!wording.get("email.retailer_contact.html_title"), [$!retailerContactEmailBean.firstname, $!retailerContactEmailBean.lastname, $!currentDate])
+---------------------------------------------------------------------------------------------------------
+
+$!wording.get("email.retailer_contact.intro")
+
+$!wording.get("email.retailer_contact.subject") ${retailerContactEmailBean.subject}
+
+$!wording.get("email.retailer_contact.message")
+${retailerContactEmailBean.message}
+
+----- $!wording.get("email.retailer_contact.from")
+${retailerContactEmailBean.lastname} ${retailerContactEmailBean.firstname}
+$!wording.get("email.retailer_contact.phone") ${retailerContactEmailBean.phone} | $!wording.get("email.retailer_contact.fax") ${retailerContactEmailBean.fax}
+$!wording.get("email.retailer_contact.mobile") ${retailerContactEmailBean.mobile}
+${retailerContactEmailBean.website} | ${retailerContactEmailBean.email}
+
+--
+$!wording.get("email.common.signature")
+
+$!wording.get("email.common.legacy_text")
+
+$!wording.get("email.common.warning_text")
+
+© $!wording.get("email.common.domain_name")  $!wording.get("email.common.footer_url")
+

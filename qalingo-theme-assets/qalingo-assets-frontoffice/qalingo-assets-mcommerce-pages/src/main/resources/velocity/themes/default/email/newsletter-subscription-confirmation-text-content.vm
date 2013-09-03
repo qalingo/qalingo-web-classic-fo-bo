@@ -8,10 +8,14 @@
  *
  *#
 ---------------------------------------------------------------------------------------------------------
-#replaceWordingKeyParams($!wording.get("email.reset_password_confirmation.html_title"), [$!customerResetPasswordConfirmationEmailBean.email, $!currentDate])
+#replaceWordingKeyParams($!wording.get("email.newsletter_subscription.html_title"), [$!newsletterEmailBean.email, $!currentDate])
 ---------------------------------------------------------------------------------------------------------
 
-$!wording.get("email.reset_password_confirmation.intro")
+$!wording.get("email.newsletter_subscription.intro")
+
+$!wording.get("email.newsletter_subscription.validation_message")
+
+#replaceWordingKeyParams($!wording.get("email.newsletter_subscription.account_modification_message"), [$!newsletterEmailBean.customerDetailsUrl])
 
 --
 $!wording.get("email.common.signature")

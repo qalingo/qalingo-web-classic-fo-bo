@@ -7,3 +7,21 @@
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
+---------------------------------------------------------------------------------------------------------
+#replaceWordingKeyParams($!wording.get("email.new_account.html_title"), [$!customerNewAccountConfirmationEmailBean.email, $!currentDate])
+---------------------------------------------------------------------------------------------------------
+
+$!wording.get("email.new_account.intro")
+
+$!wording.get("email.new_account.validation_message")
+
+#replaceWordingKeyParams($!wording.get("email.new_account.account_modification_message"), [$!customerNewAccountConfirmationEmailBean.customerDetailsUrl])
+
+--
+$!wording.get("email.common.signature")
+
+$!wording.get("email.common.legacy_text")
+
+$!wording.get("email.common.warning_text")
+
+© $!wording.get("email.common.domain_name")  $!wording.get("email.common.footer_url")
