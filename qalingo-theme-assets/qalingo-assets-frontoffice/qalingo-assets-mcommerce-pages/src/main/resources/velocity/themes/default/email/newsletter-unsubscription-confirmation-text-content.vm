@@ -8,14 +8,14 @@
  *
  *#
 ---------------------------------------------------------------------------------------------------------
-#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.html_title"), [$!newsletterEmailBean.email, $!currentDate])
+#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.html_title"), [$!newsletterEmailBean.toEmail])
 ---------------------------------------------------------------------------------------------------------
 
 $!wording.get("email.newsletter_unsubscription.intro")
 
-$!wording.get("email.newsletter_unsubscription.validation_message")
+#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.validation_message"), [$!newsletterEmailBean.toEmail])
 
-#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.account_modification_message"), [$!newsletterEmailBean.customerDetailsUrl])
+#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.account_modification_message"), [$!subscribeUrl])
 
 --
 $!wording.get("email.common.signature")
