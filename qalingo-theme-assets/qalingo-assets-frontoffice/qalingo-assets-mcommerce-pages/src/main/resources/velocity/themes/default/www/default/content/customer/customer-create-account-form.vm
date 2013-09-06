@@ -13,7 +13,7 @@
 						<div style="float: left; width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding-left: 10px; margin-bottom: 50px;">
 							<div style="padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="title" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_title")</label>
+									<label for="title" class="label-form">$wording.get("fo.customer.form_account_label_title")</label>
 								</div>
 								<div style="float: left;">
 									<select id="title" name="title" style="width: 205px; height: 25px;" >
@@ -30,7 +30,7 @@
 							</div>
 							<div style="padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="lastname" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_lastname")</label>
+									<label for="lastname" class="label-form">$wording.get("fo.customer.form_account_label_lastname")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="lastname" name="lastname" value="" style="width: 200px;" />
@@ -38,7 +38,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="firstname" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_firstname")</label>
+									<label for="firstname" class="label-form">$wording.get("fo.customer.form_account_label_firstname")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="firstname" name="firstname" value="" style="width: 200px;" />
@@ -123,7 +123,7 @@
 						<div style="float:left; width: 550px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding-left: 10px;">
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="email" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_email")</label>
+									<label for="email" class="label-form">$wording.get("fo.customer.form_account_label_email")</label>
 								</div>
 								<div style="float: left;">
 									<input type="email" id="email" name="email" value="" style="width: 200px;" />
@@ -131,7 +131,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="password" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_password")</label>
+									<label for="password" class="label-form">$wording.get("fo.customer.form_account_label_password")</label>
 								</div>
 								<div style="float: left;">
 									<input type="password" id="password" name="password" value="" style="width: 200px;" />
@@ -139,7 +139,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="phone" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_phone")</label>
+									<label for="phone" class="label-form">$wording.get("fo.customer.form_account_label_phone")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="phone" name="phone" value="" style="width: 200px;" />
@@ -147,7 +147,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-								<label for="fax" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_fax")</label>
+								<label for="fax" class="label-form">$wording.get("fo.customer.form_account_label_fax")</label>
 								</div>
 								<div style="float: left;">
 								<input type="text" id="fax" name="fax" value="" style="width: 200px;" />
@@ -155,7 +155,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="mobile" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_mobile")</label>
+									<label for="mobile" class="label-form">$wording.get("fo.customer.form_account_label_mobile")</label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="mobile" name="mobile" value="" style="width: 200px;" />
@@ -164,7 +164,7 @@
 							<div style="clear: both;"></div>
 							<div style="padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="optin" class="label-form">$wording.get("fo.customer.form_customer_create_account_label_optin")</label>
+									<label for="optin" class="label-form">$wording.get("fo.customer.form_account_label_optin")</label>
 								</div>
 								<div style="float: left;">
 									<input type="checkbox" id="optin" value="test">

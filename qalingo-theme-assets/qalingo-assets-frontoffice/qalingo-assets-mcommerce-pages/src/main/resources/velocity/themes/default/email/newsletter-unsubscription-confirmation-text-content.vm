@@ -15,7 +15,9 @@ $!wording.get("email.newsletter_unsubscription.intro")
 
 #replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.validation_message"), [$!newsletterEmailBean.toEmail])
 
-#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.account_modification_message"), [$!subscribeUrl])
+#replaceWordingKeyParams($!wording.get("email.newsletter_unsubscription.account_modification_message")
+
+$!subscribeUrl
 
 --
 $!wording.get("email.common.signature")

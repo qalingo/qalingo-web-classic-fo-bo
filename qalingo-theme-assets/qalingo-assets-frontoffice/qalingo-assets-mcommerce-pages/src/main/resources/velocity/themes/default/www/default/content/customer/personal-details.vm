@@ -14,38 +14,38 @@
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.customer.form_account_label_lastname")</label>
 								<div class="controls" style="padding-top: 5px;">
-									$!customer.lastnameValue
+									$!customer.lastname
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.customer.form_account_label_firstname")</label>
 								<div class="controls" style="padding-top: 5px;">
-									$!customer.firstnameValue
+									$!customer.firstname
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.customer.form_account_label_email")</label>
 								<div class="controls" style="padding-top: 5px;">
-									$!customer.emailValue
+									$!customer.email
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.common.date_create_label")</label>
 								<div class="controls" style="padding-top: 5px;">
-									$!customer.dateCreateValue
+									$!customer.dateCreate
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">$wording.get("fo.common.date_update_label")</label>
 								<div class="controls" style="padding-top: 5px;">
-									$!customer.dateUpdateValue
+									$!customer.dateUpdate
 								</div>
 							</div>
 							#foreach($customerAttribute in $customerDetails.customerAttributes.entrySet())
 								<div class="control-group">
-									<label class="control-label">$customerAttribute.value.key</label>
+									<label class="control-label">$customerAttribute..key</label>
 									<div class="controls" style="padding-top: 5px;">
-										$customerAttribute.value.value
+										$customerAttribute..
 									</div>
 								</div>
 							#end

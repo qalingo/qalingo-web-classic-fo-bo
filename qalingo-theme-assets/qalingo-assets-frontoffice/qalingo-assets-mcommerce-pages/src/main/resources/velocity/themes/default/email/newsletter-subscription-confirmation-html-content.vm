@@ -10,7 +10,7 @@
 <html>
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
-		<title>#replaceWordingKeyParams($!wording.get("email.newsletter_subscription.html_title"), [$!newsletterEmailBean.email])</title>
+		<title>#replaceWordingKeyParams($!wording.get("email.newsletter_subscription.html_title"), [$!newsletterEmailBean.toEmail])</title>
 	</head>
 	<body>
 		<div style="font-family: Arial,Helvetica,sans-serif; font-size: 12px; background: #FFF; padding: 0px; margin: 0px; padding-bottom: 40px; color: #000">
@@ -28,7 +28,8 @@
 						<div style="margin-right: 180px; margin-left: 25px">
 							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!wording.get("email.newsletter_subscription.intro")</strong></p><br /><br />
 							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>#replaceWordingKeyParams($!wording.get("email.newsletter_subscription.validation_message"), [$!newsletterEmailBean.toEmail])</strong></p><br /><br />
-							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>#replaceWordingKeyParams($!wording.get("email.newsletter_subscription.account_modification_message"), [$!unsubscribeUrl])</strong></p><br /><br />
+							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!wording.get("email.newsletter_subscription.account_modification_message")</strong></p><br /><br />
+							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!unsubscribeUrlOrEmail</strong></p><br /><br />
 						</div>
 					</div>
 					<div style="margin-bottom: 20px; overflow: hidden">

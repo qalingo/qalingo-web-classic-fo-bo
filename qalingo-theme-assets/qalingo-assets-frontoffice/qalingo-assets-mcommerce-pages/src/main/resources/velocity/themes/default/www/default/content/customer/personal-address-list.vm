@@ -3,7 +3,7 @@
 
 				<section id="customer-details">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
 
 					#parse("_include/customer-menu.vm")
@@ -13,54 +13,54 @@
 						<div class="form-horizontal well">
 							<fieldset>
 								<div class="control-group">
-									<label class="control-label">$wording.get{"fo.customer.address_list_label_address_name"}</label>
+									<label class="control-label">$wording.get("fo.customer.address_list_label_address_name")</label>
 									<div class="controls">
-										${customerAdress.addressName}
-										#if(${customerAdress.isDefaultBilling})
-											$wording.get{fo.customer.address_list_label_default_billing_address}
+										$!customerAdress.addressName
+										#if($!customerAdress.isDefaultBilling)
+											$wording.get("fo.customer.address_list_label_default_billing_address")
 										#end
-										#if(${customerAdress.isDefaultShipping})
-											$wording.get{fo.customer.address_list_label_default_shipping_address}
+										#if($!customerAdress.isDefaultShipping)
+											$wording.get("fo.customer.address_list_label_default_shipping_address")
 										#end
 									</div>
 								</div>
 								<div class="control-group">
 									<div class="controls">
-										${customerAdress.title} ${customerAdress.lastname} ${customerAdress.firstname}
+										$!customerAdress.titleLabel $!customerAdress.lastname $!customerAdress.firstname
 									</div>
 								</div>
 								<div class="control-group">
 									<div class="controls">
-										${customerAdress.address1}
+										$!customerAdress.address1
 									</div>
 								</div>
 								#if($customerAdress.address2 != '')
 								<div class="control-group">
 									<div class="controls">
-										${customerAdress.address2}
+										$!customerAdress.address2
 									</div>
 								</div>
 								#end
 								#if($customerAdress.addressAdditionalInformation != '')
 								<div class="control-group">
 									<div class="controls">
-										${customerAdress.addressAdditionalInformation}
+										$!customerAdress.addressAdditionalInformation
 									</div>
 								</div>
 								#end
 								<div class="control-group">
 									<div class="controls">
-										${customerAdress.postalCode} ${customerAdress.city}
+										$!customerAdress.postalCode $!customerAdress.city
 									</div>
 								</div>
 								<div class="control-group">
 									<div class="controls">
-										${customerAdress.countyCode} ${customerAdress.countryCode}
+										$!customerAdress.stateLabel $!customerAdress.countryLabel
 									</div>
 								</div>
 							</fieldset>
 							<div style="text-align: right;">
-								<a href="$customerAdress.editUrl" alt="$wording.get{"fo.customer.form_address_label_edit"}">$wording.get{"fo.customer.form_address_label_edit"}</a> | <a href="$customerAdress.deleteUrl" alt="$wording.get{"fo.customer.form_address_label_delete"}">$wording.get{"fo.customer.form_address_label_delete"}</a>
+								<a href="$customerAdress.editUrl" alt="$wording.get("fo.customer.form_address_label_edit")">$wording.get("fo.customer.form_address_label_edit")</a> | <a href="$customerAdress.deleteUrl" alt="$wording.get("fo.customer.form_address_label_delete")">$wording.get("fo.customer.form_address_label_delete")</a>
 							</div>
 						</div>
 						#end

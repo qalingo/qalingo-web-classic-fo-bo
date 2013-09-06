@@ -36,9 +36,9 @@
 										<input type="text" id="addressName" name="addressName" value="" style="width: 200px;" />
 									</div>
 								</div>
-								<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
-										<label for="title" class="label-form">$wording.get("fo.customer.form_create_account_label_title")</label>
+										<label for="title" class="label-form">$wording.get("fo.customer.form_account_label_title")</label>
 									</div>
 									<div style="float: left;">
 										<select id="title" name="title" style="width: 205px; height: 25px;" >
@@ -53,7 +53,7 @@
 										</select>
 									</div>
 								</div>
-								<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
 										<label for="lastname" class="label-form">$wording.get("fo.customer.form_address_label_lastname")</label>
 									</div>
@@ -98,7 +98,7 @@
 							<div style="float:left; width: 450px; height: 250px; border: 0px solid #B8B6B6; padding-left: 10px;">
 								<div style="clear: both; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
-										<label for="postalCode" class="label-form">$wording.get("fo.customer.form_address_label_address_postal_or_zip_code")</label>
+										<label for="postalCode" class="label-form">$wording.get("fo.customer.form_address_label_zip_or_postal_code")</label>
 									</div>
 									<div style="float: left;">
 										<input type="text" id="postalCode" name="postalCode" value="" style="width: 200px;" />
@@ -106,7 +106,7 @@
 								</div>
 								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
-										<label for="city" class="label-form">$wording.get("fo.customer.form_address_label_address_city")</label>
+										<label for="city" class="label-form">$wording.get("fo.customer.form_address_label_city")</label>
 									</div>
 									<div style="float: left;">
 										<input type="text" id="city" name="city" value="" style="width: 200px;" />
@@ -114,7 +114,7 @@
 								</div>
 								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
-										<label for="stateCode" class="label-form">$wording.get("fo.customer.form_address_label_address_state")</label>
+										<label for="stateCode" class="label-form">$wording.get("fo.customer.form_address_label_state")</label>
 									</div>
 									<div style="float: left;">
 										<select id="stateCode" name="stateCode" style="width: 205px; height: 25px;" >
@@ -131,7 +131,7 @@
 								</div>
 								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">
-										<label for="countryCode" class="label-form">$wording.get("fo.customer.form_address_label_address_country")</label>
+										<label for="countryCode" class="label-form">$wording.get("fo.customer.form_address_label_country")</label>
 									</div>
 									<div style="float: left;">
 										<select id="countryCode" name="countryCode" style="width: 205px; height: 25px;" >
@@ -148,7 +148,7 @@
 								</div>
 								<div style="clear: both; padding-top: 15px; height: 70px;">
 									<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
-										$legalTerms.warning
+										$!legalTerms.warning
 									</p>
 								</div>
 							</div>

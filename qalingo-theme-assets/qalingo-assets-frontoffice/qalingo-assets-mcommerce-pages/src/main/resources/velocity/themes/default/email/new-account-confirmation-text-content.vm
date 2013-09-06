@@ -8,14 +8,15 @@
  *
  *#
 ---------------------------------------------------------------------------------------------------------
-#replaceWordingKeyParams($!wording.get("email.new_account.html_title"), [$!customerNewAccountConfirmationEmailBean.email, $!currentDate])
+#replaceWordingKeyParams($!wording.get("email.new_account.html_title"), [$!customerNewAccountConfirmationEmailBean.firstname, $!customerNewAccountConfirmationEmailBean.lastname])
 ---------------------------------------------------------------------------------------------------------
 
 $!wording.get("email.new_account.intro")
 
 $!wording.get("email.new_account.validation_message")
 
-#replaceWordingKeyParams($!wording.get("email.new_account.account_modification_message"), [$!customerNewAccountConfirmationEmailBean.customerDetailsUrl])
+$!wording.get("email.new_account.account_modification_message")
+$!customerNewAccountConfirmationEmailBean.customerDetailsUrl
 
 --
 $!wording.get("email.common.signature")
