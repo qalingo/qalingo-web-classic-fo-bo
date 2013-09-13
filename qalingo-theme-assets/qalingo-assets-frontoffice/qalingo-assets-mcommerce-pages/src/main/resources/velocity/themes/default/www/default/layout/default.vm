@@ -136,6 +136,7 @@
 		
         <div class="main" style="background-color: #ffffff;">
         	<div class="container">
+				#parse("../_include/body-transaction-messages.vm")
 				$screen_content
 			</div>
         </div>
