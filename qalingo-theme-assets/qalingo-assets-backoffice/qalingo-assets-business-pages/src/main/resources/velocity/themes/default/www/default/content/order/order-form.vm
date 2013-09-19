@@ -24,22 +24,8 @@
 					<div class="form-horizontal well">
 						<form id="orderForm" name="orderForm" action="${order.formSubmitUrl}" method="POST">
 						<input type="hidden" id="id" name="id" value="${orderForm.id}" />
-						#springBind("orderForm")
-						#if($status.errors.hasErrors()) 
-						<div id="errors" class="alert alert-error">
-							## Global error messages 
-							#foreach($e in $status.errorMessages) 
-								<p>${e}</p> 
-							#end 
-							## Field error messages 
-							#foreach($fieldError in $status.errors.fieldErrors) 
-								#springBind("orderForm.${fieldError.field}") 
-								#foreach($errorMessage in $status.errorMessages) 
-									${errorMessage}<br/>
-								#end 
-							#end 
-						</div>
-						#end
+						#set($beanName = "orderForm")
+						#parse("../../_include/body-form-error-message.vm")
 						<div>
 							<button class="btn" onclick="javascript:window.location.href='$order.backUrl'">$order.cancelLabel</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$order.submitLabel</button>

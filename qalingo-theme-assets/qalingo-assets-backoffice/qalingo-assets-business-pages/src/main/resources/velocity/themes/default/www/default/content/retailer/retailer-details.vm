@@ -1,0 +1,91 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="retailer-details">
+				
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") ${retailer.createdDate} | $wording.get("bo.common.date_update_label") ${retailer.updatedDate}
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+
+					<div class="widget">
+						
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="icon-pushpin"></i>
+								<h3>${mainContentTitle}</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								$wording.get("bo.common.actions_label") <a href="${retailer.editUrl}">$wording.get("bo.retailer.edit_url_label")</a>
+							</div>
+						</div>
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								$!retailer.code
+							</div>
+							<div style="width: 100%">
+								$!retailer.name
+							</div>
+							<div style="width: 100%">
+								$!retailer.description
+							</div>
+							
+							<div style="width: 100%">
+								$!retailer.defaultAddress.address1
+							</div>
+							<div style="width: 100%">
+								$!retailer.defaultAddress.postalCode $!retailer.defaultAddress.cityLabel
+							</div>
+							<div style="width: 100%">
+								$!retailer.defaultAddress.countryLabel
+							</div>
+							
+							<div style="width: 100%">
+								$!retailer.defaultAddress.phone
+							</div>	
+							<div style="width: 100%">
+								$!retailer.defaultAddress.mobile
+							</div>
+							<div style="width: 100%">
+								$!retailer.defaultAddress.fax
+							</div>
+							<div style="width: 100%">
+								<a href="mailto:$!retailer.defaultAddress.email" target="_blank">$!retailer.defaultAddress.email</a>
+							</div>
+							<div style="width: 100%">
+								<a href="$!retailer.defaultAddress.website" target="_blank">$!retailer.defaultAddress.website</a>
+							</div>
+						</div>
+							
+					</div>
+			
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="icon-list-alt"></i>
+							<h3>${retailer.xxx}</h3>
+						</div> <!-- /widget-header -->
+						
+						<div class="widget-content">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th style="width: 50%;">Key</th>
+										<th style="width: 50%;">Value</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							
+						</div>
+					
+					</div>
+
+				</section>
+				
+

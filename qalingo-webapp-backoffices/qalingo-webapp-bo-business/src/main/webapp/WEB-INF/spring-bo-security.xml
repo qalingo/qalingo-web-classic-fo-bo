@@ -50,6 +50,10 @@
         <intercept-url pattern="/**/catalog-virtual-category-edit*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/add-virtual-product-category*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-virtual-category-form*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
+        <intercept-url pattern="/**/retailer-list*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/retailer-details*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/retailer-edit*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 		
         <intercept-url pattern="/**/rule*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/shipping*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />

@@ -1,0 +1,18 @@
+
+				<div style="clear: both; margin-top: 15px;">
+					#if($!errorMessage)
+					<div class="alert alert-error">
+						$errorMessage
+					</div>
+					#end
+					#if($!infoMessage)
+					<div class="alert alert-info">
+						$infoMessage
+					</div>
+					#end
+					#if($!successMessage)
+					<div class="alert alert-success">
+						$successMessage
+					</div>
+					#end
+				</div>

@@ -10,8 +10,6 @@
 						</div>
 						<div style="clear: both;"></div>
 					</div>
-
-					#parse("../../_include/body-transaction-messages.vm")
 					
 					<div class="widget">
 						

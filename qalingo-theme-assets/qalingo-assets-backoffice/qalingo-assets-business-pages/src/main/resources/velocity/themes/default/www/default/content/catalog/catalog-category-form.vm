@@ -24,22 +24,8 @@
 					<div class="form-horizontal well">
 						<form id="productCategoryForm" name="productCategoryForm" action="${productCategory.formSubmitUrl}" method="POST">
 						<input type="hidden" id="id" name="id" value="${productCategoryForm.id}" />
-						#springBind("productCategoryForm")
-						#if($status.errors.hasErrors()) 
-						<div id="errors" class="alert alert-error">
-							## Global error messages 
-							#foreach($e in $status.errorMessages) 
-								<p>${e}</p> 
-							#end 
-							## Field error messages 
-							#foreach($fieldError in $status.errors.fieldErrors) 
-								#springBind("productCategoryForm.${fieldError.field}") 
-								#foreach($errorMessage in $status.errorMessages) 
-									${errorMessage}<br/>
-								#end 
-							#end 
-						</div>
-						#end
+						#set($beanName = "productCategoryForm")
+						#parse("../../_include/body-form-error-message.vm")
 						<div>
 							<button class="btn" onclick="javascript:window.location.href='$productCategory.backUrl'">$wording.get("bo.catalog_category.cancel_label")</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.catalog_category.submit_label")</button>

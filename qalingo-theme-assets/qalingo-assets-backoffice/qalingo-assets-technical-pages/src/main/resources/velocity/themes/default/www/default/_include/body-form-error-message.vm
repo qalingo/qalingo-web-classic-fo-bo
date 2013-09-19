@@ -1,0 +1,13 @@
+#if( "$!beanName" == "" )
+    #set($beanName = "dynamicBean")
+#end
+#springBind("$beanName.*")
+#if($!status)
+	#if($!status.errors.allErrors.size() > 0)
+		<div class="alert alert-error">
+		#foreach($error in $status.errors.allErrors)
+			$!error.defaultMessage<br />
+		#end
+		</div>
+	#end
+#end

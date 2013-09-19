@@ -23,22 +23,8 @@
 					<div class="form-horizontal well">
 						<form id="productSkuForm" name="productSkuForm" action="${productSku.formSubmitUrl}" method="POST">
 						<input type="hidden" id="id" name="id" value="${productSkuForm.id}" />
-						#springBind("productSkuForm")
-						#if($status.errors.hasErrors()) 
-						<div id="errors" class="alert alert-error">
-							## Global error messages 
-							#foreach($e in $status.errorMessages) 
-								<p>${e}</p> 
-							#end 
-							## Field error messages 
-							#foreach($fieldError in $status.errors.fieldErrors) 
-								#springBind("productSkuForm.${fieldError.field}") 
-								#foreach($errorMessage in $status.errorMessages) 
-									${errorMessage}<br/>
-								#end 
-							#end 
-						</div>
-						#end
+						#set($beanName = "productSkuForm")
+						#parse("../../_include/body-form-error-message.vm")
 						<div>
 							<button class="btn" onclick="javascript:window.location.href='$productSku.backUrl'">$wording.get("bo.product_sku.back_label")</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_sku.submit_label")</button>

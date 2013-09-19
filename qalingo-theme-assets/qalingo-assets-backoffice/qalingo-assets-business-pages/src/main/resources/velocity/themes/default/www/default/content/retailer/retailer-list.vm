@@ -1,0 +1,46 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			
+				<section id="retailer">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<div style="float: right;">
+							<form method="POST" class="navbar-search pull-right" action="">
+								<input type="text" placeholder="Text" class="search-query" name="search-txt" id="search-txt">
+							</form>
+						</div>
+					<div>
+						#parse("../../_include/body-pagination-pagelistholder.vm")
+						<div>
+							<table class="table" style="width: 100%">
+								<thead>
+									<tr>
+										<th width="100px">$wording.get("bo.retailer.code_label")</th>
+										<th width="250px">$wording.get("bo.retailer.name_label")</th>
+										<th width="300px">$wording.get("bo.retailer.description_label")</th>
+										<th width="200px">$wording.get("bo.retailer.address_label")</th>
+										<th width="150px">$wording.get("bo.retailer.website_label")</th>
+										<th width="100px">$wording.get("bo.common.actions_label")</th>
+									</tr>
+								</thead>
+								<tbody>
+									#foreach($retailer in $pagedListHolder.pageList)
+									<tr>
+										<td>$!retailer.code</td>
+										<td>$!retailer.name</td>
+										<td>$!retailer.description</td>
+										<td>$!retailer.defaultAddress.cityLabel $!retailer.defaultAddress.countryLabel </td>
+										<td>$!retailer.website</td>
+										<td><a href="$!retailer.detailsUrl">$wording.get("bo.retailer.details_url_label")</a> | <a href="$!retailer.editUrl">$wording.get("bo.retailer.edit_url_label")</a></td>
+									</tr>
+									#end
+								</tbody>  
+							</table> 
+						</div>
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>

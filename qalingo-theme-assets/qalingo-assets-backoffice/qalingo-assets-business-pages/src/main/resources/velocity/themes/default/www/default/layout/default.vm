@@ -38,6 +38,7 @@
 		<div class="main">
 			<div class="main-inner">
 				<div class="container">
+					#parse("../_include/body-transaction-messages.vm")
 					$screen_content
 				</div>
 			</div>
