@@ -18,7 +18,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								#foreach($marketPlace in $marketPlaces)
-									<li><a href="$!marketPlace.url" alt="$!marketPlace.name">$!marketPlace.name</a></li>
+									<li><a href="$!marketPlace.changeContextUrl" alt="$!marketPlace.name">$!marketPlace.name</a></li>
 								#end
 								</ul>
 							</li>
@@ -26,7 +26,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Markets&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								#foreach($market in $markets)
-									<li><a href="$!market.url" alt="$!market.name">$!market.name</a></li>
+									<li><a href="$!market.changeContextUrl" alt="$!market.name">$!market.name</a></li>
 								#end
 								</ul>
 							</li>
@@ -34,7 +34,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								#foreach($marketArea in $marketAreas)
-									<li><a href="$!marketArea.url" alt="$!marketArea.name">$!marketArea.name</a></li>
+									<li><a href="$!marketArea.changeContextUrl" alt="$!marketArea.name">$!marketArea.name</a></li>
 								#end
 								</ul>
 							</li>
@@ -42,7 +42,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								#foreach($marketLanguage in $marketLanguages)
-									<li><a href="$!marketLanguage.url" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
+									<li><a href="$!marketLanguage.changeContextUrl" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
 								#end
 								</ul>
 							</li>
@@ -50,7 +50,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								#foreach($retailer in $retailers)
-									<li><a href="$!retailer.url" alt="$!retailer.name">$!retailer.name</a></li>
+									<li><a href="$!retailer.changeContextUrl" alt="$!retailer.name">$!retailer.name</a></li>
 								#end
 								</ul>
 							</li>
