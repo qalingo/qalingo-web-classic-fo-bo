@@ -15,6 +15,9 @@ $!wording.get("email.new_account.intro")
 
 $!wording.get("email.new_account.validation_message")
 
+$!wording.get("email.new_account.account_validation_message")
+$!newCustomerValidationUrl
+
 $!wording.get("email.new_account.account_modification_message")
 $!customerNewAccountConfirmationEmailBean.customerDetailsUrl
 

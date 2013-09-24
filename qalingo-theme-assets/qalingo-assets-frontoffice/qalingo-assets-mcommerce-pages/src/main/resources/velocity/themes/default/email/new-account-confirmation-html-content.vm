@@ -28,6 +28,8 @@
 						<div style="margin-right: 180px; margin-left: 25px">
 							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!wording.get("email.new_account.intro")</strong></p><br /><br />
 							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!wording.get("email.new_account.validation_message")</strong></p><br /><br />
+							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!wording.get("email.new_account.account_validation_message")</strong></p><br /><br />
+							<p style="padding: 0px; margin: 0px 0px 9px 0px">$!newCustomerValidationUrl</p><br /><br />
 							<p style="padding: 0px; margin: 0px 0px 9px 0px"><strong>$!wording.get("email.new_account.account_modification_message")</strong></p><br /><br />
 							<p style="padding: 0px; margin: 0px 0px 9px 0px">$!customerNewAccountConfirmationEmailBean.customerDetailsUrl</p><br /><br />
 						</div>
