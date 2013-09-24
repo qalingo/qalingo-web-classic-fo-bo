@@ -42,8 +42,8 @@
 
    <http entry-point-ref="extLoginUrlAuthenticationEntryPoint">
         <intercept-url pattern="/**/retailer-create.html*"				access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/retailer-comment.html*"				access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/retailer-vote.html*"				access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/retailer-comment*"					access="ROLE_FO_CUSTOMER" />
+        <intercept-url pattern="/**/retailer-vote*"						access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/cart-delivery-order-information*"	access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/cart-order-confirmation*"			access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/cart-order-payment*"				access="ROLE_FO_CUSTOMER" />
