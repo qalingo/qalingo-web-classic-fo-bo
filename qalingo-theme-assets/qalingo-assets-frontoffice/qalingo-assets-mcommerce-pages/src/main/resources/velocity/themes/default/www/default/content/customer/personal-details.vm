@@ -41,15 +41,18 @@
 									$!customer.dateUpdate
 								</div>
 							</div>
-							#foreach($customerAttribute in $customerDetails.customerAttributes.entrySet())
+							#foreach($customerAttribute in $customer.customerAttributes.entrySet())
 								<div class="control-group">
-									<label class="control-label">$customerAttribute..key</label>
+									<label class="control-label">$!customerAttribute.value.key</label>
 									<div class="controls" style="padding-top: 5px;">
-										$customerAttribute..
+										$!customerAttribute.value.value
 									</div>
 								</div>
 							#end
 						</fieldset>
+					</div>
+					<div class="controls form-inline" style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+						<a href="$urlCustomerEdit" alt="$wording.get("fo.customer.form_edit_account_label_submit")" class="btn btn-primary">$wording.get("fo.customer.form_edit_account_label_submit")</a>
 					</div>
 					<div style="clear: both;"></div>
 
