@@ -1,0 +1,55 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+#set($breadcrumbWording = $wording.get("fo.customer.main_content_title_customer_edit"))
+
+		<section id="customer-add-address">
+			<div class="row-fluid margin-bottom-10">
+				<div class="span2">
+					#parse("_include/customer-menu.vm")
+					#parse("_include/customer-warning.vm")
+				</div>
+				<div class="span10">
+				
+					<div class="row-fluid margin-bottom-10">
+					<form id="customerEditForm" name="customerEditForm" action="$urlCustomerEdit" method="POST" class="reg-page address-form">
+						#set($beanName = "customerEditForm")
+						#parse("../../_include/body-form-error-message.vm") 
+						<div class="controls">
+							<div class="span8">
+								<label for="title" class="label-form">$wording.get("fo.customer.form_account_label_title")</label>
+								<select id="title" name="title" style="width: 205px; height: 25px;" >
+									<option value="">--</option>
+									#foreach($title in $titles)
+										#if($title.key == $!customerEditForm.title)
+										<option value="$title.key" selected="selected">$title.value</option>
+										#else
+										<option value="$title.key">$title.value</option>
+										#end
+									#end
+								</select>
+								<label for="lastname" class="label-form">$wording.get("fo.customer.form_account_label_lastname")</label>
+								<input type="text" id="lastname" name="lastname" value="$!customerEditForm.lastname" />
+								<label for="firstname" class="label-form">$wording.get("fo.customer.form_account_label_firstname")</label>
+								<input type="text" id="firstname" name="firstname" value="$!customerEditForm.firstname" />
+								<label for="email" class="label-form">$wording.get("fo.customer.form_account_label_email")</label>
+								<input type="text" id="email" name="email" value="$!customerEditForm.email" />
+								<label for="phone" class="label-form">$wording.get("fo.customer.form_account_label_phone")</label>
+								<input type="text" id="phone" name="phone" value="$!customerEditForm.phone" />
+								<label for="fax" class="label-form">$wording.get("fo.customer.form_account_label_fax")</label>
+								<input type="text" id="fax" name="fax" value="$!customerEditForm.fax" />
+								<label for="mobile" class="label-form">$wording.get("fo.customer.form_account_label_mobile")</label>
+								<input type="text" id="mobile" name="mobile" value="$!customerEditForm.mobile" />
+								<label for="optin" class="label-form">$wording.get("fo.customer.form_account_label_optin")</label>
+								<input type="checkbox" id="optin" value="">
+							</div>
+						</div>
+						<div class="controls form-inline" style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+							<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.customer.form_account_label_cancel")</button>
+							<button class="btn btn-primary" type="submit">$wording.get("fo.customer.form_update_account_label_submit")</button>
+						</div>
+					</form>
+					</div>
+
+				</div>
+			</div>
+		</section>

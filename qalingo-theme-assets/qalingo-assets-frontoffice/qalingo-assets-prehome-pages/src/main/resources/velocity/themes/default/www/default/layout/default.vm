@@ -70,7 +70,5 @@
 		
 		#parse($!footer_script_content)
 
-		#parse("../_include/body-bottom-tracking.vm")
-
     </body>
 </html>
