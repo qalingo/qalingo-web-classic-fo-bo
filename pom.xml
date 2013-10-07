@@ -431,6 +431,7 @@
 				<version>${slf4j.version}</version>
 			</dependency>
 			
+			<!-- UI Velocity framework -->
 			<dependency>
 				<groupId>org.apache.velocity</groupId>
 				<artifactId>velocity</artifactId>
