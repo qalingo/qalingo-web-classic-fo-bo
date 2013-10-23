@@ -82,7 +82,7 @@
 		</dependency>
 		<dependency>
 			<groupId>fr.hoteia.qalingo</groupId>
-			<artifactId>qalingo-api-core-drools</artifactId>
+			<artifactId>qalingo-api-core-rule-engine</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.hoteia.qalingo</groupId>
@@ -266,7 +266,7 @@
 			<artifactId>solr-solrj</artifactId>
 		</dependency>
 		
-		<!-- DROOLS -->
+		<!-- DROOLS 
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
@@ -291,17 +291,12 @@
 			<groupId>jsr94</groupId>
 			<artifactId>jsr94</artifactId>
 		</dependency>
+		-->
 		
 		<!-- User agent filter dependencies -->
 		<dependency>
 			<groupId>net.sourceforge.wurfl</groupId>
 			<artifactId>wurfl</artifactId>
-		</dependency>
-		
-		<!-- Logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
 
 		<dependency>

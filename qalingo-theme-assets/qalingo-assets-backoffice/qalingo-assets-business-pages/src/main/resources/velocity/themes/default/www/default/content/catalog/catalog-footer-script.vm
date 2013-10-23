@@ -111,11 +111,11 @@
 			var split = href.split('#');
 			var code = split[1];
 			var catalogJson = $catalogJson;
-			findProductList(catalogJson.productCategories, code, true);
+			findProductList(catalogJson.catalogCategories, code, true);
 		});
 		
-		function findProductList(productCategories, code, continueIteration) { 
-			$.each(productCategories, function(i, item){
+		function findProductList(catalogCategories, code, continueIteration) { 
+			$.each(catalogCategories, function(i, item){
 				/*
 				if(typeof(continueIteration) == "undefined"){
 					continueIteration = true;
@@ -132,8 +132,8 @@
 					continueIteration = false;
 					displayProductList(item);
 				}
-				if(item.productCategories.length > 0){
-					findProductList(item.productCategories, code, continueIteration);
+				if(item.catalogCategories.length > 0){
+					findProductList(item.catalogCategories, code, continueIteration);
 				}
 			});
 		}

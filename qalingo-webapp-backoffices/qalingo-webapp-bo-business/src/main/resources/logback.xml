@@ -20,15 +20,15 @@
 		</encoder>
 	</appender>
 	
-    <logger name="org.hibernate" level="debug">
+    <logger name="org.hibernate" level="WARN">
         <appender-ref ref="STDOUT" />
     </logger>
 	
-    <logger name="fr.hoteia.qalingo" level="error">
+    <logger name="fr.hoteia.qalingo" level="WARN">
         <appender-ref ref="STDOUT" />
     </logger>
 
-	<root level="error">
+	<root level="WARN">
 		<appender-ref ref="STDOUT" />
 	</root>
 
