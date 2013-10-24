@@ -1,62 +1,63 @@
 <header class="subhead" id="overview">
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			
+			<div class="container">
 				
-				<div class="container">
-					
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					
-					<a class="brand" href="$!common.homeUrl">$!appNameHtml</a>
-					
-					<div class="nav-collapse">
-						<ul class="nav nav-pills market-nav" style="margin-left: 20px;">
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-								#foreach($marketPlace in $marketPlaces)
-									<li><a href="$!marketPlace.changeContextUrl" alt="$!marketPlace.name">$!marketPlace.name</a></li>
-								#end
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Markets&nbsp;<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-								#foreach($market in $markets)
-									<li><a href="$!market.changeContextUrl" alt="$!market.name">$!market.name</a></li>
-								#end
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area&nbsp;<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-								#foreach($marketArea in $marketAreas)
-									<li><a href="$!marketArea.changeContextUrl" alt="$!marketArea.name">$!marketArea.name</a></li>
-								#end
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-								#foreach($marketLanguage in $marketLanguages)
-									<li><a href="$!marketLanguage.changeContextUrl" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
-								#end
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-								#foreach($retailer in $retailers)
-									<li><a href="$!retailer.changeContextUrl" alt="$!retailer.name">$!retailer.name</a></li>
-								#end
-								</ul>
-							</li>
-						</ul>
-						
-					<div class="nav-collapse">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				
+				<a class="brand" href="$!common.homeUrl">$!appNameHtml</a>
+				
+				<div class="nav-collapse">
+
+					<ul class="nav nav-pills market-nav" style="margin-left: 20px;">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketPlace in $marketPlaces)
+								<li><a href="$!marketPlace.changeContextUrl" alt="$!marketPlace.name">$!marketPlace.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Markets&nbsp;<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($market in $markets)
+								<li><a href="$!market.changeContextUrl" alt="$!market.name">$!market.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area&nbsp;<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketArea in $marketAreas)
+								<li><a href="$!marketArea.changeContextUrl" alt="$!marketArea.name">$!marketArea.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketLanguage in $marketLanguages)
+								<li><a href="$!marketLanguage.changeContextUrl" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($retailer in $retailers)
+								<li><a href="$!retailer.changeContextUrl" alt="$!retailer.name">$!retailer.name</a></li>
+							#end
+							</ul>
+						</li>
+					</ul>
+
+					<div style="float: right;">
 						<ul class="nav pull-right">
 							<li class="dropdown">
 								
@@ -92,36 +93,39 @@
 								</ul>
 							</li>
 							#end
-
 						</ul>
-
-					</div>
-
-					<div id="app-env" style="clear: both;">
-							<div>
-								<div style="float: left; margin-top: 8px; margin-bottom: 5px;">
-									$envName
-								</div>
-								<ul class="nav nav-pills market-nav">
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Backoffice Langues&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										#foreach($language in $languages)
-											<li><a href="$!language.url" alt="$!language.name">$!language.name</a></li>
-										#end
-										</ul>
-									</li>
-								</ul>
-							</div>
-						<div style="float: right;">
-							<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
-								<input id="global-search-txt" name="global-search-txt" type="text" class="search-query" placeholder="$wording.get("bo.search.form_search_label_text")">
-							</form>
-						</div>
 					</div>
 				</div>
-				
+				<div id="app-env" style="clear: both;">
+					<div>
+						<div style="float: left; margin-top: 8px; margin-bottom: 5px;">
+							$envName
+						</div>
+						<ul class="nav nav-pills market-nav">
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Backoffice Langues&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($language in $languages)
+									<li><a href="$!language.url" alt="$!language.name">$!language.name</a></li>
+								#end
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div style="float: right;">
+						<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
+							<input id="global-search-txt" name="global-search-txt" type="text" class="search-query" placeholder="$wording.get("bo.search.form_search_label_text")">
+						</form>
+					</div>
+				</div>
+				<div style="clear: both; color: #7D7E81;">
+					MarketLanguage: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span>
+					Retailer: <span style="color: #a1cd44;">$!common.currentRetailer.name</span>
+					Marketplace: <span style="color: #a1cd44;">$!common.currentMarketPlace.name</span>
+					Market: <span style="color: #a1cd44;">$!common.currentMarket.name</span>
+					MarketArea: <span style="color: #a1cd44;">$!common.currentMarketArea.name</span>
+				</div>
 			</div>
-			
 		</div>
+	</div>
 </header>

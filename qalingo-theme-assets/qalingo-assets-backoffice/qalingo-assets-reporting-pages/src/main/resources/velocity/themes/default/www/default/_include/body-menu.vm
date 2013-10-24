@@ -1,9 +1,6 @@
 		<div class="subnavbar">
-
 			<div class="subnavbar-inner">
-			
 				<div class="container">
-
 					<ul class="mainnav">
 						#foreach($menu in $menus)
 						<li class="$menu.cssClass">
@@ -58,20 +55,7 @@
 								#end
 							</ul>
 						</li>
-					
 					</ul>
-
-					<div style="float: right; color: #7D7E81;">
-						<div style="float: right; padding-left: 10px;">
-							MarketLanguage: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span><br/>
-							Retailer: <span style="color: #a1cd44;">$!common.currentRetailer.name</span><br/>
-						</div>
-						<div style="float: right;">
-							Marketplace: <span style="color: #a1cd44;">$!common.currentMarketPlace.name</span><br/>
-							Market: <span style="color: #a1cd44;">$!common.currentMarket.name</span><br/>
-							MarketArea: <span style="color: #a1cd44;">$!common.currentMarketArea.name</span><br/>
-						</div>
-					</div>
 				</div>
 			
 			</div>
