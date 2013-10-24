@@ -39,13 +39,13 @@
         <intercept-url pattern="/**/user-details*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/change*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
-        <intercept-url pattern="/**/manage-master-catalog*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/master-catalog*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-master-category-details*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-master-category-edit*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/add-master-product-category*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-master-category-form*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
-        <intercept-url pattern="/**/manage-virtual-catalog*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/virtual-catalog*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-virtual-category-details*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-virtual-category-edit*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/add-virtual-product-category*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />

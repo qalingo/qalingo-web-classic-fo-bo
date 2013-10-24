@@ -42,7 +42,40 @@
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
 
-	<!-- Override -->
+	<!-- Dozer Backoffice specific part - override common -->
+    <bean id="org.dozer.Mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles" value="classpath:conf/dozer/dozer-mapping-*.xml" />
+        <property name="factories">
+            <map>
+                <entry key="fr.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">
+                    <ref bean="catalogCategoryCustomBeanFactory" />
+                </entry>
+                <entry key="fr.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory">
+                    <ref bean="productMarketingCustomBeanFactory" />
+                </entry>
+                <entry key="fr.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory">
+                    <ref bean="productSkuCustomBeanFactory" />
+                </entry>
+            </map>
+        </property>
+        <property name="eventListeners">
+            <list>
+                <ref bean="eventCatalogCategoryListener" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="catalogCategoryCustomBeanFactory" class="fr.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory" />
+
+    <bean id="productMarketingCustomBeanFactory" class="fr.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory" />
+
+    <bean id="productSkuCustomBeanFactory" class="fr.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory" />
+
+    <bean id="eventCatalogCategoryListener" class="fr.hoteia.qalingo.core.dozer.BackofficePojoEventListener">
+        <property name="backofficeUrlService" ref="backofficeUrlService" />
+    </bean>
+
+    <!-- Override -->
 	<import resource="classpath:conf/spring/ext-core-business.xml" />
 	
 </beans>
