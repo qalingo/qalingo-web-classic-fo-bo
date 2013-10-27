@@ -17,7 +17,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		
 		<link rel="icon" href="${common.themeResourcePrefixPath}/img/favicon.ico" />
-
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<!-- style -->
 		<link href="${common.themeResourcePrefixPath}/js/library/jquery-ui/css/smoothness/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">

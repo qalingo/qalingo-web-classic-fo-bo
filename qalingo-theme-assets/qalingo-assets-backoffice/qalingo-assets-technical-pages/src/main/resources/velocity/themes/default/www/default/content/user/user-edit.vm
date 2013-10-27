@@ -9,13 +9,13 @@
 					<div style="float: left; width: 15%;">
 						<form id="userQuickSearchForm" name="userQuickSearchForm" action="${quickSearch.urlUserFormSubmit}" method="POST">
 							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${quickSearch.labelSubmit}</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Search</button>
 						</form>
 						#parse("../../_include/body-short-link-menu.vm")
 					</div>
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
-						<form id="userForm" name="userForm" action="${userEdit.formSubmitUrl}" method="POST">
+						<form id="userForm" name="userForm" action="${userEdit.userEditUrl}" method="POST">
 						<input type="hidden" id="id" name="id" value="${userForm.id}" />
 						#springBind("userForm")
 						#if($status.errors.hasErrors()) 
@@ -34,12 +34,12 @@
 						</div>
 						#end
 						<div style="float: left; width: 50%;">
-							<button class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'">$userEdit.cancelLabel</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$userEdit.submitLabel</button>
+							<input type='button' value='Cancel' class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'"/>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Save</button>
 							<br/><br/>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="lastname" class="label-form">$userEdit.lastnameLabel</label>
+									<label for="lastname" class="label-form"><b>Lastname</b></label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="lastname" name="lastname" value="${userForm.lastname}" style="width: 150px; margin-bottom: 0px;" />
@@ -47,7 +47,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="firstname" class="label-form">$userEdit.firstnameLabel</label>
+									<label for="firstname" class="label-form"><b>Firstname</b></label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="firstname" name="firstname" value="${userForm.firstname}" style="width: 150px; margin-bottom: 0px;" />
@@ -55,7 +55,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="email" class="label-form">$userEdit.emailLabel</label>
+									<label for="email" class="label-form"><b>Email</b></label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="email" name="email" value="${userForm.email}" style="width: 150px; margin-bottom: 0px;" />
@@ -63,7 +63,7 @@
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
-									<label for="login" class="label-form">$userEdit.loginLabel</label>
+									<label for="login" class="label-form"><b>Login</b></label>
 								</div>
 								<div style="float: left;">
 									<input type="text" id="login" name="login" value="${userForm.login}" style="width: 150px; margin-bottom: 0px;" />
@@ -78,7 +78,7 @@
 									#else
 									<input type="checkbox" id="active" name="active" value="${userForm.active}" />
 									#end
-									$userEdit.activeLabel
+									active
 								  </label>
 								</div>
 							</div>
@@ -87,8 +87,8 @@
 							
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'">$userEdit.cancelLabel</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$userEdit.submitLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'">Cancel</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Save</button>
 						</div>
 						</form>
 					</div>
