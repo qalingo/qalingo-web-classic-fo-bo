@@ -35,7 +35,14 @@
 											<tr>
 												<td>${user.firstname}</td>
 												<td>${user.lastname}</td>
-												<td>${user.activeLabel}</td>
+
+												<td>
+												      #if($user.active)
+															<span style="color: green">active</span>
+														#else
+															<span style="color: red">not active</span>
+														#end
+												</td>
 												<td>
 													<a class="btn" href="$user.userDetailsUrl" alt="">details</a>&nbsp;<a class="btn" href="$user.userEditUrl" alt="">edit</a>
 												</td>

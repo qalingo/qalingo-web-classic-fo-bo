@@ -9,7 +9,7 @@
 					<div style="float: left; width: 15%;">
 						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
 							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${quickSearch.labelSubmit}</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Search</button>
 						</form>
 						#parse("../../_include/body-short-link-menu.vm")
 					</div>
@@ -35,7 +35,7 @@
 						#end 
 							<input type="hidden" id="id" name="id" value="${engineSettingValueForm.id}" />
 							<input type="text" id="value" name="value" value="${engineSettingValueForm.value}" style="width: 150px; margin-bottom: 0px;" />
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">${engineSettingValueEdit.submitLabel}</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Save</button>
 						</form>
 						</div>
 					</div>

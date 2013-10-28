@@ -1,13 +1,92 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="cache-details">
+				<section id="cache-list">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
-					<div>
-						<br/><br/><br/><br/>
-						TODO : flush caches with JMX ?
-						<br/><br/><br/><br/>
+					
+					<div style="float: left; width: 15%;">
+						<div style="text-align: right; padding-right: 5px;">
+							<form id="cacheQuickSearchForm" name="cacheQuickSearchForm" action="" method="POST">
+								<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+								<button class="btn btn-primary" type="submit" style="margin-top: 3px;">search</button>
+							</form>
+						</div>
+						#parse("../../_include/body-short-link-menu.vm")
 					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<div>
+							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+								#parse("../../_include/body-pagination-pagelistholder.vm")
+								<div>
+									<table class="table" style="width: 100%">
+										<thead>
+											<tr>
+												<th width="100px">Cache Name</th>
+												<th width="200px">Max Elements In Memory</th>
+												<th width="150px">Time To Idle Seconds</th>
+												<th width="150px">Time To Live Seconds</th>
+												<th width="150px">Overflow To Disk</th>
+												<th width="150px"><a class="btn" href="#" alt="">flush all of caches</a>&nbsp;</th>
+											</tr>
+										</thead>
+										<tbody>
+											 
+											<tr>
+												<td>catalog</td>
+												
+												<td>10000</td>
+												<td>300</td>
+												<td>600</td>
+												<td>True</td>
+												<td>
+													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+												</td>
+											</tr>
+											<tr>
+												<td>category</td>
+												
+												<td>10000</td>
+												<td>300</td>
+												<td>600</td>
+												<td>True</td>
+												<td>
+													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+												</td>
+											</tr>
+											<tr>
+												<td>customer</td>
+												
+												<td>10000</td>
+												<td>300</td>
+												<td>600</td>
+												<td>True</td>
+												<td>
+													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+												</td>
+											</tr>
+											<tr>
+												<td>product</td>
+												
+												<td>10000</td>
+												<td>300</td>
+												<td>600</td>
+												<td>True</td>
+												<td>
+													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+												</td>
+											</tr>
+											
+											
+										</tbody>  
+									</table> 
+								</div>
+							</div>
+						</div>					
+					</div> 
+					<div style="clear: both;"></div>
 				</section>
+
+				

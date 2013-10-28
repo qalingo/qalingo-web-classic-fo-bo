@@ -11,8 +11,23 @@
 						<ul>
 							#set( $currentPage = $pagedListHolder.page )
 							#set( $start = 0 )
-							#set( $end = ($pagedListHolder.pageCount - 1) )
-							<li class="disabled"><a href="#">&laquo;</a></li>
+							#set( $end = ($pagedListHolder.pageCount - 1) ) 
+							
+							#if ($currentPageUrl.contains("?")) 
+								#set( $startHrefPage = $currentPageUrl + "&page=1"  )
+								#set( $endHrefPage = $currentPageUrl + "&page=" + $pagedListHolder.pageCount )
+							#else
+								#set( $startHrefPage = $currentPageUrl + "?page=1"  )
+								#set( $endHrefPage = $currentPageUrl + "?page=" + $pagedListHolder.pageCount )
+							#end 
+							
+							<li
+							#if ($end<0) 
+							class="disabled" 
+							#end 
+							>
+							<a href="$startHrefPage">&laquo;</a>
+							</li>
 							#foreach( $index in [${start}..${end}] )
 								#set( $displayPosition = $index + 1 )
 								#if ($currentPageUrl.contains("?")) 
@@ -27,7 +42,13 @@
 								<li><a href="$hrefPage">$displayPosition</a></li>
 								#end
 							#end
-							<li class="disabled"><a href="#">&raquo;</a></li>
+							<li 
+							#if ($end<0) 
+							class="disabled" 
+							#end 							
+							><a href="$endHrefPage">&raquo;</a>
+							
+							</li>
 							#*
 							<li class="active"><a href="#">1</a></li>
 							<li><a href="#">2</a></li>

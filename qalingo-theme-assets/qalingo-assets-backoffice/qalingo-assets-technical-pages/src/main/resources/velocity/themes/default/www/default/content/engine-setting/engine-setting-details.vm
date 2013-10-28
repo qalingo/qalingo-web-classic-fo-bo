@@ -18,6 +18,7 @@
 						<div>
 							Name : ${engineSetting.name}<br/>
 							Description : ${engineSetting.description}<br/><br/>
+							<a class="btn" href="$engineSetting.backUrl" alt="">Back</a>&nbsp;<br/>
 							Values
 							<br/><br/>
 							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
@@ -30,7 +31,7 @@
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="padding: 5px; border-left: 1px solid #000000;">${engineSettingValue.context}</td>
 									<td style="padding: 5px; border-left: 1px solid #000000;">${engineSettingValue.value}</td>
-									<td style="padding: 5px; border-left: 1px solid #000000;"><a href="${engineSettingValue.editUrl}" alt="${engineSettingDetails.editLabel}" class="btn">${engineSettingDetails.editLabel}</a></td>
+									<td style="padding: 5px; border-left: 1px solid #000000;"><a href="${engineSettingValue.editUrl}" alt="edit" class="btn">edit</a></td>
 								</tr>
 							#end
 							</table>
