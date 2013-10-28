@@ -58,28 +58,28 @@
 		<dependencies>
 			<!-- Qalingo libs -->
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-common-shared-configuration</artifactId>
 				<version>${qalingo.engine.version}</version>
 				<classifier>resources</classifier>
 				<type>zip</type>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-backoffice-shared-configuration</artifactId>
 				<version>${qalingo.engine.version}</version>
 				<classifier>resources</classifier>
 				<type>zip</type>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-frontoffice-shared-configuration</artifactId>
 				<version>${qalingo.engine.version}</version>
 				<classifier>resources</classifier>
 				<type>zip</type>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-common</artifactId>
 				<version>${qalingo.engine.version}</version>
 				<exclusions>
@@ -90,52 +90,57 @@
 				</exclusions>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-common-web-bo</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-common-web-fo</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
-				<artifactId>qalingo-api-core-rule-engine</artifactId>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>qalingo-api-core-drools</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-solr</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>qalingo-api-core-jms</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-bo-technical</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-bo-business</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-bo-reporting</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-fo-prehome</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-fo-mcommerce</artifactId>
 				<version>${qalingo.engine.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fr.hoteia.qalingo</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-i18n-properties</artifactId>
 				<version>${qalingo.engine.version}</version>
 				<exclusions>
@@ -200,7 +205,7 @@
 				<version>2.1</version>
 			</dependency>
 
-			<!-- Springs libs -->
+			<!-- Spring libs -->
 			<!-- Core utilities used by other modules. Define this if you use Spring Utility APIs (org.springframework.core.*/org.springframework.util.*) -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -419,6 +424,13 @@
 				<groupId>org.apache.velocity</groupId>
 				<artifactId>velocity-tools</artifactId>
 				<version>2.0</version>
+			</dependency>
+			
+			<!-- Quartz -->
+			<dependency>
+				<groupId>quartz</groupId>
+				<artifactId>quartz</artifactId>
+				<version>1.5.2</version>
 			</dependency>
 			
 			<dependency>

@@ -61,39 +61,43 @@
 	<dependencies>
 		<!-- Qalingo libs-->
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-common-shared-configuration</artifactId>
 			<classifier>resources</classifier>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-backoffice-shared-configuration</artifactId>
 			<classifier>resources</classifier>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-core-common</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
-			<artifactId>qalingo-api-core-common-web-bo</artifactId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qalingo-api-core-drools</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
-			<artifactId>qalingo-api-core-rule-engine</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-core-solr</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qalingo-api-core-jms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qalingo-api-core-common-web-bo</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-web-bo-technical</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-i18n-properties</artifactId>
 		</dependency>
 
@@ -265,33 +269,6 @@
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>
 		</dependency>
-		
-		<!-- DROOLS
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-compiler</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-spring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>knowledge-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>knowledge-internal-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jsr94</groupId>
-			<artifactId>jsr94</artifactId>
-		</dependency>
-		 -->
 		
 		<!-- User agent filter dependencies -->
 		<dependency>

@@ -61,31 +61,35 @@
 	<dependencies>
 		<!-- Qalingo libs-->
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-common-shared-configuration</artifactId>
 			<classifier>resources</classifier>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-frontoffice-shared-configuration</artifactId>
 			<classifier>resources</classifier>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-core-common</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>qalingo-api-core-jms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-core-common-web-fo</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-web-fo-prehome</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.hoteia.qalingo</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-i18n-properties</artifactId>
 		</dependency>
 		
@@ -173,6 +177,20 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
+		<!-- Spring-security framework -->	
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+		</dependency>
+		
 		<!-- AspectJ framework -->	
 		<dependency>
 			<groupId>org.aspectj</groupId>
