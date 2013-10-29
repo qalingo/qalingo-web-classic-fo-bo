@@ -1,0 +1,42 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			
+				<section id="warehouse">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					#*
+					<div>
+						#parse("../../_include/body-pagination-pagelistholder.vm")
+						<div>
+							<table class="table" style="width: 100%">
+								<thead>
+									<tr>
+										<th width="200px">xxxx</th>
+										<th width="300px">xxxx</th>
+										<th width="100px"></th>
+										<th width="100px"></th>
+										<th width="100px"></th>
+										<th width="100px">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									#foreach($shipping in $pagedListHolder.pageList)
+									<tr>
+										<td>${shipping.id}</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><a href="${shipping.detailsUrl}">details</a> | <a href="${shipping.editUrl}">edit</a></td>
+									</tr>
+									#end
+								</tbody>  
+							</table> 
+						</div>
+					</div>
+					*#
+					
+					<div style="clear: both;"></div>
+
+				</section>
