@@ -35,7 +35,7 @@
 								<tr style="border-bottom: 1px solid #000000;">
 									<td style="padding: 5px; border-left: 1px solid #000000;">$!engineSettingValue.context</td>
 									<td style="padding: 5px; border-left: 1px solid #000000;">$!engineSettingValue.value</td>
-									<td style="padding: 5px; border-left: 1px solid #000000;"><a href="$!engineSettingValue.editUrl" alt="edit" class="btn">>$wording.get("bo.common.edit_label")</a></td>
+									<td style="padding: 5px; border-left: 1px solid #000000;"><a href="$!engineSettingValue.editUrl" alt="edit" class="btn">$wording.get("bo.common.edit_label")</a></td>
 								</tr>
 							#end
 							</table>
