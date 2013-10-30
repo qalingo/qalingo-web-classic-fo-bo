@@ -21,15 +21,21 @@
 							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
 								#parse("../../_include/body-pagination-pagelistholder.vm")
 								<div>
+									<div id="dialog" title="Please select one target server">
+										  <select id="choosedServer" name="please select one server name">
+											<option value="Hoteia-Laptop" selected>Hoteia-Laptop</option>
+											<option value="">
+										  </select>
+									</div>
 									<table class="table" style="width: 100%">
 										<thead>
 											<tr>
 												<th width="100px">Cache Name</th>
-												<th width="200px">Max Elements In Memory</th>
-												<th width="150px">Time To Idle Seconds</th>
-												<th width="150px">Time To Live Seconds</th>
-												<th width="150px">Overflow To Disk</th>
-												<th width="150px"><a class="btn" href="#" alt="">flush all of caches</a>&nbsp;</th>
+												<th width="150px">Max Elements In Memory</th>
+												<th width="100px">Time To Idle Seconds</th>
+												<th width="100px">Time To Live Seconds</th>
+												<th width="100px">Overflow To Disk</th>
+												<th width="350px"><a class="btn" href="#" alt="" onclick="flushAll();">flush all of caches</a>&nbsp;</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -42,7 +48,7 @@
 												<td>600</td>
 												<td>True</td>
 												<td>
-													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+													<input type="button"  onclick="flushAllServer('catalog');" value="flush all servers"></input>&nbsp;<input type="button"  onclick="flushSpecificServer('catalog');" value="flush specific server"></input>
 												</td>
 											</tr>
 											<tr>
@@ -53,7 +59,7 @@
 												<td>600</td>
 												<td>True</td>
 												<td>
-													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+													<input type="button"  onclick="flushAllServer('category');" value="flush all servers"></input>&nbsp;<input type="button"  onclick="flushSpecificServer('category');" value="flush specific server"></input>
 												</td>
 											</tr>
 											<tr>
@@ -64,7 +70,7 @@
 												<td>600</td>
 												<td>True</td>
 												<td>
-													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+													<input type="button"  onclick="flushAllServer('customer');" value="flush all servers"></input>&nbsp;<input type="button"  onclick="flushSpecificServer('customer');" value="flush specific server"></input>
 												</td>
 											</tr>
 											<tr>
@@ -75,7 +81,7 @@
 												<td>600</td>
 												<td>True</td>
 												<td>
-													<a class="btn" href="#" alt="">flush</a>&nbsp;<a class="btn" href="#" alt="">remove</a>
+													<input type="button"  onclick="flushAllServer('product');" value="flush all servers"></input>&nbsp;<input type="button"  onclick="flushSpecificServer('product');" value="flush specific server"></input>
 												</td>
 											</tr>
 											
@@ -89,4 +95,60 @@
 					<div style="clear: both;"></div>
 				</section>
 
+	<script>
+		var choosedCacheName = "";
+		function flushSpecificServer(cacheName){
+			choosedCacheName = cacheName;
+			$( "#dialog" ).dialog( "open" );
+	
+		}
+		function flushAll(){ 
+			$.post("../sc/flushCache.html",{flag:'ALL'},function(result,status){
+				if('SUCCESS'==result){
+					alert('The operation was successful!');
+				}else{
 				
+					alert(result);
+				}
+			});
+		}
+		
+		function flushAllServer(){ 
+			$.post("../sc/flushCache.html",{flag:'ALLSERVER',cacheName:choosedCacheName},function(result,status){
+				if('SUCCESS'==result){
+					alert('The operation was successful!');
+				}else{
+				
+					alert(result);
+				}
+			});
+		}
+	$(function() {
+
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			show: {
+				effect: "blind",
+				duration: 1000
+			},
+ 			buttons: {
+				"Confirm refresh the cache?": function() {
+					var serverNameStr = $("#choosedServer").val();
+ 
+					$( this ).dialog( "close" );
+					$.post("../sc/flushCache.html",{flag:'SINGLE',cacheName:choosedCacheName,serverName:serverNameStr},function(result,status){
+						if('SUCCESS'==result){
+							alert('The operation was successful!');
+						}else{
+							alert(result);
+						}
+					},"text");
+				},
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+	});
+	
+	</script>
