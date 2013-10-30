@@ -23,7 +23,7 @@ $( "#tabs" ).tabs();
 </script>
 <div id="tabs">
 						<div style="clear: both; padding-top: 15px;">
-							<a class="btn" href="$userDetails.backUrl" alt="">Back</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">Edit</a>
+							<a class="btn" href="$!urlBack" alt="">Back</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">Edit</a>
 						</div>
 <ul>
 <li><a href="#tabs-1">User</a></li>
@@ -128,7 +128,7 @@ $( "#tabs" ).tabs();
 </div>
 </div>
 						<div style="clear: both; padding-top: 15px;">
-							<a class="btn" href="$userDetails.backUrl" alt="">Back</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">Edit</a>
+							<a class="btn" href="$!urlBack" alt="">Back</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">Edit</a>
 						</div>
 					</div>
 					

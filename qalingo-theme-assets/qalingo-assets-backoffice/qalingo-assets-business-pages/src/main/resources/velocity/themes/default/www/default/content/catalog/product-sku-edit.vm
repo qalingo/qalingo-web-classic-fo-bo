@@ -21,12 +21,12 @@
 						#end
 					</div>
 					<div class="form-horizontal well">
-						<form id="productSkuForm" name="productSkuForm" action="${productSku.formSubmitUrl}" method="POST">
+						<form id="productSkuForm" name="productSkuForm" action="" method="POST">
 						<input type="hidden" id="id" name="id" value="${productSkuForm.id}" />
 						#set($beanName = "productSkuForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$productSku.backUrl'">$wording.get("bo.product_sku.back_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.product_sku.back_label")</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_sku.submit_label")</button>
 						</div>
 						<div style="clear: both;">
@@ -97,7 +97,7 @@
 							
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$productSku.backUrl'">$wording.get("bo.product_sku.cancel_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.product_sku.cancel_label")</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_sku.submit_label")</button>
 						</div>
 						</form>

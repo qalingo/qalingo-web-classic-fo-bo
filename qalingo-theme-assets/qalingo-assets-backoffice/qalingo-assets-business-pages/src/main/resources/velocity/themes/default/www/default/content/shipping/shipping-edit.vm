@@ -22,12 +22,12 @@
 					</div>
 					#parse("../../_include/body-transaction-messages.vm")
 					<div class="form-horizontal well">
-						<form id="shippingForm" name="shippingForm" action="${shipping.formSubmitUrl}" method="POST">
+						<form id="shippingForm" name="shippingForm" action="" method="POST">
 						<input type="hidden" id="id" name="id" value="${shippingForm.id}" />
 						#set($beanName = "shippingForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$shipping.backUrl'">$shipping.cancelLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$shipping.cancelLabel</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$shipping.submitLabel</button>
 						</div>
 						<div style="clear: both;">
@@ -45,7 +45,7 @@
 						</div>
 										
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$shipping.backUrl'">$shipping.cancelLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$shipping.cancelLabel</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$shipping.submitLabel</button>
 						</div>
 						</form>

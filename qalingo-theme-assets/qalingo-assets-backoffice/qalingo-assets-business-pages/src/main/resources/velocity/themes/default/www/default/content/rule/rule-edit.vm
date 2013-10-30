@@ -22,12 +22,12 @@
 					</div>
 					#parse("../../_include/body-transaction-messages.vm")
 					<div class="form-horizontal well">
-						<form id="promotionForm" name="promotionForm" action="${promotion.formSubmitUrl}" method="POST">
+						<form id="promotionForm" name="promotionForm" action="" method="POST">
 						<input type="hidden" id="id" name="id" value="${promotionForm.id}" />
 						#set($beanName = "promotionForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$promotion.backUrl'">$promotion.cancelLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$promotion.cancelLabel</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$promotion.submitLabel</button>
 						</div>
 						<div style="clear: both;">
@@ -45,7 +45,7 @@
 						</div>
 						
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$promotion.backUrl'">$promotion.cancelLabel</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$promotion.cancelLabel</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$promotion.submitLabel</button>
 						</div>
 						</form>

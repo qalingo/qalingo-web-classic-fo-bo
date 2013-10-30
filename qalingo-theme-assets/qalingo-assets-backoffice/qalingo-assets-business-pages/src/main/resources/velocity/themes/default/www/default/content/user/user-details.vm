@@ -8,7 +8,7 @@
 
 					<div style="width: 100%;" class="form-horizontal well">
 						<div style="float: left; width: 50%;">
-							<a class="btn" href="$userDetails.backUrl" alt="">$wording.get("bo.user.back_label")</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$wording.get("bo.user.edit_label")</a>
+							<a class="btn" href="$!urlBack" alt="">$wording.get("bo.user.back_label")</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$wording.get("bo.user.edit_label")</a>
 							<br/><br/>
 							$wording.get("bo.user.login_label") : ${userDetails.login}
 							<br/><br/>
@@ -99,7 +99,7 @@
 							</table>
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<a class="btn" href="$userDetails.backUrl" alt="">$wording.get("bo.user.back_label")</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$wording.get("bo.user.edit_label")</a>
+							<a class="btn" href="$!urlBack" alt="">$wording.get("bo.user.back_label")</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$wording.get("bo.user.edit_label")</a>
 						</div>
 					</div>
 					

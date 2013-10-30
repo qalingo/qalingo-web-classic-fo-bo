@@ -8,7 +8,7 @@
 
 					<div style="width: 100%;" class="form-horizontal well">
 						<div style="float: left; width: 50%;">
-							<a class="btn" href="$userDetails.backUrl" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
+							<a class="btn" href="$!urlBack" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
 							<br/><br/>
 							${userDetails.loginLabel} : ${userDetails.login}
 							<br/><br/>
@@ -99,7 +99,7 @@
 							</table>
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<a class="btn" href="$userDetails.backUrl" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
+							<a class="btn" href="$!urlBack" alt="">$userDetails.backLabel</a>&nbsp;<a class="btn btn-primary" href="$userDetails.userEditUrl" alt="">$userDetails.userEditLabel</a>
 						</div>
 					</div>
 					

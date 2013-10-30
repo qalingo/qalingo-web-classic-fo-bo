@@ -24,9 +24,10 @@
 									<table class="table" style="width: 100%">
 										<thead>
 											<tr>
-												<th width="350px">Name</th>
-												<th width="450px">Description</th>
-												<th width="150px"></th>
+												<th width="250px">Name</th>
+												<th width="250px">Description</th>
+												<th width="250px">Code</th>
+												<th width="100px"></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -34,8 +35,9 @@
 											<tr>
 												<td>${engineSetting.name}</td>
 												<td>${engineSetting.description}</td>
+												<td>${engineSetting.code}</td>
 												<td>
-													<a href="$engineSetting.engineSettingDetailsUrl" alt="" class="btn">details</a>
+													<a href="$engineSetting.detailsUrl" alt="" class="btn">>$wording.get("bo.common.details_label")</a>
 												</td>
 											</tr>
 											#end

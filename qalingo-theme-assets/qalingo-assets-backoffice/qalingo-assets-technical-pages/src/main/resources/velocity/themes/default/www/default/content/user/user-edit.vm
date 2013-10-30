@@ -15,26 +15,12 @@
 					</div>
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
-						<form id="userForm" name="userForm" action="${userEdit.userEditUrl}" method="POST">
+						<form id="userForm" name="userForm" action="" method="POST">
 						<input type="hidden" id="id" name="id" value="${userForm.id}" />
-						#springBind("userForm")
-						#if($status.errors.hasErrors()) 
-						<div id="errors" class="alert alert-error">
-							## Global error messages 
-							#foreach($e in $status.errorMessages) 
-								<p>${e}</p> 
-							#end 
-							## Field error messages 
-							#foreach($fieldError in $status.errors.fieldErrors) 
-								#springBind("userForm.${fieldError.field}") 
-								#foreach($errorMessage in $status.errorMessages) 
-									${errorMessage}<br/>
-								#end 
-							#end 
-						</div>
-						#end
+						#set($beanName = "userForm")
+						#parse("../../_include/body-form-error-message.vm")
 						<div style="float: left; width: 50%;">
-							<input type='button' value='Cancel' class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'"/>
+							<input type='button' value='Cancel' class="btn" onclick="javascript:window.location.href='$!urlBack'"/>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Save</button>
 							<br/><br/>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -87,7 +73,7 @@
 							
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$userEdit.backUrl'">Cancel</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">Cancel</button>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Save</button>
 						</div>
 						</form>

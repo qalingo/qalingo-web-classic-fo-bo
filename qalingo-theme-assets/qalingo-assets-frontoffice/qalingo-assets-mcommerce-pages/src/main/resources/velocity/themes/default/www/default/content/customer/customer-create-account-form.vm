@@ -172,7 +172,7 @@
 							</div>
 						  
 							<div style="width: 600px; clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
-								<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.customer.form_account_label_cancel")</button>
+								<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("fo.customer.form_account_label_cancel")</button>
 								<button class="btn btn-primary" type="submit">$wording.get("fo.customer.form_create_account_label_submit")</button>
 							</div>
 							<div style="padding-top: 15px; height: 70px;">

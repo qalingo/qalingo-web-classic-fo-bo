@@ -7,7 +7,7 @@
 					</div>
 
 					<div style="float: left; width: 15%;">
-						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
+						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="" method="POST">
 							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
 						</form>
@@ -15,10 +15,14 @@
 					</div>
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
-						<div>
-							Name : ${engineSetting.name}<br/>
-							Description : ${engineSetting.description}<br/><br/>
-							<a class="btn" href="$engineSetting.backUrl" alt="">Back</a>&nbsp;<br/>
+						<div style="text-align: right;">
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.back_label")</button>
+						</div>
+						<div style="clear: both; padding-top: 10px;">
+							Name : $!engineSetting.name<br/>
+							Description : $!engineSetting.description<br/>
+							Code : $!engineSetting.code<br/>
+							Default Value : $!engineSetting.defaultValue<br/><br/>
 							Values
 							<br/><br/>
 							<table style="border-top: 1px solid #000000; border-right: 1px solid #000000;">
@@ -29,12 +33,15 @@
 								</tr>
 							#foreach($engineSettingValue in $engineSetting.engineSettingValues)
 								<tr style="border-bottom: 1px solid #000000;">
-									<td style="padding: 5px; border-left: 1px solid #000000;">${engineSettingValue.context}</td>
-									<td style="padding: 5px; border-left: 1px solid #000000;">${engineSettingValue.value}</td>
-									<td style="padding: 5px; border-left: 1px solid #000000;"><a href="${engineSettingValue.editUrl}" alt="edit" class="btn">edit</a></td>
+									<td style="padding: 5px; border-left: 1px solid #000000;">$!engineSettingValue.context</td>
+									<td style="padding: 5px; border-left: 1px solid #000000;">$!engineSettingValue.value</td>
+									<td style="padding: 5px; border-left: 1px solid #000000;"><a href="$!engineSettingValue.editUrl" alt="edit" class="btn">>$wording.get("bo.common.edit_label")</a></td>
 								</tr>
 							#end
 							</table>
+						</div>
+						<div style="clear: both; padding-top: 10px; text-align: right;">
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.back_label")</button>
 						</div>
 					</div>
 					

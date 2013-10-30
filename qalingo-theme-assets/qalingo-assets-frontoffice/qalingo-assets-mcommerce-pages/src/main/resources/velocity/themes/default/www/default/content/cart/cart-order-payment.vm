@@ -6,22 +6,8 @@
 						<div id="cart-payment-content">
 							<div style="width: 48%; float:left; padding: 5px; border: 1px solid #E5E5E5;">
 								<form id="paymentForm" name="paymentForm" action="cart-order-payment.html" method="POST">
-								#springBind("paymentForm")
-								#if($status.errors.hasErrors()) 
-								<div id="errors" class="alert alert-error">
-									## Global error messages 
-									#foreach($e in $status.errorMessages) 
-										<p>${e}</p> 
-									#end 
-									## Field error messages 
-									#foreach($fieldError in $status.errors.fieldErrors) 
-										#springBind("paymentForm.${fieldError.field}") 
-										#foreach($errorMessage in $status.errorMessages) 
-											${errorMessage}<br/>
-										#end 
-									#end 
-								</div>
-								#end 
+								#set($beanName = "paymentForm")
+                                #parse("../../_include/body-form-error-message.vm")
 								<div>
 									<div style="width: 450px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
 										<div style="padding-top: 5px; padding-bottom: 5px;">
