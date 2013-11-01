@@ -285,11 +285,6 @@
 			<artifactId>tomcat-servlet-api</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>opensymphony</groupId>
-			<artifactId>clickstream</artifactId>
-		</dependency>
-		
 	</dependencies>
 
 </project>

@@ -70,6 +70,7 @@
 											<th>Code</th>
 											<th>Created date</th>
 											<th>Updated date</th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -80,6 +81,9 @@
 											<td>$paymentGateway.code</td>
 											<td>$paymentGateway.dateCreate</td>
 											<td>$paymentGateway.dateUpdate</td>
+											<td>
+												<a href="$paymentGateway.detailsUrl" alt="" class="btn">$wording.get("bo.common.details_label")</a>
+											</td>
 										</tr>
 										#end
 									</tbody>

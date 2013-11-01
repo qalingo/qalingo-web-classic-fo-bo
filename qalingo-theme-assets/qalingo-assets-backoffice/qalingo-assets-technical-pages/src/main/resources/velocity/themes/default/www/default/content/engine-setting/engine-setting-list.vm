@@ -6,19 +6,19 @@
 						<h1>${mainContentTitle}</h1>
 					</div>
 					
-					<div style="float: left; width: 15%;">
-						<div style="text-align: right; padding-right: 5px;">
+					<div style="float: left; width: 20%;">
+						<div style="text-align: right;">
 							<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
 								<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-								<button class="btn btn-primary" type="submit" style="margin-top: 3px;">search</button>
+								<button class="btn btn-primary" type="submit" style="margin-top: 3px;"><i class="icon-search"></i></button>
 							</form>
 						</div>
 						#parse("../../_include/body-short-link-menu.vm")
 					</div>
 
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					<div style="float: right; width: 75%;" class="form-horizontal well">
 						<div>
-							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+							<div style="border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
 								#parse("../../_include/body-pagination-pagelistholder.vm")
 								<div>
 									<table class="table" style="width: 100%">

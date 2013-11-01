@@ -6,15 +6,17 @@
 						<h1>${mainContentTitle}</h1>
 					</div>
 
-					<div style="float: left; width: 15%;">
-						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="" method="POST">
-							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">search</button>
-						</form>
+					<div style="float: left; width: 20%;">
+						<div style="text-align: right;">
+							<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
+								<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+								<button class="btn btn-primary" type="submit" style="margin-top: 3px;"><i class="icon-search"></i></button>
+							</form>
+						</div>
 						#parse("../../_include/body-short-link-menu.vm")
 					</div>
 
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					<div style="float: right; width: 75%;" class="form-horizontal well">
 						<div style="text-align: right;">
 							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.back_label")</button>
 						</div>
