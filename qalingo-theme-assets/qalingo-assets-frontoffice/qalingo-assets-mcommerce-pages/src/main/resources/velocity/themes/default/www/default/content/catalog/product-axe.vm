@@ -1,12 +1,10 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-
-		<link href="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
-		<script src="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.alpha.js" type="text/javascript"></script>
+<link href="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
-	$(document).ready(function(){
+	function startupPage(){
 		var data = [
 		#foreach($subProductCategory in $productCategory.subCategories)
 		{
@@ -34,11 +32,10 @@
             control_set_2: "content_buttons",
             change_on_hover: "content_buttons"
         });
-	});
+	}
 
 </script>
 <style>
-
 #multiple_slides_visible .previous_next_button {
 width: 16px;
 height: 16px;
@@ -126,7 +123,7 @@ box-shadow: 0px 0px 2px #dfdfdf; /* Opera 10.5, IE9, Chrome 10+ */
 
 </style>
 
-					<div id="content-axe">
-						<div class="slideshow" id="content-axe-2"></div>
-					</div>
-					<div style="clear: both;"></div>
+<div id="content-axe">
+	<div class="slideshow" id="content-axe-2"></div>
+</div>
+<div style="clear: both;"></div>
