@@ -10,6 +10,7 @@
 	}
 	window.onload = function(){
 		$script(['library/jquery-ui/js/jquery-ui-1.9.1.custom.min', 'library/bootstrap/bootstrap', 
+				 'library/nivo-slider/jquery.nivo.slider', 'library/slides.jquery', 
 				 'library/axe-carousel/axe-carousel.alpha'], function(){
 			$script(['global'], function(){
 				if(window.console){
