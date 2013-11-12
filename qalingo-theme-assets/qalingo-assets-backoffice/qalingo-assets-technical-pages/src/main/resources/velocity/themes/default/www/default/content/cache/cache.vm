@@ -23,7 +23,11 @@
 								<div>
 									<div id="dialog" title="Please select one target server">
 										  <select id="choosedServer" name="please select one server name">
-											<option value="Hoteia-Laptop" selected>Hoteia-Laptop</option>
+											
+											#foreach($sever in $severList) 
+											<option value="$sever.serverName" selected>$sever.serverName</option>
+
+											#end
 											<option value="">
 										  </select>
 									</div>

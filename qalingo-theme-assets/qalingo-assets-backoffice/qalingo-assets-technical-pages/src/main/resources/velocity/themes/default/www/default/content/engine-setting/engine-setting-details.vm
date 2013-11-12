@@ -16,7 +16,8 @@
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
 						<div style="text-align: right;">
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.back_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='${pageContextPath}/sc/engine-setting-value-add.html?engine-setting-id=${engineSettingId}'">$wording.get("bo.common.add_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$!addUrl'">$wording.get("bo.common.back_label")</button>
 						</div>
 						<div style="clear: both; padding-top: 10px;">
 							Name : $!engineSetting.name<br/>

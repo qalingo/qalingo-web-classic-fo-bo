@@ -8,19 +8,21 @@
 					</div>
 					<div id="tabs-reference-data">
 						<ul>
-							<li><a class="article_link" href="#tabs-reference-data-currency-list">Currencies</a></li>
-							<li><a class="article_link" href="#tabs-reference-data-language-list">Languages</a></li>
-							<li><a class="article_link" href="#tabs-reference-data-payment-gateway-list">Payment gateways</a></li>
+							<li><a class="article_link" href="#tabs-reference-data-currency-list">$wording.get("bo.referenceData.currencies_label")</a></li>
+							<li><a class="article_link" href="#tabs-reference-data-language-list">$wording.get("bo.referenceData.languages_label")</a></li>
+							<li><a class="article_link" href="#tabs-reference-data-payment-gateway-list">$wording.get("bo.referenceData.payment_gateways_label")</a></li>
 						</ul>
 						<div id="tabs-reference-data-currency-list">
 							<div class="widget-content">
 								<table class="table table-striped table-bordered">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Code</th>
-											<th>Sign</th>
-											<th>Abbreviated</th>
+											<th>$wording.get("bo.referenceData.currency_name_label")</th>
+											<th>$wording.get("bo.referenceData.currency_code_label")</th>
+											<th>$wording.get("bo.referenceData.currency_sign_label")</th>
+											<th>$wording.get("bo.referenceData.currency_abbreviated_label")</th>
+											<th>$wording.get("bo.common.created_date_label")</th>
+											<th>$wording.get("bo.common.updated_date_label")</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -30,6 +32,8 @@
 											<td>$currencyReferential.code</td>
 											<td>$currencyReferential.sign</td>
 											<td>$currencyReferential.abbreviated</td>
+											<td>$currencyReferential.dateCreate</td>
+											<td>$currencyReferential.dateUpdate</td>
 										</tr>
 										#end
 									</tbody>
@@ -41,10 +45,12 @@
 								<table class="table table-striped table-bordered">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Locale code</th>
-											<th>Country code</th>
-											<th>Language code</th>
+											<th>$wording.get("bo.referenceData.language_name_label")</th>
+											<th>$wording.get("bo.referenceData.language_locale_code_label")</th>
+											<th>$wording.get("bo.referenceData.language_country_code_label")</th>
+											<th>$wording.get("bo.referenceData.language_language_code_label")</th>
+											<th>$wording.get("bo.common.created_date_label")</th>
+											<th>$wording.get("bo.common.updated_date_label")</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -54,6 +60,8 @@
 											<td>$localization.code</td>
 											<td>$localization.country</td>
 											<td>$localization.language</td>
+											<td>$localization.dateCreate</td>
+											<td>$localization.dateUpdate</td>
 										</tr>
 										#end
 									</tbody>
@@ -65,11 +73,11 @@
 								<table class="table table-striped table-bordered">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Code</th>
-											<th>Created date</th>
-											<th>Updated date</th>
+											<th>$wording.get("bo.referenceData.payment_gateway_name_label")</th>
+											<th>$wording.get("bo.referenceData.payment_gateway_description_label")</th>
+											<th>$wording.get("bo.referenceData.payment_gateway_code_label")</th>
+											<th>$wording.get("bo.common.created_date_label")</th>
+											<th>$wording.get("bo.common.updated_date_label")</th>
 										</tr>
 									</thead>
 									<tbody>
