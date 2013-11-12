@@ -9,36 +9,6 @@
 
 <script type="text/javascript">
 	function startupPage(){
-		/*
-		var data = [
-		#foreach($subProductCategory in $productCategory.subCategories)
-		{
-			  "content": "<div class='slide_inner'><img class='photo' src='${subProductCategory.backgroundImage}' alt='${subProductCategory.name}' /></div>",
-			  "content_button": "<div class='thumb'><a href='${subProductCategory.productLineUrl}' alt='${productMarketing.name}'><img src='${subProductCategory.carouselImage}' alt='${subProductCategory.name}' width='80px' height='40px' /></a></div><p><a href='${subProductCategory.productLineUrl}' alt='${productMarketing.name}'>${subProductCategory.name}</a></p>"
-		}
-			#if($velocityCount != $navItems.size()) 
-			,
-			#end
-		#end
-		];
-
-		 $("#content-axe-2").axeCarousel({
-            carousel_data: data,
-            carousel_outer_height: 500,
-            carousel_height: 400,
-            slide_height: 400,
-            carousel_outer_width: 1170,
-            slide_width: 1170,
-            transition_type: "fade",
-            transition_time: 600,
-            timer: 3000,
-            continuous_scrolling: true,
-            control_set_1: "numbered_buttons,previous_button,pause_button,next_button",
-            control_set_2: "content_buttons",
-            change_on_hover: "content_buttons"
-        });
-		*/
-		
 		$('#featured-products').slides({
 			preload: true,
 			generateNextPrev: true,
@@ -59,93 +29,6 @@
 	}
 
 </script>
-<style>
-#multiple_slides_visible .previous_next_button {
-width: 16px;
-height: 16px;
-overflow: hidden;
-text-indent: 1000px;
-background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_normal.png);
-background-color: #ccc;
-border: 1px solid #cfcece;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-border-radius: 5px;
-background-color: #fff;
--moz-box-shadow: 0px 0px 2px #dfdfdf; /* FF3.5+ */
--webkit-box-shadow: 0px 0px 0px #dfdfdf; /* Saf3.0+, Chrome */
-box-shadow: 0px 0px 2px #dfdfdf; /* Opera 10.5, IE9, Chrome 10+ */
-}
-
-#multiple_slides_visible .previous_button:hover {
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_hover.png);
-}
-#multiple_slides_visible .next_button:hover {
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_hover.png);
-}
-#multiple_slides_visible .control_set_1 .ac_disabled {
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_disabled.png);
-}
-
-#multiple_slides_visible .group_numbered_button {
-	color: #000;
-	padding: 0 2px;
-	font-size: 12px;
-	margin-right: 2px;
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_normal.png);
-	background-position: -95px 0;
-	width: 10px;
-	height: 10px;
-	overflow: hidden;
-	text-indent: 1000px;
-	background-color: transparent;
-}
-#multiple_slides_visible .group_numbered_button:hover, #multiple_slides_visible .group_numbered_buttons_container .ac_selected {
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_hover.png);
-}
-
-.hover_previous_next_button .hover_previous_next_button_inner {
-	position: absolute;
-	top: 60px;
-	background-color: #d9d9d9;
-	opacity: 0.5;
-	width: 54px;
-	height: 35px;
-	display: block;
-	overflow: hidden;
-	text-indent: 1000px;
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_normal.png);
-	background-repeat: no-repeat;
-}
-
-#content-axe-2 .previous_next_button,.pause_button {
-	width: 10px;
-	height: 18px;
-	overflow: hidden;
-	text-indent: 1000px;
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_normal.png);
-}
-
-#content-axe-2 .content_buttons_container .ac_selected {
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_normal.png);
-	background-position: -124px 0;
-}
-
-#content-axe-3 .content_buttons_container .ac_selected {
-	background-image: url(${common.themeResourcePrefixPath}/js/library/axe-carousel/images/sprite_ac_normal.png);
-	background-position: -244px 0;
-}
-
-#content-axe-2 .ac_selected .content_button_inner {
-    background-color: #DFDDDD;
-    border-bottom: 1px solid #ACABAB;
-    border-left: 1px solid #ACABAB;
-    border-right: 1px solid #ACABAB;
-    height: 99px;
-    width: 94px;
-}
-
-</style>
 
 <!-- nivo slider - top banner -->
 				
@@ -176,11 +59,6 @@ box-shadow: 0px 0px 2px #dfdfdf; /* Opera 10.5, IE9, Chrome 10+ */
 </div>
 <!-- //nivo slider - top banner -->
 
-<!--
-<div id="content-axe">
-	<div class="slideshow" id="content-axe-2"></div>
-</div>
--->
 <div style="clear: both;"></div>
 
 <!-- slide featured products  -->
@@ -292,201 +170,34 @@ box-shadow: 0px 0px 2px #dfdfdf; /* Opera 10.5, IE9, Chrome 10+ */
 <div class="clear border-btm"></div>
 
 <!-- Products -->
-<div class="product-section">
-	<span class="section-title category-title">Cafe</span>
-	<div class="clear border-btm"></div>
-	<ul class="row  products-grid">
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-	</ul>
-
-</div>
-
-
-<div class="product-section">
-	<span class="section-title category-title">Thé</span>
-	<div class="clear border-btm"></div>
-	<ul class="row  products-grid">
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-	</ul>
-
-</div>
-
+#foreach($subProductCategory in $productCategory.subCategories)
+	#if($subProductCategory.productMarketings.size() > 0)
+	<div class="product-section">
+    	<span class="section-title category-title">${subProductCategory.name}</span>
+    	<div class="clear border-btm"></div>
+    	<ul class="row  products-grid">
+			#foreach($productMarketing in $subProductCategory.productMarketings)
+				<li class="item span3">
+        			<a href="${productMarketing.productDetailsUrl}" class="product-image">
+        				<span>
+							<!--
+							<img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1">
+							-->							
+							<img src="${productMarketing.carouselImage}" alt="${productMarketing.name}"/>
+						</span>
+        			</a>
+        			<a href="#" class="product-name">${productMarketing.name}</a>
+        			<span class="rating-stars star-4">&nbsp;</span>
+        			<p class="product-price">$30.00</p>
+        			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
+        				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+        			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+        		</li>
+			#end
+    	</ul>
+	</div>
+	#end
+#end
 <div class="clear border-btm"></div>
 <!-- End Products -->
 
