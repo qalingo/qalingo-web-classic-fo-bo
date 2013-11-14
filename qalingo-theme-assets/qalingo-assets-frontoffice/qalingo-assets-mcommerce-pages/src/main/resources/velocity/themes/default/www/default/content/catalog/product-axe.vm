@@ -34,28 +34,22 @@
 				
 <div class="slider-wrapper theme-default axe-top-slider">
     <div id="slider" class="nivoSlider">
-		<img src="${common.themeResourcePrefixPath}/img/home/slider-1.jpg" alt="Slider 1" title="#htmlcaption"/>
-		<img src="${common.themeResourcePrefixPath}/img/home/1024x768-1.jpg" title="#htmlcaption2"/>
-		<img src="${common.themeResourcePrefixPath}/img/home/1024x768-1.jpg" title="#htmlcaption3"/>
+		#set( $subProductCategoryCounter = 1 )
+		#foreach($subProductCategory in $productCategory.subCategories)
+			<img src="${subProductCategory.backgroundImage}" alt="${subProductCategory.name}" title="#htmlcaption${subProductCategoryCounter}"/>
+			#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
+		#end		
     </div>
-    <div id="htmlcaption" class="nivo-html-caption">
-        <span class="banner-title">El Paso’s cafes</span> 
+	#set( $subProductCategoryCounter = 1 )
+	#foreach($subProductCategory in $productCategory.subCategories)
+	<div id="htmlcaption${subProductCategoryCounter}" class="nivo-html-caption">
+        <span class="banner-title">${subProductCategory.name}</span> 
 		<span class="rating-stars star-5">&nbsp;</span>
-		<p class="banner-des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam [...]</p>
-		<a href="#" class="banner-readmore">Readmore ›</a>
+		<p class="banner-des">${subProductCategory.description} [...]</p>
+		<a href="#" class="banner-readmore">Readmore</a>
     </div>
-    <div id="htmlcaption2" class="nivo-html-caption">
-        <span class="banner-title">El Paso’s cafes 2</span> 
-		<span class="rating-stars star-2">&nbsp;</span>
-		<p class="banner-des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam [...]</p>
-		<a href="#" class="banner-readmore">Readmore ›</a>
-    </div>
-    <div id="htmlcaption3" class="nivo-html-caption">
-        <span class="banner-title">El Paso’s cafes 3</span> 
-		<span class="rating-stars star-4">&nbsp;</span>
-		<p class="banner-des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam [...]</p>
-		<a href="#" class="banner-readmore">Readmore ›</a>
-    </div>
+	#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
+	#end    
 </div>
 <!-- //nivo slider - top banner -->
 
@@ -66,103 +60,31 @@
 	<span class="section-title featured-title category-title">Featured Products</span>
 	<div class="clear border-btm"></div>
 	<div class="slides_container row  products-grid">
-
-		<div class="slide">
+		#set( $count = 0 )
+		#set( $items = 0 )
+		#set( $size = $productCategory.featuredProductMarketings.size() - 1)
+		#foreach($featuredProduct in $productCategory.featuredProductMarketings)
+			#if($count % 4 == 0)
+			<div class="slide">
+			#end
+			#set( $items = $items + 1 )
 			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
+				<a href="${featuredProduct.productDetailsUrl}" class="product-image">
+					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
+				<a href="${featuredProduct.productDetailsUrl}" class="product-name">${featuredProduct.name}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
+				<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
 				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</div>
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+			#if($items % 4 == 0 || $size == $count)
+			#set( $items = 0 )
 			</div>
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-			</div>
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-			</div>
-		</div>
-		
-		
-		<div class="slide">
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-			</div>
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-			</div>
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-			</div>
-			<div class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1"></span>
-				</a>
-				<a href="#" class="product-name">Keurig Café Escapes</a>
-				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="#" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-			</div>
-		</div>
-
-
+			#end
+			#set( $count = $count + 1 )
+		#end
 	</div>
 	<!-- //slide featured products -->
 </div>
@@ -186,7 +108,7 @@
 							<img src="${productMarketing.carouselImage}" alt="${productMarketing.name}"/>
 						</span>
         			</a>
-        			<a href="#" class="product-name">${productMarketing.name}</a>
+        			<a href="${productMarketing.productDetailsUrl}" class="product-name">${productMarketing.name} #if($productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-4">&nbsp;</span>
         			<p class="product-price">$30.00</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
