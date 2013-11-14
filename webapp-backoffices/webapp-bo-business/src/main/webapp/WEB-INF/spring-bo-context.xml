@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+    under the Apache License Version 2.0 (release version 0.7.0)
+            http://www.apache.org/licenses/LICENSE-2.0
+
+                      Copyright (c) Hoteia, 2012-2013
+    http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"	
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:jms="http://www.springframework.org/schema/jms"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						   http://www.springframework.org/schema/beans/spring-beans.xsd
+						   http://www.springframework.org/schema/tx 
+						   http://www.springframework.org/schema/tx/spring-tx.xsd
+					   	   http://www.springframework.org/schema/context 
+						   http://www.springframework.org/schema/context/spring-context.xsd
+						   http://www.springframework.org/schema/aop 
+						   http://www.springframework.org/schema/aop/spring-aop.xsd
+						   http://www.springframework.org/schema/jms 
+						   http://www.springframework.org/schema/jms/spring-jms-2.5.xsd">
+
+	<context:component-scan base-package="org.hoteia.qalingo.web.handler.security" />
+    <context:component-scan base-package="org.hoteia.qalingo.core.dozer" />
+		
+	<import resource="classpath:resources-config.xml" />
+	<import resource="classpath:messages-config.xml" />
+	
+	<import resource="wurfl-default-ctx.xml" />
+
+	<!-- Configures core context -->
+	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-jax-rs.xml" />
+	
+	<!-- Configures view context -->
+	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
+
+	<!-- JMS : CONFIG -->
+	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-jms-template.xml" />
+	<!-- QUARTZ/JMS : SYNC SERVER STATUS -->
+	<import resource="classpath:conf/spring/qalingo-core-jms-quartz-sync-server-status.xml" />
+
+	<!-- SCHEDULING PART -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+                <ref bean="syncServeurStatusCronTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- JMS : LISTEN ALL ACTION FOR CACHE SERVEUR MANAGER -->
+	<context:component-scan base-package="org.hoteia.qalingo.core.jms.cacheserveurmanagement.listener" />
+	<jms:listener-container 
+		container-type="default"
+		concurrency="1-5" 
+		connection-factory="connectionFactory" 
+		acknowledge="transacted">
+		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheServeurManagementQueueListener"></jms:listener>
+	</jms:listener-container>
+	
+	<!-- Dozer Backoffice specific part - override common factory -->
+    <bean id="org.dozer.Mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles" value="classpath:conf/dozer/dozer-mapping-*.xml" />
+        <property name="factories">
+            <map>
+                <entry key="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">
+                    <ref bean="catalogCategoryCustomBeanFactory" />
+                </entry>
+                <entry key="org.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory">
+                    <ref bean="productMarketingCustomBeanFactory" />
+                </entry>
+                <entry key="org.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory">
+                    <ref bean="productSkuCustomBeanFactory" />
+                </entry>
+            </map>
+        </property>
+        <property name="eventListeners">
+            <list>
+                <ref bean="backofficePojoEventListener" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="catalogCategoryCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory" />
+
+    <bean id="productMarketingCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory" />
+
+    <bean id="productSkuCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory" />
+
+    <!-- Override -->
+	<import resource="classpath:conf/spring/ext-core-business.xml" />
+	
+</beans>

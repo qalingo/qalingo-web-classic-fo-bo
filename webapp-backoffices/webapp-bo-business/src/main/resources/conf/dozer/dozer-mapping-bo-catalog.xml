@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>org.hoteia.qalingo.core.domain.CatalogCategoryMaster</class-a>
+		<class-b bean-factory="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">org.hoteia.qalingo.core.pojo.catalog.CatalogCategoryPojo</class-b>
+	</mapping>
+	
+    <mapping>
+        <class-a>org.hoteia.qalingo.core.domain.ProductMarketing</class-a>
+        <class-b bean-factory="org.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory">org.hoteia.qalingo.core.pojo.product.ProductMarketingPojo</class-b>
+    </mapping>
+    
+    <mapping>
+        <class-a>org.hoteia.qalingo.core.domain.ProductSku</class-a>
+        <class-b bean-factory="org.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory">org.hoteia.qalingo.core.pojo.product.ProductSkuPojo</class-b>
+    </mapping>
+
+</mappings>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+    under the Apache License Version 2.0 (release version 0.7.0)
+            http://www.apache.org/licenses/LICENSE-2.0
+
+                      Copyright (c) Hoteia, 2012-2013
+    http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"	
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:jms="http://www.springframework.org/schema/jms"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						   http://www.springframework.org/schema/beans/spring-beans.xsd
+						   http://www.springframework.org/schema/tx 
+						   http://www.springframework.org/schema/tx/spring-tx.xsd
+					   	   http://www.springframework.org/schema/context 
+						   http://www.springframework.org/schema/context/spring-context.xsd
+						   http://www.springframework.org/schema/aop 
+						   http://www.springframework.org/schema/aop/spring-aop.xsd
+						   http://www.springframework.org/schema/jms 
+						   http://www.springframework.org/schema/jms/spring-jms-2.5.xsd">
+
+	<context:component-scan base-package="org.hoteia.qalingo.web.handler.security" />
+
+	<!-- Turn on @Autowired, @PostConstruct etc support 
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+	-->
+	
+	<import resource="classpath:resources-config.xml" />
+	<import resource="classpath:messages-config.xml" />
+
+	<import resource="wurfl-default-ctx.xml" />
+	
+	<!-- Configures core context -->
+	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-fo-cache.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
+	
+	<!-- JMS : CONFIG -->
+	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-jms-template.xml" />
+	<!-- QUARTZ/JMS : SYNC SERVER STATUS -->
+	<import resource="classpath:conf/spring/qalingo-core-jms-quartz-sync-server-status.xml" />
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="syncServeurStatusCronTrigger" />
+            </list>
+        </property>
+    </bean>
+
+	<!-- JMS : LISTEN ALL ACTION FOR CACHE SERVEUR MANAGER -->
+	<context:component-scan base-package="org.hoteia.qalingo.core.jms.cacheserveurmanagement.listener" />
+	<jms:listener-container 
+		container-type="default"
+		concurrency="1-5" 
+		connection-factory="connectionFactory" 
+		acknowledge="transacted">
+		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheServeurManagementQueueListener"></jms:listener>
+	</jms:listener-container>
+	
+    <!-- AOP -->
+	<context:component-scan base-package="org.hoteia.qalingo.core.jms.notification.producer" />
+	<context:component-scan base-package="org.hoteia.qalingo.core.aop" />
+	<aop:config>
+        <aop:aspect id="triggerEmailNotification" ref="emailNotificationAspect">
+            <aop:pointcut id="emailNotificationBusinessService"
+                expression="execution(* org.hoteia.qalingo.core.service.EmailService.buildAndSave*(..))" />
+            <aop:before method="beforeRuning" pointcut-ref="emailNotificationBusinessService" />
+            <aop:after-returning method="afterRuning" pointcut-ref="emailNotificationBusinessService" returning="result" />
+        </aop:aspect>
+    </aop:config>
+
+	<!-- Override -->
+	<import resource="classpath:conf/spring/ext-core-mcommerce.xml" />
+	
+</beans>
