@@ -12,28 +12,40 @@
 						</ul>
 						<div id="tabs-monitoring-server">
 							<div class="widget-content">
-								<table class="table table-striped table-bordered">
-									<thead>
-										<tr>
-											<th>Server Name</th>
-											<th>Date Time</th>
-											<th>Status</th> 
-										</tr>
-									</thead>
-									<tbody>
-										
-										<tr>
-											<td>server 1</td>
-											<td>2013/10/25 8:31 AM</td>
-											<td style="color: green; text-align: right;">is UP<i class="icon-ok"></i></td>
-										</tr>
-										<tr>
-											<td>server 2</td>
-											<td>2013/10/25 8:31 AM</td>
-											<td style="color: red; text-align: right;">is DOWN<i class="icon-bolt"></i></td> 
-										</tr>
-									</tbody>
-								</table>
+							
+<div id="accordion">
+	#foreach($sever in $severList)
+	<h3 style="color: red; text-align: left;">Server Name : $sever.serverName</h3>
+	<div style="height:400px;" >
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>LAST CHECK RECEIVED</th>
+							<th>SERVER IP</th>
+							<th>SERVER NAME</th> 
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($severStatus in $severStatusList)
+							#if("$!severStatus.serverName" == "$!sever.serverName" )
+							<tr>
+								<td>$severStatus.id</td>
+								<td>$severStatus.lastCheckReceived</td>
+								<td>$severStatus.serverIp</td>
+								<td>$severStatus.serverName</td>
+							</tr>
+							#end
+						#end
+					</tbody>
+				</table>
+	</div>
+
+	#end
+ 
+</div>
+
+
 							</div> <!-- /widget-content -->
 						</div>
 						<div id="tabs-monitoring-data_flows">
@@ -73,5 +85,26 @@
 						<script>
 						$(function() {
 						$( "#tabs-monitoring" ).tabs();
+						
 						});
 						</script>
+
+<script>
+	$(function() {
+		var icons = {
+			header: "ui-icon-circle-plus",
+			activeHeader: "ui-icon-circle-minus"
+		};
+		$( "#accordion" ).accordion({
+			icons: icons
+		});
+		$( "#toggle" ).button().click(function() {
+			if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
+				$( "#accordion" ).accordion( "option", "icons", null );
+			} else {
+				$( "#accordion" ).accordion( "option", "icons", icons );
+			}
+		});
+	});
+	</script>
+	
