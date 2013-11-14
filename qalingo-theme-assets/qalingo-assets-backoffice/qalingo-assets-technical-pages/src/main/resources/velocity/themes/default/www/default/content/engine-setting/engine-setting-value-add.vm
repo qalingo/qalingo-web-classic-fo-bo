@@ -1,0 +1,60 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="engine-setting-edit">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+
+					<div style="float: left; width: 15%;">
+						<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
+							<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">Search</button>
+						</form>
+						#parse("../../_include/body-short-link-menu.vm")
+					</div>
+
+					<div style="float: left; width: 80%;" class="form-horizontal well">
+						<div>
+						<form id="engineSettingValueForm" name="engineSettingValueForm" action="${pageContextPath}/sc/engine-setting-value-add.html" method="POST">
+							<input type="hidden" id="engine-setting-id" name="engine-setting-id" value="${engineSetting.id}" />
+
+	
+							<div>
+								<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.cancel_label")</button>
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+							</div>
+							<div style="clear: both; padding-top: 15px;">
+								Name : $!engineSetting.name<br/>
+								Description : $!engineSetting.description<br/>
+								Code : $!engineSetting.code<br/>
+								Default Value : $!engineSetting.defaultValue<br/><br/>
+								
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="context" class="label-form">$wording.get("bo.engine_setting.engine_setting_value_form_context_label")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="context" name="context" value="" style="width: 200px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="value" class="label-form">$wording.get("bo.engine_setting.engine_setting_value_form_value_label")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="value" name="value" value="" style="width: 200px;" />
+									</div>
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 15px;">
+								<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.cancel_label")</button>
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+							</div>
+						</form>
+						</div>
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>
