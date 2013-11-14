@@ -23,7 +23,7 @@
 			<div style="width: 415px; float:left;">
 				<div>
 					<div style="float: left; width: 150px;">
-						<label for="billingAddressId" class="label-form">$cart.billingAddressLabel</label>
+						<label for="billingAddressId" class="label-form">billingAddressLabel</label>
 					</div>
 					<div style="float: left;">
 						<select id="billingAddressId" name="billingAddressId" style="width: 205px; height: 25px;" >
@@ -42,7 +42,7 @@
 			<div style="width: 415px; float:left;">
 				<div>
 					<div style="float: left; width: 150px;">
-						<label for="shippingAddressId" class="label-form">$cart.shippingAddressLabel</label>
+						<label for="shippingAddressId" class="label-form">shippingAddressLabel</label>
 					</div>
 					<div style="float: left;">
 						<select id="shippingAddressId" name="shippingAddressId" style="width: 205px; height: 25px;" >
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div style="width: 150px; float:left;">
-				<span style="padding-right: 15px;"><a class="btn" href="$cart.addNewAddressUrl">$cart.addNewAddressLabel</a></span>
+				<span style="padding-right: 15px;"><a class="btn" href="$cart.addNewAddressUrl">addNewAddressLabel</a></span>
 			</div>
 			<div style="clear: both;"></div>
 		</div>
@@ -67,10 +67,10 @@
 			shipping options
 		</div>
 		<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; border: 1px solid #E5E5E5;">
-			#parse("../_include/cart-details.vm")
+			#parse("_include/cart-details.vm")
 		</div>
 		<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; border: 1px solid #E5E5E5; text-align: right;">
-			<span style="padding-right: 55px;"><button class="btn btn-primary" type="submit">$cart.step2SubmitLabel</button></span>
+			<span style="padding-right: 55px;"><button class="btn btn-primary" type="submit">step2SubmitLabel</button></span>
 		</div>
 		</form>
 	</div>

@@ -1,0 +1,4 @@
+<script src="${common.themeResourcePrefixPath}/plugins/plugin.form-focus.js" type="text/javascript"></script>
+<script type="text/javascript">
+        plugins.FormFocus.init();
+</script>
