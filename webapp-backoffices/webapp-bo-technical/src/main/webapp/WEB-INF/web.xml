@@ -95,7 +95,7 @@
 	
 	<filter>
         <filter-name>UrlParamsFilter</filter-name>
-        <filter-class>org.hoteia.qalingo.web.filter.UrlParamsFilter</filter-class>
+        <filter-class>org.hoteia.qalingo.core.web.filter.UrlParamsFilter</filter-class>
     </filter>
     <filter-mapping>
 		<filter-name>UrlParamsFilter</filter-name>

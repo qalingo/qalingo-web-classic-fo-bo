@@ -26,7 +26,7 @@
 						   http://www.springframework.org/schema/jms 
 						   http://www.springframework.org/schema/jms/spring-jms-2.5.xsd">
 
-	<context:component-scan base-package="org.hoteia.qalingo.web.handler.security" />
+	<context:component-scan base-package="org.hoteia.qalingo.core.web.handler.security" />
     <context:component-scan base-package="org.hoteia.qalingo.core.dozer" />
 		
 	<import resource="classpath:resources-config.xml" />

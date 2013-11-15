@@ -21,9 +21,10 @@
 						http://www.springframework.org/schema/mvc 
 						http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<!-- Scans the classpath of this application for @Components to deploy as beans -->
-	<context:component-scan base-package="org.hoteia.qalingo.web.mvc" />
-	<context:component-scan base-package="org.hoteia.qalingo.web.service" />
+    <context:component-scan base-package="org.hoteia.qalingo.core.web.mvc" />
+    <context:component-scan base-package="org.hoteia.qalingo.web.mvc" />
+    <context:component-scan base-package="org.hoteia.qalingo.core.web.service" />
+    <context:component-scan base-package="org.hoteia.qalingo.web.service" />
 
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -50,6 +51,8 @@
 	<import resource="classpath:conf/spring/qalingo-core-fo-view.xml" />
 
 	<!-- Override -->
-	<import resource="classpath:conf/spring/ext-fo-mcommerce.xml" />	
+    <import resource="classpath:conf/spring/ext-core-mcommerce.xml" />
+    
+	<import resource="classpath:conf/spring/ext-fo-mcommerce.xml" />
 
 </beans>

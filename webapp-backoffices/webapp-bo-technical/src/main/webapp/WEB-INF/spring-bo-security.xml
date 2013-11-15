@@ -63,16 +63,16 @@
 		-->
 	</http>
 	
-	<beans:bean id="accessDeniedHandler" class="org.hoteia.qalingo.web.handler.security.ExtAccessDeniedHandlerImpl" />
+	<beans:bean id="accessDeniedHandler" class="org.hoteia.qalingo.core.web.handler.security.ExtAccessDeniedHandlerImpl" />
 
-	<beans:bean id="extLoginUrlAuthenticationEntryPoint" class="org.hoteia.qalingo.web.handler.security.ExtLoginUrlAuthenticationEntryPoint">
+	<beans:bean id="extLoginUrlAuthenticationEntryPoint" class="org.hoteia.qalingo.core.web.handler.security.ExtLoginUrlAuthenticationEntryPoint">
 		<beans:property name="backofficeUrlService" ref="backofficeUrlService" />
 		<beans:property name="requestUtil" ref="requestUtil" />
 		<beans:property name="redirectStrategy" ref="redirectStrategy" />
 		<beans:property name="loginFormUrl" value="/sc/login.html" />
 	</beans:bean>
 	
-	<beans:bean id="redirectStrategy" class="org.hoteia.qalingo.web.handler.security.ExtRedirectStrategy">
+	<beans:bean id="redirectStrategy" class="org.hoteia.qalingo.core.web.handler.security.ExtRedirectStrategy">
 		<beans:property name="contextRelative" value="${spring.security.context.relative}" />
 	</beans:bean>
 
@@ -105,7 +105,7 @@
 	<beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
 	-->
 
-	<beans:bean id="authenticationFilter" class="org.hoteia.qalingo.web.handler.security.ExtUsernamePasswordAuthenticationFilter">
+	<beans:bean id="authenticationFilter" class="org.hoteia.qalingo.core.web.handler.security.ExtUsernamePasswordAuthenticationFilter">
 		<beans:property name="authenticationManager" ref="authenticationManager" />
 		<beans:property name="filterProcessesUrl" value="/j_spring_security_check" />
 		<beans:property name="continueChainBeforeSuccessfulAuthentication" value="true" />
