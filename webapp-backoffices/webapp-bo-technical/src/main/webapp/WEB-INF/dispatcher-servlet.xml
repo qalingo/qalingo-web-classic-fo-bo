@@ -21,8 +21,6 @@
 
     <context:component-scan base-package="org.hoteia.qalingo.core.web.mvc" />
     <context:component-scan base-package="org.hoteia.qalingo.web.mvc" />
-    <context:component-scan base-package="org.hoteia.qalingo.core.web.service" />
-    <context:component-scan base-package="org.hoteia.qalingo.web.service" />
 
 	<mvc:interceptors>
 		<mvc:interceptor>

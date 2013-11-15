@@ -31,10 +31,6 @@ img {
   max-width: none;
 }
 
-label {
-    font-weight: bold;
-}
-
 a:hover {
     color: #ffffff;
     text-decoration: none;
