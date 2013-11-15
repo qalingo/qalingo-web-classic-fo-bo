@@ -142,7 +142,7 @@
         </div>
 		
         #parse("../_include/body-footer.vm")
-
+		
 		#parse("../_include/body-bottom-javascript.vm")
 		
 		#parse($!footer_script_content)

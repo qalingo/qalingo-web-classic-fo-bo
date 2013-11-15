@@ -8,8 +8,63 @@
  *
  *#
         <footer>
-            <div class="container">
-        		<div class="row">
+            <div class="container footer-container">
+        		<div class="row footer-content">
+					<div class="span3">
+						<span class="footer-nav-title">Customer Care</span>
+						<div class="clear border-btm"></div>
+						<ul class="footer-nav">
+							<li><a href="#">Products</a></li>
+							<li><a href="#">Best Sellers</a></li>
+							<li><a href="#">Delivery</a></li>
+							<li><a href="#">FAQs</a></li>
+						</ul>
+					</div>
+					
+					<div class="span3">
+						<span class="footer-nav-title">Products</span>
+						<div class="clear border-btm"></div>
+						<ul class="footer-nav">
+							<li><a href="#">Cafe</a></li>
+							<li><a href="#">Thé</a></li>
+							<li><a href="#">Others</a></li>
+						</ul>
+					</div>
+					
+					<div class="span3">
+						<span class="footer-nav-title">Our Company</span>
+						<div class="clear border-btm"></div>
+						<ul class="footer-nav">
+							<li><a href="#">Overview</a></li>
+							<li><a href="#">Our Stores</a></li>
+							<li><a href="#">Our Sevices</a></li>
+							<li><a href="#">Press</a></li>
+						</ul>
+					</div>
+					
+					<div class="span3">
+						<span class="footer-nav-title">Contact us</span>
+						<div class="clear border-btm"></div>
+						<ul class="footer-nav">
+							<li>Phone: +84 123456</li>
+							<li>Fax: +84 0011223</li>
+							<li>Email: contact@yourdomain.com</li>
+						</ul>
+						<span class="footer-nav-title footer-social-title">Follow us on</span>
+						<ul class="footer-social-list">
+							<li><a href="" class="ql-social-icons facebook">&nbsp;</a></li>
+							<li><a href="" class="ql-social-icons twitter">&nbsp;</a></li>
+						</ul>
+					</div>
+					
+					<div class="span9">
+						<span class="footer-nav-title">
+							Payment Methods:&nbsp;<img class="payment-img" src="${common.themeResourcePrefixPath}/img/home/payments.png" alt="Payments">
+						</span>
+					</div>					
+        		</div>
+				
+				<div class="row">					
                     <div class="span12">
 						<div class="pull-left">
 							$legalTerms.copyright
