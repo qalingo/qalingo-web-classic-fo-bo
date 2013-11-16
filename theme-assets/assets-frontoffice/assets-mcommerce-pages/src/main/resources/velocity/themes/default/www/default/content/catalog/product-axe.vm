@@ -75,9 +75,9 @@
 				<a href="${featuredProduct.productDetailsUrl}" class="product-name">${featuredProduct.name}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">$30.00</p>
-				<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
+				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+				<a href="${featuredProduct.addToWishlistUrl}" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</div>
 			#if($items % 4 == 0 || $size == $count)
 			#set( $items = 0 )
@@ -113,7 +113,7 @@
         			<p class="product-price">$30.00</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
         				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-        			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+        			<a href="${productMarketing.addToWishlistUrl}" class="wishlist-btn1"><i class="icon-heart"></i></a>
         		</li>
 			#end
     	</ul>
