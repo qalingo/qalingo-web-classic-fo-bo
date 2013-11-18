@@ -1,132 +1,260 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/font/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/default/default.css" type="text/css">
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-		<script type="text/javascript">
-		  window.onload = function () {
-			//vars
-			var conveyor = $(".content-conveyor", $("#carousel-content")),
-			item = $(".item", $("#carousel-content"));
+<link href="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
-			//set length of conveyor
-			conveyor.css("width", item.length * parseInt(item.css("width")));
+<script type="text/javascript">
+	function startupPage(){
+		$('#featured-products').slides({
+			preload: true,
+			generateNextPrev: true,
+			play: 0,
+			hoverPause: true
+		});
+		
+		$('#linked-logos-slide').slides({
+			preload: true,
+			generateNextPrev: true,
+			play: 0,
+			hoverPause: true
+		});
+		
+		$('#slider').nivoSlider({
+	    	controlNav: false
+	    });
+	}
 
-			//config
-			var sliderOpts = {
-				max: (item.length * parseInt(item.css("width"))) - parseInt($(".viewer", $("#carousel-content")).css("width")),
-				slide: function(e, ui) { 
-					conveyor.css("left", "-" + ui.value + "px");
-				}
-			};
-			//create slider
-			$("#slider").slider(sliderOpts);
-			
-			$('#shortcut-cat2').bind('click', function() {
-				 alert($('#cat2 .item').position().left);
-				alert($('#cat3 .item').position().left);
-			});
-			
-			};
-		</script>
-		<style>
-			#line-background {
-				width: 1170px;
-				height: 360px;
-				background-color:white;
-				background-image:url('${productCategory.backgroundImage}');
-				background-repeat:no-repeat;
-				background-position:right top;
-			}
+</script>
 
-			#carousel-content { 
-				width:1170px; 
-				margin:auto; 
-			}
-			.viewer { 
-				width:1150px; 
-				height:120px; 
-				overflow:hidden;
-				position:relative;
-			}
-			.content-conveyor {
-				width:1150px;
-				height:335px;
-				position:relative;
-			}
-			.item { width:100px; float:left; font-family:Tahoma; text-align:center;}
-			.item h2 { font-size:100%; margin:10px 0; }
-			.item dl { margin:10px 0; }
-			.item dt, .item dd { float:left; width:149px; text-align:right; margin:0; font-size:70%; }
-			.item dt { font-weight:bold; margin-right:5px; }
-			.item dd { text-align:left; }
-			.item img { padding:1px; }
+<!-- nivo slider - top banner -->
+				
+<div class="slider-wrapper theme-default axe-top-slider">
+    <div id="slider" class="nivoSlider">
+		#set( $subProductCategoryCounter = 1 )
+		#foreach($subProductCategory in $productCategory.subCategories)
+			<img src="${subProductCategory.backgroundImage}" alt="${subProductCategory.name}" title="#htmlcaption${subProductCategoryCounter}"/>
+			#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
+		#end		
+    </div>
+	#set( $subProductCategoryCounter = 1 )
+	#foreach($subProductCategory in $productCategory.subCategories)
+	<div id="htmlcaption${subProductCategoryCounter}" class="nivo-html-caption">
+        <span class="banner-title">${subProductCategory.name}</span> 
+		<span class="rating-stars star-5">&nbsp;</span>
+		<p class="banner-des">${subProductCategory.description} [...]</p>
+		<a href="#" class="banner-readmore">Readmore</a>
+    </div>
+	#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
+	#end    
+</div>
+<!-- //nivo slider - top banner -->
 
-			.ui-slider {
-				z-index: 100;
-			}
+<div style="clear: both;"></div>
+	
+<div class="row">	
+<!-- category sidebar-->
+<div class="side-bar span3">
+	<span class="section-title sidebar-title">Category</span>
+	<ul class="nav-category">
+	    <li class="level0 active parent">
+			<a href="" class="level-top">Cafe</a>
+			<ul class="level0">
+				<li class="level1">
+					<a href="">Lorem ipsum</a>
+				</li>
+				<li class="level1">
+					<a href="">Consectetuer</a>
+				</li>
+			</ul>
+		</li>
+		<li class="level0 parent">
+			<a href="" class="level-top">Thé</a>
+			<ul class="level0">
+				<li class="level1">
+					<a href="">Lorem ipsum</a>
+				</li>
+				<li class="level1">
+					<a href="">Consectetuer</a>
+				</li>
+				<li class="level1">
+					<a href="">Odio dignissim</a>
+				</li>
+			</ul>
+		</li>		
+	    <li class="level0 parent">
+			<a href="" class="level-top">Cafe</a>
+			<ul class="level0">
+				<li class="level1">
+					<a href="">Lorem ipsum</a>
+				</li>
+				<li class="level1">
+					<a href="">Consectetuer</a>
+				</li>
+			</ul>
+		</li>
+		<li class="level0 parent">
+			<a href="" class="level-top">Thé</a>
+			<ul class="level0">
+				<li class="level1">
+					<a href="">Lorem ipsum</a>
+				</li>
+				<li class="level1">
+					<a href="">Consectetuer</a>
+				</li>
+				<li class="level1">
+					<a href="">Odio dignissim</a>
+				</li>
+			</ul>
+		</li>								 
+	</ul>
+	
+	<span class="section-title sidebar-title">Recent products</span>
+	<ul class="nav-category">
+	    <li class="level0 parent">
+			<a href="" class="">Odio dignissim 101</a>
+		</li>
+		<li class="level0 parent">
+			<a href="" class="">Odio dignis 800</a>
+		</li>		
+	    <li class="level0 parent">
+			<a href="" class="">Odio dignis A</a>
+		</li>
+	</ul>
+	
+	
+	<span class="section-title sidebar-title">Your cart</span>
+	<ul class="nav-category">
+	    <li class="level0 parent">
+			<span>There is 0 item(s) in your cart.</span>
+		</li>
+	</ul>
+	
+	<a href="" class="sidebar-banner">
+		<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">
+	</a>
+</div>
+<!-- //category sidebar-->
 
-			.ui-slider-handle {
-				z-index: 200;
-			}
 
-			.shortcut-cat {
-				float:left;
-				padding-left: 100px;
-				z-index: 1000;
-			}
+<!-- category product section -->
+<div class="span9">
+	<div class="product-section">
+		<span class="section-title category-title">Home › Cafe</span>
+		<div class="clear border-btm"></div>
+		
+		<div class="filter-toolbar">
+			<div class="tb">
+				<div class="sorter">
+					<p class="view-mode">
+						<span title="Grid" class="grid selected"><i class="icon-th-list"></i></span>
+						<a href="" title="List" class="list"><i class="icon-th"></i></a>
+					</p>
 
-		</style>
-
-					<div id="line-background">
-						<div style="padding-top: 5px; padding-left: 10px;">
-							<h1>${productCategory.iconImage} ${productCategory.name}</h1>
-							description :${productCategory.description}<br/>
-						</div>
+					<div class="sort-by">
+						<label>Xem theo</label>
+						<select>
+							<option value="" selected="selected">Thứ tự hiển thị</option>
+							<option value="">Tên sản phẩm</option>
+							<option value="">Giá tiền</option>
+						</select>
+						<a href="" title="Set Descending Direction">
+							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
+						</a>
 					</div>
-					<div id="line-carousel" style="text-align: center;">
-						<div id="carousel-content" class="ui-corner-all">		
-							<div class="viewer ui-corner-all">
-								<div class="content-conveyor ui-helper-clearfix">
-									<div id="cat1">
-									#foreach($productMarketing in $productCategory.productMarketings)
-											<div class="item">
-												<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-												<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
-											</div>
-									#end
-									</div>
-									<div id="cat2">
-									#foreach($productMarketing in $productCategory.productMarketings)
-											  <div class="item">
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
-											  </div>
-									#end
-									</div>
-									<div id="cat3">
-									#foreach($productMarketing in $productCategory.productMarketings)
-											  <div class="item">
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
-											  </div>
-									#end
-									</div>
-									<div id="cat4">
-									#foreach($productMarketing in $productCategory.productMarketings)
-											  <div class="item">
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
-											  </div>
-									#end
-									</div>
-								</div>
-							</div>
-							<div id="slider">
-								<div id="shortcut-cat1" class="shortcut-cat">cat1</div>
-								<div id="shortcut-cat2" class="shortcut-cat">cat2</div>
-								<div id="shortcut-cat3" class="shortcut-cat">cat3</div>
-								<div id="shortcut-cat4" class="shortcut-cat">cat4</div>
-							</div>
-						</div>
+				</div>
+				<div class="pager hidden-phone">
+					<div class="limiter">
+						<label>Hiển thị</label>
+						<select>
+							<option value="" selected="selected">9</option>
+							<option value="">15</option>
+							<option value="">30</option>
+						</select> trên trang        
 					</div>
-					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<ul class="products-grid row">
+			#foreach($productMarketing in $productCategory.productMarketings) 
+			<li class="item span3">
+				<a href="#" class="product-image">
+					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}"></span>
+				</a>
+				<a href="${productMarketing.productDetailsUrl}" class="product-name">Keurig Café Escapes</a>
+				<span class="rating-stars star-4">&nbsp;</span>
+				<p class="product-price">$30.00</p>
+				<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
+					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+			</li>			
+			#end
+		</ul>
+
+	</div>
+</div>
+<!-- //category product section -->
+
+</div>
+
+<div class="clear border-btm"></div>
+<!-- slide logo  -->
+<div id="linked-logos-slide" class="linked-logos-slide">
+<div class="slides_container row  products-grid">
+
+	<div class="slide">
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
+			</a>
+		</div>
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
+			</a>
+		</div>
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
+			</a>
+		</div>
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
+			</a>
+		</div>
+	</div>		
+	
+	<div class="slide">
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
+			</a>
+		</div>
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
+			</a>
+		</div>
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
+			</a>
+		</div>
+		<div class="item span3">
+			<a href="#" class="linked-logos">
+				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
+			</a>
+		</div>
+	</div>							
+
+</div>
+<!-- //slide featured products -->
+</div>
+<!-- //slide logo  -->
+<div class="clear border-btm"></div>
