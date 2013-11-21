@@ -60,56 +60,18 @@
 <div class="side-bar span3">
 	<span class="section-title sidebar-title">Category</span>
 	<ul class="nav-category">
+		#foreach($category in $categories)
 	    <li class="level0 active parent">
-			<a href="" class="level-top">Cafe</a>
+			<a href="" class="level-top">${category.name}</a>
 			<ul class="level0">
+			#foreach($subCategory in $category.subCategories)
 				<li class="level1">
-					<a href="">Lorem ipsum</a>
+					<a href="${subCategory.categoryUrl}">${subCategory.name}</a>
 				</li>
-				<li class="level1">
-					<a href="">Consectetuer</a>
-				</li>
+			#end
 			</ul>
 		</li>
-		<li class="level0 parent">
-			<a href="" class="level-top">Thé</a>
-			<ul class="level0">
-				<li class="level1">
-					<a href="">Lorem ipsum</a>
-				</li>
-				<li class="level1">
-					<a href="">Consectetuer</a>
-				</li>
-				<li class="level1">
-					<a href="">Odio dignissim</a>
-				</li>
-			</ul>
-		</li>		
-	    <li class="level0 parent">
-			<a href="" class="level-top">Cafe</a>
-			<ul class="level0">
-				<li class="level1">
-					<a href="">Lorem ipsum</a>
-				</li>
-				<li class="level1">
-					<a href="">Consectetuer</a>
-				</li>
-			</ul>
-		</li>
-		<li class="level0 parent">
-			<a href="" class="level-top">Thé</a>
-			<ul class="level0">
-				<li class="level1">
-					<a href="">Lorem ipsum</a>
-				</li>
-				<li class="level1">
-					<a href="">Consectetuer</a>
-				</li>
-				<li class="level1">
-					<a href="">Odio dignissim</a>
-				</li>
-			</ul>
-		</li>								 
+		#end
 	</ul>
 	
 	<span class="section-title sidebar-title">Recent products</span>
