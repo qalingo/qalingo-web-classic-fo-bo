@@ -45,6 +45,11 @@
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
 
+    <!-- Configures view context 
+    <import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />
+    <import resource="classpath:conf/spring/qalingo-core-bo-technical-view.xml" />
+    -->
+    
 	<!-- JMS : CONFIG -->
 	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-jms-template.xml" />
@@ -79,9 +84,6 @@
 		acknowledge="transacted">
 		<jms:listener destination="${sync.serveur.status.queue.name}" ref="syncServeurStatusQueueListener"></jms:listener>
 	</jms:listener-container>
-	
-	<!-- Configures view context -->
-	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
 	
 	<!-- Override -->
 	<import resource="classpath:conf/spring/ext-core-technical.xml" />

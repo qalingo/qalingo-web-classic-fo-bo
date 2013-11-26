@@ -1,0 +1,9 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="error-404">
+					<div class="page-header">
+						<h1>$wording.get("common.error.header_404")</h1>
+					</div>
+					<div>$wording.get("common.error.message_404")</div>
+				</section>

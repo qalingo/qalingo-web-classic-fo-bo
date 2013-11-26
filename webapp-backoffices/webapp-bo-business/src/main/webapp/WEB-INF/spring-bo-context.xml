@@ -42,8 +42,10 @@
 	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-jax-rs.xml" />
 	
-	<!-- Configures view context -->
-	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
+	<!-- Configures view context 
+	<import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />
+    <import resource="classpath:conf/spring/qalingo-core-bo-business-view.xml" />
+    -->
 
 	<!-- JMS : CONFIG -->
 	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />

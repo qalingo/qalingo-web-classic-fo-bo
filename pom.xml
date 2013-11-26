@@ -434,12 +434,6 @@
 			</dependency>
 			
 			<dependency>
-				<groupId>org.tuckey</groupId>
-				<artifactId>urlrewrite</artifactId>
-				<version>4.0.3</version>
-			</dependency>
-			
-			<dependency>
 				<groupId>net.sourceforge.wurfl</groupId>
 				<artifactId>wurfl</artifactId>
 				<version>1.4.2</version>
