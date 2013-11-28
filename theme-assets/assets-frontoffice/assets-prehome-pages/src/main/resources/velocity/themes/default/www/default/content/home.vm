@@ -5,16 +5,16 @@
 	<ul class="nav nav-list">
 		<li class="nav-header">Market Area</li>
 		#foreach($marketPlace in $marketPlaces)
-		<li><a href="$marketPlace.changeContextUrl" alt="$marketPlace.name" target="_blank">$marketPlace.name</a></li>
+		<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank">$marketPlace.name</a></li>
 		<ul>
 			#foreach($market in $marketPlace.markets)
-			<li><a href="$market.changeContextUrl" alt="$market.name" target="_blank">$market.name</a></li>
+			<li><a href="$market.homeUrl" alt="$market.name" target="_blank">$market.name</a></li>
 			<ul>
 				#foreach($marketArea in $market.marketAreas)
-				<li><a href="$marketArea.changeContextUrl" alt="$marketArea.name" target="_blank">$marketArea.name</a></li>
+				<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank">$marketArea.name</a></li>
 				<ul>
 					#foreach($language in $marketArea.languages)
-					<li><a href="$language.changeContextUrl" alt="$language.name" target="_blank">$language.name</a></li>
+					<li><a href="$language.homeUrl" alt="$language.name" target="_blank">$language.name</a></li>
 					#end
 				</ul>
 				#end
