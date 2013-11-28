@@ -42,8 +42,8 @@
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-							#foreach($marketLanguage in $marketLanguages)
-								<li><a href="$!marketLanguage.changeContextUrl" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
+							#foreach($marketLocalization in $marketLocalizations)
+								<li><a href="$!marketLocalization.changeContextUrl" alt="$!marketLocalization.name">$!marketLocalization.name</a></li>
 							#end
 							</ul>
 						</li>
@@ -105,8 +105,8 @@
 							<li class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Backoffice Langues&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-								#foreach($language in $languages)
-									<li><a href="$!language.url" alt="$!language.name">$!language.name</a></li>
+								#foreach($localization in $localizations)
+									<li><a href="$!localization.url" alt="$!localization.name">$!localization.name</a></li>
 								#end
 								</ul>
 							</li>
@@ -119,7 +119,7 @@
 					</div>
 				</div>
 				<div style="clear: both; color: #7D7E81;">
-					MarketLanguage: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span>
+					MarketLocalization: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span>
 					Retailer: <span style="color: #a1cd44;">$!common.currentRetailer.name</span>
 					Marketplace: <span style="color: #a1cd44;">$!common.currentMarketPlace.name</span>
 					Market: <span style="color: #a1cd44;">$!common.currentMarket.name</span>

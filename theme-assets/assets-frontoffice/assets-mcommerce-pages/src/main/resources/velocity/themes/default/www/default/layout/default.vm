@@ -75,8 +75,8 @@
 									<li class="dropdown">
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Langues&nbsp;<b class="caret"></b></a>
 										<ul class="dropdown-menu">
-										#foreach($language in $languages)
-											<li><a href="$language.changeContextUrl" alt="$language.name">$language.name</a></li>
+										#foreach($localization in $localizations)
+											<li><a href="$localization.changeContextUrl" alt="$localization.name">$localization.name</a></li>
 										#end
 										</ul>
 									</li>
