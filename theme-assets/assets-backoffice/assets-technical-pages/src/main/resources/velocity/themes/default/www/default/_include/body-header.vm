@@ -14,7 +14,7 @@
 				
 				<div class="nav-collapse">
 
-					<ul class="nav nav-pills market-nav" style="margin-left: 20px;">
+					<ul class="nav nav-pills market-nav">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -40,18 +40,18 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">M. Area Langues&nbsp;<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-							#foreach($marketLocalization in $marketLocalizations)
-								<li><a href="$!marketLocalization.changeContextUrl" alt="$!marketLocalization.name">$!marketLocalization.name</a></li>
+							#foreach($marketAreaLocalization in $marketAreaLocalizations)
+								<li><a href="$!marketAreaLocalization.changeContextUrl" alt="$!marketAreaLocalization.name">$!marketAreaLocalization.name</a></li>
 							#end
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">M. Area Retailers&nbsp;<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-							#foreach($retailer in $retailers)
-								<li><a href="$!retailer.changeContextUrl" alt="$!retailer.name">$!retailer.name</a></li>
+							#foreach($marketAreaRetailer in $marketAreaRetailers)
+								<li><a href="$!marketAreaRetailer.changeContextUrl" alt="$!marketAreaRetailer.name">$!marketAreaRetailer.name</a></li>
 							#end
 							</ul>
 						</li>
@@ -69,8 +69,8 @@
 
 								
 								<ul class="dropdown-menu">
-									<li><a href="$!common.userDetailsUrl" alt="Account Settings">Account Settings</a></li>
-									<li><a href="$!common.userDetailsUrl" alt="Privacy Settings">Privacy Settings</a></li>
+									<li><a href="$!common.personalDetailsUrl" alt="Account Settings">Account Settings</a></li>
+									<li><a href="$!common.personalDetailsUrl" alt="Privacy Settings">Privacy Settings</a></li>
 									<li class="divider"></li>
 									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="Wiki" target="_blank">Wiki</a></li>
 								</ul>
@@ -85,8 +85,8 @@
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="$!common.userDetailsUrl">My Profile</a></li>
-									<li><a href="$!common.userDetailsUrl">My Groups</a></li>
+									<li><a href="$!common.personalDetailsUrl">My Profile</a></li>
+									<li><a href="$!common.personalDetailsUrl">My Groups</a></li>
 
 									<li class="divider"></li>
 									<li><a href="$!common.logoutUrl">$wording.get("bo.auth.header_title_logout")</a></li>
@@ -105,7 +105,7 @@
 							<li class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Backoffice Langues&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-								#foreach($localization in $localizations)
+								#foreach($localization in $backofficeLocalizations)
 									<li><a href="$!localization.url" alt="$!localization.name">$!localization.name</a></li>
 								#end
 								</ul>
@@ -119,11 +119,11 @@
 					</div>
 				</div>
 				<div style="clear: both; color: #7D7E81;">
-					MarketLocalization: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span>
-					Retailer: <span style="color: #a1cd44;">$!common.currentRetailer.name</span>
 					Marketplace: <span style="color: #a1cd44;">$!common.currentMarketPlace.name</span>
 					Market: <span style="color: #a1cd44;">$!common.currentMarket.name</span>
 					MarketArea: <span style="color: #a1cd44;">$!common.currentMarketArea.name</span>
+					M. Area Localization: <span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span>
+					M. Area Retailer: <span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span>
 				</div>
 			</div>
 		</div>
