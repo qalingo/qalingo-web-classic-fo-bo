@@ -36,8 +36,10 @@
    <http entry-point-ref="extLoginUrlAuthenticationEntryPoint">
         <intercept-url pattern="/**/home*" access="ROLE_BO_TECHNICAL_ADMIN, ROLE_BO_TECHNICAL_USER" />
         <intercept-url pattern="/**/welcome*" access="ROLE_BO_TECHNICAL_ADMIN, ROLE_BO_TECHNICAL_USER" />
-        <intercept-url pattern="/**/user-details*" access="ROLE_BO_TECHNICAL_ADMIN, ROLE_BO_TECHNICAL_USER" />
-
+        <intercept-url pattern="/**/personal-details*" access="ROLE_BO_TECHNICAL_ADMIN, ROLE_BO_TECHNICAL_USER" />
+        <intercept-url pattern="/**/personal-edit*" access="ROLE_BO_TECHNICAL_ADMIN, ROLE_BO_TECHNICAL_USER" />
+        <intercept-url pattern="/**/change*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        
         <intercept-url pattern="/**/engine-setting*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/cache*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/users*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
