@@ -44,7 +44,7 @@
 									<li class="dropdown">
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Langues&nbsp;<b class="caret"></b></a>
 										<ul class="dropdown-menu">
-										#foreach($localization in $localizations)
+										#foreach($localization in $marketAreaLocalizations)
 											<li><a href="$localization.changeContextUrl" alt="$localization.name">$localization.name</a></li>
 										#end
 										</ul>
@@ -52,7 +52,7 @@
 									<li class="dropdown">
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
 										<ul class="dropdown-menu">
-										#foreach($retailer in $retailers)
+										#foreach($retailer in $marketAreaRetailers)
 											<li><a href="$retailer.changeContextUrl" alt="$retailer.name">$retailer.name</a></li>
 										#end
 										</ul>

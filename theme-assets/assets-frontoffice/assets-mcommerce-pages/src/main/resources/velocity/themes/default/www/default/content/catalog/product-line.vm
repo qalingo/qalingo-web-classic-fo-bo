@@ -33,7 +33,7 @@
 				width: 1170px;
 				height: 360px;
 				background-color:white;
-				background-image:url('${productCategory.backgroundImage}');
+				background-image:url('${catalogCategory.backgroundImage}');
 				background-repeat:no-repeat;
 				background-position:right top;
 			}
@@ -79,8 +79,8 @@
 
 					<div id="line-background">
 						<div style="padding-top: 5px; padding-left: 10px;">
-							<h1>${productCategory.iconImage} ${productCategory.name}</h1>
-							description :${productCategory.description}<br/>
+							<h1>${catalogCategory.iconImage} ${catalogCategory.name}</h1>
+							description :${catalogCategory.description}<br/>
 						</div>
 					</div>
 					<div id="line-carousel" style="text-align: center;">
@@ -88,34 +88,34 @@
 							<div class="viewer ui-corner-all">
 								<div class="content-conveyor ui-helper-clearfix">
 									<div id="cat1">
-									#foreach($productMarketing in $productCategory.productMarketings)
+									#foreach($productMarketing in $catalogCategory.productMarketings)
 											<div class="item">
-												<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-												<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+												<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+												<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
 											</div>
 									#end
 									</div>
 									<div id="cat2">
-									#foreach($productMarketing in $productCategory.productMarketings)
+									#foreach($productMarketing in $catalogCategory.productMarketings)
 											  <div class="item">
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
 											  </div>
 									#end
 									</div>
 									<div id="cat3">
-									#foreach($productMarketing in $productCategory.productMarketings)
+									#foreach($productMarketing in $catalogCategory.productMarketings)
 											  <div class="item">
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
 											  </div>
 									#end
 									</div>
 									<div id="cat4">
-									#foreach($productMarketing in $productCategory.productMarketings)
+									#foreach($productMarketing in $catalogCategory.productMarketings)
 											  <div class="item">
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}" width="100px" height="100px" /></a><br/>
-																		<a href="${productMarketing.productDetailsUrl}" alt="${productMarketing.name}">${productMarketing.name}</a>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
 											  </div>
 									#end
 									</div>

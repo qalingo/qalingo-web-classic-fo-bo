@@ -29,10 +29,10 @@
 		<section id="product-category-details">
 			<div style="padding-top: 15px;">
 				<div style="float: left;">
-					<img src="${productMarketing.backgroundImage}" alt="$productMarketing.name" />
+					<img src="${productMarketing.backgroundImage}" alt="$productMarketing.i18nName" />
 				</div>		
 				<div style="float: left;">
-					$productMarketing.name<br/>
+					$productMarketing.i18nName<br/>
 					$productMarketing.description<br/>
 					<a href="$productMarketing.brandDetailsUrl">brand</a><br/>
 					<a href="$productMarketing.brandLineDetailsUrl">brand line</a><br/>
