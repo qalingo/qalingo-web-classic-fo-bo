@@ -69,10 +69,10 @@
 			#end
 			#set( $items = $items + 1 )
 			<div class="item span3">
-				<a href="${featuredProduct.productDetailsUrl}" class="product-image">
+				<a href="${featuredProduct.detailsUrl}" class="product-image">
 					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
-				<a href="${featuredProduct.productDetailsUrl}" class="product-name">${featuredProduct.name}</a>
+				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">$30.00</p>
 				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
