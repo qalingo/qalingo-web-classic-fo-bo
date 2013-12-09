@@ -91,12 +91,17 @@ h1 {
 	position: static;
 }
 
+.navbar .nav {
+    margin: 0 0 0 0;
+}
+
 .navbar .nav a {
 }
 
 .navbar .brand {
 	color: #7d7e81;
 	font-weight: 600;
+	font-size: 19px;
 	position: relative;
 	top: 2px;
 	text-shadow: none;

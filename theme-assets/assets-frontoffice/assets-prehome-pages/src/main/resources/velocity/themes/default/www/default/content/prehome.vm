@@ -1,0 +1,26 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+<div class="container" style="padding-top: 20px; height: 400px;">
+	<ul class="nav nav-list">
+		<li class="nav-header">Market Area</li>
+		#foreach($marketPlace in $marketPlaces)
+		<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank">$marketPlace.name</a></li>
+		<ul>
+			#foreach($market in $marketPlace.markets)
+			<li><a href="$market.homeUrl" alt="$market.name" target="_blank">$market.name</a></li>
+			<ul>
+				#foreach($marketArea in $market.marketAreas)
+				<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank">$marketArea.name</a></li>
+				<ul>
+					#foreach($localization in $marketArea.localizations)
+					<li><a href="$localization.homeUrl" alt="$localization.name" target="_blank">$localization.name</a></li>
+					#end
+				</ul>
+				#end
+			</ul>
+			#end
+		</ul>
+		#end
+	</ul>
+</div>
