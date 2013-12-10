@@ -1,11 +1,12 @@
 
 		<div><h3>Items</h3></div>
-		<div>
+		<div style="margin-top: 10px;">
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
 					<tr>
 						<th style="width: 10%; text-align: left;">Product</th>
-						<th style="width: 35%;"></th>
+						<th style="width: 30%;"></th>
+						<th style="width: 5%;">Code</th>
 						<th style="width: 10%; text-align: center;">Quantity</th>
 						<th style="width: 15%; text-align: center;"></th>
 						<th style="width: 15%; text-align: right;">Unit price</th>
@@ -20,13 +21,15 @@
 						<td></td>
 						<td></td>
 						<td></td>
+						<td></td>
 					</tr>
 				</tfoot>
 				<tbody>
 				#foreach($cartItem in $cart.cartItems)
 					<tr>
-						<td>image</td>
-						<td><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank">$cartItem.i18nName ($cartItem.skuCode)</a></td>
+						<td style="padding-top: 15px;">image</td>
+						<td><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank">$cartItem.i18nName</a></td>
+						<td style="text-align: center;"><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank">$cartItem.skuCode</a></td>
 						<td style="text-align: center;">$cartItem.quantity</td>
 						<td style="text-align: center;"><a href="$cartItem.deleteUrl" alt="$cartItem.i18nName" target="_blank">remove (X)</a></td>
 						<td style="text-align: right;">$cartItem.unitPrice</td>
@@ -36,8 +39,8 @@
 				</tbody>
 			</table> 
 		</div>
-		<div>
-			<table border="0" style="margin-top: 10px; margin-bottom: 10px; width: 100%; color: #2F353E;">
+		<div style="margin-top: 15px; margin-bottom: 10px;">
+			<table style="width: 100%; color: #2F353E;">
 				<thead>
 					<tr>
 						<th style="width: 85%;"></th>
@@ -59,7 +62,7 @@
 			</table> 
 		</div>
 		
-		<div><h3>Cart Shipping Total</h3></div>
+		<div style="margin-top: 15px;"><h3>Cart Shipping Total</h3></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
@@ -85,7 +88,7 @@
 			</table> 
 		</div>
 
-		<div><h3>Cart Fees Total</h3></div>
+		<div style="margin-top: 15px;"><h3>Cart Fees Total</h3></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
@@ -111,7 +114,7 @@
 			</table> 
 		</div>
 
-		<div><h3>Cart Total</h3></div>
+		<div style="margin-top: 15px;"><h3>Cart Total</h3></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
