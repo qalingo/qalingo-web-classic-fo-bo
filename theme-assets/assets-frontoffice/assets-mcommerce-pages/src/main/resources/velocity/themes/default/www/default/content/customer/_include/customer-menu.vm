@@ -7,7 +7,7 @@
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
-		<div style="float: left; width: 15%;">
+		<div>
 			<ul>
 			#foreach($customerLink in $customerLinks)
 				<li><a href="$customerLink.url" alt="$customerLink.name">$customerLink.name</a></li>
