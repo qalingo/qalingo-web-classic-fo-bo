@@ -1,5 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($footer_script_content = "../content/reference-data/reference-footer-script.vm")
+#set ($footer_script_content = "../content/reference-data/reference-datas-list-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 				<section id="monitoring">

@@ -28,7 +28,34 @@
 	    });
 	}
 
+	//config
+	var sliderOpts = {
+		max: (item.length * parseInt(item.css("width"))) - parseInt($(".viewer", $("#carousel-content")).css("width")),
+		slide: function(e, ui) { 
+			conveyor.css("left", "-" + ui.value + "px");
+		}
+	};
+	
+	//create slider
+	$("#slider").slider(sliderOpts);
+	
+	$('#shortcut-cat2').bind('click', function() {
+		 alert($('#cat2 .item').position().left);
+		alert($('#cat3 .item').position().left);
+	});
+	
+	};
 </script>
+<style>
+	#line-background {
+		width: 1170px;
+		height: 360px;
+		background-color:white;
+		background-image:url('${catalogCategory.backgroundImage}');
+		background-repeat:no-repeat;
+		background-position:right top;
+	}
+</style>
 
 <!-- nivo slider - top banner -->
 				
@@ -153,7 +180,6 @@
 						<span title="Grid" class="grid selected"><i class="icon-th-list"></i></span>
 						<a href="" title="List" class="list"><i class="icon-th"></i></a>
 					</p>
-
 					<div class="sort-by">
 						<label>Xem theo</label>
 						<select>
@@ -174,6 +200,57 @@
 							<option value="">15</option>
 							<option value="">30</option>
 						</select> trên trang        
+					<div id="line-background">
+						<div style="padding-top: 5px; padding-left: 10px;">
+							<h1>${catalogCategory.iconImage} ${catalogCategory.name}</h1>
+							description :${catalogCategory.description}<br/>
+						</div>
+					</div>
+					<div id="line-carousel" style="text-align: center;">
+						<div id="carousel-content" class="ui-corner-all">		
+							<div class="viewer ui-corner-all">
+								<div class="content-conveyor ui-helper-clearfix">
+									<div id="cat1">
+									#foreach($productMarketing in $catalogCategory.productMarketings)
+											<div class="item">
+												<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+												<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
+											</div>
+									#end
+									</div>
+									<div id="cat2">
+									#foreach($productMarketing in $catalogCategory.productMarketings)
+											  <div class="item">
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
+											  </div>
+									#end
+									</div>
+									<div id="cat3">
+									#foreach($productMarketing in $catalogCategory.productMarketings)
+											  <div class="item">
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
+											  </div>
+									#end
+									</div>
+									<div id="cat4">
+									#foreach($productMarketing in $catalogCategory.productMarketings)
+											  <div class="item">
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}"><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}" width="100px" height="100px" /></a><br/>
+																		<a href="${productMarketing.detailsUrl}" alt="${productMarketing.i18nName}">${productMarketing.i18nName}</a>
+											  </div>
+									#end
+									</div>
+								</div>
+							</div>
+							<div id="slider">
+								<div id="shortcut-cat1" class="shortcut-cat">cat1</div>
+								<div id="shortcut-cat2" class="shortcut-cat">cat2</div>
+								<div id="shortcut-cat3" class="shortcut-cat">cat3</div>
+								<div id="shortcut-cat4" class="shortcut-cat">cat4</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -34,21 +34,21 @@
 				
 <div class="slider-wrapper theme-default axe-top-slider">
     <div id="slider" class="nivoSlider">
-		#set( $subProductCategoryCounter = 1 )
-		#foreach($subProductCategory in $productCategory.subCategories)
-			<img src="${subProductCategory.backgroundImage}" alt="${subProductCategory.name}" title="#htmlcaption${subProductCategoryCounter}"/>
-			#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
+		#set( $subcatalogCategoryCounter = 1 )
+		#foreach($subcatalogCategory in $catalogCategory.subCategories)
+			<img src="${subcatalogCategory.backgroundImage}" alt="${subcatalogCategory.name}" title="#htmlcaption${subcatalogCategoryCounter}"/>
+			#set( $subcatalogCategoryCounter = $subcatalogCategoryCounter + 1 )
 		#end		
     </div>
-	#set( $subProductCategoryCounter = 1 )
-	#foreach($subProductCategory in $productCategory.subCategories)
-	<div id="htmlcaption${subProductCategoryCounter}" class="nivo-html-caption">
-        <span class="banner-title">${subProductCategory.name}</span> 
+	#set( $subcatalogCategoryCounter = 1 )
+	#foreach($subcatalogCategory in $catalogCategory.subCategories)
+	<div id="htmlcaption${subcatalogCategoryCounter}" class="nivo-html-caption">
+        <span class="banner-title">${subcatalogCategory.name}</span> 
 		<span class="rating-stars star-5">&nbsp;</span>
-		<p class="banner-des">${subProductCategory.description} [...]</p>
+		<p class="banner-des">${subcatalogCategory.description} [...]</p>
 		<a href="#" class="banner-readmore">Readmore</a>
     </div>
-	#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
+	#set( $subcatalogCategoryCounter = $subcatalogCategoryCounter + 1 )
 	#end    
 </div>
 <!-- //nivo slider - top banner -->
@@ -62,17 +62,17 @@
 	<div class="slides_container row  products-grid">
 		#set( $count = 0 )
 		#set( $items = 0 )
-		#set( $size = $productCategory.featuredProductMarketings.size() - 1)
-		#foreach($featuredProduct in $productCategory.featuredProductMarketings)
+		#set( $size = $catalogCategory.featuredProductMarketings.size() - 1)
+		#foreach($featuredProduct in $catalogCategory.featuredProductMarketings)
 			#if($count % 4 == 0)
 			<div class="slide">
 			#end
 			#set( $items = $items + 1 )
 			<div class="item span3">
-				<a href="${featuredProduct.productDetailsUrl}" class="product-image">
+				<a href="${featuredProduct.detailsUrl}" class="product-image">
 					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
-				<a href="${featuredProduct.productDetailsUrl}" class="product-name">${featuredProduct.name}</a>
+				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">$30.00</p>
 				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
@@ -92,23 +92,23 @@
 <div class="clear border-btm"></div>
 
 <!-- Products -->
-#foreach($subProductCategory in $productCategory.subCategories)
-	#if($subProductCategory.productMarketings.size() > 0)
+#foreach($subcatalogCategory in $catalogCategory.subCategories)
+	#if($subcatalogCategory.productMarketings.size() > 0)
 	<div class="product-section">
-    	<span class="section-title category-title">${subProductCategory.name}</span>
+    	<span class="section-title category-title">${subcatalogCategory.name}</span>
     	<div class="clear border-btm"></div>
     	<ul class="row  products-grid">
-			#foreach($productMarketing in $subProductCategory.productMarketings)
+			#foreach($productMarketing in $subcatalogCategory.productMarketings)
 				<li class="item span3">
         			<a href="${productMarketing.productDetailsUrl}" class="product-image">
         				<span>
 							<!--
 							<img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1">
 							-->							
-							<img src="${productMarketing.carouselImage}" alt="${productMarketing.name}"/>
+							<img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"/>
 						</span>
         			</a>
-        			<a href="${productMarketing.productDetailsUrl}" class="product-name">${productMarketing.name} #if($productMarketing.isFeatured())*#end</a>
+        			<a href="${productMarketing.productDetailsUrl}" class="product-name">${productMarketing.i18nName} #if($productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-4">&nbsp;</span>
         			<p class="product-price">$30.00</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">

@@ -124,6 +124,7 @@ h1 {
 
 .navbar .nav > li > a {
     text-shadow: none;
+	padding: 10px;	
 }
 
 .navbar .nav > li > a :hover{

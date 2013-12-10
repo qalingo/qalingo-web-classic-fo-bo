@@ -1,8 +1,9 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
+		<section id="cart-details">
 		<div>
-			<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; border: 1px solid #E5E5E5;">
+			<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
 				#parse("_include/cart-details.vm")
 			</div>
 			<div id="cart-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; border: 1px solid #E5E5E5;">
@@ -13,3 +14,4 @@
 				<div style="clear: both;"></div>
 			</div>
 		</div>
+		</section>
