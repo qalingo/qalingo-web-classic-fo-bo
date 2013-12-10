@@ -8,9 +8,9 @@
 				<div id="cart-payment-content">
 					#set($beanName = "paymentForm")
 					#parse("../../_include/body-form-error-message.vm")
-					<div style="width: 48%; float:left; padding: 5px; border: 1px solid #E5E5E5;">
+					<div style="width: 48%; float:left; padding: 5px;">
 						<div>
-							<div style="border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+							<div style="background-color: #ffffff; padding: 10px; float:left;">
 								<div class="form-group">
 									<div style="float: left; width: 200px;">
 										<label for="cardHolder" class="label-form">cardHolderLabel</label>
@@ -53,7 +53,7 @@
 							</div>
 						</div>
 					</div>
-					<div style="width: 48%; float:right; padding: 5px; border: 1px solid #E5E5E5;">
+					<div style="width: 48%; float:right; padding: 5px;">
 						#parse("_include/cart-details.vm")
 					</div>
 				</div>
