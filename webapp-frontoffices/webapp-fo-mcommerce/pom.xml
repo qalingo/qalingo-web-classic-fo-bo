@@ -262,12 +262,6 @@
 			<artifactId>velocity-tools</artifactId>
 		</dependency>
 
-		<!-- URL rewrite dependencies -->
-		<dependency>
-			<groupId>org.tuckey</groupId>
-			<artifactId>urlrewrite</artifactId>
-		</dependency>
-		
 		<!-- SOLR -->
 		<dependency>
 			<groupId>org.apache.solr</groupId>

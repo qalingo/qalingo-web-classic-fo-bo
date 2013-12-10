@@ -39,7 +39,7 @@
 		<!-- Datas -->
 		<hibernate.version>4.1.7.Final</hibernate.version>
 		<!-- CXF -->
-		<cxf.version>2.7.0</cxf.version>
+		<cxf.version>3.0.0-milestone1</cxf.version>
 		<!-- SOLR -->
 		<solr.version>4.0.0-BETA</solr.version>
 		<!-- DROOLS 
@@ -431,12 +431,6 @@
 				<groupId>quartz</groupId>
 				<artifactId>quartz</artifactId>
 				<version>1.5.2</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>org.tuckey</groupId>
-				<artifactId>urlrewrite</artifactId>
-				<version>4.0.3</version>
 			</dependency>
 			
 			<dependency>

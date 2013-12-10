@@ -23,13 +23,25 @@
 
     <context:component-scan base-package="org.hoteia.qalingo.core.web.mvc" />
     <context:component-scan base-package="org.hoteia.qalingo.web.mvc" />
-	
+
 	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.html" />
+			<bean class="org.hoteia.qalingo.core.web.mvc.interceptor.UrlTrackingHandlerInterceptor"></bean>
+		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/**/*.html" />
 			<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 				<property name="paramName" value="locale-code" />
 			</bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.html" />
+			<bean class="org.hoteia.qalingo.core.web.mvc.interceptor.RequestDataHandlerInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.html" />
+			<bean class="org.hoteia.qalingo.core.web.mvc.interceptor.ModelDataHandlerInterceptor"></bean>
 		</mvc:interceptor>
 		<!-- WebContentInterceptor to set cache to 0 for all json or config request : Internet Explorer cache issue with Ajax calls -->
 		<mvc:interceptor>
@@ -46,7 +58,8 @@
 	</mvc:interceptors>
 	
 	<!-- Configures view context -->
-	<import resource="classpath:conf/spring/qalingo-core-fo-view.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-fo-common-view.xml" />
+    <import resource="classpath:conf/spring/qalingo-core-fo-prehome-view.xml" />
 	
 	<!-- Override -->
     <import resource="classpath:conf/spring/ext-core-prehome.xml" />

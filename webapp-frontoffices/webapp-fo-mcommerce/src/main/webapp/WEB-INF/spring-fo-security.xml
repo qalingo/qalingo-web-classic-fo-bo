@@ -55,7 +55,7 @@
 					authentication-success-handler-ref="extSimpleUrlAuthenticationSuccessHandler"
 		/>
 
-        <logout logout-url="/sc/logout-session.html"
+        <logout logout-url="/logout-session.html"
 				success-handler-ref="extLogoutSuccessHandler"
 				invalidate-session="false" />
         <remember-me />

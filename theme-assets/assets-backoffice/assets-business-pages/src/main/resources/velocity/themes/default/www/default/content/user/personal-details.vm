@@ -1,0 +1,123 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/user/personal-details-footer-script.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="user-details">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+
+					<div class="form-horizontal well">
+						<div id="tabs-personal-details">
+							<div style="clear: both; padding-top: 15px;">
+								<a class="btn" href="$!urlBack" alt="">Back</a>&nbsp;<a class="btn btn-primary" href="$user.personalEditUrl" alt="">Edit</a>
+							</div>
+							<ul>
+								<li><a href="#tabs-1">User</a></li>
+								<li><a href="#tabs-2">Groups</a></li>
+								<li><a href="#tabs-3">Roles</a></li>
+								<li><a href="#tabs-4">Permissions</a></li>
+								<li><a href="#tabs-5">ConnectionLog</a></li>
+							</ul>
+						<div id="tabs-1">
+							<div style="min-height:300px; overflow-y:auto; max-height:400px;">
+								<b>Login</b> : ${user.login}
+								<br/><br/>
+								<b>Firstname</b> : ${user.firstname}
+								<br/><br/>
+								<b>Lastname</b> : ${user.lastname}
+								<br/><br/>
+								<b>Email</b> : ${user.email}
+								<br/><br/>
+								<b>Password</b> : *****************<br/><br/>
+								<b>Active</b> : 
+								#if($user.active)
+									<span style="color: green">active</span>
+								#else
+									<span style="color: red">not active</span>
+								#end
+								<br/><br/>
+								<b>Create</b> : ${user.dateCreate}
+								<br/><br/>
+								<b>Update</b> : ${user.dateUpdate}
+								<br/><br/>
+							</div>
+						</div>
+						<div id="tabs-2">
+							<div style="min-height:300px; overflow-y:auto;">
+								<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">Code</td>
+										<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">Name</td>
+									</tr>
+								#set ($map = $user.userGroups) 
+								#foreach ($mapEntry in $map.entrySet()) 
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.key</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.value</td>
+									</tr>
+								#end
+								</table>
+							</div>
+						</div>
+						<div id="tabs-3">
+							<div style="min-height:300px; overflow-y:auto;">
+								<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">Code</td>
+										<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">Name</td>
+									</tr>
+								#set ($map = $user.userRoles) 
+								#foreach ($mapEntry in $map.entrySet()) 
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.key</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.value</td>
+									</tr>
+								#end
+								</table>
+							</div>
+						</div>
+						<div id="tabs-4">
+							<div style="min-height:300px; overflow-y:auto;">
+								<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">Code</td>
+										<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">Name</td>
+									</tr>
+								#set ($map = $user.userPermissions) 
+								#foreach ($mapEntry in $map.entrySet()) 
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.key</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.value</td>
+									</tr>
+								#end
+								</table>
+							</div>
+						</div>
+						<div id="tabs-5">
+							<div style="min-height:300px; overflow-y:auto;">
+								<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="width: 260px; padding: 5px; border-left: 1px solid #000000;">Date</td>
+										<td style="width: 170px; padding: 5px; border-left: 1px solid #000000;">Host</td>
+										<td style="width: 170px; padding: 5px; border-left: 1px solid #000000;">Address</td>
+									</tr>
+								#set ($userConnectionLog = $user.userConnectionLogs) 
+								#foreach ($userConnectionLog in $user.userConnectionLogs) 
+									<tr style="border-bottom: 1px solid #000000;">
+										<td style="padding: 5px; border-left: 1px solid #000000;">$userConnectionLog.date</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$userConnectionLog.host</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$userConnectionLog.address</td>
+									</tr>
+								#end
+								</table>
+							</div>
+						</div>
+							<div style="clear: both; padding-top: 15px;">
+								<a class="btn" href="$!urlBack" alt="">Back</a>&nbsp;<a class="btn btn-primary" href="$user.personalEditUrl" alt="">Edit</a>
+							</div>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+
+				</section>

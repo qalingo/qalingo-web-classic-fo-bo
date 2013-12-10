@@ -240,12 +240,6 @@
 			<artifactId>velocity-tools</artifactId>
 		</dependency>
 
-		<!-- URL rewrite dependencies -->
-		<dependency>
-			<groupId>org.tuckey</groupId>
-			<artifactId>urlrewrite</artifactId>
-		</dependency>
-		
 		<!-- User agent filter dependencies -->
 		<dependency>
 			<groupId>net.sourceforge.wurfl</groupId>

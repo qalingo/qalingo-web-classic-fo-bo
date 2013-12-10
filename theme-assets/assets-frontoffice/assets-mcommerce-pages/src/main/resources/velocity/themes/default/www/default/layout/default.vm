@@ -39,85 +39,9 @@
     <body  style="background-color: #2F353E;">
         <div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar navbar-inverse navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<i class="icon icon-reorder"></i> Menu
-						</a>
-						<a class="brand" href="${common.homeUrl}">Qalingo mCommerce</a>
-						<div>
-							<div class="nav-collapse collapse">
-								<ul class="nav nav-pills market-nav">
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										#foreach($marketPlace in $marketPlaces)
-											<li><a href="$marketPlace.changeContextUrl" alt="$marketPlace.name">$marketPlace.name</a></li>
-										#end
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Markets&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										#foreach($market in $markets)
-											<li><a href="$market.changeContextUrl" alt="$market.name">$market.name</a></li>
-										#end
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										#foreach($marketArea in $marketAreas)
-											<li><a href="$marketArea.changeContextUrl" alt="$marketArea.name">$marketArea.name</a></li>
-										#end
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Langues&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										#foreach($language in $languages)
-											<li><a href="$language.changeContextUrl" alt="$language.name">$language.name</a></li>
-										#end
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-										#foreach($retailer in $retailers)
-											<li><a href="$retailer.changeContextUrl" alt="$retailer.name">$retailer.name</a></li>
-										#end
-										</ul>
-									</li>
-								</ul>
-							</div><!--/.nav-collapse -->
-						</div>
-					</div>
-				</div>
-				<div id="header-over-menu-navbar" class="navbar-inner">
-					<div class="container">
-						<div>
-							<div style="float: left;">($common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentLocalization.name)</div>
-							<div style="float: right;">
-								#if($!customer)
-									<i class="icon icon-user"></i><span class="user-my-account-link">$customer.lastname $customer.firstname</span>&nbsp; 
-									<a href="$common.customerDetailsUrl" alt="$wording.get("fo.common.header_link_my_account")">$wording.get("fo.common.header_link_my_account")</a>&nbsp; 
-									<a href="$common.logoutUrl" alt="$wording.get("fo.common.header_link_logout")">$wording.get("fo.common.header_link_logout")</a>
-								#else
-									<a href="$common.createAccountUrl" class="btn btn-login" alt="$wording.get("fo.common.header_link_create_account")" >$wording.get("fo.common.header_link_create_account")</a>&nbsp; 
-									<a href="$common.loginUrl" class="btn btn-login" alt="$wording.get("fo.common.header_link_login")">$wording.get("fo.common.header_link_login") &raquo;</a>
-								#end
-								#if($!headerCart)
-									#if($!headerCart.cartTotalItems > 0)
-									&nbsp;<i class="icon icon-shopping-cart"></i><a href="$headerCart.cartUrl" alt="">$headerCart.cartTotalSummaryLabel</a>
-									#else
-									&nbsp;<i class="icon icon-shopping-cart"></i>&nbsp;$headerCart.cartTotalSummaryLabel
-									#end
-								#end
-							</div>
-						</div>
-					</div>
-				</div>
-
+			
+				#parse("../_include/body-header.vm")
+				
 				#parse("../_include/body-menu.vm")
 				
 			</div> 

@@ -20,8 +20,8 @@ h1 {
 
 .page-header {
     margin-top: 0px;
-	margin-bottom: 10px;
-	padding-bottom: 0px
+    margin-bottom: 10px;
+	padding-bottom: 0px;
 }
 
 .dropdown .dropdown-menu {
@@ -69,7 +69,7 @@ h1 {
     vertical-align: middle;
 	background-image: none;
 }
-
+	
 /*****************************************************************************
 	Navbar content
 *****************************************************************************/
@@ -91,12 +91,17 @@ h1 {
 	position: static;
 }
 
+.navbar .nav {
+    margin: 0 0 0 0;
+}
+
 .navbar .nav a {
 }
 
 .navbar .brand {
 	color: #7d7e81;
 	font-weight: 600;
+	font-size: 19px;
 	position: relative;
 	top: 2px;
 	text-shadow: none;
@@ -119,6 +124,7 @@ h1 {
 
 .navbar .nav > li > a {
     text-shadow: none;
+	padding: 10px;	
 }
 
 .navbar .nav > li > a :hover{
