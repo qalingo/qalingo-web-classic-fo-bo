@@ -143,15 +143,15 @@
 		
 		
 		<ul class="products-grid row">
-			#foreach($productMarketing in $productCategory.productMarketings) 
+			#foreach($productMarketing in $catalogCategory.productMarketings) 
 			<li class="item span3">
-				<a href="#" class="product-image">
-					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.name}"></span>
+				<a href="${productMarketing.detailsUrl}" class="product-image">
+					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.businessName}"></span>
 				</a>
-				<a href="${productMarketing.productDetailsUrl}" class="product-name">Keurig Café Escapes</a>
+				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.businessName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">$30.00</p>
-				<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
+				<a href="${productMarketing.brandDetailsUrl}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</li>			
