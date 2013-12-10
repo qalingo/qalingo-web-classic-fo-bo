@@ -35,7 +35,7 @@
 					$productMarketing.name<br/>
 					$productMarketing.description<br/>
 					<a href="$productMarketing.brandDetailsUrl">brand</a><br/>
-					<a href="$productMarketing.brandLineDetailsUrl">brand line</a><br/>
+					<a href="$productMarketing.brandLineDetailsUrl">brand line123</a><br/>
 				</div>
 			</div>
 			<div style="clear: both;"></div>
