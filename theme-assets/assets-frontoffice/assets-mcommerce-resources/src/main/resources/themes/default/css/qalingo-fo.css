@@ -410,7 +410,7 @@ footer {
 
 
 /*****************************************************************************
-	CHECKOUT HEADER
+	CHECKOUT
 *****************************************************************************/
 
 .checkout-header-wrapper {
@@ -466,3 +466,8 @@ footer {
 .transverse .checkout-header-push strong {
     color: #9B9B9B;
 }
+
+.checkout-common-link:hover {
+    color: #2F353E;
+}
+

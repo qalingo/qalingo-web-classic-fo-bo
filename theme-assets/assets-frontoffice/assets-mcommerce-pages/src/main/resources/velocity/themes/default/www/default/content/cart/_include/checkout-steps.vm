@@ -5,7 +5,7 @@
 					#if($checkoutStep == 1)	#set($active = 'class="active"') #else #set($active = '') #end
 					<li><a href="$cart.cartDetailsUrl" $!active>1 Votre commande</a></li>
 					#if($checkoutStep == 2)	#set($active = 'class="active"') #else #set($active = '') #end
-					<li><a href="$cart.cartDeliveryAndOrderDetailsUrl" $!active>2 Compte</a></li>
+					<li><a href="$cart.cartAuthUrl" $!active>2 Compte</a></li>
 					#if($checkoutStep == 3)	#set($active = 'class="active"') #else #set($active = '') #end
 					<li><a href="$cart.cartDeliveryAndOrderDetailsUrl" $!active>3 Livraison</a></li>
 					#if($checkoutStep == 4)	#set($active = 'class="active"') #else #set($active = '') #end

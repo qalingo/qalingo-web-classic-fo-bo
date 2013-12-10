@@ -28,10 +28,10 @@
 				#foreach($cartItem in $cart.cartItems)
 					<tr>
 						<td style="padding-top: 15px;">image</td>
-						<td><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank">$cartItem.i18nName</a></td>
-						<td style="text-align: center;"><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank">$cartItem.skuCode</a></td>
+						<td><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.i18nName</a></td>
+						<td style="text-align: center;"><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.skuCode</a></td>
 						<td style="text-align: center;">$cartItem.quantity</td>
-						<td style="text-align: center;"><a href="$cartItem.deleteUrl" alt="$cartItem.i18nName" target="_blank">remove (X)</a></td>
+						<td style="text-align: center;"><a href="$cartItem.deleteUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">remove (X)</a></td>
 						<td style="text-align: right;">$cartItem.unitPrice</td>
 						<td style="text-align: right;">$cartItem.amount</td>
 					</tr>
@@ -54,7 +54,7 @@
 					</tr>
 				</tfoot>
 				<tbody>
-					<tr>
+					<tr style="border-top: 1px solid #2F353E">
 						<td style="text-align: right;">Cart Items Total</td>
 						<td style="text-align: right;">$cart.cartItemsTotal</td>
 					</tr>
@@ -131,7 +131,7 @@
 				</tfoot>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"></td>
+						<td style="text-align: right;">Cart Total</td>
 						<td style="text-align: right;">$cart.cartTotal</td>
 					</tr>
 				</tbody>
