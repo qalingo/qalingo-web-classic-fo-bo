@@ -2,70 +2,120 @@
 #set ($footer_script_content = "../content/catalog/product-details-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
-#*
-		<link href="${common.themeResourcePrefixPath}/js/library/product-carousel/product-carousel.css" rel="stylesheet" type="text/css">
-
-		<style>
-			#product-carousel-gallery {
-				background:url('${common.themeResourcePrefixPath}/js/library/product-carousel/images/panel_1000x80.png') repeat-x bottom center #ffffff;
-			}
-			#product-carousel-gallery li.product-carousel-inact:hover {
-				background:url('${common.themeResourcePrefixPath}/js/library/product-carousel/images/pic_bg_5x5.png') repeat;
-			}
-			#product-carousel-gallery li.product-carousel-act, li.product-carousel-act:hover {
-				background:url('${common.themeResourcePrefixPath}/js/library/product-carousel/images/active_bg_107x80.png') no-repeat;
-			}
-		</style>
-		
-		<!--[if lte IE 7]>
-		<style type="text/css">
-		ul li{
-			display:inline;
-			/*float:left;*/
-		}
-		</style>
-		<![endif]-->
-*#
-		<section id="product-category-details">
-			<div style="padding-top: 15px;">
-				<div style="float: left;">
-					<img src="${productMarketing.backgroundImage}" alt="$productMarketing.i18nName" />
-				</div>		
-				<div style="float: left;">
-					$productMarketing.i18nName<br/>
-					$productMarketing.description<br/>
-					<a href="$productMarketing.brandDetailsUrl">brand</a><br/>
-					<a href="$productMarketing.brandLineDetailsUrl">brand line123</a><br/>
-				</div>
-			</div>
-			<div style="clear: both;"></div>
-		</section>
-#*
-					<div id="product-carousel">
-	<div id="product-carousel-gallery">
+<div class="product-detail-wrap">
+	<span class="section-title category-title">Home › Cafe › Keurig Café Escapes Café Caramel</span>
+	<div class="clear border-btm"></div>
+	<div class="product-detail-content row">
+		<div class="product-image-wrap span4">
+			<a href="javascript:void(0);" class="product-image">
+				<img src="${productMarketing.backgroundImage}" alt="$productMarketing.i18nName" />
+			</a>
+		</div>
+		<div class="product-info span8">
+			<h3 class="product-name">$productMarketing.i18nName</h3>
+			<span class="rating-stars star-4">&nbsp;</span>
+			<p class="product-sku"><strong>SKU:</strong> $productMarketing.skuCode</p>
+			<span class="product-add2cart">
+				<span class="product-price">$productMarketing.price</span>
+				<form class="add2cart-form">
+					<label>Quantity</label>
+					<input type="text" value="" class="ql-textbox quantity">
+					<a href="$productMarketing.addToCartUrl" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+				</form>
+			</span>
+			<span class="product-des">
+				<p>$productMarketing.description</p>				
+			</span>
+			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+		</div>
+	</div>
 	
-		<div id="product-carousel-slides">
-			#foreach($productSku in $productMarketing.productSkus)
-			<div class="product-carousel-slide">
-				<div style="float: left;">
-					<img src="${productSku.backgroundImage}" width="920" height="400" alt="side" />
-				</div>
-				<div style="float: left; padding-top: 50px;">
-					<h1>${productSku.name}</h1>
-					<a href="${productSku.addToWishlistUrl}" alt="${productSku.addToWishlistLabel}">${productSku.addToWishlistLabel}</a><br/>
-					<a href="${productSku.addToCartUrl}" alt="${productSku.addToCartLabel}">${productSku.addToCartLabel}</a><br/>
-				</div>
-			</div>
-			#end
-		</div>
-		
-		<div id="product-carousel-menu">
-			<ul>
-				<li class="product-carousel-fbar">&nbsp;</li>
-				#foreach($productSku in $productMarketing.productSkus)
-				<li class="product-carousel-menuItem" style="width: 107px; text-align: center;"><a href="#"><img src="${productSku.carouselImage}" alt="thumbnail" width="70px" height="70px" /></a></li>
-				#end
-			</ul>
-		</div>
-*#
+	<div class="product-spec">
+		<ul class="spec-list product-spec-headrow">
+			<li class="active">
+				<a href="#">Features</a>
+			</li>
+			<li>
+				<a href="#">Lorem ipsum</a>
+			</li>
+			<li>
+				<a href="#">Lorem ipsum</a>
+			</li>
+		</ul>
+		<table class="product-spec-content">
+			<tr>
+				<td class="product-spec-name">Model</td>
+				<td class="product-spec-detail">A14155</td>
+			</tr>
+			<tr>
+				<td class="product-spec-name">Dimensions</td>
+				<td class="product-spec-detail">17264 x 19455 mm</td>
+			</tr>
+			<tr>
+				<td class="product-spec-name">Finish</td>
+				<td class="product-spec-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+			</tr>
+			<tr>
+				<td class="product-spec-name">Country of Orgin</td>
+				<td class="product-spec-detail">USA</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!-- //product detail content -->
+
+
+<!-- category product section -->
+<div class="product-section">
+	<span class="section-title category-title">Related products</span>
+	<div class="clear border-btm"></div>
+	<ul class="products-grid row">
+		<li class="item span3">
+			<a href="#" class="product-image">
+				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
+			</a>
+			<a href="#" class="product-name">Keurig Café Escapes</a>
+			<span class="rating-stars star-4">&nbsp;</span>
+			<p class="product-price">$30.00</p>
+			<a href="#" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+		</li>
+		<li class="item span3">
+			<a href="#" class="product-image">
+				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
+			</a>
+			<a href="#" class="product-name">Keurig Café Escapes</a>
+			<span class="rating-stars star-4">&nbsp;</span>
+			<p class="product-price">$30.00</p>
+			<a href="#" class="cart-btn1">
+				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+		</li>
+		<li class="item span3">
+			<a href="#" class="product-image">
+				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
+			</a>
+			<a href="#" class="product-name">Keurig Café Escapes</a>
+			<span class="rating-stars star-4">&nbsp;</span>
+			<p class="product-price">$30.00</p>
+			<a href="#" class="cart-btn1">
+				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+		</li>
+		<li class="item span3">
+			<a href="#" class="product-image">
+				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
+			</a>
+			<a href="#" class="product-name">Keurig Café Escapes</a>
+			<span class="rating-stars star-4">&nbsp;</span>
+			<p class="product-price">$30.00</p>
+			<a href="#" class="cart-btn1">
+				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+		</li>
+	</ul>
+
+</div>
+<!-- //category product section -->
+<div class="clear border-btm"></div>
     
