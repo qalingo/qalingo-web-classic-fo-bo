@@ -117,11 +117,11 @@
 					</p>
 
 					<div class="sort-by">
-						<label>Xem theo</label>
+						<label>View By</label>
 						<select>
-							<option value="" selected="selected">Thứ tự hiển thị</option>
-							<option value="">Tên sản phẩm</option>
-							<option value="">Giá tiền</option>
+							<option value="" selected="selected">The order shown</option>
+							<option value="">Name</option>
+							<option value="">Price</option>
 						</select>
 						<a href="" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
@@ -130,12 +130,12 @@
 				</div>
 				<div class="pager hidden-phone">
 					<div class="limiter">
-						<label>Hiển thị</label>
+						<label>Display</label>
 						<select>
 							<option value="" selected="selected">9</option>
 							<option value="">15</option>
 							<option value="">30</option>
-						</select> trên trang        
+						</select> on page        
 					</div>
 				</div>
 			</div>
@@ -146,12 +146,12 @@
 			#foreach($productMarketing in $catalogCategory.productMarketings) 
 			<li class="item span3">
 				<a href="${productMarketing.detailsUrl}" class="product-image">
-					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.businessName}"></span>
+					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
 				</a>
-				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.businessName}</a>
+				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$30.00</p>
-				<a href="${productMarketing.brandDetailsUrl}" class="cart-btn1">
+				<p class="product-price">$productMarketing.price</p>
+				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</li>			
