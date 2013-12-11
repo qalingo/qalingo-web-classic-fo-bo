@@ -6,7 +6,9 @@
 						<h1>${mainContentTitle}</h1>
 					</div>
 	
-					#parse("_include/customer-menu.vm")
+					<div style="float: left; width: 15%;">
+						#parse("_include/customer-menu.vm")
+					</div>
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
 						<form id="customerAddressForm" name="customerAddressForm" action="customer-add-address.html" method="POST">
@@ -153,7 +155,7 @@
 								</div>
 							</div>
 							<div style="clear: both; width: 100%; text-align: right; padding-top: 5px; padding-bottom: 5px;">
-								<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.customer.form_account_label_cancel")</button>
+								<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("fo.customer.form_account_label_cancel")</button>
 								<button class="btn btn-primary" type="submit">$wording.get("fo.customer.form_address_label_create")</button>
 							</div>
 						</div>

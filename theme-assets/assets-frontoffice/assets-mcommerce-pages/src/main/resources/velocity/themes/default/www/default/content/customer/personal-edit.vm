@@ -2,15 +2,17 @@
 #set ($page_title = $seoPageTitle)
 #set($breadcrumbWording = $wording.get("fo.customer.main_content_title_customer_edit"))
 
-		<section id="customer-add-address">
-			<div class="row-fluid margin-bottom-10">
-				<div class="span2">
+			<section id="customer-edit">
+				<div class="page-header">
+					<h1>${mainContentTitle}</h1>
+				</div>
+					
+				<div style="float: left; width: 15%;">
 					#parse("_include/customer-menu.vm")
 					#parse("_include/customer-warning.vm")
 				</div>
-				<div class="span10">
 				
-					<div class="row-fluid margin-bottom-10">
+				<div style="float: left; width: 80%;" class="form-horizontal well">
 					<form id="customerEditForm" name="customerEditForm" action="$urlCustomerEdit" method="POST" class="reg-page address-form">
 						#set($beanName = "customerEditForm")
 						#parse("../../_include/body-form-error-message.vm") 
@@ -44,12 +46,9 @@
 							</div>
 						</div>
 						<div class="controls form-inline" style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
-							<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.customer.form_account_label_cancel")</button>
+							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("fo.customer.form_account_label_cancel")</button>
 							<button class="btn btn-primary" type="submit">$wording.get("fo.customer.form_update_account_label_submit")</button>
 						</div>
 					</form>
-					</div>
-
 				</div>
-			</div>
-		</section>
+			</section>

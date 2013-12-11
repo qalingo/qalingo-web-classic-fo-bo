@@ -7,7 +7,9 @@
 						<h1>${mainContentTitle}</h1>
 					</div>
 	
-					#parse("_include/customer-menu.vm")
+					<div style="float: left; width: 15%;">
+						#parse("_include/customer-menu.vm")
+					</div>
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
 						<div>

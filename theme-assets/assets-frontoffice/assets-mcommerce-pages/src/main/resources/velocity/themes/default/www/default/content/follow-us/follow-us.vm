@@ -27,7 +27,7 @@
 										</div>
 									</div>
 									<div style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
-										<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.follow_us.form_label_cancel")</button>
+										<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("fo.follow_us.form_label_cancel")</button>
 										<button class="btn btn-primary" type="submit">$wording.get("fo.follow_us.form_label_submit")</button>
 									</div>
 									<div style="width: 100%; padding-top: 20px;">

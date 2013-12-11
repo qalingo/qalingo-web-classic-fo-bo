@@ -1,76 +1,78 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-	<div>
-		<form id="cartForm" name="cartForm" action="cart-delivery-order-information.html" method="POST">
-		<div id="cart-addresses-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; border: 1px solid #E5E5E5;">
-			#springBind("cartForm")
-			#if($status.errors.hasErrors()) 
-			<div id="errors" class="alert alert-error">
-				## Global error messages 
-				#foreach($e in $status.errorMessages) 
-					<p>${e}</p> 
-				#end 
-				## Field error messages 
-				#foreach($fieldError in $status.errors.fieldErrors) 
-					#springBind("cartForm.${fieldError.field}") 
-					#foreach($errorMessage in $status.errorMessages) 
-						${errorMessage}<br/>
+		<section id="cart-delivery-order-information">
+			#parse("_include/checkout-steps.vm")
+			<div id="cart-addresses-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
+			<form id="cartForm" name="cartForm" action="cart-delivery-order-information.html" method="POST">
+				#springBind("cartForm")
+				#if($status.errors.hasErrors()) 
+				<div id="errors" class="alert alert-error">
+					## Global error messages 
+					#foreach($e in $status.errorMessages) 
+						<p>${e}</p> 
 					#end 
+					## Field error messages 
+					#foreach($fieldError in $status.errors.fieldErrors) 
+						#springBind("cartForm.${fieldError.field}") 
+						#foreach($errorMessage in $status.errorMessages) 
+							${errorMessage}<br/>
+						#end 
+					#end 
+				</div>
 				#end 
-			</div>
-			#end 
-			<div style="width: 415px; float:left;">
-				<div>
-					<div style="float: left; width: 150px;">
-						<label for="billingAddressId" class="label-form">billingAddressLabel</label>
-					</div>
-					<div style="float: left;">
-						<select id="billingAddressId" name="billingAddressId" style="width: 205px; height: 25px;" >
-							<option value="">--</option>
-							#foreach($address in $addresses)
-								#if($address.id == $cartForm.billingAddressId)
-								<option value="$address.id" selected="selected">$address.addressName</option>
-								#else
-								<option value="$address.id">$address.addressName</option>
+				<div style="width: 415px; float:left;">
+					<div>
+						<div style="float: left; width: 150px;">
+							<label for="billingAddressId" class="label-form">billingAddressLabel</label>
+						</div>
+						<div style="float: left;">
+							<select id="billingAddressId" name="billingAddressId" style="width: 205px; height: 25px;" >
+								<option value="">--</option>
+								#foreach($address in $addresses)
+									#if($address.id == $cartForm.billingAddressId)
+									<option value="$address.id" selected="selected">$address.addressName</option>
+									#else
+									<option value="$address.id">$address.addressName</option>
+									#end
 								#end
-							#end
-						</select>
+							</select>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div style="width: 415px; float:left;">
-				<div>
-					<div style="float: left; width: 150px;">
-						<label for="shippingAddressId" class="label-form">shippingAddressLabel</label>
-					</div>
-					<div style="float: left;">
-						<select id="shippingAddressId" name="shippingAddressId" style="width: 205px; height: 25px;" >
-							<option value="">--</option>
-							#foreach($address in $addresses)
-								#if($address.id == $cartForm.shippingAddressId)
-								<option value="$address.id" selected="selected">$address.addressName</option>
-								#else
-								<option value="$address.id">$address.addressName</option>
+				<div style="width: 415px; float:left;">
+					<div>
+						<div style="float: left; width: 150px;">
+							<label for="shippingAddressId" class="label-form">shippingAddressLabel</label>
+						</div>
+						<div style="float: left;">
+							<select id="shippingAddressId" name="shippingAddressId" style="width: 205px; height: 25px;" >
+								<option value="">--</option>
+								#foreach($address in $addresses)
+									#if($address.id == $cartForm.shippingAddressId)
+									<option value="$address.id" selected="selected">$address.addressName</option>
+									#else
+									<option value="$address.id">$address.addressName</option>
+									#end
 								#end
-							#end
-						</select>
+							</select>
+						</div>
 					</div>
 				</div>
+				<div style="width: 150px; float:left;">
+					<span style="padding-right: 15px;"><a class="btn" href="$cart.addNewAddressUrl">addNewAddressLabel</a></span>
+				</div>
+				<div style="clear: both;"></div>
+
+				<div id="cart-shipping-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
+					shipping options
+				</div>
+				<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
+					#parse("_include/cart-details.vm")
+				</div>
+				<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; text-align: right;">
+					<span style="padding-right: 55px;"><button class="btn btn-primary" type="submit">step2SubmitLabel</button></span>
+				</div>
+			</form>
 			</div>
-			<div style="width: 150px; float:left;">
-				<span style="padding-right: 15px;"><a class="btn" href="$cart.addNewAddressUrl">addNewAddressLabel</a></span>
-			</div>
-			<div style="clear: both;"></div>
-		</div>
-		<div id="cart-shipping-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; border: 1px solid #E5E5E5;">
-			shipping options
-		</div>
-		<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; border: 1px solid #E5E5E5;">
-			#parse("_include/cart-details.vm")
-		</div>
-		<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; border: 1px solid #E5E5E5; text-align: right;">
-			<span style="padding-right: 55px;"><button class="btn btn-primary" type="submit">step2SubmitLabel</button></span>
-		</div>
-		</form>
-	</div>
+		</section>

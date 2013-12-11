@@ -2,63 +2,64 @@
 #set ($footer_script_content = "../content/cart/cart-order-payment-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
-						<form id="paymentForm" name="paymentForm" action="" method="POST" class="trigger-form-handle-focus">
-						#set($beanName = "paymentForm")
-						#parse("../../_include/body-form-error-message.vm")
-						
-						<div id="cart-payment-content">
-							<div style="width: 48%; float:left; padding: 5px; border: 1px solid #E5E5E5;">
-								<div>
-									<div style="border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
-										<div class="form-group">
-											<div style="float: left; width: 200px;">
-												<label for="cardHolder" class="label-form">cardHolderLabel</label>
-											</div>
-											<div style="float: left;">
-												<input type="text" id="cardHolder" name="cardHolder" value="" placeholder="" class="form-control" style="width: 200px;" tabindex="1" autocomplete="off" />
-											</div>
-										</div>
-										<div style="clear: both;"></div>
-										<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
-											<div style="float: left; width: 200px;">
-												<label for="cardNumber" class="label-form">cardNumberLabel</label>
-											</div>
-											<div style="float: left;">
-												<input type="text" id="cardNumber1" name="cardNumber1" value="" style="width: 50px;" tabindex="2" maxlength="4" size="4" autocomplete="off" />
-												<input type="text" id="cardNumber2" name="cardNumber2" value="" style="width: 50px;" tabindex="3" maxlength="4" size="4" autocomplete="off" />
-												<input type="text" id="cardNumber3" name="cardNumber3" value="" style="width: 50px;" tabindex="4" maxlength="4" size="4" autocomplete="off" />
-												<input type="text" id="cardNumber4" name="cardNumber4" value="" style="width: 50px;" tabindex="5" maxlength="4" size="4" autocomplete="off" />
-											</div>
-										</div>
-										<div style="clear: both;"></div>
-										<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
-											<div style="float: left; width: 200px;">
-												<label for="cardCrypto" class="label-form">cardCryptoLabel</label>
-											</div>
-											<div style="float: left;">
-												<input type="text" id="cardCrypto" name="cardCrypto" value="" style="width: 50px;" tabindex="6" maxlength="4" size="4" autocomplete="off" />
-											</div>
-										</div>
-										<div style="clear: both;"></div>
-										<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
-											<div style="float: left; width: 200px;">
-												<label for="cardMonth" class="label-form">cardExpirationMonthLabel</label>
-											</div>
-											<div style="float: left;">
-												<input type="text" id="cardMonth" name="cardMonth" value="" style="width: 50px;" tabindex="7" maxlength="2" size="2" autocomplete="off" />
-												<input type="text" id="cardYear" name="cardYear" value="" style="width: 50px;" tabindex="8" maxlength="2" size="2" autocomplete="off" />
-											</div>
-										</div>
+			<section id="cart-order-confirmation">
+				#parse("_include/checkout-steps.vm")
+				<form id="paymentForm" name="paymentForm" action="" method="POST" class="trigger-form-handle-focus">
+				<div id="cart-payment-content">
+					#set($beanName = "paymentForm")
+					#parse("../../_include/body-form-error-message.vm")
+					<div style="width: 48%; float:left; padding: 5px;">
+						<div>
+							<div style="background-color: #ffffff; padding: 10px; float:left;">
+								<div class="form-group">
+									<div style="float: left; width: 200px;">
+										<label for="cardHolder" class="label-form">cardHolderLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="cardHolder" name="cardHolder" value="" placeholder="" class="form-control" style="width: 200px;" tabindex="1" autocomplete="off" />
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 200px;">
+										<label for="cardNumber" class="label-form">cardNumberLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="cardNumber1" name="cardNumber1" value="" style="width: 50px;" tabindex="2" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber2" name="cardNumber2" value="" style="width: 50px;" tabindex="3" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber3" name="cardNumber3" value="" style="width: 50px;" tabindex="4" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber4" name="cardNumber4" value="" style="width: 50px;" tabindex="5" maxlength="4" size="4" autocomplete="off" />
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 200px;">
+										<label for="cardCrypto" class="label-form">cardCryptoLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="cardCrypto" name="cardCrypto" value="" style="width: 50px;" tabindex="6" maxlength="4" size="4" autocomplete="off" />
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 200px;">
+										<label for="cardMonth" class="label-form">cardExpirationMonthLabel</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="cardMonth" name="cardMonth" value="" style="width: 50px;" tabindex="7" maxlength="2" size="2" autocomplete="off" />
+										<input type="text" id="cardYear" name="cardYear" value="" style="width: 50px;" tabindex="8" maxlength="2" size="2" autocomplete="off" />
 									</div>
 								</div>
 							</div>
-							<div style="width: 48%; float:right; padding: 5px; border: 1px solid #E5E5E5;">
-								#parse("_include/cart-details.vm")
-							</div>
 						</div>
-						<div style="clear: both;"></div>
-						<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; border: 1px solid #E5E5E5; text-align: right;">
-							<span style="padding-right: 55px;"><button class="btn btn-primary" tabindex="9" type="submit">step3SubmitLabel</button></span>
-						</div>
-						
-						</form>
+					</div>
+					<div style="width: 48%; float:right; padding: 5px;">
+						#parse("_include/cart-details.vm")
+					</div>
+				</div>
+				<div style="clear: both;"></div>
+				<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; text-align: right;">
+					<span style="padding-right: 55px;"><button class="btn btn-primary" tabindex="9" type="submit">step3SubmitLabel</button></span>
+				</div>
+				</form>
+			</section>				
