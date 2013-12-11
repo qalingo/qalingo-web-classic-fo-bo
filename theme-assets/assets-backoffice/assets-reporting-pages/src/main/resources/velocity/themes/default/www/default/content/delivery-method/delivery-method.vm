@@ -2,13 +2,13 @@
 #set ($page_title = $seoPageTitle)
 
 			
-				<section id="shipping">
+				<section id="delivery-method">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
 					
 					<div>
-						shipping
+						DeliveryMethod
 					</div>
 					
 					<div style="clear: both;"></div>

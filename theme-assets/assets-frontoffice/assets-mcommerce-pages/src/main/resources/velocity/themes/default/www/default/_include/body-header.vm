@@ -65,7 +65,7 @@
 				<div id="header-over-menu-navbar" class="navbar-inner">
 					<div class="container">
 						<div>
-							<div style="float: left;">$common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentMarketAreaLocalization.name) / $common.currentMarketAreaRetailer.name</div>
+							<div style="float: left;">$common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentMarketAreaLocalization.name / $common.currentMarketAreaRetailer.name</div>
 							<div style="float: right;">
 								#if($!customer)
 									<i class="icon icon-user"></i><span class="user-my-account-link">$customer.lastname $customer.firstname</span>&nbsp; 
