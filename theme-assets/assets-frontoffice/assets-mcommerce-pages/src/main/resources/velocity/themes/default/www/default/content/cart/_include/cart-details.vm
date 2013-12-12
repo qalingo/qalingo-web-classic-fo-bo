@@ -32,8 +32,8 @@
 						<td style="text-align: center;"><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.skuCode</a></td>
 						<td style="text-align: center;">$cartItem.quantity</td>
 						<td style="text-align: center;"><a href="$cartItem.deleteUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">remove (X)</a></td>
-						<td style="text-align: right;">$cartItem.unitPrice</td>
-						<td style="text-align: right;">$cartItem.amount</td>
+						<td style="text-align: right;">$cartItem.unitPriceWithCurrencySign</td>
+						<td style="text-align: right;">$cartItem.amountWithCurrencySign</td>
 					</tr>
 				#end
 				</tbody>
@@ -56,7 +56,7 @@
 				<tbody>
 					<tr style="border-top: 1px solid #2F353E">
 						<td style="text-align: right;">Cart Items Total</td>
-						<td style="text-align: right;">$cart.cartItemsTotal</td>
+						<td style="text-align: right;">$cart.cartItemsTotalWithCurrencySign</td>
 					</tr>
 				</tbody>
 			</table> 
@@ -81,8 +81,8 @@
 				<tbody>
 				#foreach($cartDeliveryMethod in $cart.cartDeliveryMethods)
 					<tr>
-						<td style="text-align: right;">$cartDeliveryMethod.cartShippingTotalLabel</td>
-						<td style="text-align: right;">$cartDeliveryMethod.cartShippingTotal</td>
+						<td style="text-align: right;">$cartDeliveryMethod.label</td>
+						<td style="text-align: right;">$cartDeliveryMethod.amountWithCurrencySign</td>
 					</tr>
 				#end
 				</tbody>

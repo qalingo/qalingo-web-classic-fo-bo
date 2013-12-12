@@ -150,7 +150,7 @@
 				</a>
 				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$productMarketing.price</p>
+				<p class="product-price">$productMarketing.priceWithCurrencySign</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>

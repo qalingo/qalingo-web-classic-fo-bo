@@ -16,7 +16,7 @@
 			<span class="rating-stars star-4">&nbsp;</span>
 			<p class="product-sku"><strong>SKU:</strong> $productMarketing.skuCode</p>
 			<span class="product-add2cart">
-				<span class="product-price">$productMarketing.price</span>
+				<span class="product-price">$productMarketing.priceWithCurrencySign</span>
 				<form class="add2cart-form">
 					<label>Quantity</label>
 					<input type="text" value="" class="ql-textbox quantity">
@@ -85,7 +85,7 @@
 			</a>
 			<a href="#" class="product-name">$relatedProduct.i18nName</a>
 			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$relatedProduct.price</p>
+			<p class="product-price">$relatedProduct.priceWithCurrencySign</p>
 			<a href="$relatedProduct.addToCartUrl" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
 		</li>	
