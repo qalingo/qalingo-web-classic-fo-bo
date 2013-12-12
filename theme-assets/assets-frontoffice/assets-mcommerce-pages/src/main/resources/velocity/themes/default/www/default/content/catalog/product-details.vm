@@ -35,14 +35,17 @@
 			<li class="active">
 				<a href="#">Features</a>
 			</li>
+			<!--
 			<li>
 				<a href="#">Lorem ipsum</a>
 			</li>
 			<li>
 				<a href="#">Lorem ipsum</a>
 			</li>
+			-->
 		</ul>
 		<table class="product-spec-content">
+			<!--
 			<tr>
 				<td class="product-spec-name">Model</td>
 				<td class="product-spec-detail">A14155</td>
@@ -59,6 +62,10 @@
 				<td class="product-spec-name">Country of Orgin</td>
 				<td class="product-spec-detail">USA</td>
 			</tr>
+			-->
+			<tr>
+				<td>$productMarketing.description</td>
+			</tr>
 		</table>
 	</div>
 </div>
@@ -66,56 +73,26 @@
 
 
 <!-- category product section -->
+#if($relatedProductMarketings.size() > 0)
 <div class="product-section">
 	<span class="section-title category-title">Related products</span>
 	<div class="clear border-btm"></div>
 	<ul class="products-grid row">
+		#foreach($relatedProduct in $relatedProductMarketings)
 		<li class="item span3">
 			<a href="#" class="product-image">
-				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
+				<span><img src="${relatedProduct.carouselImage}" alt="$relatedProduct.i18nName"></span>
 			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
+			<a href="#" class="product-name">$relatedProduct.i18nName</a>
 			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+			<p class="product-price">$relatedProduct.price</p>
+			<a href="$relatedProduct.addToCartUrl" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
-		<li class="item span3">
-			<a href="#" class="product-image">
-				<span><img src="fo-mcommerce-resources/default/img/catalog/category/product-1.jpg" alt="News1"></span>
-			</a>
-			<a href="#" class="product-name">Keurig Café Escapes</a>
-			<span class="rating-stars star-4">&nbsp;</span>
-			<p class="product-price">$30.00</p>
-			<a href="#" class="cart-btn1">
-				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
-		</li>
+		</li>	
+		#end
 	</ul>
-
 </div>
+#end
 <!-- //category product section -->
 <div class="clear border-btm"></div>
     
