@@ -33,13 +33,13 @@
 			$('form#filter').submit();
 		});
 		
-		$('input[name="paged"]').change(function(){
+		$('input[name="page"]').change(function(){
 			$('form#filter').submit();
 		});
 		$('#orderBy').click(function(){
 			$('form#filter').submit();
 		});
-		$('select[name="item"]').change(function(){
+		$('select[name="pageSize"]').change(function(){
 			$('form#filter').submit();
 		});
 	}
@@ -127,20 +127,21 @@
 			<div class="tb">
 				<div class="sorter">
 					<p class="view-mode">
-						<span title="Grid" class="grid selected"><i class="icon-th-list"></i></span>
-						<a href="" title="List" class="list"><i class="icon-th"></i></a>
+						<span title="Gird" class="grid selected"><i class="icon-th"></i></span>
+						<!--
+						<a href="#" title="List" class="list"><i class="icon-th-list"></i></a>
+						-->
 					</p>
 
 					<div class="sort-by">
 						<label>View By</label>
 						<select id="sortBy" name="sortBy">
-							<option value="">The order shown</option>
 							<option value="name" #if($sortBy == "name" || $sortBy != "price") selected="selected" #end>Name</option>
 							<option value="price" #if($sortBy == "price") selected="selected" #end>Price</option>
 						</select>
 						
 						<input name="orderBy" type="hidden" #if($orderBy == "desc") value="asc" #else value="desc" #end style="display:none" />
-						<input name="paged" value="1" type="hidden" style="display:none" />
+						<input name="page" value="1" type="hidden" style="display:none" />
 						<button>
 						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
@@ -151,10 +152,10 @@
 				<div class="pager hidden-phone">
 					<div class="limiter">
 						<label>Display</label>
-						<select name="item">
-							<option value="1" #if($item != 2 && $item != 3) selected="selected" #end>1</option>
-							<option value="2" #if($item == 2) selected="selected" #end>2</option>
-							<option value="3" #if($item == 3) selected="selected" #end>3</option>
+						<select name="pageSize">
+							<option value="1" #if($pageSize != 2 && $pageSize != 3) selected="selected" #end>1</option>
+							<option value="2" #if($pageSize == 2) selected="selected" #end>2</option>
+							<option value="3" #if($pageSize == 3) selected="selected" #end>3</option>
 						</select> on page        
 					</div>
 				</div>
@@ -178,9 +179,12 @@
 			#end
 		</ul>
 		#if($totalPage > 1)
-		<ul>
+		<ul class="pagination">
+		#if(!$sortBy)
+		#set ($sortBy = "name")
+		#end
 		#foreach($i in [1..$totalPage])
-			<li><a class="#if($i==$pageCurrent) active #end" href="?sortBy=${sortBy}&item=${item}&paged=${i}" data-page="${i}"> ${i} </a></li>
+			<li><a class="#if($i==$currentPage) active #end" href="?sortBy=${sortBy}&pageSize=${pageSize}&page=${i}" data-page="${i}">${i}</a></li>
 		#end
 		</ul>
 		#end
@@ -192,58 +196,5 @@
 </div>
 
 <div class="clear border-btm"></div>
-<!-- slide logo  -->
-<div id="linked-logos-slide" class="linked-logos-slide">
-<div class="slides_container row  products-grid">
 
-	<div class="slide">
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-	</div>		
-	
-	<div class="slide">
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-	</div>							
-
-</div>
-<!-- //slide featured products -->
-</div>
-<!-- //slide logo  -->
-<div class="clear border-btm"></div>
+#parse("_include/brands.vm")

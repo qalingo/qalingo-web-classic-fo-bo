@@ -1,0 +1,29 @@
+#if($productBrandViewBeans.size() > 0)
+<!-- slide logo  -->
+<div id="linked-logos-slide" class="linked-logos-slide">	
+	<div class="slides_container row  products-grid">
+		#set( $count1 = 0 )
+		#set( $items1 = 0 )
+		#set( $size1 = $productBrandViewBeans.size() - 1)
+		#foreach($productBrand in $productBrandViewBeans)
+			#if($count1 % 4 == 0)
+			<div class="slide">
+			#end
+			#set( $items1 = $items1 + 1 )
+			<div class="item span3">
+				<a href="#" class="linked-logos">
+					<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="${productBrand.name}"></span>
+				</a>
+			</div>
+			#if($items1 % 4 == 0 || $size1 == $count1)
+			#set( $items1 = 0 )
+			</div>
+			#end
+			#set( $count1 = $count1 + 1 )
+		#end				
+	</div>
+	<!-- //slide featured products -->
+</div>
+<!-- //slide logo  -->
+<div class="clear border-btm"></div>
+#end
