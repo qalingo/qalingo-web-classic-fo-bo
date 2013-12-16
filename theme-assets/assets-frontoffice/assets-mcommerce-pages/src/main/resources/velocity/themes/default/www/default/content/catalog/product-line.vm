@@ -35,7 +35,7 @@
 		$('input[name="paged"]').change(function(){
 			$('form#filter').submit();
 		});
-		$('#sortBy').click(function(){
+		$('#orderBy').click(function(){
 			$('input[name="orderBy"]').val("desc");
 		});
 		$('select[name="item"]').change(function(){
@@ -150,7 +150,7 @@
 						<button>
 						<input name="orderBy" type="hidden" style="display:none" />
 						<input name="paged" value="1" type="hidden" style="display:none" />
-						<a id="sortBy" href="javascript:void(0)" title="Set Descending Direction">
+						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
 						<button>
