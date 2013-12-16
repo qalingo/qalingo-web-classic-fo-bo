@@ -27,16 +27,17 @@
 	    	controlNav: false
 	    });
 	    $('#sortBy').change(function(){
+	    	if($(this).val() == ""){
+	    		return ;
+	    	}
 			$('form#filter').submit();
 		});
-		$('input[name="orderBy"]').change(function(){
-			$('form#filter').submit();
-		});
+		
 		$('input[name="paged"]').change(function(){
 			$('form#filter').submit();
 		});
 		$('#orderBy').click(function(){
-			$('input[name="orderBy"]').val("desc");
+			$('form#filter').submit();
 		});
 		$('select[name="item"]').change(function(){
 			$('form#filter').submit();
@@ -133,13 +134,14 @@
 					<div class="sort-by">
 						<label>View By</label>
 						<select id="sortBy" name="sortBy">
-							<option value="" #if($sortBy!="name"&& $sortBy!="price") selected="selected" #end >The order shown</option>
-							<option value="name" #if($sortBy =="name") selected="selected" #end>Name</option>
-							<option value="price" #if($sortBy =="price") selected="selected" #end>Price</option>
+							<option value="">The order shown</option>
+							<option value="name" #if($sortBy == "name" || $sortBy != "price") selected="selected" #end>Name</option>
+							<option value="price" #if($sortBy == "price") selected="selected" #end>Price</option>
 						</select>
-						<button>
-						<input name="orderBy" type="hidden" style="display:none" />
+						
+						<input name="orderBy" type="hidden" #if($orderBy == "desc") value="asc" #else value="desc" #end style="display:none" />
 						<input name="paged" value="1" type="hidden" style="display:none" />
+						<button>
 						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
@@ -150,8 +152,8 @@
 					<div class="limiter">
 						<label>Display</label>
 						<select name="item">
-							<option value="1" #if($item != 2 && $item!=3) selected="selected" #end>1</option>
-							<option value="2" #if($item ==2) selected="selected" #end>2</option>
+							<option value="1" #if($item != 2 && $item != 3) selected="selected" #end>1</option>
+							<option value="2" #if($item == 2) selected="selected" #end>2</option>
 							<option value="3" #if($item == 3) selected="selected" #end>3</option>
 						</select> on page        
 					</div>
