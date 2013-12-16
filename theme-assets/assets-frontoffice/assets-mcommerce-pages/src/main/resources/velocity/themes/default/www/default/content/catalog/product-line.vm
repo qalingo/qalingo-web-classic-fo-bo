@@ -26,8 +26,22 @@
 		$('#slider').nivoSlider({
 	    	controlNav: false
 	    });
+	    $('#sortBy').change(function(){
+			$('form#filter').submit();
+		});
+		$('input[name="orderBy"]').change(function(){
+			$('form#filter').submit();
+		});
+		$('input[name="paged"]').change(function(){
+			$('form#filter').submit();
+		});
+		$('#orderBy').click(function(){
+			$('input[name="orderBy"]').val("desc");
+		});
+		$('select[name="item"]').change(function(){
+			$('form#filter').submit();
+		});
 	}
-
 </script>
 
 <!-- nivo slider - top banner -->
@@ -105,9 +119,9 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home › Cafe</span>
+		<span class="section-title category-title">Home ›$catalogCategory.name</span>
 		<div class="clear border-btm"></div>
-		
+		<form id="filter" method="get">
 		<div class="filter-toolbar">
 			<div class="tb">
 				<div class="sorter">
@@ -118,29 +132,33 @@
 
 					<div class="sort-by">
 						<label>View By</label>
-						<select>
-							<option value="" selected="selected">The order shown</option>
-							<option value="">Name</option>
-							<option value="">Price</option>
+						<select id="sortBy" name="sortBy">
+							<option value="" #if($sortBy!="name"&& $sortBy!="price") selected="selected" #end >The order shown</option>
+							<option value="name" #if($sortBy =="name") selected="selected" #end>Name</option>
+							<option value="price" #if($sortBy =="price") selected="selected" #end>Price</option>
 						</select>
-						<a href="" title="Set Descending Direction">
+						<button>
+						<input name="orderBy" type="hidden" style="display:none" />
+						<input name="paged" value="1" type="hidden" style="display:none" />
+						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
+						<button>
 					</div>
 				</div>
 				<div class="pager hidden-phone">
 					<div class="limiter">
 						<label>Display</label>
-						<select>
-							<option value="" selected="selected">9</option>
-							<option value="">15</option>
-							<option value="">30</option>
+						<select name="item">
+							<option value="1" #if($item != 2 && $item!=3) selected="selected" #end>1</option>
+							<option value="2" #if($item ==2) selected="selected" #end>2</option>
+							<option value="3" #if($item == 3) selected="selected" #end>3</option>
 						</select> on page        
 					</div>
 				</div>
 			</div>
 		</div>
-		
+		</form>
 		
 		<ul class="products-grid row">
 			#foreach($productMarketing in $catalogCategory.productMarketings) 
@@ -150,13 +168,20 @@
 				</a>
 				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$productMarketing.priceWithCurrencySign</p>
+				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</li>			
 			#end
 		</ul>
+		#if($totalPage > 1)
+		<ul>
+		#foreach($i in [1..$totalPage])
+			<li><a class="#if($i==$pageCurrent) active #end" href="?sortBy=${sortBy}&item=${item}&paged=${i}" data-page="${i}"> ${i} </a></li>
+		#end
+		</ul>
+		#end
 
 	</div>
 </div>
