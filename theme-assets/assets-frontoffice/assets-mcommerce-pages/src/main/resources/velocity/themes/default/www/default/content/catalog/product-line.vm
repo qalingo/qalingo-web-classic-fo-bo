@@ -60,13 +60,13 @@
 <div class="side-bar span3">
 	<span class="section-title sidebar-title">Category</span>
 	<ul class="nav-category">
-		#foreach($category in $categories)
+		#foreach($catalogCategory in $catalogCategories)
 	    <li class="level0 active parent">
-			<a href="" class="level-top">${category.name}</a>
+			<a href="${catalogCategory.productAxeUrl}" class="level-top">${catalogCategory.name}</a>
 			<ul class="level0">
-			#foreach($subCategory in $category.subCategories)
+			#foreach($subCategory in $catalogCategory.subCategories)
 				<li class="level1">
-					<a href="${subCategory.categoryUrl}">${subCategory.name}</a>
+					<a href="${subCategory.productLineUrl}">${subCategory.name}</a>
 				</li>
 			#end
 			</ul>
