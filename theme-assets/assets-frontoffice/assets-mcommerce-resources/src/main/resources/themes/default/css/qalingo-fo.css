@@ -10,6 +10,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 body {
 	color: #8E959C;
+	background-color: #2F353E;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -294,7 +295,8 @@ header h1:hover, header p:hover {
 	Main content
 *****************************************************************************/
 .main {
-	padding-top: 10px;
+	background-color: #ffffff;
+	padding-top: 40px;
 	min-height: 400px;
 }
 

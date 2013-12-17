@@ -85,9 +85,9 @@
 								#end
 								#if($!headerCart)
 									#if($!headerCart.cartTotalItems > 0)
-									&nbsp;<i class="icon icon-shopping-cart"></i><a href="$headerCart.cartUrl" alt="">$headerCart.cartTotalSummaryLabel</a>
+									&nbsp;<i class="icon icon-shopping-cart"></i><a href="$headerCart.cartUrl" alt="" style="padding-left:3px;">$headerCart.cartTotalSummaryLabel</a>
 									#else
-									&nbsp;<i class="icon icon-shopping-cart"></i>&nbsp;$headerCart.cartTotalSummaryLabel
+									&nbsp;<i class="icon icon-shopping-cart"></i><span style="padding-left:3px;">$headerCart.cartTotalSummaryLabel</span>
 									#end
 								#end
 							</div>

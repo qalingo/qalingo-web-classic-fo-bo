@@ -25,9 +25,9 @@
 						<span class="footer-nav-title">Products</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
-							<li><a href="#">Cafe</a></li>
-							<li><a href="#">Thé</a></li>
-							<li><a href="#">Others</a></li>
+							#foreach($catalogCategory in $catalogCategories)
+							<a href="$catalogCategory.productAxeUrl">$catalogCategory.name</a>
+							#end
 						</ul>
 					</div>
 					

@@ -36,7 +36,7 @@
 		#end
 		
     </head>
-    <body  style="background-color: #2F353E;">
+    <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar navbar-inverse navbar-fixed-top">
 			
@@ -47,7 +47,7 @@
 			</div> 
         </div> 
         <header>
-        	<div  style="padding-top: 120px; padding-bottom: 10px; border-bottom: 1px solid #7e2a8d;">
+        	<div style="padding-top: 120px; padding-bottom: 10px; border-bottom: 1px solid #7e2a8d;">
 				<div class="container">
 					<div class="row">
 						<div style="text-align: left;">
@@ -58,7 +58,7 @@
         	</div>
         </header>
 		
-        <div class="main" style="background-color: #ffffff;">
+        <div class="main">
         	<div class="container">
 				#parse("../_include/body-transaction-messages.vm")
 				$screen_content
