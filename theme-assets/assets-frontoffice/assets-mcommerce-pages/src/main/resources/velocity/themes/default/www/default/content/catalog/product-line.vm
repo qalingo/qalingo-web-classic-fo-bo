@@ -91,15 +91,11 @@
 	
 	<span class="section-title sidebar-title">Recent products</span>
 	<ul class="nav-category">
+		#foreach($recentProduct in $recentProducts)
 	    <li class="level0 parent">
-			<a href="" class="">Odio dignissim 101</a>
+			<a href="${recentProduct.detailsUrl}" class="">${recentProduct.i18nName}</a>
 		</li>
-		<li class="level0 parent">
-			<a href="" class="">Odio dignis 800</a>
-		</li>		
-	    <li class="level0 parent">
-			<a href="" class="">Odio dignis A</a>
-		</li>
+		#end
 	</ul>
 	
 	<span class="section-title sidebar-title">Your cart</span>
