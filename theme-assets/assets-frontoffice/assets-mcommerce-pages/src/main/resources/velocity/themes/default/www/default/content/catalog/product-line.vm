@@ -26,8 +26,23 @@
 		$('#slider').nivoSlider({
 	    	controlNav: false
 	    });
+	    $('#sortBy').change(function(){
+	    	if($(this).val() == ""){
+	    		return ;
+	    	}
+			$('form#filter').submit();
+		});
+		
+		$('input[name="page"]').change(function(){
+			$('form#filter').submit();
+		});
+		$('#orderBy').click(function(){
+			$('form#filter').submit();
+		});
+		$('select[name="pageSize"]').change(function(){
+			$('form#filter').submit();
+		});
 	}
-
 </script>
 
 <!-- nivo slider - top banner -->
@@ -60,13 +75,13 @@
 <div class="side-bar span3">
 	<span class="section-title sidebar-title">Category</span>
 	<ul class="nav-category">
-		#foreach($category in $categories)
+		#foreach($catalogCategory in $catalogCategories)
 	    <li class="level0 active parent">
-			<a href="" class="level-top">${category.name}</a>
+			<a href="${catalogCategory.productAxeUrl}" class="level-top">${catalogCategory.name}</a>
 			<ul class="level0">
-			#foreach($subCategory in $category.subCategories)
+			#foreach($subCategory in $catalogCategory.subCategories)
 				<li class="level1">
-					<a href="${subCategory.categoryUrl}">${subCategory.name}</a>
+					<a href="${subCategory.productLineUrl}">${subCategory.name}</a>
 				</li>
 			#end
 			</ul>
@@ -90,9 +105,18 @@
 	
 	<span class="section-title sidebar-title">Your cart</span>
 	<ul class="nav-category">
+		#if(!$cart.cartItems)
+			#foreach($cartItem in $cart.cartItems)
+			<li class="level0 parent">
+			 <a href="$cartItem.productDetailsUrl">$cartItem.i18nName </a>
+			</li>
+			#end
+			<a href="$cart.cartDetailsUrl"> Cart Detail</a>
+		#else
 	    <li class="level0 parent">
 			<span>There is 0 item(s) in your cart.</span>
 		</li>
+		#end
 	</ul>
 	
 	<a href="" class="sidebar-banner">
@@ -105,42 +129,48 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home › Cafe</span>
+		<span class="section-title category-title">Home ›$catalogCategory.defaultParentCategory.name >$catalogCategory.name</span>
 		<div class="clear border-btm"></div>
-		
+		<form id="filter" method="get">
 		<div class="filter-toolbar">
 			<div class="tb">
 				<div class="sorter">
 					<p class="view-mode">
-						<span title="Grid" class="grid selected"><i class="icon-th-list"></i></span>
-						<a href="" title="List" class="list"><i class="icon-th"></i></a>
+						<span title="Gird" class="grid selected"><i class="icon-th"></i></span>
+						<!--
+						<a href="#" title="List" class="list"><i class="icon-th-list"></i></a>
+						-->
 					</p>
 
 					<div class="sort-by">
 						<label>View By</label>
-						<select>
-							<option value="" selected="selected">The order shown</option>
-							<option value="">Name</option>
-							<option value="">Price</option>
+						<select id="sortBy" name="sortBy">
+							<option value="name" #if($sortBy == "name" || $sortBy != "price") selected="selected" #end>Name</option>
+							<option value="price" #if($sortBy == "price") selected="selected" #end>Price</option>
 						</select>
-						<a href="" title="Set Descending Direction">
+						
+						<input name="orderBy" type="hidden" #if($orderBy == "desc") value="asc" #else value="desc" #end style="display:none" />
+						<input name="page" value="1" type="hidden" style="display:none" />
+						<button>
+						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
+						</button>
 					</div>
 				</div>
 				<div class="pager hidden-phone">
 					<div class="limiter">
 						<label>Display</label>
-						<select>
-							<option value="" selected="selected">9</option>
-							<option value="">15</option>
-							<option value="">30</option>
+						<select name="pageSize">
+							<option value="1" #if($pageSize != 2 && $pageSize != 3) selected="selected" #end>1</option>
+							<option value="2" #if($pageSize == 2) selected="selected" #end>2</option>
+							<option value="3" #if($pageSize == 3) selected="selected" #end>3</option>
 						</select> on page        
 					</div>
 				</div>
 			</div>
 		</div>
-		
+		</form>
 		
 		<ul class="products-grid row">
 			#foreach($productMarketing in $catalogCategory.productMarketings) 
@@ -150,13 +180,23 @@
 				</a>
 				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
-				<p class="product-price">$productMarketing.priceWithCurrencySign</p>
+				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
 				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</li>			
 			#end
 		</ul>
+		#if($totalPage > 1)
+		<ul class="pagination">
+		#if(!$sortBy)
+		#set ($sortBy = "name")
+		#end
+		#foreach($i in [1..$totalPage])
+			<li><a class="#if($i==$currentPage) active #end" href="?sortBy=${sortBy}&pageSize=${pageSize}&page=${i}" data-page="${i}">${i}</a></li>
+		#end
+		</ul>
+		#end
 
 	</div>
 </div>
@@ -165,58 +205,5 @@
 </div>
 
 <div class="clear border-btm"></div>
-<!-- slide logo  -->
-<div id="linked-logos-slide" class="linked-logos-slide">
-<div class="slides_container row  products-grid">
 
-	<div class="slide">
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-	</div>		
-	
-	<div class="slide">
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo1.png" alt="News1"></span>
-			</a>
-		</div>
-		<div class="item span3">
-			<a href="#" class="linked-logos">
-				<span><img src="${common.themeResourcePrefixPath}/img/home/logo2.png" alt="News1"></span>
-			</a>
-		</div>
-	</div>							
-
-</div>
-<!-- //slide featured products -->
-</div>
-<!-- //slide logo  -->
-<div class="clear border-btm"></div>
+#parse("_include/brands.vm")
