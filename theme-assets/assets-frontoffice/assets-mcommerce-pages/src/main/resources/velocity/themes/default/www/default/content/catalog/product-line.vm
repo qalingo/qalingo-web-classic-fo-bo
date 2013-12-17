@@ -129,7 +129,7 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home ›$catalogCategory.defaultParentCategory.name >$catalogCategory.name</span>
+		<span class="section-title category-title">Home ›<a href="$breadCum.defaultParentCategory.productAxeUrl">$breadCum.defaultParentCategory.name</a> > <a href="$breadCum.productLineUrl">$breadCum.name</a></span>
 		<div class="clear border-btm"></div>
 		<form id="filter" method="get">
 		<div class="filter-toolbar">
