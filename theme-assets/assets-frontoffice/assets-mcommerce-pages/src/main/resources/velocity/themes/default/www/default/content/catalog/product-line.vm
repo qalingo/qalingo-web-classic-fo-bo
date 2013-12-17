@@ -89,26 +89,23 @@
 		#end
 	</ul>
 	
+	#if($recentProducts.size() > 0)
 	<span class="section-title sidebar-title">Recent products</span>
 	<ul class="nav-category">
+		#foreach($recentProduct in $recentProducts)
 	    <li class="level0 parent">
-			<a href="" class="">Odio dignissim 101</a>
+			<a href="${recentProduct.detailsUrl}" class="">${recentProduct.i18nName}</a>
 		</li>
-		<li class="level0 parent">
-			<a href="" class="">Odio dignis 800</a>
-		</li>		
-	    <li class="level0 parent">
-			<a href="" class="">Odio dignis A</a>
-		</li>
+		#end
 	</ul>
-	
+	#end
 	
 	<span class="section-title sidebar-title">Your cart</span>
 	<ul class="nav-category">
-		#if(!$cart.cartItems)
+		#if($cart.cartItems.size() > 0)
 			#foreach($cartItem in $cart.cartItems)
 			<li class="level0 parent">
-			 <a href="$cartItem.productDetailsUrl">$cartItem.i18nName </a>
+			 <a href="$cartItem.productDetailsUrl">${cartItem.i18nName}</a>
 			</li>
 			#end
 			<a href="$cart.cartDetailsUrl"> Cart Detail</a>
@@ -129,7 +126,7 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home ›$catalogCategory.defaultParentCategory.name >$catalogCategory.name</span>
+		<span class="section-title category-title">Home › <a href="$breadcrumb.defaultParentCategory.productAxeUrl">$breadcrumb.defaultParentCategory.name</a> › <a href="$breadcrumb.productLineUrl">$breadcrumb.name</a></span>
 		<div class="clear border-btm"></div>
 		<form id="filter" method="get">
 		<div class="filter-toolbar">
