@@ -471,3 +471,16 @@ footer {
     color: #2F353E;
 }
 
+ul.pagination li {
+	float: left;
+	padding: 5px;
+}
+
+ul.pagination li {
+	float: left;
+	padding: 5px;
+}
+
+ul.pagination li a.active {
+	font-weight: bold;
+}
