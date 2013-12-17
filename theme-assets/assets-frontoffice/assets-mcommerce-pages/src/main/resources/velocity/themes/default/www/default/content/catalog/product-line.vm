@@ -105,7 +105,7 @@
 	
 	<span class="section-title sidebar-title">Your cart</span>
 	<ul class="nav-category">
-		#if($cart.cartItems)
+		#if(!$cart.cartItems)
 			#foreach($cartItem in $cart.cartItems)
 			<li class="level0 parent">
 			 <a href="$cartItem.productDetailsUrl">$cartItem.i18nName </a>
