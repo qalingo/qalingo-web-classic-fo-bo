@@ -69,10 +69,10 @@
 			#end
 			#set( $items = $items + 1 )
 			<div class="item span3">
-				<a href="$featuredProduct.detailsUrl" class="product-image">
+				<a href="${featuredProduct.detailsUrl}" class="product-image">
 					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
-				<a href="$featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
+				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">${featuredProduct.priceWithCurrencySign}</p>
 				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
@@ -100,7 +100,7 @@
     	<ul class="row  products-grid">
 			#foreach($productMarketing in $subcatalogCategory.productMarketings)
 				<li class="item span3">
-        			<a href="${productMarketing.productDetailsUrl}" class="product-image">
+        			<a href="${productMarketing.detailsUrl}" class="product-image">
         				<span>
 							<!--
 							<img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1">
@@ -108,7 +108,7 @@
 							<img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"/>
 						</span>
         			</a>
-        			<a href="${productMarketing.productDetailsUrl}" class="product-name">${productMarketing.i18nName} #if($productMarketing.isFeatured())*#end</a>
+        			<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName} #if($productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-4">&nbsp;</span>
         			<p class="product-price">${productMarketing.priceWithCurrencySign}</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
