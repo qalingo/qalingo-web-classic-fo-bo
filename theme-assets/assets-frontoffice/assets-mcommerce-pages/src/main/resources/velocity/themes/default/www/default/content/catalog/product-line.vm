@@ -105,9 +105,18 @@
 	
 	<span class="section-title sidebar-title">Your cart</span>
 	<ul class="nav-category">
+		#if(!$cart.cartItems)
+			#foreach($cartItem in $cart.cartItems)
+			<li class="level0 parent">
+			 <a href="$cartItem.productDetailsUrl">$cartItem.i18nName </a>
+			</li>
+			#end
+			<a href="$cart.cartDetailsUrl"> Cart Detail</a>
+		#else
 	    <li class="level0 parent">
 			<span>There is 0 item(s) in your cart.</span>
 		</li>
+		#end
 	</ul>
 	
 	<a href="" class="sidebar-banner">
@@ -120,7 +129,7 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home ›$catalogCategory.name</span>
+		<span class="section-title category-title">Home ›$catalogCategory.defaultParentCategory.name >$catalogCategory.name</span>
 		<div class="clear border-btm"></div>
 		<form id="filter" method="get">
 		<div class="filter-toolbar">
