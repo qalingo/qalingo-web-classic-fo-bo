@@ -88,7 +88,7 @@
 								<tr>
 									<td style="text-align: left;">$deliveryMethod.name</td>
 									<td style="text-align: left;">$deliveryMethod.description</td>
-									<td style="text-align: right;">$deliveryMethod.price</td>
+									<td style="text-align: right;">$deliveryMethod.priceWithCurrencySign</td>
 								</tr>
 							#end
 							</tbody>

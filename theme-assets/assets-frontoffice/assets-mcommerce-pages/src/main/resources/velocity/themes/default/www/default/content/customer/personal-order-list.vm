@@ -31,7 +31,7 @@
 											<tr>
 												<td>${order.orderNum}</td>
 												<td>${order.dateCreate}</td>
-												<td>${order.totalAmount}</td>
+												<td>${order.totalAmountWithCurrencySign}</td>
 												<td>${order.status}</td>
 												<td>
 													<a class="btn" href="$order.orderDetailsUrl" alt="">details</a>
