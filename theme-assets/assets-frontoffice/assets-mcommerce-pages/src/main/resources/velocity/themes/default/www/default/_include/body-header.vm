@@ -42,7 +42,7 @@
 										</ul>
 									</li>
 									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Langues&nbsp;<b class="caret"></b></a>
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area Langues&nbsp;<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 										#foreach($localization in $marketAreaLocalizations)
 											<li><a href="$localization.changeContextUrl" alt="$localization.name">$localization.name</a></li>
@@ -50,10 +50,18 @@
 										</ul>
 									</li>
 									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area Retailers&nbsp;<b class="caret"></b></a>
 										<ul class="dropdown-menu">
 										#foreach($retailer in $marketAreaRetailers)
 											<li><a href="$retailer.changeContextUrl" alt="$retailer.name">$retailer.name</a></li>
+										#end
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area Currencies&nbsp;<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+										#foreach($currency in $marketAreaCurrencies)
+											<li><a href="$currency.changeContextUrl" alt="$currency.name">$currency.name</a></li>
 										#end
 										</ul>
 									</li>
@@ -65,7 +73,7 @@
 				<div id="header-over-menu-navbar" class="navbar-inner">
 					<div class="container">
 						<div>
-							<div style="float: left;">$common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentMarketAreaLocalization.name / $common.currentMarketAreaRetailer.name</div>
+							<div style="float: left;">$common.currentMarketPlace.name / $common.currentMarket.name / $common.currentMarketArea.name / $common.currentMarketAreaLocalization.name / $common.currentMarketAreaRetailer.name / $common.currentMarketAreaCurrency.name</div>
 							<div style="float: right;">
 								#if($!customer)
 									<i class="icon icon-user"></i><span class="user-my-account-link">$customer.lastname $customer.firstname</span>&nbsp; 

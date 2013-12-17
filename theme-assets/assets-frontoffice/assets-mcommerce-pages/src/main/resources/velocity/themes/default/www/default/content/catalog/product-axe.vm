@@ -72,7 +72,7 @@
 				<a href="$featuredProduct.detailsUrl" class="product-image">
 					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
-				<a href="$featuredProduct.detailsUrl}" class="product-name">$featuredProduct.i18nName}</a>
+				<a href="$featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
 				<span class="rating-stars star-4">&nbsp;</span>
 				<p class="product-price">${featuredProduct.priceWithCurrencySign}</p>
 				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
