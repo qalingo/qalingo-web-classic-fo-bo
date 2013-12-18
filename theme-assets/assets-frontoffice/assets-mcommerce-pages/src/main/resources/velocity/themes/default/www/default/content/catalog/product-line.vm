@@ -37,6 +37,11 @@
 			$('form#filter').submit();
 		});
 		$('#orderBy').click(function(){
+			if($('input[name="orderBy"]').val() == "desc"){
+				$('input[name="orderBy"]').val("asc");
+			}else{
+				$('input[name="orderBy"]').val("desc");
+			}
 			$('form#filter').submit();
 		});
 		$('select[name="pageSize"]').change(function(){
@@ -126,7 +131,7 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home › <a href="$catalogBreadcrumb.defaultParentCategory.productAxeUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › <a href="$catalogBreadcrumb.productLineUrl">$catalogBreadcrumb.name</a></span>
+		<span class="section-title category-title">Home › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › $catalogBreadcrumb.name</span>
 		<div class="clear border-btm"></div>
 		<form id="filter" method="get">
 		<div class="filter-toolbar">
@@ -145,14 +150,16 @@
 							<option value="name" #if($sortBy == "name" || $sortBy != "price") selected="selected" #end>Name</option>
 							<option value="price" #if($sortBy == "price") selected="selected" #end>Price</option>
 						</select>
-						
-						<input name="orderBy" type="hidden" #if($orderBy == "desc") value="asc" #else value="desc" #end style="display:none" />
+						#if(!$orderBy || $orderBy == "desc")
+						#set ($orderBy = "desc")
+						#else
+						#set ($orderBy = "asc")
+						#end
+						<input name="orderBy" type="hidden" value="${orderBy}" style="display:none" />
 						<input name="page" value="1" type="hidden" style="display:none" />
-						<button>
 						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
-						</button>
 					</div>
 				</div>
 				<div class="pager hidden-phone">
@@ -190,7 +197,7 @@
 		#set ($sortBy = "name")
 		#end
 		#foreach($i in [1..$totalPage])
-			<li><a class="#if($i==$currentPage) active #end" href="?sortBy=${sortBy}&pageSize=${pageSize}&page=${i}" data-page="${i}">${i}</a></li>
+			<li><a class="#if($i==$currentPage) active #end" href="?sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}&page=${i}" data-page="${i}">${i}</a></li>
 		#end
 		</ul>
 		#end
