@@ -79,7 +79,7 @@
             <aop:before method="beforeRuning" pointcut-ref="emailNotificationBusinessService" />
             <aop:after-returning method="afterRuning" pointcut-ref="emailNotificationBusinessService" returning="result" />
         </aop:aspect>
-        <aop:aspect id="triggerRuleEco" ref="ruleOrientedCartAspect">
+        <aop:aspect id="triggerRuleOrientedCart" ref="ruleOrientedCartAspect">
             <aop:pointcut id="ruleOrientedCartBusinessService" expression="execution(* org.hoteia.qalingo.core.service.CartService.*ToCart*(..))" />
             <aop:before method="beforeRuning" pointcut-ref="ruleOrientedCartBusinessService" />
             <aop:after-returning method="afterRuning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
