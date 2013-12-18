@@ -3,7 +3,7 @@
 #set ($page_title = $seoPageTitle)
 
 <div class="product-detail-wrap">
-	<span class="section-title category-title">Home › Cafe › Keurig Café Escapes Café Caramel</span>
+	<span class="section-title category-title">Home › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › <a href="$catalogBreadcrumb.detailsUrl">$catalogBreadcrumb.name</a> › $productMarketing.i18nName</span>
 	<div class="clear border-btm"></div>
 	<div class="product-detail-content row">
 		<div class="product-image-wrap span4">
