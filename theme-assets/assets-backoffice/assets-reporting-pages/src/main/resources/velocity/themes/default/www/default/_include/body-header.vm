@@ -12,67 +12,32 @@
 				
 				<a class="brand" href="$!common.homeUrl">$!appNameHtml</a>
 				
-				<div class="nav-collapse">
-
-					<ul class="nav nav-pills market-nav" style="margin-left: 20px;">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">MarketPlaces&nbsp;<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							#foreach($marketPlace in $marketPlaces)
-								<li><a href="$!marketPlace.changeContextUrl" alt="$!marketPlace.name">$!marketPlace.name</a></li>
-							#end
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Markets&nbsp;<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							#foreach($market in $markets)
-								<li><a href="$!market.changeContextUrl" alt="$!market.name">$!market.name</a></li>
-							#end
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Area&nbsp;<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							#foreach($marketArea in $marketAreas)
-								<li><a href="$!marketArea.changeContextUrl" alt="$!marketArea.name">$!marketArea.name</a></li>
-							#end
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Market Langues&nbsp;<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							#foreach($marketLanguage in $marketLanguages)
-								<li><a href="$!marketLanguage.changeContextUrl" alt="$!marketLanguage.name">$!marketLanguage.name</a></li>
-							#end
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Retailers&nbsp;<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							#foreach($retailer in $retailers)
-								<li><a href="$!retailer.changeContextUrl" alt="$!retailer.name">$!retailer.name</a></li>
-							#end
-							</ul>
-						</li>
-					</ul>
+				<div class="nav-collapse" style="text-align: center;">
 
 					<div style="float: right;">
 						<ul class="nav pull-right">
 							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.backoffice_languages")&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+								#foreach($localization in $backofficeLocalizations)
+									<li><a href="$!localization.url" alt="$!localization.name">$!localization.name</a></li>
+								#end
+								</ul>
+							</li>
+
+							<li class="dropdown">
 								
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<i class="icon-cog"></i>
-									Settings
+									$wording.get("bo.header_menu.settings")
 									<b class="caret"></b>
 								</a>
-
 								
 								<ul class="dropdown-menu">
-									<li><a href="$!common.userDetailsUrl" alt="Account Settings">Account Settings</a></li>
-									<li><a href="$!common.userDetailsUrl" alt="Privacy Settings">Privacy Settings</a></li>
+									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.account_settings")">$wording.get("bo.header_menu.account_settings")</a></li>
+									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.privacy_settings")">$wording.get("bo.header_menu.privacy_settings")</a></li>
 									<li class="divider"></li>
-									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="Wiki" target="_blank">Wiki</a></li>
+									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="$wording.get("bo.header_menu.wiki")" target="_blank">$wording.get("bo.header_menu.wiki")</a></li>
 								</ul>
 								
 							</li>
@@ -85,8 +50,8 @@
 									<b class="caret"></b>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="$!common.userDetailsUrl">My Profile</a></li>
-									<li><a href="$!common.userDetailsUrl">My Groups</a></li>
+									<li><a href="$!common.personalDetailsUrl">$wording.get("bo.header_menu.my_profile")</a></li>
+									<li><a href="$!common.personalDetailsUrl">$wording.get("bo.header_menu.my_groups")</a></li>
 
 									<li class="divider"></li>
 									<li><a href="$!common.logoutUrl">$wording.get("bo.auth.header_title_logout")</a></li>
@@ -95,22 +60,13 @@
 							#end
 						</ul>
 					</div>
+					<div style="float: right; margin-top: 8px; margin-bottom: 5px; margin-right: 35px;">
+						$envName
+					</div>						
 				</div>
 				<div id="app-env" style="clear: both;">
 					<div>
-						<div style="float: left; margin-top: 8px; margin-bottom: 5px;">
-							$envName
-						</div>
-						<ul class="nav nav-pills market-nav">
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Backoffice Langues&nbsp;<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-								#foreach($language in $languages)
-									<li><a href="$!language.url" alt="$!language.name">$!language.name</a></li>
-								#end
-								</ul>
-							</li>
-						</ul>
+
 					</div>
 					<div style="float: right;">
 						<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
@@ -119,11 +75,56 @@
 					</div>
 				</div>
 				<div style="clear: both; color: #7D7E81;">
-					MarketLanguage: <span style="color: #a1cd44;">$!common.currentMarketLocalization.name</span>
-					Retailer: <span style="color: #a1cd44;">$!common.currentRetailer.name</span>
-					Marketplace: <span style="color: #a1cd44;">$!common.currentMarketPlace.name</span>
-					Market: <span style="color: #a1cd44;">$!common.currentMarket.name</span>
-					MarketArea: <span style="color: #a1cd44;">$!common.currentMarketArea.name</span>
+					<ul class="nav nav-pills market-nav">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.marketplaces")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketPlace.name</span>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketPlace in $marketPlaces)
+								<li><a href="$!marketPlace.changeContextUrl" alt="$!marketPlace.name">$!marketPlace.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.markets")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarket.name</span>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($market in $markets)
+								<li><a href="$!market.changeContextUrl" alt="$!market.name">$!market.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.market_areas")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketArea.name</span>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketArea in $marketAreas)
+								<li><a href="$!marketArea.changeContextUrl" alt="$!marketArea.name">$!marketArea.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.market_area_languages")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketAreaLocalization in $marketAreaLocalizations)
+								<li><a href="$!marketAreaLocalization.changeContextUrl" alt="$!marketAreaLocalization.name">$!marketAreaLocalization.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.market_area_retailers")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($marketAreaRetailer in $marketAreaRetailers)
+								<li><a href="$!marketAreaRetailer.changeContextUrl" alt="$!marketAreaRetailer.name">$!marketAreaRetailer.name</a></li>
+							#end
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.market_area_currencies")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketAreaCurrency.name</span>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							#foreach($currency in $marketAreaCurrencies)
+								<li><a href="$currency.changeContextUrl" alt="$currency.name">$currency.name</a></li>
+							#end
+							</ul>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

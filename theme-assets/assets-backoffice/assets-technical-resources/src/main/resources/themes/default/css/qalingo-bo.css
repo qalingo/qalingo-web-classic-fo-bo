@@ -18,6 +18,10 @@ h1 {
     font-size: 25.5px;
 }
 
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 1080px;
+}
+
 .page-header {
     margin-top: 0px;
     margin-bottom: 10px;

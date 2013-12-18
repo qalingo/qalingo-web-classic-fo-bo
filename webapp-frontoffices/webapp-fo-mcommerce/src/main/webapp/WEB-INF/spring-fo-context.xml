@@ -75,10 +75,14 @@
 	<context:component-scan base-package="org.hoteia.qalingo.core.aop" />
 	<aop:config>
         <aop:aspect id="triggerEmailNotification" ref="emailNotificationAspect">
-            <aop:pointcut id="emailNotificationBusinessService"
-                expression="execution(* org.hoteia.qalingo.core.service.EmailService.buildAndSave*(..))" />
+            <aop:pointcut id="emailNotificationBusinessService" expression="execution(* org.hoteia.qalingo.core.service.EmailService.buildAndSave*(..))" />
             <aop:before method="beforeRuning" pointcut-ref="emailNotificationBusinessService" />
             <aop:after-returning method="afterRuning" pointcut-ref="emailNotificationBusinessService" returning="result" />
+        </aop:aspect>
+        <aop:aspect id="triggerRuleEco" ref="ruleOrientedCartAspect">
+            <aop:pointcut id="ruleOrientedCartBusinessService" expression="execution(* org.hoteia.qalingo.core.service.CartService.*ToCart*(..))" />
+            <aop:before method="beforeRuning" pointcut-ref="ruleOrientedCartBusinessService" />
+            <aop:after-returning method="afterRuning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
         </aop:aspect>
     </aop:config>
 

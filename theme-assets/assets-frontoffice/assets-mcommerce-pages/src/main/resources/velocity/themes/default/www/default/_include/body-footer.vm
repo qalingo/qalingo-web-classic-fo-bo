@@ -26,7 +26,7 @@
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 							#foreach($catalogCategory in $catalogCategories)
-							<a href="$catalogCategory.productAxeUrl">$catalogCategory.name</a>
+							<li><a href="$catalogCategory.productAxeUrl">$catalogCategory.name</a></li>
 							#end
 						</ul>
 					</div>
