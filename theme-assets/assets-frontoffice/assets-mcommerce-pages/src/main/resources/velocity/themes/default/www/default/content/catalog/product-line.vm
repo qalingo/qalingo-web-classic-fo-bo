@@ -150,16 +150,23 @@
 							<option value="name" #if($sortBy == "name" || $sortBy != "price") selected="selected" #end>Name</option>
 							<option value="price" #if($sortBy == "price") selected="selected" #end>Price</option>
 						</select>
-						#if(!$orderBy || $orderBy == "desc")
-						#set ($orderBy = "desc")
-						#else
+						#if(!$orderBy || $orderBy == "asc")
 						#set ($orderBy = "asc")
+						#else
+						#set ($orderBy = "desc")
 						#end
 						<input name="orderBy" type="hidden" value="${orderBy}" style="display:none" />
 						<input name="page" value="1" type="hidden" style="display:none" />
+						#if($orderBy == "asc")
 						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
+						#else
+						<a id="orderBy" href="javascript:void(0)" title="Set Ascending Direction">
+							<img src="${common.themeResourcePrefixPath}/img/i_desc_arrow.gif" alt="Set Ascending Direction" class="v-middle">
+						</a>
+						#end
+						
 					</div>
 				</div>
 				<div class="pager hidden-phone">
@@ -187,7 +194,7 @@
 				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-				<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+				<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1"><i class="icon-heart"></i></a>
 			</li>			
 			#end
 		</ul>
