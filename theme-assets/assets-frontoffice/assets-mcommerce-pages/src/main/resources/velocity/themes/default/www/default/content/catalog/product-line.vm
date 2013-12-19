@@ -131,7 +131,7 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title">Home › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › $catalogBreadcrumb.name</span>
+		<span class="section-title category-title"><a href="${common.homeUrl}">Home</a> › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › $catalogBreadcrumb.name</span>
 		<div class="clear border-btm"></div>
 		<form id="filter" method="get">
 		<div class="filter-toolbar">
