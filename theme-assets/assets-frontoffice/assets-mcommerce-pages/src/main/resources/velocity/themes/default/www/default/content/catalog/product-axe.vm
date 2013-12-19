@@ -36,7 +36,7 @@
     <div id="slider" class="nivoSlider">
 		#set( $subcatalogCategoryCounter = 1 )
 		#foreach($subcatalogCategory in $catalogCategory.subCategories)
-			<img src="${subcatalogCategory.carouselImage}" alt="${subcatalogCategory.name}" title="#htmlcaption${subcatalogCategoryCounter}"/>
+			<img src="${subcatalogCategory.slideshowImage}" alt="${subcatalogCategory.name}" title="#htmlcaption${subcatalogCategoryCounter}"/>
 			#set( $subcatalogCategoryCounter = $subcatalogCategoryCounter + 1 )
 		#end		
     </div>
