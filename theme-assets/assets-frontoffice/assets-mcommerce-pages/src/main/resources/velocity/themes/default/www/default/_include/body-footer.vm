@@ -11,7 +11,7 @@
             <div class="container footer-container">
         		<div class="row footer-content">
 					<div class="span3">
-						<span class="footer-nav-title">Customer Care</span>
+						<span class="footer-nav-title">$wording.get("fo.footer_menu.customer_care")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 							<li><a href="#">Products</a></li>
@@ -22,7 +22,7 @@
 					</div>
 					
 					<div class="span3">
-						<span class="footer-nav-title">Products</span>
+						<span class="footer-nav-title">$wording.get("fo.footer_menu.products")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 							#foreach($catalogCategory in $catalogCategories)
@@ -32,7 +32,7 @@
 					</div>
 					
 					<div class="span3">
-						<span class="footer-nav-title">Our Company</span>
+						<span class="footer-nav-title">$wording.get("fo.footer_menu.our_company")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 							<li><a href="#">Overview</a></li>
@@ -43,23 +43,23 @@
 					</div>
 					
 					<div class="span3">
-						<span class="footer-nav-title">Contact us</span>
+						<span class="footer-nav-title">$wording.get("fo.footer_menu.contact_us")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 							<li>Phone: +84 123456</li>
 							<li>Fax: +84 0011223</li>
 							<li>Email: contact@yourdomain.com</li>
 						</ul>
-						<span class="footer-nav-title footer-social-title">Follow us on</span>
+						<span class="footer-nav-title footer-social-title">$wording.get("fo.footer_menu.follow_us")</span>
 						<ul class="footer-social-list">
-							<li><a href="" class="ql-social-icons facebook">&nbsp;</a></li>
-							<li><a href="" class="ql-social-icons twitter">&nbsp;</a></li>
+							<li><a href="http://www.facebook.com" class="ql-social-icons facebook">&nbsp;</a></li>
+							<li><a href="http://www.twitter.com" class="ql-social-icons twitter">&nbsp;</a></li>
 						</ul>
 					</div>
 					
 					<div class="span9">
 						<span class="footer-nav-title">
-							Payment Methods:&nbsp;<img class="payment-img" src="${common.themeResourcePrefixPath}/img/home/payments.png" alt="Payments">
+							$wording.get("fo.footer_menu.contact_us")&nbsp;<img class="payment-img" src="${common.themeResourcePrefixPath}/img/home/payments.png" alt="Payments">
 						</span>
 					</div>					
         		</div>

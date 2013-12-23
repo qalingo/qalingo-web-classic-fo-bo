@@ -11,12 +11,12 @@
 				<div id="cart-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px;">
 					<div style="float: left; width: 55%;">&nbsp;</div>
 					<div id="total" style="float: right;">
-						<a class="btn" alt="cartDeliveryAndOrderDetailsUrl" href="$cart.cartDeliveryAndOrderDetailsUrl">cartDeliveryAndOrderDetailsUrl</a>
+						<a class="btn" alt="cartDeliveryAndOrderDetailsUrl" href="$cart.cartDeliveryAndOrderDetailsUrl">$wording.get("fo.checkout_shopping_cart.shoppingcart_checkout")</a>
 					</div>
 					<div style="clear: both;"></div>
 				</div>
 				#else
-					Cart is empty
+					$wording.get("fo.checkout_shopping_cart.shoppingcart_is_empty")
 				#end
 			</div>
 		</section>

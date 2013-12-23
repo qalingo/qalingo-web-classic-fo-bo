@@ -27,7 +27,7 @@
 				<tbody>
 				#foreach($cartItem in $cart.cartItems)
 					<tr>
-						<td style="padding-top: 15px;">image</td>
+						<td style="padding-top: 15px;"><img src="$cartItem.summaryImage" alt="$cartItem.i18nName" /></td>
 						<td><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.i18nName</a></td>
 						<td style="text-align: center;"><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.skuCode</a></td>
 						<td style="text-align: center;">$cartItem.quantity</td>
@@ -63,7 +63,7 @@
 		</div>
 		
 		#if($!cart.totalDeliveryMethods > 0)
-		<div style="margin-top: 15px;"><h3>Cart Shipping Total</h3></div>
+		<div style="margin-top: 15px;"></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
@@ -73,9 +73,9 @@
 					</tr>
 				</thead>
 				<tfoot>
-					<tr>
-						<td></td>
-						<td></td>
+					<tr style="border-top: 1px solid #2F353E">
+						<td style="text-align: right;">Cart Shipping Total</td>
+						<td style="text-align: right;">$cart.cartShippingTotalWithCurrencySign</td>
 					</tr>
 				</tfoot>
 				<tbody>
@@ -91,7 +91,7 @@
 		#end
 
 		#if($!cart.totalCartTaxes > 0)
-		<div style="margin-top: 15px;"><h3>Cart Fees Total</h3></div>
+		<div style="margin-top: 15px;"></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
@@ -101,16 +101,16 @@
 					</tr>
 				</thead>
 				<tfoot>
-					<tr>
-						<td></td>
-						<td></td>
+					<tr style="border-top: 1px solid #2F353E">
+						<td style="text-align: right;">Cart Fees Total</td>
+						<td style="text-align: right;">$cart.cartFeesTotalWithCurrencySign</td>
 					</tr>
 				</tfoot>
 				<tbody>
 				#foreach($cartTaxe in $cart.cartTaxes)
 					<tr>
 						<td style="text-align: right;">$cartTaxe.cartTaxTotalLabel</td>
-						<td style="text-align: right;">$cartTaxe.cartTaxTotal</td>
+						<td style="text-align: right;">$cartTaxe.cartTaxTotalWithCurrencySign</td>
 					</tr>
 				#end
 				</tbody>
@@ -136,7 +136,7 @@
 				<tbody>
 					<tr>
 						<td style="text-align: right;">Cart Total</td>
-						<td style="text-align: right;">$cart.cartTotal</td>
+						<td style="text-align: right;">$cart.cartTotalWithCurrencySign</td>
 					</tr>
 				</tbody>
 			</table> 

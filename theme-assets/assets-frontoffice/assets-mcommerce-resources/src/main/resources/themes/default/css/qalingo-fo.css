@@ -196,6 +196,9 @@ input[type=week] {
 	background: #a1cd44;
 }
 
+.user-my-account-link{
+    padding-left: 5px;
+}
 
 /*****************************************************************************
 	Header Content

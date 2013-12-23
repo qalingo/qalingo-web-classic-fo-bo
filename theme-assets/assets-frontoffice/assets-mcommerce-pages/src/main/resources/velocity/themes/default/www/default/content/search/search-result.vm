@@ -36,7 +36,7 @@
 							</form>
 						</div>
 						<div style="width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
-							#parse("../_include/pagination-pagelistholder.vm")
+							#parse("../../_include/body-pagination-pagelistholder.vm")
 							<div>
 								<table class="table" style="width: 100%">
 									<thead>
