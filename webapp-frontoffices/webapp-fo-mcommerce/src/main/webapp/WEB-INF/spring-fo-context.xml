@@ -86,6 +86,26 @@
         </aop:aspect>
     </aop:config>
 
+    <!-- Dozer Backoffice specific part - override common factory -->
+    <context:component-scan base-package="org.hoteia.qalingo.core.dozer" />
+    <bean id="org.dozer.Mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+        <property name="mappingFiles" value="classpath:conf/dozer/dozer-mapping-*.xml" />
+        <property name="factories">
+            <map>
+                <entry key="org.hoteia.qalingo.core.dozer.CartCustomBeanFactory">
+                    <ref bean="cartCustomBeanFactory" />
+                </entry>
+            </map>
+        </property>
+        <property name="eventListeners">
+            <list>
+                <ref bean="frontofficePojoEventListener" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="cartCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.CartCustomBeanFactory" />
+
 	<!-- Override -->
 	<import resource="classpath:conf/spring/ext-core-mcommerce.xml" />
 	

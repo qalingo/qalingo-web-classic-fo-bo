@@ -27,7 +27,6 @@
 						   http://www.springframework.org/schema/jms/spring-jms-2.5.xsd">
 
 	<context:component-scan base-package="org.hoteia.qalingo.core.web.handler.security" />
-    <context:component-scan base-package="org.hoteia.qalingo.core.dozer" />
 		
 	<import resource="classpath:resources-config.xml" />
 	<import resource="classpath:messages-config.xml" />
@@ -73,6 +72,7 @@
 	</jms:listener-container>
 	
 	<!-- Dozer Backoffice specific part - override common factory -->
+    <context:component-scan base-package="org.hoteia.qalingo.core.dozer" />
     <bean id="org.dozer.Mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
         <property name="mappingFiles" value="classpath:conf/dozer/dozer-mapping-*.xml" />
         <property name="factories">

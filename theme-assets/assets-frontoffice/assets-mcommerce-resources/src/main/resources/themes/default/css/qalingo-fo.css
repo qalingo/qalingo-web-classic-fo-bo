@@ -489,3 +489,11 @@ ul.pagination li {
 ul.pagination li a.active {
 	font-weight: bold;
 }
+
+select.cart-item-select-qty {
+    width: 50px;
+}
+
+input-cart-promo-code {
+    width: 150px;
+}

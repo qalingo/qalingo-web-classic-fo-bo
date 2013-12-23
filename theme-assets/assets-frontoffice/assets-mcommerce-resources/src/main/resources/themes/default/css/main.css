@@ -16,11 +16,19 @@
 @import url("qalingo-fo-responsive.css");
 
 
-h1, h2, h3, h4, h5, h6 {text-transform: normal; text-align: inherit;}
-h1, h2, h3 {
-line-height: inherit;
+h1, h2, h3, h4, h5, h6 {
+	text-transform: normal;
+	text-align: inherit;
 }
+
+/*
+h1, h2, h3 {
+	line-height: inherit;
+}
+*/
+
 ul {list-style-type:none}
+
 a:hover {color: inherit}
 
 [class^="icon-"], [class*=" icon-"] {
