@@ -1,22 +1,25 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/cart/cart-details-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 		<section id="cart-details">
 			#parse("_include/checkout-steps.vm")
 			<div>
 				#if($cart.totalCartItems > 0)
+				<form id="cartForm" name="cartForm" action="" method="POST">
 				<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
 					#parse("_include/cart-details.vm")
 				</div>
 				<div id="cart-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px;">
 					<div style="float: left; width: 55%;">&nbsp;</div>
 					<div id="total" style="float: right;">
-						<a class="btn" alt="cartDeliveryAndOrderDetailsUrl" href="$cart.cartDeliveryAndOrderDetailsUrl">cartDeliveryAndOrderDetailsUrl</a>
+						<button class="btn" type="submit">$wording.get("fo.checkout_shopping_cart.shoppingcart_checkout")</button>
 					</div>
 					<div style="clear: both;"></div>
 				</div>
+				</form>
 				#else
-					Cart is empty
+					$wording.get("fo.checkout_shopping_cart.shoppingcart_is_empty")
 				#end
 			</div>
 		</section>

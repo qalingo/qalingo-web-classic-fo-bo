@@ -1,4 +1,4 @@
-
+		<div id="error-messages"></div>
 		<div><h3>Items</h3></div>
 		<div style="margin-top: 10px;">
 			<table border="0" style="width: 100%; color: #2F353E;">
@@ -24,18 +24,7 @@
 						<td></td>
 					</tr>
 				</tfoot>
-				<tbody>
-				#foreach($cartItem in $cart.cartItems)
-					<tr>
-						<td style="padding-top: 15px;">image</td>
-						<td><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.i18nName</a></td>
-						<td style="text-align: center;"><a href="$cartItem.productDetailsUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">$cartItem.skuCode</a></td>
-						<td style="text-align: center;">$cartItem.quantity</td>
-						<td style="text-align: center;"><a href="$cartItem.deleteUrl" alt="$cartItem.i18nName" target="_blank" class="checkout-common-link">remove (X)</a></td>
-						<td style="text-align: right;">$cartItem.unitPriceWithCurrencySign</td>
-						<td style="text-align: right;">$cartItem.amountWithCurrencySign</td>
-					</tr>
-				#end
+				<tbody id="cart-items">
 				</tbody>
 			</table> 
 		</div>
@@ -56,14 +45,14 @@
 				<tbody>
 					<tr style="border-top: 1px solid #2F353E">
 						<td style="text-align: right;">Cart Items Total</td>
-						<td style="text-align: right;">$cart.cartItemsTotalWithCurrencySign</td>
+						<td id="cart-items-total" style="text-align: right;"></td>
 					</tr>
 				</tbody>
 			</table> 
 		</div>
 		
 		#if($!cart.totalDeliveryMethods > 0)
-		<div style="margin-top: 15px;"><h3>Cart Shipping Total</h3></div>
+		<div style="margin-top: 15px;"></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
@@ -73,16 +62,16 @@
 					</tr>
 				</thead>
 				<tfoot>
-					<tr>
-						<td></td>
-						<td></td>
+					<tr style="border-top: 1px solid #2F353E">
+						<td style="text-align: right;">Cart Shipping Total</td>
+						<td style="text-align: right;"></td>
 					</tr>
 				</tfoot>
 				<tbody>
 				#foreach($cartDeliveryMethod in $cart.cartDeliveryMethods)
 					<tr>
 						<td style="text-align: right;">$cartDeliveryMethod.label</td>
-						<td style="text-align: right;">$cartDeliveryMethod.amountWithCurrencySign</td>
+						<td id="cart-delivery-methods-total" style="text-align: right;">$cartDeliveryMethod.amountWithCurrencySign</td>
 					</tr>
 				#end
 				</tbody>
@@ -91,7 +80,7 @@
 		#end
 
 		#if($!cart.totalCartTaxes > 0)
-		<div style="margin-top: 15px;"><h3>Cart Fees Total</h3></div>
+		<div style="margin-top: 15px;"></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
 				<thead>
@@ -101,16 +90,16 @@
 					</tr>
 				</thead>
 				<tfoot>
-					<tr>
-						<td></td>
-						<td></td>
+					<tr style="border-top: 1px solid #2F353E">
+						<td style="text-align: right;">Cart Fees Total</td>
+						<td id="cart-taxes-total" style="text-align: right;"></td>
 					</tr>
 				</tfoot>
 				<tbody>
 				#foreach($cartTaxe in $cart.cartTaxes)
 					<tr>
 						<td style="text-align: right;">$cartTaxe.cartTaxTotalLabel</td>
-						<td style="text-align: right;">$cartTaxe.cartTaxTotal</td>
+						<td style="text-align: right;">$cartTaxe.cartTaxTotalWithCurrencySign</td>
 					</tr>
 				#end
 				</tbody>
@@ -118,6 +107,32 @@
 		</div>
 		#end
 
+		<div style="margin-top: 15px;">Promo Code</div>
+		<div>
+			<table border="0" style="width: 100%; color: #2F353E;">
+				<thead>
+					<tr>
+						<th style="width: 60%;"></th>
+						<th style="width: 40%;"></th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr style="border-top: 1px solid #2F353E">
+						<td style="text-align: right;">Promo Code</td>
+						<td id="cart-promo-code" style="text-align: right;"><input type="text" id="input-promo-code" name="input-promo-code" class="input-cart-promo-code" placeholder="" /><a href="#" class="btn" class="trigger-apply-promo-code">OK</button></td>
+					</tr>
+				</tfoot>
+				<tbody>
+				#foreach($cartTaxe in $cart.cartTaxes)
+					<tr>
+						<td style="text-align: right;">$cartTaxe.cartTaxTotalLabel</td>
+						<td style="text-align: right;">$cartTaxe.cartTaxTotalWithCurrencySign</td>
+					</tr>
+				#end
+				</tbody>
+			</table> 
+		</div>
+		
 		<div style="margin-top: 15px;"><h3>Cart Total</h3></div>
 		<div>
 			<table border="0" style="width: 100%; color: #2F353E;">
@@ -136,7 +151,7 @@
 				<tbody>
 					<tr>
 						<td style="text-align: right;">Cart Total</td>
-						<td style="text-align: right;">$cart.cartTotal</td>
+						<td id="cart-total" style="text-align: right;"></td>
 					</tr>
 				</tbody>
 			</table> 

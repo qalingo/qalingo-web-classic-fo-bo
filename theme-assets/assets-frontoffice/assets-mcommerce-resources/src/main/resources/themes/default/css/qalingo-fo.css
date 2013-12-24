@@ -196,6 +196,9 @@ input[type=week] {
 	background: #a1cd44;
 }
 
+.user-my-account-link{
+    padding-left: 5px;
+}
 
 /*****************************************************************************
 	Header Content
@@ -485,4 +488,12 @@ ul.pagination li {
 
 ul.pagination li a.active {
 	font-weight: bold;
+}
+
+select.cart-item-select-qty {
+    width: 50px;
+}
+
+input-cart-promo-code {
+    width: 150px;
 }

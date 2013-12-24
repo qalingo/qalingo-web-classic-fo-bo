@@ -4,6 +4,7 @@
 #set ($page_title = $seoPageTitle)
 
 <div class="container-body-fix">
+		<div><h2>$wording.get("fo.home.welcome_text")</h2></div>
 		<div id="home-slideshow">
 			<div id="slides">
 				<div class="slides_container">

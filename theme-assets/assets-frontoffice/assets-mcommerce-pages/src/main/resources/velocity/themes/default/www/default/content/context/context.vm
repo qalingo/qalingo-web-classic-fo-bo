@@ -1,0 +1,2 @@
+#set ($layout = "default/www/default/layout/empty.vm")
+var context = $contextJson;

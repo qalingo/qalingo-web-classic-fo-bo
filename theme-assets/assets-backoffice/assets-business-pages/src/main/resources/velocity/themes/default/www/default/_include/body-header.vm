@@ -65,9 +65,7 @@
 					</div>						
 				</div>
 				<div id="app-env" style="clear: both;">
-					<div>
-
-					</div>
+					<div></div>
 					<div style="float: right;">
 						<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
 							<input id="global-search-txt" name="global-search-txt" type="text" class="search-query" placeholder="$wording.get("bo.search.form_search_label_text")">
