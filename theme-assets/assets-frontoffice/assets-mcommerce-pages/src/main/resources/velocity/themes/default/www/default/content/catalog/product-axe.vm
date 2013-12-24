@@ -69,7 +69,7 @@
 			#end
 			#set( $items = $items + 1 )
 			<div class="item span3">
-				<a href="${featuredProduct.detailsUrl}" class="product-image">
+				<a href="${featuredProduct.detailsUrl}" class="product-image product-line-image">
 					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
 				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
@@ -100,7 +100,7 @@
     	<ul class="row  products-grid">
 			#foreach($productMarketing in $subcatalogCategory.productMarketings)
 				<li class="item span3">
-        			<a href="${productMarketing.detailsUrl}" class="product-image">
+        			<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
         				<span>
 							<!--
 							<img src="${common.themeResourcePrefixPath}/img/catalog/category/product-1.jpg" alt="News1">

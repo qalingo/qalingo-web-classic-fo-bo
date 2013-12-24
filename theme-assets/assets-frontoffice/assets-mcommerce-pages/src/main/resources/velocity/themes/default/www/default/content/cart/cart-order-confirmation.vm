@@ -1,4 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/cart/cart-order-confirmation-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 		<section id="cart-order-confirmation">

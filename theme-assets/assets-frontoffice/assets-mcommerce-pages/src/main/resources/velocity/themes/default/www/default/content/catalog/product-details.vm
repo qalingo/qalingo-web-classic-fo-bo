@@ -7,7 +7,7 @@
 	<div class="clear border-btm"></div>
 	<div class="product-detail-content row">
 		<div class="product-image-wrap span4">
-			<a href="javascript:void(0);" class="product-image">
+			<a href="javascript:void(0);" class="product-image product-line-image">
 				<img src="${productMarketing.backgroundImage}" alt="$productMarketing.i18nName" />
 			</a>
 		</div>
@@ -80,7 +80,7 @@
 	<ul class="products-grid row">
 		#foreach($relatedProduct in $relatedProductMarketings)
 		<li class="item span3">
-			<a href="#" class="product-image">
+			<a href="#" class="product-image product-line-image">
 				<span><img src="${relatedProduct.carouselImage}" alt="$relatedProduct.i18nName"></span>
 			</a>
 			<a href="#" class="product-name">$relatedProduct.i18nName</a>
@@ -93,6 +93,7 @@
 	</ul>
 </div>
 #end
+
 <!-- //category product section -->
 <div class="clear border-btm"></div>
     
