@@ -186,7 +186,7 @@
 		<ul class="products-grid row">
 			#foreach($productMarketing in $catalogCategory.productMarketings) 
 			<li class="item span3">
-				<a href="${productMarketing.detailsUrl}" class="product-image">
+				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
 					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
 				</a>
 				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>

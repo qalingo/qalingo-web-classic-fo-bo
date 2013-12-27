@@ -92,6 +92,7 @@ input[type=time],
 input[type=url],
 input[type=week] {
     width: 90%;
+	margin-bottom: 0px;
 }
 
 .login {
@@ -494,6 +495,6 @@ select.cart-item-select-qty {
     width: 50px;
 }
 
-input-cart-promo-code {
+input.input-cart-promo-code {
     width: 150px;
 }

@@ -166,8 +166,6 @@ margin-top: -19px;
 
 .product-image {
 	width: 100%;
-	border: 1px solid #d7d7d7;
-	height: 222px;
 	padding: 5px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -196,6 +194,10 @@ margin-top: -19px;
 	text-transform: none
 }
 
+.product-line-image {
+	border: 1px solid #d7d7d7;
+	height: 222px;
+}
 
 
 a.product-name:hover {

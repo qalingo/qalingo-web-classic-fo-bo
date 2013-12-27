@@ -8,4 +8,9 @@
 		<class-b bean-factory="org.hoteia.qalingo.core.dozer.CartCustomBeanFactory">org.hoteia.qalingo.core.pojo.cart.CartItemPojo</class-b>
 	</mapping>
 
+    <mapping>
+        <class-a>org.hoteia.qalingo.core.domain.DeliveryMethod</class-a>
+        <class-b bean-factory="org.hoteia.qalingo.core.dozer.DeliveryMethodCustomBeanFactory">org.hoteia.qalingo.core.pojo.deliverymethod.DeliveryMethodPojo</class-b>
+    </mapping>
+
 </mappings>

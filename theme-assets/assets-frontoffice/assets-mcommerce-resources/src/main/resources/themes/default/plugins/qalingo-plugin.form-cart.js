@@ -23,16 +23,33 @@
 						DELETE_CART_ITEM_AJAX = ajaxUrls[i];
 					} else if(ajaxUrls[i].code == 'APPLY_PROMO_CODE_AJAX'){
 						APPLY_PROMO_CODE_AJAX = ajaxUrls[i];
-					} else if(ajaxUrls[i].code == 'SET_SHIPPING_ADDRESS_AJAX'){
-						SET_SHIPPING_ADDRESS_AJAX = ajaxUrls[i];
-					} else if(ajaxUrls[i].code == 'SET_BILLING_ADDRESS_AJAX'){
-						SET_BILLING_ADDRESS_AJAX = ajaxUrls[i];
-					} else if(ajaxUrls[i].code == 'SET_DELIVERY_METHOD_AJAX'){
-						SET_DELIVERY_METHOD_AJAX = ajaxUrls[i];
 					}
 				}
 				plugins.FormCart.loadCartAjax();
 			}
+
+			if($('#cart-addresses').length > 0){
+				var ajaxUrls = context.urls;
+				for(var i = 0; i < ajaxUrls.length; i++){
+					if(ajaxUrls[i].code == 'SET_SHIPPING_ADDRESS_AJAX'){
+						SET_SHIPPING_ADDRESS_AJAX = ajaxUrls[i];
+					} else if(ajaxUrls[i].code == 'SET_BILLING_ADDRESS_AJAX'){
+						SET_BILLING_ADDRESS_AJAX = ajaxUrls[i];
+					} 
+				}
+				plugins.FormCart.loadAddressesAjax();
+			}
+			
+			if($('#cart-delivery-methods').length > 0){
+				var ajaxUrls = context.urls;
+				for(var i = 0; i < ajaxUrls.length; i++){
+					if(ajaxUrls[i].code == 'SET_DELIVERY_METHOD_AJAX'){
+						SET_DELIVERY_METHOD_AJAX = ajaxUrls[i];
+					}
+				}
+				plugins.FormCart.loadDeliveryMethodsAjax();
+			}
+			
         },
 		
         loadCartAjax : function() {			
@@ -101,6 +118,73 @@
 			});
         },
 		
+        loadAddressesAjax : function() {			
+			plugins.FormCart.loadAddressesHtml();
+        },
+		
+        setBillingAddressAjax : function(addressGuid) {			
+			var params = "cart-billing-address-guid=" + addressGuid;
+			$.ajax({
+				url: SET_BILLING_ADDRESS_AJAX.url,
+				type: SET_BILLING_ADDRESS_AJAX.method,
+				data: params,
+				success : function(data) {
+					checkoutData = data;
+					plugins.FormCart.loadDeliveryMethodsHtml();
+				},
+				error : function(data) {
+					checkoutData = data;
+				}
+			});
+        },
+		
+        setShippingAddressAjax : function(addressGuid) {			
+			var params = "cart-shipping-address-guid=" + addressGuid;
+			$.ajax({
+				url: SET_SHIPPING_ADDRESS_AJAX.url,
+				type: SET_SHIPPING_ADDRESS_AJAX.method,
+				data: params,
+				success : function(data) {
+					checkoutData = data;
+					plugins.FormCart.loadDeliveryMethodsHtml();
+				},
+				error : function(data) {
+					checkoutData = data;
+				}
+			});
+        },
+		
+        loadDeliveryMethodsAjax : function() {			
+			$.ajax({
+				url: GET_CART_AJAX.url,
+				type: GET_CART_AJAX.method,
+				success : function(data) {
+					checkoutData = data;
+					plugins.FormCart.loadDeliveryMethodsHtml();
+				},
+				error : function(data) {
+					checkoutData = data;
+				}
+			});
+        },
+		
+        setDeliveryMethodAjax : function(deliveryMethodCode) {			
+			var params = "cart-delivery-method-code=" + deliveryMethodCode;
+			$.ajax({
+				url: SET_DELIVERY_METHOD_AJAX.url,
+				type: SET_DELIVERY_METHOD_AJAX.method,
+				data: params,
+				success : function(data) {
+					checkoutData = data;
+					plugins.FormCart.loadCartHtml();
+					plugins.FormCart.loadDeliveryMethodsHtml();
+				},
+				error : function(data) {
+					checkoutData = data;
+				}
+			});
+        },
+		
 		loadCartHtml : function() {
 			var cartErrorsHtml = '';
 			for(var i = 0; i < checkoutData.errors.length; i++){
@@ -113,8 +197,8 @@
 			if(checkoutData.cart != null){
 				for(var i = 0; i < checkoutData.cart.cartItems.length; i++){
 					var item = checkoutData.cart.cartItems[i];
-					cartItemsHtml = '<tr>';
-					cartItemsHtml += '<td style="padding-top: 15px;"><img src="' + item.summaryImage + '" alt="' + item.i18nName + '" /></td>';
+					cartItemsHtml += '<tr>';				
+					cartItemsHtml += '<td style="padding-top: 15px;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="product-image checkout-common-link"><span><img src="' + item.summaryImage + '" alt="' + item.i18nName + '" /></span></a></td>';
 					cartItemsHtml += '<td><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link">' + item.i18nName + '</a></td>';
 					cartItemsHtml += '<td style="text-align: center;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link">' + item.productSkuCode + '</a></td>';
 					cartItemsHtml += '<td style="text-align: center;">';
@@ -155,6 +239,39 @@
 			$('.trigger-apply-promo-code').change('click', function() {
 				var promoCode = $('#input-promo-code').val();
 				plugins.FormCart.applyPromoCodeAjax(promoCode);
+			});
+			
+        },
+		
+		loadAddressesHtml : function() {
+			$('#billing-address').change('click', function() {
+				var addressGuid = $(this).val();
+				plugins.FormCart.setBillingAddressAjax(addressGuid);
+			});
+        },
+		
+		loadDeliveryMethodsHtml : function() {
+			var cartDeliveyMethods = '';
+			if(checkoutData.cart != null){
+				for(var i = 0; i < checkoutData.availableDeliveryMethods.length; i++){
+					var deliveryMethod = checkoutData.availableDeliveryMethods[i];
+					cartDeliveyMethods += '<tr>';
+					if(deliveryMethod.selected){
+						cartDeliveyMethods += '<td style="text-align: left; padding-right:10px; padding-bottom:10px"><input type="radio" id="' + deliveryMethod.code + '" name="deliveryMethod" value="' + deliveryMethod.code + '" class="trigger-delivery-method" checked="checked"></td>';
+					} else {
+						cartDeliveyMethods += '<td style="text-align: left; padding-right:10px; padding-bottom:10px"><input type="radio" id="' + deliveryMethod.code + '" name="deliveryMethod" value="' + deliveryMethod.code + '" class="trigger-delivery-method"></td>';
+					}
+					cartDeliveyMethods += '<td style="text-align: left;">' + deliveryMethod.name + '</td>';
+					cartDeliveyMethods += '<td style="text-align: left;">' + deliveryMethod.priceWithStandardCurrencySign + '</td>';
+					cartDeliveyMethods += '<td style="text-align: right;">' + deliveryMethod.arrivalTime + '</td>';
+					cartDeliveyMethods += '</tr>';
+				}
+			}
+			$('#cart-delivery-methods').html(cartDeliveyMethods);
+			
+			$('.trigger-delivery-method').on('click', function() {
+				var deliveryMethodCode = $(this).val();
+				plugins.FormCart.setDeliveryMethodAjax(deliveryMethodCode);
 			});
 			
         },

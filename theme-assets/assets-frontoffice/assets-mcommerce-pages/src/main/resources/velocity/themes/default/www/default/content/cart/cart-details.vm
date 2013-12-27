@@ -7,9 +7,8 @@
 			<div>
 				#if($cart.totalCartItems > 0)
 				<form id="cartForm" name="cartForm" action="" method="POST">
-				<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
-					#parse("_include/cart-details.vm")
-				</div>
+				<div id="error-messages"></div>
+				#parse("_include/cart-details.vm")
 				<div id="cart-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px;">
 					<div style="float: left; width: 55%;">&nbsp;</div>
 					<div id="total" style="float: right;">
