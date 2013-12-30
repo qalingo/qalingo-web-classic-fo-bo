@@ -8,21 +8,24 @@
 				<div id="cart-payment-content">
 					#set($beanName = "paymentForm")
 					#parse("../../_include/body-form-error-message.vm")
-					<div style="width: 48%; float:left; padding: 5px;">
+					<div style="width: 54%; float:right; padding: 5px;">
+						#parse("_include/cart-details.vm")
+					</div>
+					<div style="width: 42%; float:left; padding: 5px;">
 						<div>
 							<div style="background-color: #ffffff; padding: 10px; float:left;">
 								<div class="form-group">
 									<div style="float: left; width: 200px;">
-										<label for="cardHolder" class="label-form">cardHolderLabel</label>
+										<label for="cardHolder" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_holder")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="cardHolder" name="cardHolder" value="" placeholder="" class="form-control" style="width: 200px;" tabindex="1" autocomplete="off" />
+										<input type="text" id="cardHolder" name="cardHolder" value="" placeholder="" class="form-control" style="width: 253px;" tabindex="1" autocomplete="off" />
 									</div>
 								</div>
 								<div style="clear: both;"></div>
 								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 200px;">
-										<label for="cardNumber" class="label-form">cardNumberLabel</label>
+										<label for="cardNumber" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_number")</label>
 									</div>
 									<div style="float: left;">
 										<input type="text" id="cardNumber1" name="cardNumber1" value="" style="width: 50px;" tabindex="2" maxlength="4" size="4" autocomplete="off" />
@@ -34,7 +37,7 @@
 								<div style="clear: both;"></div>
 								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 200px;">
-										<label for="cardCrypto" class="label-form">cardCryptoLabel</label>
+										<label for="cardCrypto" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_crypto")</label>
 									</div>
 									<div style="float: left;">
 										<input type="text" id="cardCrypto" name="cardCrypto" value="" style="width: 50px;" tabindex="6" maxlength="4" size="4" autocomplete="off" />
@@ -43,23 +46,20 @@
 								<div style="clear: both;"></div>
 								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
 									<div style="float: left; width: 200px;">
-										<label for="cardMonth" class="label-form">cardExpirationMonthLabel</label>
+										<label for="cardMonth" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_expiration_date")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="cardMonth" name="cardMonth" value="" style="width: 50px;" tabindex="7" maxlength="2" size="2" autocomplete="off" />
-										<input type="text" id="cardYear" name="cardYear" value="" style="width: 50px;" tabindex="8" maxlength="2" size="2" autocomplete="off" />
+										<input type="text" id="cardMonth" name="cardMonth" value="" style="width: 50px;" tabindex="7" maxlength="2" size="2" autocomplete="off" placeholder="$wording.get("fo.checkout_shopping_cart.payment_card_expiration_month")" />
+										<input type="text" id="cardYear" name="cardYear" value="" style="width: 50px;" tabindex="8" maxlength="2" size="2" autocomplete="off" placeholder="$wording.get("fo.checkout_shopping_cart.payment_card_expiration_year")" />
 									</div>
 								</div>
 							</div>
 						</div>
+						<div style="clear: both;"></div>
+						<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; text-align: right;">
+							<span style="padding-right: 55px;"><button class="btn btn-primary" tabindex="9" type="submit">$wording.get("fo.checkout_shopping_cart.shoppingcart_submit_payment")</button></span>
+						</div>
 					</div>
-					<div style="width: 48%; float:right; padding: 5px;">
-						#parse("_include/cart-details.vm")
-					</div>
-				</div>
-				<div style="clear: both;"></div>
-				<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; text-align: right;">
-					<span style="padding-right: 55px;"><button class="btn btn-primary" tabindex="9" type="submit">step3SubmitLabel</button></span>
 				</div>
 				</form>
 			</section>				

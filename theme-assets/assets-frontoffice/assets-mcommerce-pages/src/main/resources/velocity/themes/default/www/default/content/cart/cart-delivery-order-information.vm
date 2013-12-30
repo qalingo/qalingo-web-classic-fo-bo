@@ -4,7 +4,7 @@
 
 		<section id="cart-delivery-order-information">
 			#parse("_include/checkout-steps.vm")
-			<div id="cart-addresses" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
+			<div id="checkout-addresses" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
 				<div style="margin-top: 15px;"><h3>$wording.get("fo.checkout_shopping_cart.shoppingcart_addresses")</h3></div>
 				<div id="error-messages"></div>
 				<form id="cartForm" name="cartForm" action="" method="POST">
@@ -74,9 +74,9 @@
 								<thead>
 									<tr>
 										<th style="width: 5%; padding-bottom:10px">&nbsp;</th>
-										<th style="width: 35%;">$wording.get("fo.checkout_shopping_cart.delivery_method_name")</th>
-										<th style="width: 45%;">$wording.get("fo.checkout_shopping_cart.delivery_method_estimated_delivery_date")</th>
-										<th style="width: 15%;">$wording.get("fo.checkout_shopping_cart.delivery_method_price")</th>
+										<th style="width: 35%; text-align: left;">$wording.get("fo.checkout_shopping_cart.delivery_method_name")</th>
+										<th style="width: 45%; text-align: left;">$wording.get("fo.checkout_shopping_cart.delivery_method_estimated_delivery_date")</th>
+										<th style="width: 15%; text-align: right;">$wording.get("fo.checkout_shopping_cart.delivery_method_price")</th>
 									</tr>
 								</thead>
 								<tfoot>
@@ -87,12 +87,12 @@
 										<td></td>
 									</tr>
 								</tfoot>
-								<tbody id="cart-delivery-methods">
+								<tbody id="delivery-methods">
 								</tbody>
 							</table> 
 						</div>
 					</div>
-					<div id="cart-summary-content" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
+					<div id="cart-summary-content" style="border-top: 1px dashed #2F353E; margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
 						#parse("_include/cart-details.vm")
 					</div>
 					<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; text-align: right;">
