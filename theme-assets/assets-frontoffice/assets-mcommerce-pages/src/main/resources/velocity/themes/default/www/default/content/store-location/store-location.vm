@@ -7,8 +7,14 @@
 					<div class="page-header">
 						<h1>$wording.get("fo.store_locator.header_title")</h1>
 					</div>
+					
 					<div style="padding-bottom: 50px;">
 						<div style="padding-bottom: 20px;">$wording.get("fo.store_locator.content_text")</div>
+						<select id="country">
+						#foreach($store in $storeLocator.stores)
+						<option value="$store.country" data-code="$store.code" data-businessName="$store.businessName" data-lon="$store.longitude" data-lat="$store.latitude">$store.country</option>
+						#end
+						</select>
 						<div id="map-store" style="clear: both; width: 1170px; height: 400px;"></div>
 						#foreach($store in $storeLocator.stores) 
 						<div id="store-info-$store.code" style="display: none;">

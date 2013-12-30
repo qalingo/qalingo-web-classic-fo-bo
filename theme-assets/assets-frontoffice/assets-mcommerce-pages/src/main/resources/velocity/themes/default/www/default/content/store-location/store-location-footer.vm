@@ -1,6 +1,7 @@
 		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 		<script>
 		jQuery(document).ready(function($) {
+			var json = ${jsonString} ;
 			var zoom                 = 3;
 			var lonCenter            = -30.000;
 			var latCenter            = 45.000;
@@ -35,5 +36,41 @@
 			
 			map.addControl(new OpenLayers.Control.LayerSwitcher());
 			map.setCenter(positionCenter, zoom);
+			
+			function deleteAllMarket(){
+			    var currentMarkers = markers.markers;
+			    
+		        for(var i=0 ; i < currentMarkers.length; i++){
+		            currentMarkers[i].destroy();
+		        }
+		        markers.markers = new Array();
+			}
+			function setMarket(lon,lat,code,businessName){
+				deleteAllMarket();
+				marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection));
+				openStoreInfo = function(evt) { 
+					$('#store-info-'+code).dialog({
+						title: ''+ businessName + 'informations',
+						modal: true,
+						buttons: {
+							Ok: function() {
+								$(this).dialog( "close" );
+							}
+						}
+					});
+					OpenLayers.Event.stop(evt);
+				};
+				marker.events.register('mousedown', marker, openStoreInfo);
+				markers.addMarker(marker);
+			}
+			$('#country').change(function(){
+				var option = $(this).find(":selected");
+				var lon = option.attr("data-lon");
+				var lat = option.attr("data-lat");
+				var code = option.attr("data-code");
+				var businessName = option.attr("data-businessName");
+				setMarket(lon,lat,code,businessName);
+				map.setCenter(new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection), 15);
+			})						
 		});
 		</script>
