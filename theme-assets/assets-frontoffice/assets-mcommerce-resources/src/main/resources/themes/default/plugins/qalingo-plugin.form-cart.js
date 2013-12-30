@@ -13,6 +13,8 @@
 		
         init : function() {
 			if($('#cart-summary-content').length > 0){
+				$('#cart-delivery-methods').hide();
+				$('#cart-taxes').hide();
 				var ajaxUrls = context.urls;
 				for(var i = 0; i < ajaxUrls.length; i++){
 					if(ajaxUrls[i].code == 'GET_CART_AJAX'){
@@ -28,7 +30,7 @@
 				plugins.FormCart.loadCartAjax();
 			}
 
-			if($('#cart-addresses').length > 0){
+			if($('#checkout-addresses').length > 0){
 				var ajaxUrls = context.urls;
 				for(var i = 0; i < ajaxUrls.length; i++){
 					if(ajaxUrls[i].code == 'SET_SHIPPING_ADDRESS_AJAX'){
@@ -40,7 +42,7 @@
 				plugins.FormCart.loadAddressesAjax();
 			}
 			
-			if($('#cart-delivery-methods').length > 0){
+			if($('#delivery-methods').length > 0){
 				var ajaxUrls = context.urls;
 				for(var i = 0; i < ajaxUrls.length; i++){
 					if(ajaxUrls[i].code == 'SET_DELIVERY_METHOD_AJAX'){
@@ -195,35 +197,65 @@
 
 			var cartItemsHtml = '';
 			if(checkoutData.cart != null){
+				var withActions = $('#cart-items').attr('with-actions') == null ? false : $('#cart-items').attr('with-actions');
 				for(var i = 0; i < checkoutData.cart.cartItems.length; i++){
 					var item = checkoutData.cart.cartItems[i];
 					cartItemsHtml += '<tr>';				
 					cartItemsHtml += '<td style="padding-top: 15px;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="product-image checkout-common-link"><span><img src="' + item.summaryImage + '" alt="' + item.i18nName + '" /></span></a></td>';
 					cartItemsHtml += '<td><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link">' + item.i18nName + '</a></td>';
 					cartItemsHtml += '<td style="text-align: center;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link">' + item.productSkuCode + '</a></td>';
-					cartItemsHtml += '<td style="text-align: center;">';
-					cartItemsHtml += '<select class="cart-item-select-qty trigger-cart-item-change-quantity" data-product-sku-code="' + item.productSkuCode + '">';
-					for(var j = 1; j <= context.cartMaxItemQuantity; j++){
-						if(item.quantity == j){
-							cartItemsHtml += '<option value="' + j + '" selected="selected">' + j + '</option> ';
-						} else {
-							cartItemsHtml += '<option value="' + j + '">' + j + '</option> ';
+					if(withActions == 'true'){
+						cartItemsHtml += '<td style="text-align: center;">';
+						cartItemsHtml += '<select class="cart-item-select-qty trigger-cart-item-change-quantity" data-product-sku-code="' + item.productSkuCode + '">';
+						for(var j = 1; j <= context.cartMaxItemQuantity; j++){
+							if(item.quantity == j){
+								cartItemsHtml += '<option value="' + j + '" selected="selected">' + j + '</option> ';
+							} else {
+								cartItemsHtml += '<option value="' + j + '">' + j + '</option> ';
+							}
 						}
+						cartItemsHtml += '</select>';
+						cartItemsHtml += '</td>';
+						cartItemsHtml += '<td style="text-align: center;"><a href="#" alt="' + item.i18nName + '" class="checkout-common-link trigger-delete-cart-item" data-product-sku-code="' + item.productSkuCode + '">remove (X)</a></td>';
+					} else {
+						cartItemsHtml += '<td style="text-align: center;">' + item.quantity + '</td>';
 					}
-					cartItemsHtml += '</select>';
-					cartItemsHtml += '</td>';
-					cartItemsHtml += '<td style="text-align: center;"><a href="#" alt="' + item.i18nName + '" class="checkout-common-link trigger-delete-cart-item" data-product-sku-code="' + item.productSkuCode + '">remove (X)</a></td>';
 					cartItemsHtml += '<td style="text-align: right;">' + item.priceWithStandardCurrencySign + '</td>';
 					cartItemsHtml += '<td style="text-align: right;">' + item.totalAmountWithStandardCurrencySign + '</td>';
 					cartItemsHtml += '</tr>';
 				}
 			}
-			$('#cart-items').html(cartItemsHtml);
-			
+			$('#cart-items').find( "tbody" ).html(cartItemsHtml);
 			$('#cart-items-total').html(checkoutData.cart.cartItemTotalWithStandardCurrencySign);
-			$('#cart-delivery-methods-total').html(checkoutData.cart.deliveryMethodTotalWithStandardCurrencySign);
-			$('#cart-taxes-methods-total').html(checkoutData.cart.taxTotalWithStandardCurrencySign);
-			$('#cart-total').html(checkoutData.cart.cartTotalWithStandardCurrencySign);
+			
+			var cartDeliveyMethods = '';
+			if(checkoutData.cart != null && checkoutData.cart.deliveryMethods != null && checkoutData.cart.deliveryMethods.length > 0){
+				for(var i = 0; i < checkoutData.cart.deliveryMethods.length; i++){
+					var deliveryMethod = checkoutData.cart.deliveryMethods[i];
+					cartDeliveyMethods += '<tr>';
+					cartDeliveyMethods += '<td style="text-align: right;">' + deliveryMethod.name + ' (' + deliveryMethod.arrivalTime + ')</td>';
+					cartDeliveyMethods += '<td style="text-align: right;">' + deliveryMethod.priceWithStandardCurrencySign + '</td>';
+					cartDeliveyMethods += '</tr>';
+				}
+				$('#cart-delivery-methods').find( "tbody" ).html(cartDeliveyMethods);
+				$('#cart-delivery-methods').show();
+				$('#cart-delivery-methods-total').html(checkoutData.cart.deliveryMethodTotalWithStandardCurrencySign);
+			}
+
+			if(checkoutData.cart != null && checkoutData.cart.taxes != null && checkoutData.cart.taxes.length > 0){
+				for(var i = 0; i < checkoutData.cart.taxes.length; i++){
+					var taxe = checkoutData.cart.taxes[i];
+					cartDeliveyMethods += '<tr>';
+					cartDeliveyMethods += '<td style="text-align: right;">' + taxe.name + '</td>';
+					cartDeliveyMethods += '<td style="text-align: right;">' + taxe.priceWithStandardCurrencySign + '</td>';
+					cartDeliveyMethods += '</tr>';
+				}
+				$('#cart-taxes').find( "tbody" ).html(cartDeliveyMethods);
+				$('#cart-taxes').show();
+				$('#cart-taxes-methods-total').html(checkoutData.cart.taxTotalWithStandardCurrencySign);
+			}			
+
+			$('#cart-total-amount').html(checkoutData.cart.cartTotalWithStandardCurrencySign);
 
 			$('.trigger-delete-cart-item').on('click', function() {
 				var productSkuCode = $(this).attr('data-product-sku-code');
@@ -251,23 +283,26 @@
         },
 		
 		loadDeliveryMethodsHtml : function() {
-			var cartDeliveyMethods = '';
-			if(checkoutData.cart != null){
-				for(var i = 0; i < checkoutData.availableDeliveryMethods.length; i++){
-					var deliveryMethod = checkoutData.availableDeliveryMethods[i];
-					cartDeliveyMethods += '<tr>';
-					if(deliveryMethod.selected){
-						cartDeliveyMethods += '<td style="text-align: left; padding-right:10px; padding-bottom:10px"><input type="radio" id="' + deliveryMethod.code + '" name="deliveryMethod" value="' + deliveryMethod.code + '" class="trigger-delivery-method" checked="checked"></td>';
-					} else {
-						cartDeliveyMethods += '<td style="text-align: left; padding-right:10px; padding-bottom:10px"><input type="radio" id="' + deliveryMethod.code + '" name="deliveryMethod" value="' + deliveryMethod.code + '" class="trigger-delivery-method"></td>';
+			var deliveyMethods = '';
+			if(checkoutData.cart != null){		
+				for(var i = 0; i < checkoutData.deliveryMethodInformations.length; i++){
+					var deliveryMethodInformation = checkoutData.deliveryMethodInformations[i];
+					for(var j = 0; j < deliveryMethodInformation.availableDeliveryMethods.length; j++){
+						var deliveryMethod = deliveryMethodInformation.availableDeliveryMethods[j];
+						deliveyMethods += '<tr>';
+						if(deliveryMethod.selected){
+							deliveyMethods += '<td style="text-align: left; padding-right:10px; padding-bottom:10px"><input type="radio" id="' + deliveryMethod.code + '" name="deliveryMethod" value="' + deliveryMethod.code + '" class="trigger-delivery-method" checked="checked"></td>';
+						} else {
+							deliveyMethods += '<td style="text-align: left; padding-right:10px; padding-bottom:10px"><input type="radio" id="' + deliveryMethod.code + '" name="deliveryMethod" value="' + deliveryMethod.code + '" class="trigger-delivery-method"></td>';
+						}
+						deliveyMethods += '<td style="text-align: left;">' + deliveryMethod.name + '</td>';
+						deliveyMethods += '<td style="text-align: left;">' + deliveryMethod.arrivalTime + '</td>';
+						deliveyMethods += '<td style="text-align: right;">' + deliveryMethod.priceWithStandardCurrencySign + '</td>';
+						deliveyMethods += '</tr>';
 					}
-					cartDeliveyMethods += '<td style="text-align: left;">' + deliveryMethod.name + '</td>';
-					cartDeliveyMethods += '<td style="text-align: left;">' + deliveryMethod.priceWithStandardCurrencySign + '</td>';
-					cartDeliveyMethods += '<td style="text-align: right;">' + deliveryMethod.arrivalTime + '</td>';
-					cartDeliveyMethods += '</tr>';
 				}
 			}
-			$('#cart-delivery-methods').html(cartDeliveyMethods);
+			$('#delivery-methods').html(deliveyMethods);
 			
 			$('.trigger-delivery-method').on('click', function() {
 				var deliveryMethodCode = $(this).val();

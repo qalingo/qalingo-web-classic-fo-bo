@@ -1,4 +1,0 @@
-<script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.form-cart.js" type="text/javascript"></script>
-<script type="text/javascript">
-        plugins.FormCart.init();
-</script>
