@@ -1,0 +1,45 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+			<form id="productCommentForm" name="productCommentForm" action="" method="POST">
+			<input type="hidden" id="productCode" name="productCode" value="$!productCommentForm.productCode">
+			#set($beanName = "productCommentForm")
+			#parse("../../_include/body-form-error-message.vm")
+            <div class="post-comment">
+            	<h3 class="color-green">$wording.get("fo.product.vote_part_title")</h3>
+				<label style="display: inline-block;">$wording.get("fo.product.vote_quality_of_service")</label>
+				<select id="qualityOfService" name="qualityOfService" class="span1">
+					<option value="">--</option>
+				#set($max = $qualityOfServiceMax - 1)
+				#foreach($number in [0..$max])
+					#set($value = $number + 1)
+					<option value="$value">$value</option>
+				#end
+				</select>
+				<label style="padding-left: 20px; display: inline-block;">$wording.get("fo.product.vote_ratio_quality_price")</label>
+				<select id="ratioQualityPrice" name="ratioQualityPrice" class="span1">
+					<option value="">--</option>
+				#set($max = $qualityOfServiceMax - 1)
+				#foreach($number in [0..$max])
+					#set($value = $number + 1)
+					<option value="$value">$value</option>
+				#end
+				</select>
+				<label style="padding-left: 20px; display: inline-block;">$wording.get("fo.product.vote_price")</label>
+				<select id="priceScore" name="priceScore" class="span1">
+					<option value="">--</option>
+				#set($max = $priceMax - 1)
+				#foreach($number in [0..$max])
+					#set($value = $number + 1)
+					<option value="$value">$value</option>
+				#end
+				</select>
+            </div>
+
+            <div class="post-comment">
+            	<h3 class="color-green">$wording.get("fo.product.comment_part_title")</h3>
+				<label>$wording.get("fo.product.comment_label")</label>
+				<textarea id="comment" name="comment" rows="8" class="span10"></textarea>
+				<p><button type="submit" class="btn-u">$wording.get("fo.product.submit_comment")</button></p>
+            </div>
+            </form>
