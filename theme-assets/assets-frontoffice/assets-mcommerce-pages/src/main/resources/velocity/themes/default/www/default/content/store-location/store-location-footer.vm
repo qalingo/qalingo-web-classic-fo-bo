@@ -1,118 +1,200 @@
-		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-		<script>
-		jQuery(document).ready(function($) {
-			var dataOSM = $storeFilter.toJSON() ;
-			var zoom                 = 3;
-		    var lonCenter            = -30.000;
-		    var latCenter            = 45.000;
-		    var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-		    var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-		    var positionCenter = new OpenLayers.LonLat(lonCenter, latCenter).transform(fromProjection, toProjection);
-		    map = new OpenLayers.Map("map-store");
-		    var mapnik = new OpenLayers.Layer.OSM();
-		    map.addLayer(mapnik);
-		    var markers = new OpenLayers.Layer.Markers("Markers");
-		    map.addLayer(markers);
+<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+<script src="/fo-mcommerce-resources/default/js/library/slides.jquery.js" type="text/javascript"></script>
+<script>
+jQuery(document).ready(function($) {
+	var dataOSM = $storeFilter.toJSON() ;
+    var positionFound = [];
+    var zoom                 = 3;
+    var lonCenter            = -30.000;
+    var latCenter            = 45.000;
+    var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+    var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+    var positionCenter = new OpenLayers.LonLat(lonCenter, latCenter).transform(fromProjection, toProjection);
+    map = new OpenLayers.Map("map-store");
+    var mapnik = new OpenLayers.Layer.OSM();
+    map.addLayer(mapnik);
+    var markers = new OpenLayers.Layer.Markers("Markers");
+    map.addLayer(markers);
 
-		    map.addControl(new OpenLayers.Control.LayerSwitcher());
-		    
-		    function deleteAllMarket(){
-		        var currentMarkers = markers.markers;
-		        for(var i=0 ; i < currentMarkers.length; i++){
-		            currentMarkers[i].destroy();
-		        }
-		        markers.markers = new Array();
-		    }
-		    function setMarket(lon,lat,code,businessName){
-		        marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection));
-		        openStoreInfo = function(evt) { 
-		            $('#store-info-'+code).dialog({
-		                title: ''+ businessName + 'informations',
-		                modal: true,
-		                buttons: {
-		                    Ok: function() {
-		                        $(this).dialog( "close" );
-		                    }
-		                }
-		            });
-		            OpenLayers.Event.stop(evt);
-		        };
-		        marker.events.register('mousedown', marker, openStoreInfo);
-		        markers.addMarker(marker);
-		        map.setCenter(new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection), 10);
-		    }
-		    $('#country').change(function(){
-		        var option = $(this).find(":selected");
-		        var index = option.attr("value");
-		        if(index == ''){
-		             buildSetAllMarker(dataOSM);
-		             $('#city').html('');
-		        }else{
-		            deleteAllMarket();
-		            buildSelectCityAndSetMarker(dataOSM,index);
-		        }
-		    });
-		    $('#city').change(function(){
-		        var index = $('#country').find(":selected").attr("value");
-		        var indexCity = $(this).find(":selected").attr("value");
-		        if(indexCity==''){
-		            deleteAllMarket();
-		            buildSetAllMarkerByCountry( dataOSM, index);
-		        }else{
-		            var stores =dataOSM[index].cities[indexCity].stores;
-		            deleteAllMarket();
-		            buildSetMarkerByCity(stores);
-		        }
-		    });
-		    function buildSelectCountry(dataJson){
-		        var data = dataJson;
-		        var html = "<option value =''>All</option>";
-		        for(var i = 0; i < data.length ; i++){
-		         html += "<option value ='"+ i +"'>"+ data[i].code +"</option>";
-		        }
-		        $('#country').html(html);
-		    }
-		    function buildSelectCityAndSetMarker( dataJson, indexCountry ){
-		        var country = dataJson[indexCountry] ;
-		        var cities = country.cities ;
-		        var html ="<option value =''>All</option>";
-		        for(var i = 0; i < cities.length ; i++){
-		            html += "<option value ='"+ i +"'>"+ cities[i].name +"</option>";
-		            var stores = cities[i].stores;
-		            buildSetMarkerByCity(stores);
-		        }   
-		        $('#city').html(html);
-		    }
-		    function buildSetMarkerByCity(stores){
-		        for(var i = 0 ; i < stores.length ; i++){
-		             var lon = stores[i].longitude;
-		             var lat = stores[i].latitude;
-		             var code = stores[i].code;
-		             var businessName = stores[i].businessName;
-		             setMarket(lon,lat,code,businessName);
-		        }
-		    }
-		    function buildSetAllMarker(dataJson){
-		        for(var i = 0; i < dataJson.length; i++){
-		            var country = dataJson[i] ;
-		            var cities = country.cities ;
-		            for(var j = 0; j < cities.length ; j++){
-		                var stores = cities[j].stores;
-		                buildSetMarkerByCity(stores);
-		            }   
-		        }
-		        map.setCenter(positionCenter, zoom);
-		    }
-		    function buildSetAllMarkerByCountry(dataJson , indexCountry){
-		            var country = dataJson[indexCountry] ;
-		            var cities = country.cities ;
-		            for(var j = 0; j < cities.length ; j++){
-		                var stores = cities[j].stores;
-		                buildSetMarkerByCity(stores);
-		            }
-		        // map.setCenter(positionCenter, zoom);  
-		    }
-		    buildSelectCountry(dataOSM);
-		    buildSetAllMarker(dataOSM);				
-		});
-		</script>
+    map.addControl(new OpenLayers.Control.LayerSwitcher());
+    controls = map.getControlsByClass('OpenLayers.Control.Navigation');
+    for(var i = 0; i < controls.length; ++i)
+    {
+         controls[i].disableZoomWheel();
+    }
+
+    function deleteAllMarket(){
+        var currentMarkers = markers.markers;
+        for(var i=0 ; i < currentMarkers.length; i++){
+            currentMarkers[i].destroy();
+        }
+        markers.markers = new Array();
+    }
+    function setMarket(lon,lat,code,businessName,address,city,country){
+        marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection));
+        eventMarkerOver = function(evt){
+            var popup = findPopupByCode(code);
+            if(popup == null){
+            	var htmlContent = "";
+            	htmlContent +='<div id="store-info-'+code+'" class="location-popup" style="display: block;">';
+            	htmlContent += '<span class="location-popup-thumb">';
+            	htmlContent += '<img src="'+"/fo-mcommerce-resources/default/img/home/slider-1.jpg"+'"></span>';
+            	htmlContent += '<span class="location-popup-info">';
+            	htmlContent += '<h2 class="store-list-title">'+ businessName + '</h2>';
+            	htmlContent += '<p>'+ address +'<br>'+ city +'<br>'+country+'<br></p></span></div>';
+                popup = new OpenLayers.Popup.FramedCloud(code,
+                new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection),
+                new OpenLayers.Size(200,200),
+                htmlContent,
+                null,true);
+                map.addPopup(popup);
+            }else{
+                popup.show();
+            }
+        }
+        eventMarkerOut = function(evt){
+            var popup = findPopupByCode(code);
+            popup.hide();
+        }
+        marker.events.register("mouseover", marker, eventMarkerOver);
+        marker.events.register("mouseout", marker, eventMarkerOut);
+
+        markers.addMarker(marker);
+       
+    }
+    function findPopupByCode(code){
+        var popups = map.popups;
+        if(popups == null)
+        {
+            return null;
+        }
+        for(var i = 0 ; i < popups.length ; i++){
+            if(popups[i].id == code ){
+                return popups[i];
+            }
+        }
+        return null;
+    }
+    $('#country').change(function(){
+        var option = $(this).find(":selected");
+        var index = option.attr("value");
+        if(index == ''){
+             buildSetAllMarker(dataOSM);
+             $('#city').html('');
+        }else{
+            deleteAllMarket();
+            buildSelectCityAndSetMarker(dataOSM,index);
+        }
+        setCenter();
+    });
+    $('#city').change(function(){
+        var index = $('#country').find(":selected").attr("value");
+        var indexCity = $(this).find(":selected").attr("value");
+        if(indexCity==''){
+            deleteAllMarket();
+            buildSetAllMarkerByCountry( dataOSM, index);
+        }else{
+            var coordinates =dataOSM[index].cities[indexCity].stores;
+            deleteAllMarket();
+            buildSetMarkerByCoordinates(coordinates);
+        }
+        setCenter();
+    });
+    function buildSelectCountry(dataJson){
+        var data = dataJson;
+        var html = "<option value =''>All</option>";
+        for(var i = 0; i < data.length ; i++){
+         html += "<option value ='"+ i +"'>"+ data[i].code +"</option>";
+        }
+        $('#country').html(html);
+    }
+    function buildSelectCityAndSetMarker( dataJson, indexCountry ){
+        var country = dataJson[indexCountry] ;
+        var cities = country.cities ;
+        var html ="<option value =''>All</option>";
+        for(var i = 0; i < cities.length ; i++){
+            html += "<option value ='"+ i +"'>"+ cities[i].name +"</option>";
+            var coordinates = cities[i].stores;
+            buildSetMarkerByCoordinates(coordinates);
+        }   
+        $('#city').html(html);
+    }
+    function buildSetMarkerByCoordinates(stores){
+        for(var i = 0 ; i < stores.length ; i++){
+             var lon = stores[i].longitude;
+             var lat = stores[i].latitude;
+             var code = stores[i].code;
+             var businessName = stores[i].businessName;
+             var address = stores[i].address;
+             var city = stores[i].city;
+             var country = stores[i].country;
+             setMarket(lon,lat,code,businessName,address,city,country);
+        }
+    }
+    function buildSetAllMarker(dataJson){
+        for(var i = 0; i < dataJson.length; i++){
+            var country = dataJson[i] ;
+            var cities = country.cities ;
+            for(var j = 0; j < cities.length ; j++){
+                var coordinates = cities[j].stores;
+                buildSetMarkerByCoordinates(coordinates);
+            }   
+        }
+        map.setCenter(positionCenter, zoom);
+        map.zoomToMaxExtent();
+    }
+    function buildSetAllMarkerByCountry(dataJson , indexCountry){
+            var country = dataJson[indexCountry] ;
+            var cities = country.cities ;
+            for(var j = 0; j < cities.length ; j++){
+                var coordinates = cities[j].stores;
+                buildSetMarkerByCoordinates(coordinates);
+            }
+    }
+    function setCenter(){
+         var currentMarkers = markers.markers;
+          var newBound = new OpenLayers.Bounds();
+        for(var i=0 ; i < currentMarkers.length; i++){
+            var tempMarker = currentMarkers[i];
+            newBound.extend(tempMarker.lonlat);
+        }
+        var centerPosition = newBound.getCenterLonLat();
+         var zoomLv = map.getZoomForExtent(newBound,true);
+        map.setCenter(centerPosition, zoomLv -1 );
+    }
+    $('input#search').keyup(function(e){
+        if(e.which  == 13){
+            $('#bt-search').click();
+        }
+    });
+    $('#bt-search').click(function(){
+        var textSearch = $('input#search').val();
+        positionFound = [];
+        for(var i = 0 ; i < dataOSM.length ; i++){
+            var cities = dataOSM[i].cities;
+            for(var j = 0 ; j< cities.length; j++){
+                var stores = cities[j].stores;
+                for(var k = 0; k< stores.length; k++){
+                    if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
+                        positionFound.push(stores[k]);
+                    }
+                }
+            }
+        }
+        if(positionFound.length > 0){
+            deleteAllMarket();
+            buildSetMarkerByCoordinates(positionFound);
+            setCenter();
+        }
+    });
+    buildSelectCountry(dataOSM);
+    buildSetAllMarker(dataOSM);
+    setCenter();
+	$('#location-store-list').slides({
+		preload: true,
+		generateNextPrev: true,
+		play: 0,
+		hoverPause: true
+	});
+});
+</script>
