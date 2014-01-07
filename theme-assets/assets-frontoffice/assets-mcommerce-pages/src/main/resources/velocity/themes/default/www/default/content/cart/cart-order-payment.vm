@@ -2,6 +2,10 @@
 #set ($footer_script_content = "../content/cart/cart-order-payment-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
+#macro (tabIndex)
+#if($!tabIndex)#set($tabIndex = $tabIndex + 1)#else#set($tabIndex = 1)#end
+$!tabIndex#end
+
 			<section id="cart-order-confirmation">
 				#parse("_include/checkout-steps.vm")
 				<form id="paymentForm" name="paymentForm" action="" method="POST" class="trigger-form-handle-focus">
@@ -10,55 +14,81 @@
 					#parse("../../_include/body-form-error-message.vm")
 					<div style="width: 54%; float:right; padding: 5px;">
 						#parse("_include/cart-details.vm")
-					</div>
+					</div>					
 					<div style="width: 42%; float:left; padding: 5px;">
 						<div>
 							<div style="background-color: #ffffff; padding: 10px; float:left;">
 								<div class="form-group">
-									<div style="float: left; width: 200px;">
-										<label for="cardHolder" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_holder")</label>
+									<div style="float: left; width: 150px;">
+										<label for="paymentType" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_type")</label>
+									</div>
+									<div style="float: left; padding-bottom: 5px;">
+										<span class="block paddingLeft">
+											<input type="radio" id="MASTERCARD" name="paymentType" value="MASTERCARD" tabindex="#tabIndex()" style="float: left;"> <span class="payment-type-mastercard payment-icon-sprite"></span>
+											<input type="radio" id="VISA" name="paymentType" value="VISA" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-visa payment-icon-sprite"></span>
+											<input type="radio" id="AMEX" name="paymentType" value="AMEX" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-amex payment-icon-sprite"></span>
+											<input type="radio" id="PAYPAL" name="paymentType" value="PAYPAL" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-paypal payment-icon-sprite"></span>
+										</span>
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+								<div class="form-group">
+									<div style="float: left; width: 150px;">
+										<label for="cardHolderName" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_holder")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="cardHolder" name="cardHolder" value="" placeholder="" class="form-control" style="width: 253px;" tabindex="1" autocomplete="off" />
+										<input type="text" id="cardHolderName" name="cardHolderName" value="" placeholder="" class="form-control" style="width: 253px;" tabindex="#tabIndex()" autocomplete="off" />
 									</div>
 								</div>
 								<div style="clear: both;"></div>
 								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
-									<div style="float: left; width: 200px;">
+									<div style="float: left; width: 150px;">
 										<label for="cardNumber" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_number")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="cardNumber1" name="cardNumber1" value="" style="width: 50px;" tabindex="2" maxlength="4" size="4" autocomplete="off" />
-										<input type="text" id="cardNumber2" name="cardNumber2" value="" style="width: 50px;" tabindex="3" maxlength="4" size="4" autocomplete="off" />
-										<input type="text" id="cardNumber3" name="cardNumber3" value="" style="width: 50px;" tabindex="4" maxlength="4" size="4" autocomplete="off" />
-										<input type="text" id="cardNumber4" name="cardNumber4" value="" style="width: 50px;" tabindex="5" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber1" name="cardNumber1" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber2" name="cardNumber2" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber3" name="cardNumber3" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardNumber4" name="cardNumber4" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="4" size="4" autocomplete="off" />
 									</div>
 								</div>
 								<div style="clear: both;"></div>
 								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
-									<div style="float: left; width: 200px;">
+									<div style="float: left; width: 150px;">
 										<label for="cardCrypto" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_crypto")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="cardCrypto" name="cardCrypto" value="" style="width: 50px;" tabindex="6" maxlength="4" size="4" autocomplete="off" />
+										<input type="text" id="cardCrypto" name="cardCrypto" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="4" size="4" autocomplete="off" />
 									</div>
 								</div>
 								<div style="clear: both;"></div>
 								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
-									<div style="float: left; width: 200px;">
-										<label for="cardMonth" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_expiration_date")</label>
+									<div style="float: left; width: 150px;">
+										<label for="cardExpMonth" class="label-form">$wording.get("fo.checkout_shopping_cart.payment_card_expiration_date")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="cardMonth" name="cardMonth" value="" style="width: 50px;" tabindex="7" maxlength="2" size="2" autocomplete="off" placeholder="$wording.get("fo.checkout_shopping_cart.payment_card_expiration_month")" />
-										<input type="text" id="cardYear" name="cardYear" value="" style="width: 50px;" tabindex="8" maxlength="2" size="2" autocomplete="off" placeholder="$wording.get("fo.checkout_shopping_cart.payment_card_expiration_year")" />
+										<input type="text" id="cardExpMonth" name="cardExpMonth" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="2" size="2" autocomplete="off" placeholder="$wording.get("fo.checkout_shopping_cart.payment_card_expiration_month")" />
+										<input type="text" id="cardExpYear" name="cardExpYear" value="" style="width: 50px;" tabindex="#tabIndex()" maxlength="2" size="2" autocomplete="off" placeholder="$wording.get("fo.checkout_shopping_cart.payment_card_expiration_year")" />
 									</div>
 								</div>
+								
+								#if($!marketArea.withSavedPaymentInformation)
+								<div style="clear: both;"></div>
+								<div class="form-group" style="padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left;">
+										<input type="checkbox" id="savePaymentInformation" name="savePaymentInformation" tabindex="#tabIndex()"/>&nbsp;$wording.get("fo.checkout_shopping_cart.payment_save_information")
+									</div>
+								</div>
+								#end
+								
 							</div>
 						</div>
 						<div style="clear: both;"></div>
 						<div id="cart-addresses-actions" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px;  padding-left: 5px; padding-right: 5px; text-align: right;">
-							<span style="padding-right: 55px;"><button class="btn btn-primary" tabindex="9" type="submit">$wording.get("fo.checkout_shopping_cart.shoppingcart_submit_payment")</button></span>
+							<span style="padding-right: 55px;"><button class="btn btn-primary" tabindex="#tabIndex()" type="submit">$wording.get("fo.checkout_shopping_cart.shoppingcart_submit_payment")</button></span>
 						</div>
+						<div style="clear: both;"></div>
+						<div style="padding-top: 20px;"><img src="${common.themeResourcePrefixPath}/img/payment/verisign-norton-secure.jpg" class="payment-img-security"></div>
 					</div>
 				</div>
 				</form>

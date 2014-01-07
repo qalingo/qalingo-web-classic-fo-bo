@@ -1,4 +1,4 @@
-#if($productBrandViewBeans.size() > 0)
+#if($!productBrandViewBeans && $!productBrandViewBeans.size() > 0)
 <!-- slide logo  -->
 <div id="linked-logos-slide" class="linked-logos-slide">	
 	<div class="slides_container row  products-grid">

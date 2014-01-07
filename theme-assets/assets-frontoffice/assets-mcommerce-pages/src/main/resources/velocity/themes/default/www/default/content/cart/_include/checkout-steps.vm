@@ -3,15 +3,15 @@
 			<div class="checkout-header">
 				<ol class="checkout-nav checkout-nav-dispatch">
 					#if($checkoutStep == 1)	#set($active = 'class="active"') #else #set($active = '') #end
-					<li><a href="$cart.cartDetailsUrl" $!active>1 Votre commande</a></li>
+					<li><a href="$!cart.cartDetailsUrl" $!active>1 Votre commande</a></li>
 					#if($checkoutStep == 2)	#set($active = 'class="active"') #else #set($active = '') #end
-					<li><a href="$cart.cartAuthUrl" $!active>2 Compte</a></li>
+					<li><a href="$!cart.cartAuthUrl" $!active>2 Compte</a></li>
 					#if($checkoutStep == 3)	#set($active = 'class="active"') #else #set($active = '') #end
-					<li><a href="$cart.cartDeliveryAndOrderDetailsUrl" $!active>3 Livraison</a></li>
+					<li><a href="$!cart.cartDeliveryAndOrderDetailsUrl" $!active>3 Livraison</a></li>
 					#if($checkoutStep == 4)	#set($active = 'class="active"') #else #set($active = '') #end
-					<li><a href="$cart.cartOrderPaymentUrl" $!active>4 Paiement</a></li>
+					<li><a href="$!cart.cartOrderPaymentUrl" $!active>4 Paiement</a></li>
 					#if($checkoutStep == 5)	#set($active = 'class="active"') #else #set($active = '') #end
-					<li><a href="$cart.cartOrderConfirmationUrl" $!active>5 Confirmation</a></li>
+					<li><a href="$!cart.cartOrderConfirmationUrl" $!active>5 Confirmation</a></li>
 				</ol>
 			</div>
 		</div>

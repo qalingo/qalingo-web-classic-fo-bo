@@ -72,6 +72,7 @@
 	
     <!-- AOP -->
 	<context:component-scan base-package="org.hoteia.qalingo.core.jms.notification.producer" />
+	<context:component-scan base-package="org.hoteia.qalingo.core.jms.document.producer" />
 	<context:component-scan base-package="org.hoteia.qalingo.core.aop" />
 	<aop:config>
         <aop:aspect id="triggerEmailNotification" ref="emailNotificationAspect">
@@ -83,6 +84,11 @@
             <aop:pointcut id="ruleOrientedCartBusinessService" expression="execution(* org.hoteia.qalingo.core.service.CartService.*ToCart*(..))" />
             <aop:before method="beforeRuning" pointcut-ref="ruleOrientedCartBusinessService" />
             <aop:after-returning method="afterRuning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
+        </aop:aspect>
+        <aop:aspect id="triggerDocumentGenerator" ref="documentGeneratorAspect">
+            <aop:pointcut id="documentGeneratorBusinessService" expression="execution(* org.hoteia.qalingo.core.service.WebManagementService.buildAndSaveNewOrder*(..))" />
+            <aop:before method="beforeRuning" pointcut-ref="documentGeneratorBusinessService" />
+            <aop:after-returning method="afterRuning" pointcut-ref="documentGeneratorBusinessService" returning="result" />
         </aop:aspect>
     </aop:config>
 

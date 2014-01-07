@@ -3,14 +3,69 @@
     xsi:schemaLocation="http://dozer.sourceforge.net
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
-	<mapping>
-		<class-a>org.hoteia.qalingo.core.domain.CartItem</class-a>
-		<class-b bean-factory="org.hoteia.qalingo.core.dozer.CartCustomBeanFactory">org.hoteia.qalingo.core.pojo.cart.CartItemPojo</class-b>
-	</mapping>
+    <mapping>
+        <class-a>org.hoteia.qalingo.core.domain.CartItem</class-a>
+        <class-b bean-factory="org.hoteia.qalingo.core.dozer.CartCustomBeanFactory">org.hoteia.qalingo.core.pojo.cart.CartItemPojo</class-b>
+    </mapping>
 
     <mapping>
         <class-a>org.hoteia.qalingo.core.domain.DeliveryMethod</class-a>
         <class-b bean-factory="org.hoteia.qalingo.core.dozer.DeliveryMethodCustomBeanFactory">org.hoteia.qalingo.core.pojo.deliverymethod.DeliveryMethodPojo</class-b>
     </mapping>
 
+    <mapping map-null="false" map-empty-string="false" relationship-type="non-cumulative">
+        <class-a>org.hoteia.qalingo.core.domain.EngineEcoSession</class-a>
+        <class-b>org.hoteia.qalingo.core.domain.EngineEcoSession</class-b>
+        <field remove-orphans="true">
+            <a>carts</a> 
+            <b>carts</b> 
+        </field>
+        <field-exclude> 
+            <a>lastOrders</a> 
+            <b>lastOrders</b> 
+        </field-exclude>
+        <field-exclude> 
+            <a>currentCustomer</a> 
+            <b>currentCustomer</b> 
+        </field-exclude>
+    </mapping>
+    
+    <mapping map-null="false" map-empty-string="false" relationship-type="non-cumulative">
+        <class-a>org.hoteia.qalingo.core.domain.Cart</class-a>
+        <class-b>org.hoteia.qalingo.core.domain.Cart</class-b>
+        <field remove-orphans="true">
+            <a>cartItems</a> 
+            <b>cartItems</b> 
+        </field>
+        <field-exclude> 
+            <a>deliveryMethods</a> 
+            <b>deliveryMethods</b> 
+        </field-exclude>
+        <field-exclude> 
+            <a>taxes</a> 
+            <b>taxes</b> 
+        </field-exclude>
+    </mapping>
+    
+    <mapping map-null="false" map-empty-string="false" relationship-type="non-cumulative">
+        <class-a>org.hoteia.qalingo.core.domain.CartItem</class-a>
+        <class-b>org.hoteia.qalingo.core.domain.CartItem</class-b>
+        <field-exclude>
+            <a>deliveryMethods</a> 
+            <b>deliveryMethods</b> 
+        </field-exclude>
+        <field-exclude> 
+            <a>taxes</a> 
+            <b>taxes</b> 
+        </field-exclude>
+        <field-exclude> 
+            <a>productSku</a> 
+            <b>productSku</b> 
+        </field-exclude>
+        <field-exclude> 
+            <a>cartItemPrice</a> 
+            <b>cartItemPrice</b> 
+        </field-exclude>
+    </mapping>
+    
 </mappings>

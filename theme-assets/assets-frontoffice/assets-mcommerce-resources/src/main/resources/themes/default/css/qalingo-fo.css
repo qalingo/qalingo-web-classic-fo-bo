@@ -11,7 +11,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body {
 	color: #8E959C;
 	background-color: #2F353E;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif; 
+}
+
+h1 {
+    margin-top: 40px;
 }
 
 h2, h3, h4, h5, h6 {
@@ -415,86 +419,4 @@ footer {
 
 
 
-/*****************************************************************************
-	CHECKOUT
-*****************************************************************************/
 
-.checkout-header-wrapper {
-    background: url("../img/background/checkout-header-shade-bottom.png") repeat-x scroll left bottom #FFFFFF;
-    height: 65px;
-    left: 0;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    z-index: 5;
-}
-.checkout-header {
-    margin: 0 auto;
-    width: 940px;
-}
-.checkout-nav {
-    margin-left: 140px;
-    text-align: center;
-}
-.checkout-nav li {
-    display: block;
-    float: left;
-    margin: 1px;
-    padding: 18px 23px 0 0;
-    text-transform: uppercase;
-}
-.checkout-nav a {
-    color: #5A5A5A;
-    font-size: 12px;
-}
-.checkout-nav a.active {
-    border-bottom: 2px solid #A6A6A6;
-    color: #000000;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 0;
-    padding: 0 0 23px;
-}
-.checkout-nav a.active {
-    padding: 4px 0 20px;
-}
-.checkout-header-push {
-    color: #9B9B9B;
-    display: block;
-    font-size: 10px;
-    margin: 5px 0 0;
-    position: absolute;
-    right: 10px;
-    text-align: right;
-    top: 2px;
-}
-.transverse .checkout-header-push strong {
-    color: #9B9B9B;
-}
-
-.checkout-common-link:hover {
-    color: #2F353E;
-}
-
-ul.pagination li {
-	float: left;
-	padding: 5px;
-}
-
-ul.pagination li {
-	float: left;
-	padding: 5px;
-}
-
-ul.pagination li a.active {
-	font-weight: bold;
-}
-
-select.cart-item-select-qty {
-    width: 50px;
-}
-
-input.input-cart-promo-code {
-    width: 150px;
-}

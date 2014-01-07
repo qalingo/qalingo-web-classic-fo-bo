@@ -9,8 +9,8 @@
 					<div style="padding: 5px; padding-bottom: 10px; color: #2F353E;">
 						$!order.confirmationMessage
 					</div>
-					<div style="padding: 5px; padding-bottom: 15px; color: #2F353E;">
-						<a alt="Download your order confirmation" target="_blank" class="btn btn-primary" href="h#"><i class="icon-download-alt icon-large"></i>&nbsp;Download your order confirmation</a>
+					<div style="padding-top: 25px; padding-bottom: 25px; color: #2F353E; text-align: center;">
+						<a href="$!orderConfirmationPdfUrl" target="_blank" alt="Download your order confirmation" class="btn btn-primary"><i class="icon-download-alt icon-large"></i>&nbsp;Download your order confirmation</a>
 					</div>
 					<div style="padding: 5px;">
 						#parse("_include/order-details.vm")
