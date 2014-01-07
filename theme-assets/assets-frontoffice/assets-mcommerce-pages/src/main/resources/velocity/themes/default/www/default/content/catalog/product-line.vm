@@ -140,10 +140,26 @@
 			<div class="tb">
 				<div class="sorter">
 					<p class="view-mode">
+					#if(!$mode || $mode == "gird")
+						#set ($mode = "gird")
+					#else
+						#set ($mode = "list")
+					#end
+					#if(!$sortBy)
+						#set ($sortBy = "name")
+					#end
+					#if(!$orderBy || $orderBy == "asc")
+						#set ($orderBy = "asc")
+					#else
+						#set ($orderBy = "desc")
+					#end
+					#if($mode == "list")
+						<a href="?mode=gird&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}" title="Gird" class="grid "><i class="icon-th"></i></a>
+						<span title="List" class="list selected"><i class="icon-th-list"></i></span>
+					#else
 						<span title="Gird" class="grid selected"><i class="icon-th"></i></span>
-						<!--
-						<a href="#" title="List" class="list"><i class="icon-th-list"></i></a>
-						-->
+						<a href="?mode=list&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}" title="List" class="list"><i class="icon-th-list"></i></a>
+					#end
 					</p>
 
 					<div class="sort-by">
@@ -152,13 +168,11 @@
 							<option value="name" #if($sortBy == "name" || $sortBy != "price") selected="selected" #end>Name</option>
 							<option value="price" #if($sortBy == "price") selected="selected" #end>Price</option>
 						</select>
-						#if(!$orderBy || $orderBy == "asc")
-						#set ($orderBy = "asc")
-						#else
-						#set ($orderBy = "desc")
-						#end
+						
 						<input name="orderBy" type="hidden" value="${orderBy}" style="display:none" />
 						<input name="page" value="1" type="hidden" style="display:none" />
+						
+						<input name="mode" value="$mode" type="hidden" />
 						#if($orderBy == "asc")
 						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
 							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
@@ -169,6 +183,26 @@
 						</a>
 						#end
 						
+					</div>
+				</div>
+				<div class="pagination-wrap">
+					<div class="pagination">
+					#if($totalPage > 1)
+					<ul class="pagination">
+					
+					#if($currentPage > 1 && $totalPage > 1)
+					#set ($pagePrev =$currentPage-1 )
+					<li><a href="?mode=${mode}&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}&page=$pagePrev">Prev</a></li>
+					#end
+					#foreach($i in [1..$totalPage])
+						<li><a class="#if($i==$currentPage) active #end" href="?mode=${mode}&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}&page=${i}" data-page="${i}">${i}</a></li>
+					#end
+					#if( $currentPage < $totalPage && $totalPage > 1)
+					#set ($pageNext =$currentPage + 1 )
+					<li><a href="?mode=${mode}&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}&page=$pageNext">Next</a></li>
+					#end
+					</ul>
+					#end
 					</div>
 				</div>
 				<div class="pager hidden-phone">
@@ -184,9 +218,9 @@
 			</div>
 		</div>
 		</form>
-		
+		#if($mode == "gird")
 		<ul class="products-grid row">
-			#foreach($productMarketing in $catalogCategory.productMarketings) 
+			#foreach($productMarketing in $catalogCategory.productMarketings)
 			<li class="item span3">
 				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
 					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
@@ -200,17 +234,29 @@
 			</li>			
 			#end
 		</ul>
-		#if($totalPage > 1)
-		<ul class="pagination">
-		#if(!$sortBy)
-		#set ($sortBy = "name")
-		#end
-		#foreach($i in [1..$totalPage])
-			<li><a class="#if($i==$currentPage) active #end" href="?sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}&page=${i}" data-page="${i}">${i}</a></li>
-		#end
+		#else
+		<ul class="products-grid row list-view">
+			#foreach($productMarketing in $catalogCategory.productMarketings)
+			<li class="item span3">
+				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
+					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
+				</a>
+				<div class="product-info-wrap">
+					<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
+					<span class="rating-stars star-4">&nbsp;</span>
+					<p class="product-short-des hide-as-grid">${productMarketing.description}</p>
+					<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
+					<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
+						<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+					<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1">
+						<i class="icon-heart"></i>
+						<span class="wishlist-btn-des">Add to wishlist</span>
+					</a>
+				</div>
+			</li>			
+			#end
 		</ul>
 		#end
-
 	</div>
 </div>
 <!-- //category product section -->
