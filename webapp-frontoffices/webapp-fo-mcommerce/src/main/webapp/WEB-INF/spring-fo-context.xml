@@ -81,12 +81,12 @@
             <aop:after-returning method="afterRuning" pointcut-ref="emailNotificationBusinessService" returning="result" />
         </aop:aspect>
         <aop:aspect id="triggerRuleOrientedCart" ref="ruleOrientedCartAspect">
-            <aop:pointcut id="ruleOrientedCartBusinessService" expression="execution(* org.hoteia.qalingo.core.service.CartService.*ToCart*(..))" />
+            <aop:pointcut id="ruleOrientedCartBusinessService" expression="execution(* org.hoteia.qalingo.core.service.EngineSessionService.updateAndSynchronizeEngineEcoSession*(..))" />
             <aop:before method="beforeRuning" pointcut-ref="ruleOrientedCartBusinessService" />
             <aop:after-returning method="afterRuning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
         </aop:aspect>
         <aop:aspect id="triggerDocumentGenerator" ref="documentGeneratorAspect">
-            <aop:pointcut id="documentGeneratorBusinessService" expression="execution(* org.hoteia.qalingo.core.service.WebManagementService.buildAndSaveNewOrder*(..))" />
+            <aop:pointcut id="documentGeneratorBusinessService" expression="execution(* org.hoteia.qalingo.core.service.OrderCustomerService.createNewOrder*(..))" />
             <aop:before method="beforeRuning" pointcut-ref="documentGeneratorBusinessService" />
             <aop:after-returning method="afterRuning" pointcut-ref="documentGeneratorBusinessService" returning="result" />
         </aop:aspect>
