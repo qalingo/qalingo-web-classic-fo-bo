@@ -8,7 +8,6 @@
 <link href="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
-/*
 	function startupPage(){
 		$('#featured-products').slides({
 			preload: true,
@@ -28,7 +27,6 @@
 	    	controlNav: false
 	    });
 	}
-*/
 </script>
 
 <!-- nivo slider - top banner -->
