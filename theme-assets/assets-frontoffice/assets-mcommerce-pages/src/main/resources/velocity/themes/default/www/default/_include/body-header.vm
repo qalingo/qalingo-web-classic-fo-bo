@@ -68,11 +68,7 @@
 								</ul>
 							</div>
 						</div>
-						<div style="float: right;">
-							<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
-								<input id="global-search-txt" name="global-search-txt" type="text" class="search-query" placeholder="$wording.get("fo.search.form_search_label_text")">
-							</form>
-						</div>
+						
 					</div>
 				</div>
 				<div id="header-over-menu-navbar" class="navbar-inner">
