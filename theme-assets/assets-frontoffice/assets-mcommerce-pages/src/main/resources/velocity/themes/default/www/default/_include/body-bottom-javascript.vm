@@ -14,7 +14,7 @@
 				 'library/axe-carousel/axe-carousel.alpha'], function(){
 			$script(['global'], function(){
 				if(window.console){
-					console.log('JS is ready');
+					//console.log('JS is ready');
 				}
 			});	
 		});		
