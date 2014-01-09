@@ -59,7 +59,7 @@
 					
 					<div class="span9">
 						<span class="footer-nav-title">
-							$wording.get("fo.footer_menu.contact_us")&nbsp;<img class="payment-img" src="${common.themeResourcePrefixPath}/img/home/payments.png" alt="Payments">
+							$wording.get("fo.footer_menu.payment_methods")&nbsp;<img class="payment-img" src="${common.themeResourcePrefixPath}/img/home/payments.png" alt="Payments">
 						</span>
 					</div>					
         		</div>

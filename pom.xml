@@ -49,6 +49,8 @@
 	</properties>
 
 	<modules>
+		<module>theme-assets</module>
+		<module>webapp-backoffices</module>
 		<module>webapp-frontoffices</module>
 	</modules>
 	
