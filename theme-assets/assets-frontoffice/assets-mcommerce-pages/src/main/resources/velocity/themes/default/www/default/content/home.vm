@@ -38,12 +38,14 @@
 							<p>Image 5</p>
 						</div>
 					</div>
+					#*
 					<div class="slide">
 						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-6.jpg" width="1170" height="537" alt="Slide 6"></a>
 						<div class="caption">
 							<p>Image 6</p>
 						</div>
 					</div>
+					*#
 				</div>
 				<a href="#" class="prev"><img src="${common.themeResourcePrefixPath}/js/library/images-with-captions/img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
 				<a href="#" class="next"><img src="${common.themeResourcePrefixPath}/js/library/images-with-captions/img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
