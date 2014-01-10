@@ -1,0 +1,34 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+<div class="pagination-wrap">
+    <div class="pagination">
+    	#set( $currentPage = $pagedListHolder.page )
+    	#set( $start = 0 )
+    	#set( $end = ($pagedListHolder.pageCount - 1) )
+    	<ul>							
+    	    <li><a href="#">&laquo;</a></li>
+    		#foreach( $index in [${start}..${end}] )
+    			#set( $displayPosition = $index + 1 )
+    			#if ($currentPageUrl.contains("?")) 
+    				#set( $hrefPage = $currentPageUrl + "&page=" + ($index + 1) )
+    			#else
+    				#set( $hrefPage = $currentPageUrl + "?page=" + ($index + 1) )
+    			#end 
+    
+    			#if($currentPage == $index)
+    			<li class="active"><a href="$hrefPage">$displayPosition</a></li>
+    			#else
+    			<li><a href="$hrefPage">$displayPosition</a></li>
+    			#end
+    		#end
+    	    <li><a href="#">&raquo;</a></li>
+    	</ul>
+    </div>
+</div>
