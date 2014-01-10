@@ -6,7 +6,7 @@
 	    }
 	    _markers.markers = new Array();
 	},
-	_setMarket = function(lon,lat,code,businessName,address,city,country){
+	_setMarker = function(lon,lat,code,businessName,address,city,country){
 	    var size = new OpenLayers.Size(21,25);
         var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
         var icon = new OpenLayers.Icon(_iconUrl,size,offset);
@@ -34,7 +34,9 @@
 	        }
 	    }
 	    marker.events.register("click", marker, eventMarkerOver);
-	    _markers.addMarker(marker);   
+	    marker.id = "marker"+ code ;
+	    _markers.addMarker(marker);
+	    console.log(marker);
 	},	
 	_findPopupByCode = function(code){
 	    var popups = _map.popups;
@@ -48,6 +50,14 @@
 	        }
 	    }
 	    return null;
+	},
+	_findMarkerById = function(id){
+		var currentMarkers = _markers.markers;
+	    for(var i=0 ; i < currentMarkers.length; i++){
+	        if(currentMarkers[i].id == id){
+	        	return currentMarkers[i];
+	        }
+	    }
 	},
 	_buildSelectCountry = function(dataJson){
 	    var data = dataJson;
@@ -77,7 +87,7 @@
 	         var address = stores[i].address1;
 	         var city = stores[i].city;
 	         var country = stores[i].country;
-	         _setMarket(lon,lat,code,businessName,address,city,country);
+	         _setMarker(lon,lat,code,businessName,address,city,country);
 	         _buildStoreFound(stores[i]);
 	    }
 	},
@@ -178,7 +188,7 @@
             return null;
         }
         for(var i = 0 ; i < popups.length ; i++){
-                return popups[i].hide();
+               popups[i].hide();
         }
     },
 	_DEFAULTS = {
@@ -229,7 +239,10 @@
 	    $('a.store-item').live('click',function(){
 	    	var lon   = $(this).data("lon");
 	    	var lat   = $(this).data("lat");
+	    	var code  = $(this).data("code");
+	    	var marker = _findMarkerById("marker"+code);
 	    	_setCenterByPosition(lat, lon);
+	    	marker.icon.imageDiv.click();
 	    });
 	    $('#bt-search').click(function(){
 	        var textSearch = $('input#search').val();
