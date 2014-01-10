@@ -33,12 +33,7 @@
 	            popup.show();
 	        }
 	    }
-	    eventMarkerOut = function(evt){
-	        var popup = _findPopupByCode(code);
-	        popup.hide();
-	    }
 	    marker.events.register("click", marker, eventMarkerOver);
-//	    marker.events.register("mouseout", marker, eventMarkerOut);
 	    _markers.addMarker(marker);   
 	},	
 	_findPopupByCode = function(code){
@@ -56,10 +51,6 @@
 	},
 	_buildSelectCountry = function(dataJson){
 	    var data = dataJson;
-//	    var html = "<option value =''>All</option>";
-//	    for(var i = 0; i < data.length ; i++){
-//	     html += "<option value ='"+ i +"'>"+ data[i].code +"</option>";
-//	    }
 	    _initTemplate("selectCountryTemplate", "countryImpl");
     	var htmlContent = $.render.countryImpl({data:data});
 	    $('#country').html(htmlContent);
