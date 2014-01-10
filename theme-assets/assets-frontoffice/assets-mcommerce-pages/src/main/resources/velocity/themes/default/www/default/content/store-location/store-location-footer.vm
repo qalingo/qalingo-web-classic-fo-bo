@@ -2,7 +2,8 @@
 <script src="/fo-mcommerce-resources/default/js/library/jsrender/jsrender.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 function startupPage(){
-	var dataOSM = $storeFilter.toJSON();
+//	var dataOSM = $storeFilter.toJSON();
+	var dataOSM = [{"name":null,"code":"US","cities":[{"name":"New-York fr i18n","code":null,"stores":[{"code":"STRNYC","businessName":"Store New-York","address1":"57th Street & Lexington","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.633","latitude":"40.667"},{"code":"STRNYC1","businessName":"long beach 1","address1":"57th Street & Lexington1","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.6717","latitude":"40.5880"},{"code":"STRNYC2","businessName":"long beach 2","address1":"57th Street & Lexington2","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.6472","latitude":"40.5910"},{"code":"STRNYC3","businessName":"long beach 3","address1":"57th Street & Lexington3","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.6472","latitude":"41.5910"}]}]},{"name":null,"code":"FR","cities":[{"name":"Paris fr i18n","code":null,"stores":[{"code":"STRPARIS","businessName":"Store Paris","address1":"85 avenue Lafayette","address2":"","addressAdditionalInformation":"","postalCode":"","city":"Paris fr i18n","stateCode":"","areaCode":null,"countryCode":"FR","country":"FR","longitude":"2.333","latitude":"48.833"}]}]}];
 	$script(['page.store-locator'], function(){
 		$.qalingo.storeLocator({
     		data: dataOSM,
@@ -10,7 +11,8 @@ function startupPage(){
     			zoom: 3,
     			lonCenter: -30.000,
     			latCenter: 45.000
-    		}
+    		},
+    		iconUrl : "/fo-mcommerce-resources/default/img/Coffee.png"
     	});
 	});	
 }
@@ -18,11 +20,49 @@ function startupPage(){
 <script id="marketTemplate" type="text/x-jsrender">
 <div id="store-info-{{:code}} class="location-popup" style="display: block;">
 	<span class="location-popup-thumb">
-		<img src="fo-mcommerce-resources/default/img/home/slider-1.jpg">
+		<img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg">
 	</span>
 	<span class="location-popup-info">
 		<h2 class="store-list-title">{{:businessName}}</h2>
 		<p>{{:address}}<br>{{:city}}<br>{{:country}}<br></p>
 	</span>
 </div>
+</script>
+
+<script id="storesTemplate" type="text/x-jsrender">
+{{* count = 0;}}
+{{for data}}
+    	
+    		{{if #index ==0 || #index%4 == 0 }}
+			<div class="slide">       
+			{{/if}}
+	  <div class="item span3">
+	      <a data-code="{{:code}}" data-lon="{{:longitude}}" data-lat="{{:latitude }}" href="javascript:void(0)" class="store-item">
+	       <span class="store-thumb">
+	          <img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg" alt="Store1">
+	       </span>
+	       <div class="store-item-info"><h2 class="store-list-title">{{:businessName}}</h2>
+	       <span class="store-list-address"><i class="icon-map-marker"></i>{{:address1 }}</span></div>
+	      </a>
+	  </div>
+	  {{if #index % 3 == 0 && #index!=0 }}
+	  </div>              
+	  {{/if}}
+	  
+{{/for}} 
+
+</script>
+
+<script id="selectCountryTemplate" type="text/x-jsrender"> 
+ <option value =''>All</option>
+ {{for data}}
+ 	<option value="{{:#index}}">{{:code}} </option>
+ {{/for}}
+</script>
+
+<script id="selectCityTemplate" type="text/x-jsrender"> 
+<option value =''>All</option>
+{{for data}}
+	<option value="{{:#index}}">{{:name}} </option>
+{{/for}}
 </script>
