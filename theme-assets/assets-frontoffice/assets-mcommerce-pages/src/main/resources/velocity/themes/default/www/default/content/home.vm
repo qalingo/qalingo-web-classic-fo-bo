@@ -14,12 +14,14 @@
 							<p>Image 1</p>
 						</div>
 					</div>
+					#*
 					<div class="slide">
 						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-2.jpg" width="1170" height="537" alt="Slide 2"></a>
 						<div class="caption">
 							<p>Image 2</p>
 						</div>
 					</div>
+					*#
 					<div class="slide">
 						<a href=" title=" target="_blank"><img src="${common.themeResourcePrefixPath}/img/home/1024x768-3.jpg" width="1170" height="537" alt="Slide 3"></a>
 						<div class="caption">
