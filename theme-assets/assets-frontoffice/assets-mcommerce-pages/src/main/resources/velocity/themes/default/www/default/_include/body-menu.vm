@@ -29,6 +29,10 @@
 							#end
 						#end
 						</ul>
+						<form action="$urlSubmitQuickSearch"  class="search-result-form" method="GET">
+							<input id="global-search-txt" name="text" type="text" placeholder="Type another keyword..." class="result-search-textbox">
+							<button class="result-search-btn"><i class="icon-search">&nbsp;</i></button>
+						</form>
 					</div>
 				</div>
 			</div>

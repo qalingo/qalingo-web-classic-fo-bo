@@ -87,23 +87,23 @@ margin-top: -19px;
 	margin: 10px 0
 }
 
-.rating-stars.star-1 {
+.rating-stars.star-1, .review-rating-star.star-1 {
 	width: 19px
 }
 
-.rating-stars.star-2 {
+.rating-stars.star-2, .review-rating-star.star-2 {
 	width: 37px
 }
 
-.rating-stars.star-3 {
+.rating-stars.star-3, .review-rating-star.star-3 {
 	width: 56px
 }
 
-.rating-stars.star-4 {
+.rating-stars.star-4, .review-rating-star.star-4 {
 	width: 74px
 }
 
-.rating-stars.star-5 {
+.rating-stars.star-5, .review-rating-star.star-5 {
 	width: 94px
 }
 
@@ -1016,6 +1016,7 @@ input.result-search-textbox {
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	border: none;
+	font-style: italic;
 }
 
 .result-search-btn {
@@ -1032,7 +1033,7 @@ input.result-search-textbox {
 	padding-left: 10px;
 }
 
-.search-result-form .result-search-btn {
+.search-result-form .result-search-btn, #menu-nav .search-result-form .result-search-btn {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -1133,140 +1134,86 @@ input.result-search-textbox:-ms-input-placeholder {
 	height: 190px !important;
 }
 
-
-
-/*****************************************************************************
-	CHECKOUT
-*****************************************************************************/
-
-.checkout-header-wrapper {
-    background: url("../img/background/checkout-header-shade-bottom.png") repeat-x scroll left bottom #FFFFFF;
-    height: 65px;
-    left: 0;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    z-index: 5;
-}
-.checkout-header {
-    margin: 0 auto;
-    width: 940px;
-}
-.checkout-nav {
-    margin-left: 140px;
-    text-align: center;
-}
-.checkout-nav li {
-    display: block;
-    float: left;
-    margin: 1px;
-    padding: 18px 23px 0 0;
-    text-transform: uppercase;
-}
-.checkout-nav a {
-    color: #5A5A5A;
-    font-size: 12px;
-}
-.checkout-nav a.active {
-    border-bottom: 2px solid #A6A6A6;
-    color: #000000;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 0;
-    padding: 0 0 23px;
-}
-.checkout-nav a.active {
-    padding: 4px 0 20px;
-}
-.checkout-header-push {
-    color: #9B9B9B;
-    display: block;
-    font-size: 10px;
-    margin: 5px 0 0;
-    position: absolute;
-    right: 10px;
-    text-align: right;
-    top: 2px;
-}
-.transverse .checkout-header-push strong {
-    color: #9B9B9B;
-}
-
-.checkout-common-link:hover {
-    color: #2F353E;
-}
-
-ul.pagination li {
-	float: left;
-	padding: 5px;
-}
-
-ul.pagination li {
-	float: left;
-	padding: 5px;
-}
-
-ul.pagination li a.active {
+.product-spec-content td.product-review-name {
+	width: 30%;
 	font-weight: bold;
+	font-size: 14px;
 }
 
-select.cart-item-select-qty {
-    width: 50px;
+.product-spec-content.product-review-table td {
+	margin: 0;
+	padding: 0 0 5px 0;
 }
 
-input.input-cart-promo-code {
-    width: 150px;
+.product-spec-content td.product-review-rating {
+	width: 30%;
+	min-width: 150px
 }
 
-.payment-img-security {
-	width: 500px;
-    height: 121px;
+.product-spec-content td.product-review-number {
+	font-size: 13px;
 }
 
-.payment-icon-sprite {
-    background-color: transparent;
-    background-image: url("../img/payment/payment-icon-sprite.png");
-    background-repeat: no-repeat;
-    display: block;
-	
-	float: left;
-    height: 30px;
-    margin: 0 5px 10px 0;
-    width: 48px;
+.product-spec-content td.product-review-number .product-rating-point {
+	font-size: 150%;
 }
 
-.payment-type-mastercard {
-    background-position: -368px -34px;
+.product-spec-content tr.product-rating-average td.product-review-name {
+	font-size: 18px;
 }
 
-.payment-type-visa {
-    background-position: -268px -66px;
+.product-spec-content tr.product-rating-average {
+	border-top: 1px dotted #ccc;
 }
 
-.payment-type-american-express, .payment-type-amex {
-    background-position: -367px -66px;
+.review-rating-wrap {
+	position: relative;
+	display: inline-block;
+	height: 12px;
 }
 
-.payment-type-cb {
-    background-position: 0 0;
+.review-rating-wrap .rating-stars {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0
 }
 
-.payment-type-cheque {
-    background-position: -49px -31px;
+.review-rating-wrap:hover .rating-stars {
+	display: none;
 }
 
-.payment-type-paypal {
-    background-position: -317px -68px;
-    height: 26px;
+.review-rating-wrap .review-rating-star {
+	opacity: 0;
+	background-image: url(../img/rating-empty.png);
+	height: 12px;
+	display: block;
+	position: absolute;
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
 }
 
-
-
-
-.block {
-    display: block;
+.review-rating-wrap:hover .review-rating-star {
+	opacity: 1;
 }
-.paddingLeft {
-    padding-left: 10px;
+
+.review-rating-wrap:hover .review-rating-star:hover {
+	background-image: url(../img/rating.png);
+}
+
+#menu-nav .menu-nav {
+	max-width: 80%;
+}
+
+#menu-nav .search-result-form {
+	width: 20%;
+	float: right;
+	position: relative;
+}
+
+#menu-nav .search-result-form input.result-search-textbox {
+	background-color: rgba(0,0,0,.3);
+	color: #000;
 }
