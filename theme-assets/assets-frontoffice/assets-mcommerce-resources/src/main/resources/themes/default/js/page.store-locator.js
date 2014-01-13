@@ -1,13 +1,16 @@
-$(function($){
+(function($){
 	var _deleteAllMarket = function(){
-	    var currentMarkers = markers.markers;
+	    var currentMarkers = _markers.markers;
 	    for(var i=0 ; i < currentMarkers.length; i++){
 	        currentMarkers[i].destroy();
 	    }
-	    markers.markers = new Array();
+	    _markers.markers = new Array();
 	},
-	_setMarket = function(lon,lat,code,businessName,address,city,country){
-	    marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection));
+	_setMarker = function(lon,lat,code,businessName,address,city,country){
+	    var size = new OpenLayers.Size(21,25);
+        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+        var icon = new OpenLayers.Icon(_iconUrl,size,offset);
+	    marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat).transform(_fromProjection, _toProjection),icon);
 	    eventMarkerOver = function(evt){
 	        var popup = _findPopupByCode(code);
 	        if(popup == null){
@@ -20,34 +23,23 @@ $(function($){
 	        	};
 	        	_initTemplate("marketTemplate", "marketImpl");
 	        	var htmlContent = $.render.marketImpl(data);
-	        	
-//	        	var htmlContent = "";
-//	        	htmlContent +='<div id="store-info-'+code+'" class="location-popup" style="display: block;">';
-//	        	htmlContent += '<span class="location-popup-thumb">';
-//	        	htmlContent += '<img src="'+"/fo-mcommerce-resources/default/img/home/slider-1.jpg"+'"></span>';
-//	        	htmlContent += '<span class="location-popup-info">';
-//	        	htmlContent += '<h2 class="store-list-title">'+ businessName + '</h2>';
-//	        	htmlContent += '<p>'+ address +'<br>'+ city +'<br>'+country+'<br></p></span></div>';
 	            popup = new OpenLayers.Popup.FramedCloud(code,
-	            new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection),
+	            new OpenLayers.LonLat(lon, lat).transform(_fromProjection, _toProjection),
 	            new OpenLayers.Size(200,200),
 	            htmlContent,
 	            null,true);
-	            map.addPopup(popup);
+	            _map.addPopup(popup);
 	        }else{
 	            popup.show();
 	        }
 	    }
-	    eventMarkerOut = function(evt){
-	        var popup = _findPopupByCode(code);
-	        popup.hide();
-	    }
-	    marker.events.register("mouseover", marker, eventMarkerOver);
-	    marker.events.register("mouseout", marker, eventMarkerOut);
-	    markers.addMarker(marker);   
+	    marker.events.register("click", marker, eventMarkerOver);
+	    marker.id = "marker"+ code ;
+	    _markers.addMarker(marker);
+	    console.log(marker);
 	},	
 	_findPopupByCode = function(code){
-	    var popups = map.popups;
+	    var popups = _map.popups;
 	    if(popups == null)
 	    {
 	        return null;
@@ -59,13 +51,19 @@ $(function($){
 	    }
 	    return null;
 	},
+	_findMarkerById = function(id){
+		var currentMarkers = _markers.markers;
+	    for(var i=0 ; i < currentMarkers.length; i++){
+	        if(currentMarkers[i].id == id){
+	        	return currentMarkers[i];
+	        }
+	    }
+	},
 	_buildSelectCountry = function(dataJson){
 	    var data = dataJson;
-	    var html = "<option value =''>All</option>";
-	    for(var i = 0; i < data.length ; i++){
-	     html += "<option value ='"+ i +"'>"+ data[i].code +"</option>";
-	    }
-	    $('#country').html(html);
+	    _initTemplate("selectCountryTemplate", "countryImpl");
+    	var htmlContent = $.render.countryImpl({data:data});
+	    $('#country').html(htmlContent);
 	},
 	_buildSelectCityAndSetMarker = function( dataJson, indexCountry ){
 	    var country = dataJson[indexCountry] ;
@@ -75,7 +73,9 @@ $(function($){
 	        html += "<option value ='"+ i +"'>"+ cities[i].name +"</option>";
 	        var stores = cities[i].stores;
 	        _buildSetMarkerByCoordinates(stores);
-	    }   
+	    }
+	    _initTemplate("selectCityTemplate", "cityImpl");
+    	var htmlContent = $.render.cityImpl({data:cities});
 	    $('#city').html(html);
 	},
 	_buildSetMarkerByCoordinates = function(stores){
@@ -87,7 +87,7 @@ $(function($){
 	         var address = stores[i].address1;
 	         var city = stores[i].city;
 	         var country = stores[i].country;
-	         _setMarket(lon,lat,code,businessName,address,city,country);
+	         _setMarker(lon,lat,code,businessName,address,city,country);
 	         _buildStoreFound(stores[i]);
 	    }
 	},
@@ -101,11 +101,11 @@ $(function($){
 	        }   
 	    }
 	    _buildSliderStore();
-	    map.setCenter(positionCenter, zoom);
-	    map.zoomToMaxExtent();
+	    _setCenter();
+	    _map.zoomToMaxExtent();
 	},
 	_buildSetAllMarkerByCountry = function(indexCountry){
-	        var country = dataOSM[indexCountry] ;
+	        var country = _dataOSM[indexCountry] ;
 	        var cities = country.cities ;
 	        for(var j = 0; j < cities.length ; j++){
 	            var stores = cities[j].stores;
@@ -113,51 +113,34 @@ $(function($){
 	        }
 	},
 	_buildStoreFound = function(store){
-		storesFound.push(store);
+		_storesFound.push(store);
 	},
 	_buildSliderStore = function(){
-		var html = '';
-		var j = 0 ;
-		for(var i = 0; i<storesFound.length; i++){
-			if(j == 0){
-			html += '<div class="slide">';
-			}
-			html += '<div class="item span3"><a data-lon="'+storesFound[i].longitude+'" data-lat="'+storesFound[i].latitude +'" href="javascript:void(0)" class="store-item"><span class="store-thumb"><img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg" alt="Store1"></span>';
-		    html += '<div class="store-item-info"><h2 class="store-list-title">'+ storesFound[i].businessName +'</h2>';
-			html += '<span class="store-list-address"><i class="icon-map-marker"></i>'+ storesFound[i].address1 +'</span></div>';
-			html += '</a></div>';
-			j++;
-			if(j == 4){
-				html += "</div>";
-				j = 0;
-			}
-		}
-		if( j!=0 ){
-			html += "</div>";
-		}
-		$('.slides_container.row.products-grid').html(html);
+		_initTemplate("storesTemplate", "storesImpl");
+    	var htmlContent = $.render.storesImpl({data:_storesFound});
+    	$('.slides_container.row.products-grid').html(htmlContent);
 		$('#location-store-list').slides({
 				preload: true,
 				generateNextPrev: true,
 				play: 0,
 				hoverPause: true
 			});
-			storesFound = [];
+			_storesFound = [];
 	    },
 	_setCenter = function(){
-         var currentMarkers = markers.markers;
+         var currentMarkers = _markers.markers;
           var newBound = new OpenLayers.Bounds();
         for(var i=0 ; i < currentMarkers.length; i++){
             var tempMarker = currentMarkers[i];
             newBound.extend(tempMarker.lonlat);
         }
         var centerPosition = newBound.getCenterLonLat();
-         var zoomLv = map.getZoomForExtent(newBound,true);
-        map.setCenter(centerPosition, zoomLv -1 );
+         var zoomLv = _map.getZoomForExtent(newBound,true);
+        _map.setCenter(centerPosition, zoomLv -1 );
     },
     _setCenterByPosition = function(lat, lon){
-    	var positionCenter = new OpenLayers.LonLat(lon, lat).transform(fromProjection, toProjection);
-    	map.setCenter(positionCenter, 18);
+    	var positionCenter = new OpenLayers.LonLat(lon, lat).transform(_fromProjection, _toProjection);
+    	_map.setCenter(positionCenter, 18);
     },
     _searchAll = function(dataSearch,textSearch){
     	var positionFound = [];
@@ -198,53 +181,68 @@ $(function($){
 	     }
 	     return positionFound;
 	},
+	_hideAllPopup = function(){
+    	var popups = _map.popups;
+        if(popups == null)
+        {
+            return null;
+        }
+        for(var i = 0 ; i < popups.length ; i++){
+               popups[i].hide();
+        }
+    },
 	_DEFAULTS = {
 		map: {
 			zoom: 3,
 			lonCenter: -30.000,
 			latCenter: 45.000
 		},
-		data: {}
+		data: [],
+		iconUrl: "http://www.openlayers.org/dev/img/marker.png"
 	},
+	_dataOSM 		= [],
+	_map 			= {},
+	_fromProjection = {} ,
+	_toProjection	= {},
+	_markers		= {},
+	_iconUrl		= "",
+	_storesFound 	= [],
 	_initTemplate = function(templateId, templateName){
 		templateId = "#" + templateId;
 		$.templates(templateName, templateId);
 	};
 	
-	var $.qalingo = function(){};
+	$.qalingo = function(){};
 	
-	var $.qalingo.storeLocator = function(options){
-		var settings = $.extend({}, options, _DEFAULTS);
-		var storesFound = [];
+	$.qalingo.storeLocator = function(options){
+		var settings ={};
+		$.extend(settings, _DEFAULTS, options);
 	    var zoom                 = settings.map.zoom;
 	    var lonCenter            = settings.map.lonCenter;
 	    var latCenter            = settings.map.latCenter;
-	    var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform
-																		// from
-																		// WGS
-																		// 1984
-	    var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to
-																		// Spherical
-																		// Mercator
-																		// Projection
-	    var dataOSM = settings.data;
-	    var positionCenter = new OpenLayers.LonLat(lonCenter, latCenter).transform(fromProjection, toProjection);
-	    map = new OpenLayers.Map("map-store");
+	    _fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+	    _toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+	    _dataOSM = settings.data;
+	    _iconUrl = settings.iconUrl;
+	    _map = new OpenLayers.Map("map-store");
 	    var mapnik = new OpenLayers.Layer.OSM();
-	    map.addLayer(mapnik);
-	    var markers = new OpenLayers.Layer.Markers("Markers");
-	    map.addLayer(markers);
-	    map.addControl(new OpenLayers.Control.LayerSwitcher());
-	    controls = map.getControlsByClass('OpenLayers.Control.Navigation');
+	    _map.addLayer(mapnik);
+	    _markers = new OpenLayers.Layer.Markers("Markers");
+	    _map.addLayer(_markers);
+	    _map.addControl(new OpenLayers.Control.LayerSwitcher());
+	    controls = _map.getControlsByClass('OpenLayers.Control.Navigation');
 	    for(var i = 0; i < controls.length; ++i)
 	    {
 	         controls[i].disableZoomWheel();
 	    }
 	    
 	    $('a.store-item').live('click',function(){
-	    	var lon = $(this).data("lon");
-	    	var lat = $(this).data("lat");
+	    	var lon   = $(this).data("lon");
+	    	var lat   = $(this).data("lat");
+	    	var code  = $(this).data("code");
+	    	var marker = _findMarkerById("marker"+code);
 	    	_setCenterByPosition(lat, lon);
+	    	marker.icon.imageDiv.click();
 	    });
 	    $('#bt-search').click(function(){
 	        var textSearch = $('input#search').val();
@@ -252,39 +250,42 @@ $(function($){
 	        var indexCountry = $('#country').find(":selected").attr("value");
 	        var optionCity = $('#city').find(":selected");
 	        if(indexCountry == ''){
-	        	positionFound = _searchAll(dataOSM,textSearch);
+	        	positionFound = _searchAll(_dataOSM,textSearch);
 	        }else{
 	        	if(optionCity.length > 0){
 	        		indexCity = optionCity.attr("value");
 	        		if(indexCity == ''){
-	        			positionFound = _searchByCountry(dataOSM ,indexCountry,textSearch );
+	        			positionFound = _searchByCountry(_dataOSM ,indexCountry,textSearch );
 	        		}else{
-	        			positionFound = _searchByCity(dataOSM, indexCountry, indexCity,textSearch);
+	        			positionFound = _searchByCity(_dataOSM, indexCountry, indexCity,textSearch);
 	        		}
 	        	}else{
-	        		positionFound = _searchByCountry(dataOSM ,indexCountry,textSearch );
+	        		positionFound = _searchByCountry(_dataOSM ,indexCountry,textSearch );
 	        	}
 	        }
 	        if(positionFound.length > 0){
 	            _deleteAllMarket();
 	            _buildSetMarkerByCoordinates(positionFound);
-	            storesFound = positionFound;
+	            _storesFound = positionFound;
 	            _buildSliderStore();
 	            _setCenter();
+	            _hideAllPopup();
 	        }
 	    });
 	    $('#country').change(function(){
 	        var option = $(this).find(":selected");
 	        var index = option.attr("value");
 	        if(index == ''){
-	             _buildSetAllMarker(dataOSM);
+	             _buildSetAllMarker(_dataOSM);
 	             $('#city').html('<option value="" selected="selected">City/Province</option>');
 	        }else{
 	            _deleteAllMarket();
-	            _buildSelectCityAndSetMarker(dataOSM,index);
+	            _buildSelectCityAndSetMarker(_dataOSM,index);
 	            _buildSliderStore();
 	        }
+	        $('input#search').val();
 	        _setCenter();
+	        _hideAllPopup();
 	    });
 	    $('#city').change(function(){
 	        var indexCountry = $('#country').find(":selected").attr("value");
@@ -293,15 +294,17 @@ $(function($){
 	            _deleteAllMarket();
 	            _buildSetAllMarkerByCountry(indexCountry);
 	        }else{
-	            var stores =dataOSM[indexCountry].cities[indexCity].stores;
+	            var stores =_dataOSM[indexCountry].cities[indexCity].stores;
 	            _deleteAllMarket();
 	            _buildSetMarkerByCoordinates(stores);
 	        }
+	        $('input#search').val();
 	        _buildSliderStore();
 	        _setCenter();
+	        _hideAllPopup();
 	    });
-	    _buildSelectCountry(dataOSM);
-	    _buildSetAllMarker(dataOSM);
+	    _buildSelectCountry(_dataOSM);
+	    _buildSetAllMarker(_dataOSM);
 	    _setCenter();
 	};
 })(jQuery);
