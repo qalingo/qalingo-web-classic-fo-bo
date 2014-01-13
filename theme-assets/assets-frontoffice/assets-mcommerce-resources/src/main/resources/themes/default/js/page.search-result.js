@@ -54,7 +54,7 @@
 		_bindEvents();
 	};
 	
-	$.qalingo.search.result = function(){
+	$.qalingo.search.filters = function(){
 		
 	};
 })(jQuery);

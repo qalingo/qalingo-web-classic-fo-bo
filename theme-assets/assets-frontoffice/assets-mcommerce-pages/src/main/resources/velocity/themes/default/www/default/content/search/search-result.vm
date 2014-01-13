@@ -10,9 +10,15 @@
 				<label>Search by category</label>
 			    <select class="filter-category-slt">
 					<option value="" selected="selected">Choose a Category</option>
-					<option value="">Cafe</option>
-					<option value="">The</option>
+					#foreach($searchResultCatalogCategory in $searchResultCatalogCategories)
+					<option #if($filters.cate == $searchResultCatalogCategory.code) selected="selected" #end value="$searchResultCatalogCategory.code">$searchResultCatalogCategory.name</option>	
+					#end
 				</select>
+				#foreach($facetField in $facetFieldList)
+					#foreach($value in $facetField.values)
+						<input type="checkbox" data-field="$facetField.name" value="$value">&nbsp;$value<br/>
+					#end
+				#end
 				<label>Search by Price</label>
 				<div class="x-ui-slider x-ui-slider-horizontal">
 					<div class="x-ui-slider-range" style="left: 8%; width: 50%;"></div>
