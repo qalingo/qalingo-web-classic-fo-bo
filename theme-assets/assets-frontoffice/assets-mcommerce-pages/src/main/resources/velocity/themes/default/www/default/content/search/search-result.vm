@@ -71,7 +71,7 @@
 			<div class="result-head-bar">
 				<h2 class="result-title">$!pagedListHolder.nrOfElements result(s) for <strong>"$!searchText"</strong></h2>
 				<form id="search-form" class="search-result-form" method="GET" action="$urlSubmitQuickSearch">
-					<input type="text" name="text" value="$!searchText" placeholder="Type another keyword..." class="result-search-textbox">
+					<input type="text" name="text" value="$!searchText" placeholder="$wording.get("fo.search.form_search_label_text")" class="result-search-textbox">
 					<button class="result-search-btn"><i class="icon-search">&nbsp;</i></button>
 					<input type="hidden" name="pageSize"/>
 					<input type="hidden" name="sortBy"/>
