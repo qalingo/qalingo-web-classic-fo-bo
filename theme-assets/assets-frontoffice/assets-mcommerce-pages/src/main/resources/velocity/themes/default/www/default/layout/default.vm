@@ -40,6 +40,8 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar navbar-inverse navbar-fixed-top">
 			
+				<div style="float:right; padding-top: 20px; padding-left: 20px;"><a class="coinbase-button" data-code="db228fdd127b68cdcc2e7b33277589c3" data-button-style="donation_large" href="https://coinbase.com/checkouts/db228fdd127b68cdcc2e7b33277589c3">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script></div>
+						
 				#parse("../_include/body-header.vm")
 				
 				#parse("../_include/body-menu.vm")
