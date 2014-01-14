@@ -886,6 +886,7 @@ div.location-store-list .slides_container .item .store-item {
 	text-transform: uppercase;
 	display: inline-block;
 	font-weight: bold;
+	margin: 5px 0 5px 0;
 }
 
 .location-store-list .store-list-address {
@@ -911,37 +912,11 @@ div.location-store-list .slides_container .item .store-item {
 }
 
 .location-popup {
-	position: absolute;
-	width: 320px;
-	padding: 15px;
-	height: 190px;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	z-index: 999;
-	box-shadow: 0 0 40px rgba(0,0,0,.4) ;
+	height: 190px;	
 }
 
 .location-popup:before {
-	display: block;
-	position: absolute;
-	content: '';
-	width: 10px;
-	height: 10px;
-	bottom: -6px;
-	left: 50%;
-	margin-left: -6px;
-	transform: rotate(45deg);
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	border:1px solid #ccc;
-	border-top: none;
-	border-left: none;
-	background-color: inherit;
+	height: 190px;
 }
 
 .location-popup-thumb {
@@ -956,6 +931,7 @@ div.location-store-list .slides_container .item .store-item {
 
 .location-popup-thumb img {
 	height: 100%;
+	width: 100%;
 }
 
 .location-popup-info {

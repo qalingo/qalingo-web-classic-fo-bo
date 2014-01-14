@@ -17,9 +17,9 @@ function startupPage(){
 }
 </script>
 <script id="marketTemplate" type="text/x-jsrender">
-<div id="store-info-{{:code}} class="location-popup" style="display: block;">
+<div id="store-info-{{:code}}" class="location-popup" style="display: block;">
 	<span class="location-popup-thumb">
-		<img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg">
+		<img src="/assets/store-1-icon.png">
 	</span>
 	<span class="location-popup-info">
 		<h2 class="store-list-title">{{:businessName}}</h2>
@@ -38,7 +38,7 @@ function startupPage(){
 	  <div class="item span3">
 	      <a data-code="{{:code}}" data-lon="{{:longitude}}" data-lat="{{:latitude }}" href="javascript:void(0)" class="store-item">
 	       <span class="store-thumb">
-	          <img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg" alt="Store1">
+	          <img src="/assets/store-1-img.png" alt="Store1">
 	       </span>
 	       <div class="store-item-info"><h2 class="store-list-title">{{:businessName}}</h2>
 	       <span class="store-list-address"><i class="icon-map-marker"></i>{{:address1 }}</span></div>
