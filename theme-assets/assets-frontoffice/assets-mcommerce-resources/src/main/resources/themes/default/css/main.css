@@ -950,6 +950,24 @@ div.location-store-list .slides_container .item .store-item {
 	margin: 5px 0 10px;
 }
 
+/*.olPopup .olPopupCloseBox {
+	right: 87px !important;
+	display: block;
+}*/
+
+/*.olPopup > div > div {
+	display: none;
+}*/
+
+/*.olPopup {
+overflow: visible !important;
+}*/
+
+.olPopup .olFramedCloudPopupContent {
+	overflow: visible !important;
+	padding: 0;
+}
+
 .result-head-bar {
 	clear: both;
 	position: relative;
