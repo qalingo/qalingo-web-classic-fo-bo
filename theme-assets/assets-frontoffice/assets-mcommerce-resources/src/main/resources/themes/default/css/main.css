@@ -916,16 +916,16 @@ div.location-store-list .slides_container .item .store-item {
 	padding: 15px;
 	height: 190px;
 	background-color: #fff;
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	z-index: 999;
-	box-shadow: 0 0 40px rgba(0,0,0,.4) ;
+	/*box-shadow: 0 0 40px rgba(0,0,0,.4) ;*/
 }
 
-.location-popup:before {
+/*.location-popup:before {
 	display: block;
 	position: absolute;
 	content: '';
@@ -942,7 +942,7 @@ div.location-store-list .slides_container .item .store-item {
 	border-top: none;
 	border-left: none;
 	background-color: inherit;
-}
+}*/
 
 .location-popup-thumb {
 	width: 50%;
@@ -972,6 +972,24 @@ div.location-store-list .slides_container .item .store-item {
 .location-popup .store-list-title {
 	color: #707070;
 	margin: 5px 0 10px;
+}
+
+/*.olPopup .olPopupCloseBox {
+	right: 87px !important;
+	display: block;
+}*/
+
+/*.olPopup > div > div {
+	display: none;
+}*/
+
+/*.olPopup {
+overflow: visible !important;
+}*/
+
+.olPopup .olFramedCloudPopupContent {
+	overflow: visible !important;
+	padding: 0;
 }
 
 .result-head-bar {

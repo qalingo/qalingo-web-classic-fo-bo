@@ -3,6 +3,7 @@
 <script type="text/javascript">
 function startupPage(){
 	var dataOSM = $storeFilter.toJSON();
+//	var dataOSM = [{"name":null,"code":"US","cities":[{"name":"New-York fr i18n","code":null,"stores":[{"code":"STRNYC","businessName":"Store New-York","address1":"57th Street & Lexington","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.633","latitude":"40.667"},{"code":"STRNYC1","businessName":"long beach 1","address1":"57th Street & Lexington1","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.6717","latitude":"40.5880"},{"code":"STRNYC2","businessName":"long beach 2","address1":"57th Street & Lexington2","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.6472","latitude":"40.5910"},{"code":"STRNYC3","businessName":"long beach 3","address1":"57th Street & Lexington3","address2":"","addressAdditionalInformation":"","postalCode":"","city":"New-York fr i18n","stateCode":"","areaCode":null,"countryCode":"US","country":"US","longitude":"-73.6472","latitude":"41.5910"}]}]},{"name":null,"code":"FR","cities":[{"name":"Paris fr i18n","code":null,"stores":[{"code":"STRPARIS","businessName":"Store Paris","address1":"85 avenue Lafayette","address2":"","addressAdditionalInformation":"","postalCode":"","city":"Paris fr i18n","stateCode":"","areaCode":null,"countryCode":"FR","country":"FR","longitude":"2.333","latitude":"48.833"}]}]}];
 	$script(['page.store-locator'], function(){
 		$.qalingo.storeLocator({
     		data: dataOSM,
@@ -17,9 +18,9 @@ function startupPage(){
 }
 </script>
 <script id="marketTemplate" type="text/x-jsrender">
-<div id="store-info-{{:code}} class="location-popup" style="display: block;">
+<div id="store-info-{{:code}}" class="location-popup" style="display: block;">
 	<span class="location-popup-thumb">
-		<img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg">
+		<img src="/assets/store-1-icon.png">
 	</span>
 	<span class="location-popup-info">
 		<h2 class="store-list-title">{{:businessName}}</h2>
@@ -38,7 +39,7 @@ function startupPage(){
 	  <div class="item span3">
 	      <a data-code="{{:code}}" data-lon="{{:longitude}}" data-lat="{{:latitude }}" href="javascript:void(0)" class="store-item">
 	       <span class="store-thumb">
-	          <img src="/fo-mcommerce-resources/default/img/home/slider-1.jpg" alt="Store1">
+	          <img src="/assets/store-1-img.png" alt="Store1">
 	       </span>
 	       <div class="store-item-info"><h2 class="store-list-title">{{:businessName}}</h2>
 	       <span class="store-list-address"><i class="icon-map-marker"></i>{{:address1 }}</span></div>
