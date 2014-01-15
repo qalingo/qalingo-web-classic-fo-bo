@@ -912,17 +912,15 @@ div.location-store-list .slides_container .item .store-item {
 
 .location-popup {
 	position: absolute;
-	width: 320px;
+	width: 325px;
 	padding: 15px;
 	height: 190px;
 	background-color: #fff;
-	/*border: 1px solid #ccc;*/
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	z-index: 999;
-	/*box-shadow: 0 0 40px rgba(0,0,0,.4) ;*/
 }
 
 /*.location-popup:before {
