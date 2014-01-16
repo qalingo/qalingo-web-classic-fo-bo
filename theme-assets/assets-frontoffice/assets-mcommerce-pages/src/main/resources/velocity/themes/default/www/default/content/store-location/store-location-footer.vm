@@ -23,7 +23,7 @@
 	</span>
 	<span class="location-popup-info">
 		<h2 class="store-list-title">{{:businessName}}</h2>
-		<p>{{:address}}<br>{{:city}}<br>{{:country}}<br></p>
+		<p>{{:address1}}<br>{{:city}}<br>{{:country}}<br></p>
 	</span>
 </div>
 </script>

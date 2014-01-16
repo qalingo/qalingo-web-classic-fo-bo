@@ -6,23 +6,28 @@
 	    }
 	    _markers.markers = new Array();
 	},
-	_setMarker = function(lon,lat,code,businessName,address,city,country){
+	//_setMarker = function(lon,lat,code,businessName,address,city,country){
+	_setMarker = function(store){
 	    var size = new OpenLayers.Size(21,25);
         var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
         var icon = new OpenLayers.Icon(_iconUrl,size,offset);
+        var lon = store.longitude;
+        var lat = store.latitude;
+        var code = store.code;
 	    marker = new OpenLayers.Marker(new OpenLayers.LonLat(lon, lat).transform(_fromProjection, _toProjection),icon);
 	    eventMarkerOver = function(evt){
 	        var popup = _findPopupByCode(code);
 	        if(popup == null){
-	        	var data = {
-	        		code: code,
-	        		businessName: businessName,
-	        		address: address, 
-	        		city: city,
-	        		country: country
-	        	};
+//	        	var data = {
+//	        		code: code,
+//	        		businessName: businessName,
+//	        		address: address, 
+//	        		city: city,
+//	        		country: country,
+//	        		iconImage: iconImage
+//	        	};
 	        	_initTemplate("marketTemplate", "marketImpl");
-	        	var htmlContent = $.render.marketImpl(data);
+	        	var htmlContent = $.render.marketImpl(store);
 	            popup = new OpenLayers.Popup.FramedCloud(code,
 	            new OpenLayers.LonLat(lon, lat).transform(_fromProjection, _toProjection),
 	            new OpenLayers.Size(200,200),
@@ -80,14 +85,14 @@
 	},
 	_buildSetMarkerByCoordinates = function(stores){
 	    for(var i = 0 ; i < stores.length ; i++){
-	         var lon = stores[i].longitude;
-	         var lat = stores[i].latitude;
-	         var code = stores[i].code;
-	         var businessName = stores[i].businessName;
-	         var address = stores[i].address1;
-	         var city = stores[i].city;
-	         var country = stores[i].country;
-	         _setMarker(lon,lat,code,businessName,address,city,country);
+//	         var lon = stores[i].longitude;
+//	         var lat = stores[i].latitude;
+//	         var code = stores[i].code;
+//	         var businessName = stores[i].businessName;
+//	         var address = stores[i].address1;
+//	         var city = stores[i].city;
+//	         var country = stores[i].country;	         
+	         _setMarker(stores[i]);
 	         _buildStoreFound(stores[i]);
 	    }
 	},
