@@ -57,7 +57,7 @@
 		</ul>
 		
 		<a href="" class="sidebar-banner">
-			<img src="fo-mcommerce-resources/default/img/ads-banner1.jpg" alt="Ads Banner1">
+			<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">
 		</a>
 	</div>
 	<!-- //category sidebar-->
