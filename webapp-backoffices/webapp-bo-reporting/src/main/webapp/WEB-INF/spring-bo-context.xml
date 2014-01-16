@@ -75,10 +75,7 @@
 		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheServeurManagementQueueListener"></jms:listener>
 	</jms:listener-container>
 	
-	<!-- Configures view context -->
-	<import resource="classpath:conf/spring/qalingo-core-bo-view.xml" />
-	
-	<!-- Override -->
-	<import resource="classpath:conf/spring/ext-core-reporting.xml" />
+    <!-- Override -->
+    <import resource="classpath:conf/spring/ext-core-reporting.xml" />
 		
 </beans>
