@@ -1,38 +1,59 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
+<link href="${common.themeResourcePrefixPath}/css/slider/slider.css" rel="stylesheet" type="text/css">
+<link href="${common.themeResourcePrefixPath}/less/slider/slider.less" rel="stylesheet/less" type="text/css">
+
 <div class="row">
 	<!-- category sidebar-->
 	<div class="side-bar span3">
 		<span class="section-title sidebar-title">Custom search</span>
 		<div class="nav-category search-result-custom">
-			<form>
-				<label>Search by category</label>
-			    <select class="filter-category-slt">
-					<option value="" selected="selected">Choose a Category</option>
-					#foreach($searchResultCatalogCategory in $searchResultCatalogCategories)
-					<option #if($filters.cate == $searchResultCatalogCategory.code) selected="selected" #end value="$searchResultCatalogCategory.code">$searchResultCatalogCategory.name</option>	
-					#end
-				</select>
+			#if ($facetFieldList.size() > 0 && $facetFieldList[0].values.size() > 0)
+			<label>Filter by category</label>
+			<!--
+		    <select class="filter-category-slt">
+				<option value="" selected="selected">Choose a Category</option>
+				#foreach($searchResultCatalogCategory in $searchResultCatalogCategories)
+				<option #if($filters.cate == $searchResultCatalogCategory.code) selected="selected" #end value="$searchResultCatalogCategory.code">$searchResultCatalogCategory.name</option>	
+				#end
+			</select>
+			-->
+			<ul class="filter-category-slt">
 				#foreach($facetField in $facetFieldList)
 					#foreach($value in $facetField.values)
-						<input type="checkbox" data-field="$facetField.name" value="$value">&nbsp;$value<br/>
+						<li class="level0 parent">
+							<input type="checkbox" checked data-field="$facetField.name" value="$value">&nbsp;$value
+						</li>
 					#end
 				#end
-				<label>Search by Price</label>
-				<div class="x-ui-slider x-ui-slider-horizontal">
-					<div class="x-ui-slider-range" style="left: 8%; width: 50%;"></div>
-					<a class="x-ui-slider-handle handle-left" href="#" style="left: 8%;"></a>
-					<a class="x-ui-slider-handle handle-right" href="#" style="left: 58%;"></a>
-				</div>
-				<p class="search-price-caption">From <strong>50$</strong> to <strong>100$</strong></p>
-				<!--
-				<p class="search-price-caption">From</p>
-				<input type="text" class="filter-category-txt" placeholder="0$">
-				<p class="search-price-caption">to </p>
-				<input type="text" class="filter-category-txt" placeholder="0$">-->
-				<button class="search-result-custom-btn"><i class="icon-search">&nbsp;</i> Search</button>
-			</form>
+			</ul>
+			#end
+			<label>Filter by Price</label>
+			#set ($priceStart = $price.start)
+			#set ($priceEnd = $price.end)
+			#if ("$!price.start" == "")
+				#set ($priceStart = 0)
+			#end
+			#if ("$!price.end" == "")
+				#set ($priceEnd = 500)
+			#end
+			<input type="text" id="price-slider" class="span2" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="[$!priceStart,$!priceEnd]" id="sl2">
+			
+			<!--
+			<div class="x-ui-slider x-ui-slider-horizontal">
+				<div class="x-ui-slider-range" style="left: 8%; width: 50%;"></div>
+				<a class="x-ui-slider-handle handle-left" href="#" style="left: 8%;"></a>
+				<a class="x-ui-slider-handle handle-right" href="#" style="left: 58%;"></a>
+			</div>				
+			<p class="search-price-caption">From <strong>50$</strong> to <strong>100$</strong></p>
+			-->
+			<!--
+			<p class="search-price-caption">From</p>
+			<input type="text" class="filter-category-txt" placeholder="0$">
+			<p class="search-price-caption">to </p>
+			<input type="text" class="filter-category-txt" placeholder="0$">-->
+			<button class="search-result-custom-btn" id="search-filter"><i class="icon-search">&nbsp;</i> Filter</button>
 		</div>
 		
 		<span class="section-title sidebar-title">Recent products</span>
@@ -69,13 +90,20 @@
 			<div class="clear border-btm"></div>
 			
 			<div class="result-head-bar">
+				#if ("$!searchText" == "") 
+				<h2 class="result-title">$!pagedListHolder.nrOfElements result(s)</h2>
+				#end
+				#if ("$!searchText" != "")
 				<h2 class="result-title">$!pagedListHolder.nrOfElements result(s) for <strong>"$!searchText"</strong></h2>
+				#end
 				<form id="search-form" class="search-result-form" method="GET" action="$urlSubmitQuickSearch">
 					<input type="text" name="text" value="$!searchText" placeholder="$wording.get("fo.search.form_search_label_text")" class="result-search-textbox">
 					<button class="result-search-btn"><i class="icon-search">&nbsp;</i></button>
-					<input type="hidden" name="pageSize"/>
-					<input type="hidden" name="sortBy"/>
-					<input type="hidden" name="order"/>
+					<input type="hidden" name="pageSize" value="$!pageSize"/>
+    				<input type="hidden" name="sortBy" value="$!sortBy"/>
+    				<input type="hidden" name="order" value="$!order"/>
+					<input type="hidden" id="priceStartParam" name="price.start" value="$!price.start"/>
+					<input type="hidden" id="priceEndParam" name="price.end" value="$!price.end"/>
 				</form>
 			</div>
 
@@ -117,7 +145,7 @@
 
 <script type="text/javascript">
 	function startupPage(){
-    	$script(['page.search-result'], function(){
+    	$script(['library/bootstrap-slider/bootstrap-slider', 'page.search-result'], function(){
     		$.qalingo.search({
 				params: {
 					text: "$!searchText",
@@ -127,6 +155,7 @@
 					page: $pagedListHolder.page
 				}
 			});
+			$('#price-slider').slider();
     	});			
 	}
 </script>
