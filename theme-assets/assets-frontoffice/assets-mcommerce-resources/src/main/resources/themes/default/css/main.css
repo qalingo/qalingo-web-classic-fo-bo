@@ -815,16 +815,16 @@ border: 1px solid #dadada;
 
 .filter-search-btn {
 	background-color: #dbdbdb;
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 30px;
-/*	width: 28px; */
-	text-align: center;
-	border: none;
-	color: #4b4b4b;
-	font-size: 16px;
-	padding-left: 9px;
+position: absolute;
+right: 0;
+top: 0;
+height: 30px;
+width: 28px;
+text-align: center;
+border: none;
+color: #4b4b4b;
+font-size: 16px;
+padding-left: 9px;
 }
 
 .margin-top10 {
@@ -889,7 +889,7 @@ div.location-store-list .slides_container .item .store-item {
 }
 
 .location-store-list .store-list-address {
-	max-width: 265px;
+	max-width: 175px;
 	display: block;
 }
 
@@ -1094,6 +1094,7 @@ input.result-search-textbox:-ms-input-placeholder {
 	height: 5px;
 	position: relative;
 	margin: 10px 0 20px;
+	background-image: none
 }
 
 .x-ui-slider-horizontal .x-ui-slider-range {
@@ -1107,7 +1108,7 @@ input.result-search-textbox:-ms-input-placeholder {
 	height: 100%;
 }
 
-.x-ui-slider-handle {
+.x-ui-slider.ui-slider-horizontal .ui-slider-handle {
 	position: absolute;
 	left: 0;
 	top: 11px;
@@ -1116,17 +1117,27 @@ input.result-search-textbox:-ms-input-placeholder {
 	background-color: #a1cd44;
 	border-color: #a1cd44;
 	margin-left: -4px;
+	background-image: none;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
 }
 
-.x-ui-slider-handle:before {
+.x-ui-slider.ui-slider-horizontal .ui-slider-handle:before {
 	position: absolute;
 	content: '';
-	bottom: 7px;
+	bottom: 9px;
 	border-bottom-color: inherit;
 	border-bottom: 4px solid;
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
 	color: #a1cd44;
+}
+
+.x-ui-slider .ui-widget-header {
+	background-color: #a1cd44;
+	background-image: none;
 }
 
 .search-result-custom-btn {
@@ -1234,138 +1245,3 @@ input.result-search-textbox:-ms-input-placeholder {
 	color: #000;
 }
 
-/*****************************************************************************
-	CHECKOUT
-*****************************************************************************/
-
-.checkout-header-wrapper {
-    background: url("../img/background/checkout-header-shade-bottom.png") repeat-x scroll left bottom #FFFFFF;
-    height: 65px;
-    left: 0;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    z-index: 5;
-}
-.checkout-header {
-    margin: 0 auto;
-    width: 940px;
-}
-.checkout-nav {
-    margin-left: 140px;
-    text-align: center;
-}
-.checkout-nav li {
-    display: block;
-    float: left;
-    margin: 1px;
-    padding: 18px 23px 0 0;
-    text-transform: uppercase;
-}
-.checkout-nav a {
-    color: #5A5A5A;
-    font-size: 12px;
-}
-.checkout-nav a.active {
-    border-bottom: 2px solid #A6A6A6;
-    color: #000000;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 0;
-    padding: 0 0 23px;
-}
-.checkout-nav a.active {
-    padding: 4px 0 20px;
-}
-.checkout-header-push {
-    color: #9B9B9B;
-    display: block;
-    font-size: 10px;
-    margin: 5px 0 0;
-    position: absolute;
-    right: 10px;
-    text-align: right;
-    top: 2px;
-}
-.transverse .checkout-header-push strong {
-    color: #9B9B9B;
-}
-
-.checkout-common-link:hover {
-    color: #2F353E;
-}
-
-ul.pagination li {
-	float: left;
-	padding: 5px;
-}
-
-ul.pagination li {
-	float: left;
-	padding: 5px;
-}
-
-ul.pagination li a.active {
-	font-weight: bold;
-}
-
-select.cart-item-select-qty {
-    width: 50px;
-}
-
-input.input-cart-promo-code {
-    width: 150px;
-}
-
-.payment-img-security {
-	width: 500px;
-    height: 121px;
-}
-
-.payment-icon-sprite {
-    background-color: transparent;
-    background-image: url("../img/payment/payment-icon-sprite.png");
-    background-repeat: no-repeat;
-    display: block;
-	
-	float: left;
-    height: 30px;
-    margin: 0 5px 10px 0;
-    width: 48px;
-}
-
-.payment-type-mastercard {
-    background-position: -368px -34px;
-}
-
-.payment-type-visa {
-    background-position: -268px -66px;
-}
-
-.payment-type-american-express, .payment-type-amex {
-    background-position: -367px -66px;
-}
-
-.payment-type-cb {
-    background-position: 0 0;
-}
-
-.payment-type-cheque {
-    background-position: -49px -31px;
-}
-
-.payment-type-paypal {
-    background-position: -317px -68px;
-    height: 26px;
-}
-
-
-
-
-.block {
-    display: block;
-}
-.paddingLeft {
-    padding-left: 10px;
-}

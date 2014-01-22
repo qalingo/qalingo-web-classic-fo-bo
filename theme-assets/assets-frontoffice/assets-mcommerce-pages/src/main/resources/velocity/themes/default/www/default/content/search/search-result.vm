@@ -38,16 +38,16 @@
 			#if ("$!price.end" == "")
 				#set ($priceEnd = 500)
 			#end
-			<input type="text" id="price-slider" class="span2" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="[$!priceStart,$!priceEnd]" id="sl2">
+##			<input type="text" id="price-slider" class="span2" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="[$!priceStart,$!priceEnd]" id="sl2">
 			
-			<!--
+			
 			<div class="x-ui-slider x-ui-slider-horizontal">
-				<div class="x-ui-slider-range" style="left: 8%; width: 50%;"></div>
-				<a class="x-ui-slider-handle handle-left" href="#" style="left: 8%;"></a>
-				<a class="x-ui-slider-handle handle-right" href="#" style="left: 58%;"></a>
+##				<div class="x-ui-slider-range" style="left: 8%; width: 50%;"></div>
+##				<a class="x-ui-slider-handle handle-left" href="#" style="left: 8%;"></a>
+##				<a class="x-ui-slider-handle handle-right" href="#" style="left: 58%;"></a>
 			</div>				
-			<p class="search-price-caption">From <strong>50$</strong> to <strong>100$</strong></p>
-			-->
+			<p class="search-price-caption">From <strong> $priceStart$</strong> to <strong>$priceEnd$</strong></p>
+			
 			<!--
 			<p class="search-price-caption">From</p>
 			<input type="text" class="filter-category-txt" placeholder="0$">
@@ -145,21 +145,28 @@
 
 <script type="text/javascript">
 	function startupPage(){
-    	$script(['library/bootstrap-slider/bootstrap-slider', 'page.search-result'], function(){
+    	$script(['library/jsrender/jsrender.min','page.search-result'], function(){
     		$.qalingo.search({
 				params: {
 					text: "$!searchText",
 					sortBy: "$!sortBy",
 					order: "$!order",
-					pageSize: $pagedListHolder.pageSize,
-					page: $pagedListHolder.page
+					price:{
+						start : $priceStart,
+						end   : $priceEnd,
+						min   : 0,
+						max   : 500
+					}
+##					pageSize: $pagedListHolder.pageSize,
+##					page: $pagedListHolder.page
 				}
 			});
-			$('#price-slider').slider();
-    	});			
+    	});
 	}
 </script>
-
+<script id="caption" type="text/x-jsrender">
+From <strong>{{:priceStart}}$</strong> to <strong> {{:endStart}}$</strong> 
+</script>
 <!--
 <section id="search-result">
 	<div class="page-header">

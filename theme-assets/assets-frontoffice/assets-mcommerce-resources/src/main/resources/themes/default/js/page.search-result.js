@@ -15,8 +15,12 @@
 			order: "asc",
 			sortBy: "name",
 			text: "",
-			"price.start": "",
-			"price.end": ""
+			price: {
+				start : 0,
+				end   : 500,
+				min   : 0,
+				max   : 500
+			}
 		}		
 	},	
 	_settings = {};
@@ -30,8 +34,8 @@
 	},
 	_onSearchFilter = function(){
 		var $form = $(_settings.controls.form);
-		$form.find("input#priceStartParam").val(_getPriceStart());
-		$form.find("input#priceEndParam").val(_getPriceEnd());
+//		$form.find("input#priceStartParam").val(_getPriceStart());
+//		$form.find("input#priceEndParam").val(_getPriceEnd());
 		$form.submit();
 	},
 	_onOrderChange = function(){
@@ -57,19 +61,34 @@
 	_submitSearchForm = function(){
 		$(_settings.controls.form).submit();
 	},
-	_getPriceStart = function(){
-		var value = $(_settings.controls.priceRange).data('slider').getValue();
-		return value[0];
-	},
-	_getPriceEnd = function(){
-		var value = $(_settings.controls.priceRange).data('slider').getValue();
-		return value[1];
-	};
-	
+//	_getPriceStart = function(){
+//		var value = $(_settings.controls.priceRange).data('slider').getValue();
+//		return value[0];
+//	},
+//	_getPriceEnd = function(){
+//		var value = $(_settings.controls.priceRange).data('slider').getValue();
+//		return value[1];
+//	};
+	_startSliderRange = function(){
+		$.templates("captionImp","#caption");
+		$('.x-ui-slider.x-ui-slider-horizontal').slider({
+		      range: true,
+		      min: _settings.params.price.min,
+		      max: _settings.params.price.max,
+		      values: [ _settings.params.price.start, _settings.params.price.end ],
+		      slide: function( event, ui ) {
+		    	var html = $.render.captionImp({"priceStart":ui.values[ 0 ],"endStart":ui.values[ 1 ]});
+				$('.search-price-caption').html(html);
+		        $('#priceStartParam').val( ui.values[ 0 ] );
+		        $('#priceEndParam').val( ui.values[ 1 ] );
+		      }
+		});		
+	}
 	$.qalingo = function(){};	
 	
 	$.qalingo.search = function(options){
 		_settings = $.extend({}, _DEFAULTS, options);
 		_bindEvents();
+		_startSliderRange();
 	};
 })(jQuery);
