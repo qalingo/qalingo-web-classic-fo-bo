@@ -100,7 +100,7 @@
 				#foreach( $searchProductItem in $pagedListHolder.pageList)
 				<li class="item span3">
 					<a href="#" class="product-image">
-						<span><img src="${searchProductItem.carouselImage}" alt="${searchProductItem.i18nName}"></span>
+						<span><a href="$searchProductItem.productDetailsUrl"><img src="${searchProductItem.carouselImage}" alt="${searchProductItem.name}"></a></span>
 					</a>
 					<div class="product-info-wrap">
 						<a href="$searchProductItem.productDetailsUrl" class="product-name">${searchProductItem.name}</a>
