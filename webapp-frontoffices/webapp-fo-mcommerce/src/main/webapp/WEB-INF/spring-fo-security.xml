@@ -41,6 +41,7 @@
     <http pattern="/home.html**"        security="none" />
 
    <http entry-point-ref="extLoginUrlAuthenticationEntryPoint">
+        <intercept-url pattern="/documents/*"                           access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/retailer-create.html*"				access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/retailer-comment*"					access="ROLE_FO_CUSTOMER" />
         <intercept-url pattern="/**/retailer-vote*"						access="ROLE_FO_CUSTOMER" />
