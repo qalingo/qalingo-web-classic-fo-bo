@@ -1,12 +1,12 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="shipping-details">
+				<section id="deliveryMethod-details">
 				
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							${shipping.dateCreateLabel} : ${shipping.createdDate} | ${shipping.dateUpdateLabel} : ${shipping.updatedDate}
+							$wording.get("bo.common.date_create_label"): ${deliveryMethod.createdDate} | $wording.get("bo.common.date_update_label"): ${deliveryMethod.updatedDate}
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -19,13 +19,13 @@
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								Actions: <a href="${shipping.editUrl}">${shipping.editLabel}</a>
+								$wording.get("bo.common.actions_label"): <a href="${deliveryMethod.editUrl}">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								${shipping.id}
+								${deliveryMethod.id}
 							</div>
 							
 						</div> <!-- /widget-content -->
@@ -36,7 +36,7 @@
 							
 						<div class="widget-header">
 							<i class="icon-list-alt"></i>
-							<h3>${shipping.xxx}</h3>
+							<h3>${deliveryMethod.xxx}</h3>
 						</div> <!-- /widget-header -->
 						
 						<div class="widget-content">

@@ -45,6 +45,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />
     <import resource="classpath:conf/spring/qalingo-core-bo-business-view.xml" />
     -->
+	<import resource="classpath:conf/spring/qalingo-core-bo-common-dozer.xml" />
 
 	<!-- JMS : CONFIG -->
 	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />
@@ -70,36 +71,6 @@
 		acknowledge="transacted">
 		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheServeurManagementQueueListener"></jms:listener>
 	</jms:listener-container>
-	
-	<!-- Dozer Backoffice specific part - override common factory -->
-    <context:component-scan base-package="org.hoteia.qalingo.core.dozer" />
-    <bean id="org.dozer.Mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
-        <property name="mappingFiles" value="classpath:conf/dozer/dozer-mapping-*.xml" />
-        <property name="factories">
-            <map>
-                <entry key="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">
-                    <ref bean="catalogCategoryCustomBeanFactory" />
-                </entry>
-                <entry key="org.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory">
-                    <ref bean="productMarketingCustomBeanFactory" />
-                </entry>
-                <entry key="org.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory">
-                    <ref bean="productSkuCustomBeanFactory" />
-                </entry>
-            </map>
-        </property>
-        <property name="eventListeners">
-            <list>
-                <ref bean="backofficePojoEventListener" />
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="catalogCategoryCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory" />
-
-    <bean id="productMarketingCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory" />
-
-    <bean id="productSkuCustomBeanFactory" class="org.hoteia.qalingo.core.dozer.ProductSkuCustomBeanFactory" />
 
     <!-- Override -->
 	<import resource="classpath:conf/spring/ext-core-business.xml" />

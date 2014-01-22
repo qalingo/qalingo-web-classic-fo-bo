@@ -2,7 +2,7 @@
 #set ($page_title = $seoPageTitle)
 
 			
-				<section id="shipping">
+				<section id="deliveryMethod">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
@@ -18,17 +18,17 @@
 										<th width="100px"></th>
 										<th width="100px"></th>
 										<th width="100px"></th>
-										<th width="100px">Actions</th>
+										<th width="100px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
-									#foreach($shipping in $pagedListHolder.pageList)
+									#foreach($deliveryMethod in $pagedListHolder.pageList)
 									<tr>
-										<td>${shipping.id}</td>
+										<td>${deliveryMethod.id}</td>
 										<td></td>
 										<td></td>
 										<td></td>
-										<td><a href="${shipping.detailsUrl}">details</a> | <a href="${shipping.editUrl}">edit</a></td>
+										<td><a href="${deliveryMethod.detailsUrl}">$wording.get("bo.common.details_label")</a> | <a href="${deliveryMethod.editUrl}">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  

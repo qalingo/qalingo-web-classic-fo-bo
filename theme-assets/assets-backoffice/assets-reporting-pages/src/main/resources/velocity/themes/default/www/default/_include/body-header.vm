@@ -69,9 +69,11 @@
 
 					</div>
 					<div style="float: right;">
+						#* BO REPORTING DOESN'T NEED SEARCH
 						<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
 							<input id="global-search-txt" name="global-search-txt" type="text" class="search-query" placeholder="$wording.get("bo.search.form_search_label_text")">
 						</form>
+						*#
 					</div>
 				</div>
 				<div style="clear: both; color: #7D7E81;">

@@ -49,6 +49,7 @@
     <import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />
     <import resource="classpath:conf/spring/qalingo-core-bo-reporting-view.xml" />
     -->
+	<import resource="classpath:conf/spring/qalingo-core-bo-common-dozer.xml" />
     
 	<!-- JMS : CONFIG -->
 	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />
