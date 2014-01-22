@@ -33,7 +33,7 @@
 										<td>$!retailer.description</td>
 										<td>$!retailer.defaultAddress.cityLabel $!retailer.defaultAddress.countryLabel </td>
 										<td>$!retailer.website</td>
-										<td><a href="$!retailer.detailsUrl">$wording.get("bo.retailer.details_url_label")</a> | <a href="$!retailer.editUrl">$wording.get("bo.retailer.edit_url_label")</a></td>
+										<td><a href="$!retailer.detailsUrl">$wording.get("bo.common.details_label")</a> | <a href="$!retailer.editUrl">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  

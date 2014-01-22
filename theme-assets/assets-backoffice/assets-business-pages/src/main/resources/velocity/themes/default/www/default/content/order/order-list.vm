@@ -18,7 +18,7 @@
 										<th width="100px"></th>
 										<th width="100px"></th>
 										<th width="100px"></th>
-										<th width="100px">Actions</th>
+										<th width="100px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -28,7 +28,7 @@
 										<td></td>
 										<td></td>
 										<td></td>
-										<td><a href="${order.detailsUrl}">details</a> | <a href="${order.editUrl}">edit</a></td>
+										<td><a href="${order.detailsUrl}">$wording.get("bo.common.details_label")</a> #*| <a href="${order.editUrl}">$wording.get("bo.common.edit_label")</a>*#</td>
 									</tr>
 									#end
 								</tbody>  
