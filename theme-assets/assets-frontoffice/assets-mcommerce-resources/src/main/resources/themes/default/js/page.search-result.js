@@ -7,7 +7,8 @@
 			text: "#search-form input[name=text]",
 			form: "#search-form",
 			priceRange: "#price-slider",
-			filter: "#search-filter"
+			filter: "#search-filter",
+			categoriesFilter: "input[name=catalog-categories]"
 		},
 		params: {
 			pageSize: 9,
@@ -20,10 +21,18 @@
 				end   : 500,
 				min   : 0,
 				max   : 500
-			}
+			},
+			categoriesFilter: ""
 		}		
-	},	
-	_settings = {};
+	},
+	_FILTER_DEFAULTS = {
+		categoriesFilter: "",
+		controls: {
+			catagoriesFilter: "#catalog-categories-"
+		}
+	},
+	_settings = {},
+	_filterSettings = {};
 	
 	var _bindEvents = function(){
 		$(_settings.controls.pageSize).change(_onPageSizeChange);
@@ -34,8 +43,6 @@
 	},
 	_onSearchFilter = function(){
 		var $form = $(_settings.controls.form);
-//		$form.find("input#priceStartParam").val(_getPriceStart());
-//		$form.find("input#priceEndParam").val(_getPriceEnd());
 		$form.submit();
 	},
 	_onOrderChange = function(){
@@ -56,19 +63,22 @@
 		$form.find("input[name=order]").val(_settings.params.order);
 		$form.find("input[name=sortBy]").val(_settings.params.sortBy);
 		$form.find("input[name=page]").val(_settings.params.page);
+		$form.find("input[name=categoriesFilter]").val(_getCatalogCategories());
 		return true;
-	},
+	},	
 	_submitSearchForm = function(){
 		$(_settings.controls.form).submit();
 	},
-//	_getPriceStart = function(){
-//		var value = $(_settings.controls.priceRange).data('slider').getValue();
-//		return value[0];
-//	},
-//	_getPriceEnd = function(){
-//		var value = $(_settings.controls.priceRange).data('slider').getValue();
-//		return value[1];
-//	};
+	_getCatalogCategories = function(){
+		var values = "";
+		$(_settings.controls.categoriesFilter+":checked").each(function(){
+			if(values != ""){
+				values += ",";
+			}
+			values += this.value;
+		});
+		return values;
+	},
 	_startSliderRange = function(){
 		$.templates("captionImp","#caption");
 		$('.x-ui-slider.x-ui-slider-horizontal').slider({
@@ -77,13 +87,21 @@
 		      max: _settings.params.price.max,
 		      values: [ _settings.params.price.start, _settings.params.price.end ],
 		      slide: function( event, ui ) {
+		    	var $form = $(_settings.controls.form);
 		    	var html = $.render.captionImp({"priceStart":ui.values[ 0 ],"endStart":ui.values[ 1 ]});
 				$('.search-price-caption').html(html);
-		        $('#priceStartParam').val( ui.values[ 0 ] );
-		        $('#priceEndParam').val( ui.values[ 1 ] );
+		        $form.find('#priceStartParam').val( ui.values[ 0 ] );
+		        $form.find('#priceEndParam').val( ui.values[ 1 ] );
 		      }
 		});		
-	}
+	},
+	_renderFilters = function(){
+		var selectedCategories = _filterSettings.categoriesFilter.split(",");
+		for(var i=0; i<selectedCategories.length; i++){
+			$(_filterSettings.controls.catagoriesFilter + selectedCategories[i]).attr("checked","checked");
+		}
+	};
+	
 	$.qalingo = function(){};	
 	
 	$.qalingo.search = function(options){
@@ -91,4 +109,9 @@
 		_bindEvents();
 		_startSliderRange();
 	};
+	
+	$.qalingo.filter = function(options){
+		_filterSettings = $.extend({}, _FILTER_DEFAULTS, options);
+		_renderFilters();
+	}
 })(jQuery);

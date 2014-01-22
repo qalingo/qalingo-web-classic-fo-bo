@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+	<key>number</key>
+	<scope>application</scope>
+	<class>org.apache.velocity.tools.generic.NumberTool</class>
+	<parameter name="format" value="#0" />
+</tool>
