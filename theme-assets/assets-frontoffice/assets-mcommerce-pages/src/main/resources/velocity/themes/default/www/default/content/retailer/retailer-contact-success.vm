@@ -1,0 +1,10 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+#set($breadcrumbWording = $wording.get("fo.contact.header_title"))
+			
+				<section id="contact-us">
+
+					<div>$wording.get("fo.contact.form_success_message")</div>
+
+				</section>
+

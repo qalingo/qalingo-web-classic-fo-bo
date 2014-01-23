@@ -1,0 +1,15 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+            <div class="post-comment">
+            	<h3 class="color-green">Add a new retailer</h3>
+                <form>
+                    <label>Name</label>
+                    <input type="text" class="span7" />
+                    <label>Email <span class="color-red">*</span></label>
+                    <input type="text" class="span7" />
+                    <label>Message</label>
+                    <textarea rows="8" class="span10"></textarea>
+                    <p><button type="submit" class="btn-u">Send Message</button></p>
+                </form>
+            </div>

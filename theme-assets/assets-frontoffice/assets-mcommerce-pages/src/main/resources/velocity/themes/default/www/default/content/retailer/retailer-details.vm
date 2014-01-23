@@ -1,0 +1,225 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($head_meta = "../content/retailer/retailer-details_meta.vm")
+#set ($page_title = $seoPageTitle)
+#set ($breadcrumbWording = $!retailer.name + '<span class="glyphicons certificate"><i></i></span>')
+#set ($footer_script_content = "../content/retailer/retailer-details_script.vm")
+
+<article>
+	<div class="row-fluid blog-page blog-item">
+
+    	<div class="span3 booking-blocks">
+        	<div class="headline"><h3>$wording.get("fo.retailer.information_part_title")</h3></div>
+			<address class="retailer-details-address">
+				<ul class="unstyled who margin-bottom-20">
+					#if($!retailer.defaultAddress.address1 || $!retailer.defaultAddress.city || $!retailer.defaultAddress.countryLabel)
+						<li>
+<dl class="dl-horizontal" style="margin-bottom: 5px;">
+    <dt style="width: 20px;"><i class="icon-home" style="font-size: 22px;"></i></dt>
+    <dd style="margin-left: 25px;">#if($!retailer.defaultAddress.address1)$!retailer.defaultAddress.address1#end#if($!retailer.defaultAddress.city), $!retailer.defaultAddress.postalCode $!retailer.defaultAddress.city#end#if($!retailer.defaultAddress.countryLabel), $!retailer.defaultAddress.countryLabel <img src="${common.themeResourcePrefixPath}/img/icons/flag/16x16/$!{retailer.defaultAddress.countryCode.toLowerCase()}.png">#end</dd>
+</dl>
+						</li>
+					#end
+					#if($!retailer.defaultAddress.email)
+					<li>
+<dl class="dl-horizontal" style="margin-bottom: 5px;">
+    <dt style="width: 20px;"><i class="icon-envelope"></i></dt>
+    <dd style="margin-left: 25px;"><a href="mailto:$!retailer.defaultAddress.email"></i>$!retailer.defaultAddress.email</a></dd>
+</dl>
+					</li>
+					#end
+					#if($!retailer.defaultAddress.phone)
+					<li>
+<dl class="dl-horizontal" style="margin-bottom: 5px;">
+    <dt style="width: 20px;"><i class="icon-phone-sign"></i></dt>
+    <dd style="margin-left: 25px;"><a href="tel:$!retailer.defaultAddress.phone"></i>$!retailer.defaultAddress.phone</a></dd>
+</dl>
+					</li>
+					#end
+					#if($!retailer.defaultAddress.website)
+					<li>
+<dl class="dl-horizontal" style="margin-bottom: 5px;">
+    <dt style="width: 20px;"><i class="icon-globe"></i></dt>
+    <dd style="margin-left: 25px;"><a href="#">$!retailer.defaultAddress.website</a></dd>
+</dl>
+					</li>
+					#end
+				</ul>
+			</address>
+			
+            <ul class="unstyled inline blog-ads">
+				<a href="$!urlRetailerVote">
+				#set($max = $qualityOfServiceMax - 1)
+				#if($!retailer.qualityOfService && $!retailer.qualityOfService > 0)
+					#foreach($number in [1..$!retailer.qualityOfService])
+						#set($max = $max - 1)
+						<li><i class="icon-star"></i></li>
+					#end
+				#end
+				#foreach($number in [0..$max])
+				<li><i class="icon-star-empty"></i></li>
+				#end
+				</a>
+			</ul>
+            <ul class="unstyled inline blog-ads">
+				#if($!retailer.priceScore > 0)
+					#foreach($number in [0..$!retailer.priceScore])
+						<li><i class="icon-eur"></i></li>
+					#end
+				#end
+			</ul>
+            <ul class="unstyled inline blog-ads">
+				#if($!retailer.reviewCount > 0)
+					<li><i class="icon-comments-alt"></i></li> $!retailer.reviewCount reviews
+				#end
+			</ul>
+#*
+<div class="headline"><h3>Business Hours</h3></div>
+<ul class="unstyled">
+	<li><strong>Monday-Friday:</strong> 10am to 8pm</li>
+	<li><strong>Saturday:</strong> 11am to 3pm</li>
+	<li><strong>Sunday:</strong> Closed</li>
+</ul>
+*#
+        	<div class="headline"><h3>$wording.get("fo.retailer.photos_part_title")</h3></div>
+            <ul class="unstyled blog-ads">
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/5.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/6.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/8.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/10.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/11.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/1.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/2.jpg" alt="" class="hover-effect" /></a></li>
+            	<li><a href="#"><img src="http://htmlstream.com/unify/assets/img/sliders/elastislide/7.jpg" alt="" class="hover-effect" /></a></li>
+			</ul>
+
+			#if(!$retailer.tags.isEmpty())
+        	<div class="headline"><h3>$wording.get("fo.retailer.tags_part_title")</h3></div>
+            <ul class="unstyled inline blog-tags">
+				#foreach($tag in $retailer.tags)
+					<li><a href="$!tag.url"><i class="icon-tags"></i> $!tag.code</a></li>
+				#end
+            </ul>
+			#end
+
+			#set($feedTwitter = $retailer.socialNetworkFeed.get('TWITTER'))
+			#if($!feedTwitter && !$feedTwitter.isEmpty())
+            <div class="blog-twitter">
+                <div class="headline"><h3>$wording.get("fo.retailer.tweets_part_title")</h3></div>
+				#*
+                <p><a href="">@htmlstream</a> At vero eos et accusamus et iusto odio dignissimos. <a href=""#>http://t.co/sBav7dm</a> <span>5 hours ago</span></p>
+                <p><a href="">@unify</a> At vero eos et accusamus et iusto odio dignissimos. <a href=""#>http://t.co/f58Ddg4</a> <span>8 hours ago</span></p>
+                <p><a href="">@veroeos</a> At vero eos et accusamus et iusto odio dignissimos. <a href=""#>http://t.co/adVs9f</a> <span>17 hours ago</span></p>
+                <p><a href="">@accusamus </a> At vero eos et accusamus et iusto odio dignissimos. <a href=""#>http://t.co/wf5Fs6</a> <span>23 hours ago</span></p>
+                <p><a href="">@veroeoset</a> At vero eos et accusamus et iusto odio dignissimos. <a href=""#>http://t.co/7EsffP</a> <span>1 day ago</span></p>
+				*#
+            </div>
+			#end
+		</div>
+        
+    	<div class="span9">
+        	<div class="blog margin-bottom-30">
+                <div class="blog-img"><img src="http://htmlstream.com/unify/assets/img/posts/1.jpg" alt="" /></div>
+				#if($!retailer.description)<p>$!retailer.description</p>#end
+
+				#*
+                <blockquote class="hero">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit posuere erat a ante.</p>
+                    <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                </blockquote>
+
+                <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+				*#
+            </div>
+
+			<hr />
+			
+			<div class="post-comment">
+				<a href="$!urlRetailerComment" class="btn-u">$wording.get("fo.retailer.comment_link_label")</a> <a href="$!urlRetailerVote" class="btn-u">$wording.get("fo.retailer.vote_link_label")</a>
+				#foreach($shareOption in $!retailer.shareOptions)
+				<a href="$!shareOption.url" target="_blank" class="btn-u btn-u-blue" style="background-color: $!shareOption.linkColor">$!shareOption.linkLabel</a>
+				#end
+			</div>
+			
+            <div class="media">
+            	<h3 class="color-green">$wording.get("fo.retailer.comments_part_title")</h3>
+			</div>
+			
+			#foreach($retailerComment in $!retailer.comments)
+            <div class="media">
+                <a class="pull-left">
+					#if($!retailerComment.customerAvatarImg)
+                    <img class="media-object" src="$!retailerComment.customerAvatarImg" alt="" />
+					#else
+					<div class="span1 glyphicons-avatar">
+						<span class="media-object glyphicons no-js user" style="width: 15px;"><i ></i></span>
+					</div>
+					#end
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="$!retailerComment.customerUrl" target="_blank">$!retailerComment.customerDisplayName</a> <span>$retailerComment.dateCreate</span></h4>
+                    <p>$!retailerComment.comment</p>
+                </div>
+            </div>
+            <hr style="margin: 10px 0;" />
+
+			#end
+#*
+            <div class="media">
+            	<h3 class="color-green">Comments</h3>
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="http://htmlstream.com/unify/assets/img/sliders/elastislide/2.jpg" alt="" />
+                </a>
+                <div class="media-body">
+                <h4 class="media-heading">Media heading <span>5 hours ago / <a href="#">Reply</a></span></h4>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                    <hr />
+
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="http://htmlstream.com/unify/assets/img/sliders/elastislide/5.jpg" alt="" />
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading <span>17 hours ago / <a href="#">Reply</a></span></h4>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="http://htmlstream.com/unify/assets/img/sliders/elastislide/11.jpg" alt="" />
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Media heading <span>2 days ago / <a href="#">Reply</a></span></h4>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object" src="http://htmlstream.com/unify/assets/img/sliders/elastislide/9.jpg" alt="" />
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading <span>July 5,2013 / <a href="#">Reply</a></span></h4>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                </div>
+            </div>
+*#
+			
+			<div class="post-comment" style="padding-top: 30px;">
+				<a href="$!urlRetailerContact" class="btn-u">$wording.get("fo.retailer.contact_link_label")</a>
+				<a href="$!urlRetailerComment" class="btn-u">$wording.get("fo.retailer.comment_link_label")</a> 
+				<a href="$!urlRetailerVote" class="btn-u">$wording.get("fo.retailer.vote_link_label")</a>
+				#foreach($shareOption in $!retailer.shareOptions)
+				<a href="$!shareOption.url" target="_blank" class="btn-u btn-u-blue" style="background-color: $!shareOption.linkColor">$!shareOption.linkLabel</a>
+				#end
+			</div>
+
+        </div>
+    </div>
+</	article>
+

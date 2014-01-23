@@ -1,0 +1,4 @@
+
+<meta property="og:title" content="$!retailer.metaShareTitle" />
+<meta property="og:description" content="$!retailer.metaShareDescription" />
+<meta property="og:image" content="$!retailer.metaShareImage" />

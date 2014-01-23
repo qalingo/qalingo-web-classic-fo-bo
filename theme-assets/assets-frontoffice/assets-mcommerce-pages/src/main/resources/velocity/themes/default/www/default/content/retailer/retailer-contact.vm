@@ -1,0 +1,114 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+#set($breadcrumbWording = $wording.get("fo.retailer.header_title"))
+			
+				<section id="retailer-contact">
+					<form id="retailerContactForm" name="retailerContactForm" action="" method="POST">
+					#set($beanName = "retailerContactForm")
+					#parse("../../_include/body-form-error-message.vm")
+					<div>
+						<div style="width: 400px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+							<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="lastname" class="label-form">$wording.get("fo.retailer.form_label_lastname")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="lastname" name="lastname" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="firstname" class="label-form">$wording.get("fo.retailer.form_label_firstname")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="firstname" name="firstname" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="country" class="label-form">$wording.get("fo.retailer.form_label_country")</label>
+								</div>
+								<div style="float: left;">
+									<select id="country" name="country" style="width: 205px; height: 25px;" >
+										<option value="">--</option>
+										#foreach($country in $countries)
+											#if($country.key == $retailerContactForm.country)
+											<option value="$country.key" selected="selected">$country.value</option>
+											#else
+											<option value="$country.key">$country.value</option>
+											#end
+										#end
+									</select>
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="email" class="label-form">$wording.get("fo.retailer.form_label_email")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="email" name="email" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="phone" class="label-form">$wording.get("fo.retailer.form_label_phone")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="phone" name="phone" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+								<label for="fax" class="label-form">$wording.get("fo.retailer.form_label_fax")</label>
+								</div>
+								<div style="float: left;">
+								<input type="text" id="fax" name="fax" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="mobile" class="label-form">$wording.get("fo.retailer.form_label_mobile")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="mobile" name="mobile" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="website" class="label-form">$wording.get("fo.retailer.form_label_website")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="website" name="website" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+						</div>
+						<div style="width: 550px; height: 350px; border: 0px solid #B8B6B6; background-color: #ffffff; margin: 10px; padding: 10px; float:left;">
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="subject" class="label-form">$wording.get("fo.retailer.form_label_subject")</label>
+								</div>
+								<div style="float: left;">
+									<input type="text" id="subject" name="subject" value="" style="width: 200px; height: 20px;" />
+								</div>
+							</div>
+							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+								<div style="float: left; width: 100px;">
+									<label for="message" class="label-form">$wording.get("fo.retailer.form_label_message")</label>
+								</div>
+								<div style="float: left;">
+									<textarea id="message" name="message" cols="40" rows="5" style="width: 400px; height: 150px;"></textarea>
+								</div>
+							</div>
+							<div style="width: 600px; clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+								<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.retailer.form_label_cancel")</button>
+								<button class="btn btn-primary" type="submit">$wording.get("fo.retailer.form_label_submit")</button>
+							</div>
+							<div style="padding-top: 15px; height: 70px;">
+								<p style="color: #9b9b9b; font-style: italic; font-size: 12px; text-align: justify;">
+									$legalTerms.warning
+								</p>
+							</div>
+						</div>
+					</div>
+					</form>
+				</section>
