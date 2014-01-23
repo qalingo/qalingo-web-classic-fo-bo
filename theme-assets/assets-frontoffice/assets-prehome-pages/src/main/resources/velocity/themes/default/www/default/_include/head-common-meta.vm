@@ -19,3 +19,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		
 		<meta http-equiv="X-XRDS-Location" content="$!xrdsUrl"/>
+		
+		<meta property="og:title" content="$!metaOgTitle" />
+		<meta property="og:description" content="$!metaOgDescription" />
+		<meta property="og:image" content="$!metaOgImage" />
