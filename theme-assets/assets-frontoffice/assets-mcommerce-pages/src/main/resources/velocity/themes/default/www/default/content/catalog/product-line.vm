@@ -94,32 +94,9 @@
 		#end
 	</ul>
 	
-	#if($recentProducts.size() > 0)
-	<span class="section-title sidebar-title">Recent products</span>
-	<ul class="nav-category">
-		#foreach($recentProduct in $recentProducts)
-	    <li class="level0 parent">
-			<a href="${recentProduct.detailsUrl}" class="">${recentProduct.i18nName}</a>
-		</li>
-		#end
-	</ul>
-	#end
+	#parse("../../_include/sidebar-recent-products.vm")
 	
-	<span class="section-title sidebar-title">Your cart</span>
-	<ul class="nav-category">
-		#if($cart.cartItems.size() > 0)
-			#foreach($cartItem in $cart.cartItems)
-			<li class="level0 parent">
-			 <a href="$cartItem.productDetailsUrl">${cartItem.i18nName}</a>
-			</li>
-			#end
-			<a href="$cart.cartDetailsUrl"> Cart Detail</a>
-		#else
-	    <li class="level0 parent">
-			<span>There is 0 item(s) in your cart.</span>
-		</li>
-		#end
-	</ul>
+	#parse("../../_include/sidebar-light-cart-view.vm")
 	
 	<a href="" class="sidebar-banner">
 		<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">

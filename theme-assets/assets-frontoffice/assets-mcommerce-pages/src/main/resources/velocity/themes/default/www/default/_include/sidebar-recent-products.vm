@@ -1,0 +1,10 @@
+#if($recentProducts.size() > 0)
+<span class="section-title sidebar-title">Recent products</span>
+<ul class="nav-category">
+	#foreach($recentProduct in $recentProducts)
+    <li class="level0 parent">
+		<a href="${recentProduct.detailsUrl}" class="">${recentProduct.i18nName}</a>
+	</li>
+	#end
+</ul>
+#end
