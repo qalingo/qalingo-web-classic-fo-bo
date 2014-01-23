@@ -1,0 +1,15 @@
+<span class="section-title sidebar-title">Your cart</span>
+<ul class="nav-category">
+	#if($cart.cartItems.size() > 0)
+		#foreach($cartItem in $cart.cartItems)
+		<li class="level0 parent">
+		 <a href="$cartItem.productDetailsUrl">${cartItem.i18nName}</a>
+		</li>
+		#end
+		<a href="$cart.cartDetailsUrl"> Cart Detail</a>
+	#else
+    <li class="level0 parent">
+		<span>There is 0 item(s) in your cart.</span>
+	</li>
+	#end
+</ul>

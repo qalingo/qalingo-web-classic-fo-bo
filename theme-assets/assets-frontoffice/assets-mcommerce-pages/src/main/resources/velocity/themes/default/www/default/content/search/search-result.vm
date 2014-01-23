@@ -39,26 +39,9 @@
 			<button class="search-result-custom-btn" id="search-filter"><i class="icon-search">&nbsp;</i> Filter</button>
 		</div>
 		
-		<span class="section-title sidebar-title">Recent products</span>
-		<ul class="nav-category">
-		    <li class="level0 parent">
-				<a href="" class="">Odio dignissim 101</a>
-			</li>
-			<li class="level0 parent">
-				<a href="" class="">Odio dignis 800</a>
-			</li>		
-		    <li class="level0 parent">
-				<a href="" class="">Odio dignis A</a>
-			</li>
-		</ul>
+		#parse("../../_include/sidebar-recent-products.vm")
 		
-		
-		<span class="section-title sidebar-title">Your cart</span>
-		<ul class="nav-category">
-		    <li class="level0 parent">
-				<span>There is 0 item(s) in your cart.</span>
-			</li>
-		</ul>
+		#parse("../../_include/sidebar-light-cart-view.vm")
 		
 		<a href="" class="sidebar-banner">
 			<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">
@@ -99,9 +82,9 @@
 			<ul class="products-grid row list-view">
 				#foreach( $searchProductItem in $pagedListHolder.pageList)
 				<li class="item span3">
-					<a href="#" class="product-image">
-						<span><a href="$searchProductItem.productDetailsUrl"><img src="${searchProductItem.carouselImage}" alt="${searchProductItem.name}"></a></span>
-					</a>
+					<a href="$searchProductItem.productDetailsUrl" class="product-image">
+						<span><img src="${searchProductItem.carouselImage}" alt="${searchProductItem.name}"/></span>
+					</a>					
 					<div class="product-info-wrap">
 						<a href="$searchProductItem.productDetailsUrl" class="product-name">${searchProductItem.name}</a>
 						<span class="rating-stars star-4">&nbsp;</span>
