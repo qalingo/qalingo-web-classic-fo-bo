@@ -45,7 +45,6 @@
 		<!-- DROOLS 
 		<drools.version>5.4.0.Final</drools.version>
 		-->
-		<jackson-version>1.8.0</jackson-version>
 	</properties>
 
 	<modules>

@@ -41,7 +41,6 @@
 	<!-- Configures core context -->
 	<import resource="classpath:conf/spring/qalingo-core-local-ds.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
-	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-cache.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
 
