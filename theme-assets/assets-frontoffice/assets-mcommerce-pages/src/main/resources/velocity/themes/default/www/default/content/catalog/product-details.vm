@@ -33,18 +33,21 @@
 	<div class="product-spec">
 		<ul class="spec-list product-spec-headrow">
 			<li class="active">
-				<a href="#">Features</a>
+				<a class="tab" href="#features">Features</a>
+			</li>
+			<li>
+				<a class="tab" href="#review">Review</a>
+			</li>
+			<li>
+				<a href="#review">Comment</a>
 			</li>
 			<!--
 			<li>
 				<a href="#">Lorem ipsum</a>
 			</li>
-			<li>
-				<a href="#">Lorem ipsum</a>
-			</li>
 			-->
 		</ul>
-		<table class="product-spec-content">
+		<table id="features" class="product-spec-content">
 			<!--
 			<tr>
 				<td class="product-spec-name">Model</td>
@@ -67,8 +70,67 @@
 				<td>$productMarketing.description</td>
 			</tr>
 		</table>
+		<table id="review" class="product-spec-content product-review-table" style="display:none">
+			<tr>
+				<td class="product-review-name">$wording.get("fo.product.vote_quality_of_service")</td>
+				<td class="product-review-rating">
+					<div class="review-rating-wrap">
+						<span id="product-quality-rating" data-star="4" class="rating-stars star-4">&nbsp;</span>
+						<a href="javascript:void(0)" data-type="quality" data-star="5" class="review-rating-star star-5">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="quality" data-star="4" class="review-rating-star star-4">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="quality" data-star="3" class="review-rating-star star-3">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="quality" data-star="2" class="review-rating-star star-2">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="quality" data-star="1" class="review-rating-star star-1">&nbsp;</a>
+					</div>
+				</td>
+				<td class="product-review-number"><strong class="product-rating-point">4.2</strong> - 424 votes</td>
+			</tr>
+			<tr>
+				<td class="product-review-name">$wording.get("fo.product.vote_ratio_quality_price")</td>
+				<td class="product-review-rating">
+					<div class="review-rating-wrap">
+						<span id="product-price-rating" data-star="5" class="rating-stars star-5">&nbsp;</span>
+						<a href="javascript:void(0)" data-type="price" data-star="5" class="review-rating-star star-5">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="price" data-star="4" class="review-rating-star star-4">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="price" data-star="3" class="review-rating-star star-3">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="price" data-star="2" class="review-rating-star star-2">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="price" data-star="1" class="review-rating-star star-1">&nbsp;</a>
+					</div>
+				</td>
+				<td class="product-review-number"><strong class="product-rating-point">4.2</strong> - 424 votes</td>
+			</tr>
+			<tr>
+				<td class="product-review-name">$wording.get("fo.product.vote_price")</td>
+				<td class="product-review-rating">
+					<div class="review-rating-wrap">
+						<span id="product-value-rating" data-star="3" class="rating-stars star-3">&nbsp;</span>
+						<a href="javascript:void(0)" data-type="value" data-star="5" class="review-rating-star star-5">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="value" data-star="4" class="review-rating-star star-4">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="value" data-star="3" class="review-rating-star star-3">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="value" data-star="2" class="review-rating-star star-2">&nbsp;</a>
+						<a href="javascript:void(0)" data-type="value" data-star="1" class="review-rating-star star-1">&nbsp;</a>
+					</div>
+				</td>
+				<td class="product-review-number"><strong class="product-rating-point">4.2</strong> - 424 votes</td>
+			</tr>
+            <tr id="submit-button-zone" style="display:none">
+				<td colspan="2">&nbsp;</td>
+                <td align="left"><button>$wording.get("fo.product.submit_comment")</botton></td>
+			</tr>
+			<tr class="product-rating-average">
+				<td class="product-review-name">Average</td>
+				<td class="product-review-rating"><span class="rating-stars star-4">&nbsp;</span></td>
+				<td class="product-review-number"></td>
+			</tr>
+		</table>
 	</div>
 </div>
+<form id="productCommentForm" name="productCommentForm" action="$!productCommentUrl" method="POST">
+	<input type="hidden" id="productCommentForm_productCode" name="productCommentForm.productCode" value="$!productCommentForm.productCode"/>
+	<input type="hidden" id="productCommentForm_qualityOfService" name="productCommentForm.qualityOfService" value="$!productCommentForm.qualityOfService"/>
+	<input type="hidden" id="productCommentForm_ratioQualityPrice" name="productCommentForm.ratioQualityPrice" value="$!productCommentForm.ratioQualityPrice"/>
+	<input type="hidden" id="productCommentForm_priceScore" name="productCommentForm.priceScore" value="$!productCommentForm.priceScore"/>
+</form>
 <!-- //product detail content -->
 
 
@@ -97,3 +159,10 @@
 <!-- //category product section -->
 <div class="clear border-btm"></div>
     
+<script type="text/javascript">
+	function startupPage(){
+    	$script(['page.product-details'], function(){
+    		$.product.details();
+    	});
+	}
+</script>
