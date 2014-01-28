@@ -29,8 +29,6 @@
 			#if ("$!price.end" == "")
 				#set ($priceEnd = 500)
 			#end
-			#set ($priceStart = $number.format("#0.00", $priceStart))
-			#set ($priceEnd = $number.format("#0", $priceEnd))
 			
 			<div class="x-ui-slider x-ui-slider-horizontal">
 			</div>				

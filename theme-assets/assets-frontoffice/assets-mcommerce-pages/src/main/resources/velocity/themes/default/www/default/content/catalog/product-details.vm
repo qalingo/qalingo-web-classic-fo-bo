@@ -13,7 +13,11 @@
 		</div>
 		<div class="product-info span8">
 			<h3 class="product-name">$productMarketing.i18nName</h3>
-			<span class="rating-stars star-4">&nbsp;</span>
+			#if($productMarketing.customerProductRates.avgRateStar > 0)
+			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
+			#else
+			<span class="review-rating-star">&nbsp;</span>
+			#end
 			<p class="product-sku"><strong>SKU:</strong> $productMarketing.skuCode</p>
 			<span class="product-add2cart">
 				<span class="product-price">$productMarketing.priceWithCurrencySign</span>
@@ -75,7 +79,7 @@
 				<td class="product-review-name">$wording.get("fo.product.vote_quality_of_service")</td>
 				<td class="product-review-rating">
 					<div class="review-rating-wrap">
-						<span id="product-quality-rating" data-star="4" class="rating-stars star-4">&nbsp;</span>
+						<span id="product-quality-rating" data-star="4" class="rating-stars star-$!customerProductRates.avgQualityStar">&nbsp;</span>
 						<a href="javascript:void(0)" data-type="quality" data-star="5" class="review-rating-star star-5">&nbsp;</a>
 						<a href="javascript:void(0)" data-type="quality" data-star="4" class="review-rating-star star-4">&nbsp;</a>
 						<a href="javascript:void(0)" data-type="quality" data-star="3" class="review-rating-star star-3">&nbsp;</a>
@@ -83,13 +87,13 @@
 						<a href="javascript:void(0)" data-type="quality" data-star="1" class="review-rating-star star-1">&nbsp;</a>
 					</div>
 				</td>
-				<td class="product-review-number"><strong class="product-rating-point">4.2</strong> - 424 votes</td>
+				<td class="product-review-number"><strong class="product-rating-point">$!customerProductRates.avgQualityRates</strong> - $!customerProductRates.qualityRateCount votes</td>
 			</tr>
 			<tr>
 				<td class="product-review-name">$wording.get("fo.product.vote_ratio_quality_price")</td>
 				<td class="product-review-rating">
 					<div class="review-rating-wrap">
-						<span id="product-price-rating" data-star="5" class="rating-stars star-5">&nbsp;</span>
+						<span id="product-price-rating" data-star="5" class="rating-stars star-$!customerProductRates.avgPriceStar">&nbsp;</span>
 						<a href="javascript:void(0)" data-type="price" data-star="5" class="review-rating-star star-5">&nbsp;</a>
 						<a href="javascript:void(0)" data-type="price" data-star="4" class="review-rating-star star-4">&nbsp;</a>
 						<a href="javascript:void(0)" data-type="price" data-star="3" class="review-rating-star star-3">&nbsp;</a>
@@ -97,13 +101,13 @@
 						<a href="javascript:void(0)" data-type="price" data-star="1" class="review-rating-star star-1">&nbsp;</a>
 					</div>
 				</td>
-				<td class="product-review-number"><strong class="product-rating-point">4.2</strong> - 424 votes</td>
+				<td class="product-review-number"><strong class="product-rating-point">$!customerProductRates.avgPriceRates</strong> - $!customerProductRates.priceRateCount votes</td>
 			</tr>
 			<tr>
 				<td class="product-review-name">$wording.get("fo.product.vote_price")</td>
 				<td class="product-review-rating">
 					<div class="review-rating-wrap">
-						<span id="product-value-rating" data-star="3" class="rating-stars star-3">&nbsp;</span>
+						<span id="product-value-rating" data-star="3" class="rating-stars star-$!customerProductRates.avgValueStar">&nbsp;</span>
 						<a href="javascript:void(0)" data-type="value" data-star="5" class="review-rating-star star-5">&nbsp;</a>
 						<a href="javascript:void(0)" data-type="value" data-star="4" class="review-rating-star star-4">&nbsp;</a>
 						<a href="javascript:void(0)" data-type="value" data-star="3" class="review-rating-star star-3">&nbsp;</a>
@@ -111,15 +115,21 @@
 						<a href="javascript:void(0)" data-type="value" data-star="1" class="review-rating-star star-1">&nbsp;</a>
 					</div>
 				</td>
-				<td class="product-review-number"><strong class="product-rating-point">4.2</strong> - 424 votes</td>
+				<td class="product-review-number"><strong class="product-rating-point">$!customerProductRates.avgValueRates</strong> - $!customerProductRates.valueRateCount votes</td>
 			</tr>
             <tr id="submit-button-zone" style="display:none">
-				<td colspan="2">&nbsp;</td>
-                <td align="left"><button>$wording.get("fo.product.submit_comment")</botton></td>
+				<td colspan="2">&nbsp;</td>				
+                <td align="left">
+					#if($!customer)
+					<button>$wording.get("fo.product.submit_comment")</botton>
+					#else
+					<a href="$common.loginUrl">>>> $wording.get("fo.product.login_to_review")</a>
+					#end
+				</td>
 			</tr>
 			<tr class="product-rating-average">
 				<td class="product-review-name">Average</td>
-				<td class="product-review-rating"><span class="rating-stars star-4">&nbsp;</span></td>
+				<td class="product-review-rating"><span class="rating-stars star-$!customerProductRates.avgRateStar">&nbsp;</span></td>
 				<td class="product-review-number"></td>
 			</tr>
 		</table>
@@ -162,7 +172,11 @@
 <script type="text/javascript">
 	function startupPage(){
     	$script(['page.product-details'], function(){
-    		$.product.details();
+    		#if($!customer)
+			$.product.details.guest();
+			#else
+			$.product.details.customer();
+			#end
     	});
 	}
 </script>
