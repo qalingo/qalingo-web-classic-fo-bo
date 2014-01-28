@@ -201,7 +201,11 @@
 					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
 				</a>
 				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
-				<span class="rating-stars star-4">&nbsp;</span>
+				#if($!productMarketing.customerProductRates.avgRateStar > 0)
+				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
+				#else
+				<span class="review-rating-star">&nbsp;</span>
+				#end
 				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
@@ -218,7 +222,11 @@
 				</a>
 				<div class="product-info-wrap">
 					<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
-					<span class="rating-stars star-4">&nbsp;</span>
+					#if($!productMarketing.customerProductRates.avgRateStar > 0)
+    				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
+    				#else
+    				<span class="review-rating-star">&nbsp;</span>
+    				#end
 					<p class="product-short-des hide-as-grid">${productMarketing.description}</p>
 					<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 					<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
