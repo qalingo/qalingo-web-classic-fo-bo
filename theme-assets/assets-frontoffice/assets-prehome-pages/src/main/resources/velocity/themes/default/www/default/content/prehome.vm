@@ -1,11 +1,11 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-<div class="container" style="padding-top: 20px; height: 400px;">
+<div class="container" style="padding-top: 20px;">
 	<div>
-		GEOLOC Remote Address: $!geolocRemoteAddress<br/>
-		GEOLOC Country: $!geolocCountry.isoCode | $!geolocCountry.name<br/>
-		GEOLOC City: $!geolocCity.name<br/>
+		GEOLOC Remote Address: <span style="color: #ffffff;">$!geolocRemoteAddress</span><br/>
+		GEOLOC Country: <span style="color: #ffffff;">$!geolocCountry.isoCode | $!geolocCountry.name</span><br/>
+		GEOLOC City: <span style="color: #ffffff;">$!geolocCity.name</span><br/>
 	</div>
 	<div style="padding-top: 20px;">
 		<ul class="nav nav-list">
