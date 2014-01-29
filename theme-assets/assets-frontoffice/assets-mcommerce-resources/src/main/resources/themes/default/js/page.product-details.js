@@ -21,8 +21,8 @@
 	_bindEvents = function(customer){
 		$(_settings.controls.tab).click(_chooseTab);
 		$(_settings.controls.form).submit(_onFormSubmit);
+		$(_settings.controls.reviewButton).click(_review);
 		if(customer){
-			$(_settings.controls.reviewButton).click(_review);
 			$(_settings.controls.submitButton).click(_submitForm);
 		}
 	},
