@@ -87,6 +87,11 @@ margin-top: -19px;
 	margin: 10px 0
 }
 
+.rating-stars.star-0 {
+	background: url('../img/rating-empty.png') no-repeat;
+	width: 94px;
+}
+
 .rating-stars.star-1, .review-rating-star.star-1 {
 	width: 19px
 }
