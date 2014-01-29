@@ -72,11 +72,7 @@
 					<span><img src="${featuredProduct.carouselImage}" alt="News1"></span>
 				</a>
 				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
-				#if($!featuredProduct.customerProductRates.avgRateStar > 0)
 				<span class="rating-stars star-$!featuredProduct.customerProductRates.avgRateStar">&nbsp;</span>
-				#else
-				<span class="review-rating-star">&nbsp;</span>
-				#end
 				<p class="product-price">${featuredProduct.priceWithCurrencySign}</p>
 				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
 					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
@@ -112,11 +108,7 @@
 						</span>
         			</a>
         			<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName} #if($productMarketing.isFeatured())*#end</a>
-        			#if($!productMarketing.customerProductRates.avgRateStar > 0)
-    				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
-    				#else
-    				<span class="review-rating-star">&nbsp;</span>
-    				#end
+        			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
         			<p class="product-price">${productMarketing.priceWithCurrencySign}</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
         				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
