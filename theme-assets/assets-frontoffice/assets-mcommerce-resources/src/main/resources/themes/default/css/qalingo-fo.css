@@ -123,6 +123,12 @@ input[type=week] {
 	Navbar Content
 *****************************************************************************/
 
+.nav {
+    list-style: none outside none;
+    margin-bottom: 0px;
+    margin-left: 0;
+}
+
 .navbar-inverse .navbar-inner {
 	padding-top: 10px;
 	padding-bottom: 10px;
