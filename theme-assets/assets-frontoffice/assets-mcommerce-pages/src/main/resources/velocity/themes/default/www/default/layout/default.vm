@@ -207,7 +207,7 @@ div#popup_content {
 		<div style="clear: both;"></div>
 		#* DEMO CONTEXT - END *#
 				
-        <div class="navbar navbar-inverse navbar-fixed-top" style="top: 0px;">
+        <div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar navbar-inverse">									
 				#parse("../_include/body-header.vm")
 
@@ -216,7 +216,7 @@ div#popup_content {
 			</div> 
         </div> 
         <header>
-        	<div style="padding-top: 0px; padding-bottom: 10px; border-bottom: 1px solid #7e2a8d;">
+        	<div style="padding-top: 0px; padding-bottom: 0px; border-bottom: 1px solid #7e2a8d;">
 				<div class="container">
 					<div class="row">
 						<div style="text-align: left;"></div>

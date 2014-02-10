@@ -129,6 +129,14 @@ input[type=week] {
     margin-left: 0;
 }
 
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: relative;
+}
+
 .navbar-inverse .navbar-inner {
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -310,7 +318,7 @@ header h1:hover, header p:hover {
 *****************************************************************************/
 .main {
 	background-color: #ffffff;
-	padding-top: 40px;
+	padding-top: 0px;
 	min-height: 400px;
 }
 
