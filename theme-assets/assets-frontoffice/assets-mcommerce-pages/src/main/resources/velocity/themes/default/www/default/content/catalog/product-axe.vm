@@ -55,6 +55,7 @@
 <div style="clear: both;"></div>
 
 <!-- slide featured products  -->
+#if($catalogCategory.featuredProductMarketings.size() > 0)
 <div id="featured-products" class="featured-products">
 	<span class="section-title featured-title category-title">Featured Products</span>
 	<div class="clear border-btm"></div>
@@ -87,7 +88,7 @@
 	</div>
 	<!-- //slide featured products -->
 </div>
-	
+#end	
 <div class="clear border-btm"></div>
 
 <!-- Products -->
@@ -107,7 +108,13 @@
 							<img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"/>
 						</span>
         			</a>
-        			<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName} #if($productMarketing.isFeatured())*#end</a>
+        			<a href="${productMarketing.detailsUrl}" class="product-name">
+        			#if($productMarketing.i18nName.length() > 31)
+    					$productMarketing.i18nName.substring(0,27)...
+    				#else
+    					${productMarketing.i18nName}
+    				#end
+      			    #if($productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
         			<p class="product-price">${productMarketing.priceWithCurrencySign}</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
