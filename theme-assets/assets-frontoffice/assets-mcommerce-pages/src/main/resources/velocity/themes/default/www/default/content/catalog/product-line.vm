@@ -184,9 +184,9 @@
 					<div class="limiter">
 						<label>Display</label>
 						<select name="pageSize">
-							<option value="1" #if($pageSize != 2 && $pageSize != 3) selected="selected" #end>1</option>
-							<option value="2" #if($pageSize == 2) selected="selected" #end>2</option>
 							<option value="3" #if($pageSize == 3) selected="selected" #end>3</option>
+							<option value="6" #if($pageSize == 6) selected="selected" #end>6</option>
+							<option value="9" #if($pageSize != 3 && $pageSize != 6) selected="selected" #end>9</option>
 						</select> on page        
 					</div>
 				</div>
@@ -200,7 +200,13 @@
 				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
 					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
 				</a>
-				<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
+				<a href="${productMarketing.detailsUrl}" class="product-name">
+				#if($productMarketing.i18nName.length() > 31)
+					$productMarketing.i18nName.substring(0,27)...
+				#else
+					${productMarketing.i18nName}
+				#end
+				</a>
 				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
 				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
