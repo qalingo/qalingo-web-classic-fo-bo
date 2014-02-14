@@ -8,7 +8,7 @@
  *
  *#
 			<div class="well" style="width: 423px; height: 320px; margin: auto; padding: auto; text-align: left;">
-				<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase;">
+				<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase; padding-bottom: 5px;">
 					<h3>$wording.get("fo.auth.login_form_login_title")</h3>
 				</div>
 				<div>

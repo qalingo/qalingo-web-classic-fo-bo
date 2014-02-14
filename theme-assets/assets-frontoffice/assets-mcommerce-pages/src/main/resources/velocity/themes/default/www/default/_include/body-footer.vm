@@ -14,10 +14,11 @@
 						<span class="footer-nav-title">$wording.get("fo.footer_menu.customer_care")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
-							<li><a href="#">Products</a></li>
-							<li><a href="#">Best Sellers</a></li>
-							<li><a href="#">Delivery</a></li>
-							<li><a href="#">FAQs</a></li>
+							#foreach($footerMenu in $footerMenus)
+								#if($footerMenu.type = 'MENU_TYPE_CUSTOMER_CARE')
+								<li><a href="$footerMenu.url" alt="$footerMenu.name">$footerMenu.name</a></li>
+								#end
+							#end
 						</ul>
 					</div>
 					
@@ -35,10 +36,11 @@
 						<span class="footer-nav-title">$wording.get("fo.footer_menu.our_company")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
-							<li><a href="#">Overview</a></li>
-							<li><a href="#">Our Stores</a></li>
-							<li><a href="#">Our Sevices</a></li>
-							<li><a href="#">Press</a></li>
+						#foreach($footerMenu in $footerMenus)
+							#if($footerMenu.type = 'MENU_TYPE_OUR_COMPANY')
+							<li><a href="$footerMenu.url" alt="$footerMenu.name">$footerMenu.name</a></li>
+							#end
+						#end
 						</ul>
 					</div>
 					
@@ -46,8 +48,8 @@
 						<span class="footer-nav-title">$wording.get("fo.footer_menu.contact_us")</span>
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
-							<li>Phone: +84 123456</li>
-							<li>Fax: +84 0011223</li>
+							<li>Phone: +84 123456789</li>
+							<li>Fax: +84 123456789</li>
 							<li>Email: contact@yourdomain.com</li>
 						</ul>
 						<span class="footer-nav-title footer-social-title">$wording.get("fo.footer_menu.follow_us")</span>
@@ -59,7 +61,11 @@
 					
 					<div class="span9">
 						<span class="footer-nav-title">
-							$wording.get("fo.footer_menu.payment_methods")&nbsp;<img class="payment-img" src="${common.themeResourcePrefixPath}/img/home/payments.png" alt="Payments">
+							$wording.get("fo.footer_menu.payment_methods")&nbsp;
+							<img class="payment-img" src="${common.themeResourcePrefixPath}/img/payment/american-express.jpg" alt="American Express">&nbsp;
+							<img class="payment-img" src="${common.themeResourcePrefixPath}/img/payment/common-card.jpg" alt="CB">&nbsp;
+							<img class="payment-img" src="${common.themeResourcePrefixPath}/img/payment/visa.jpg" alt="Visa">&nbsp;
+							<img class="payment-img" src="${common.themeResourcePrefixPath}/img/payment/mastercard.jpg" alt="Master Card">
 						</span>
 					</div>					
         		</div>

@@ -8,7 +8,7 @@
 				<div style="padding-bottom: 50px;">
 					<div style="float: left; width: 48%;">
 						<div class="well" style="width: 423px; height: 240px; margin: auto; padding: auto; text-align: left;">
-							<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase; margin-bottom: 15px;">
+							<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase; margin-bottom: 15px; padding-bottom: 5px;">
 								<h3>$wording.get("fo.auth.login_main_create_account_title")</h3>
 							</div>
 							<div>$wording.get("fo.auth.login_main_create_account_text")</div>
