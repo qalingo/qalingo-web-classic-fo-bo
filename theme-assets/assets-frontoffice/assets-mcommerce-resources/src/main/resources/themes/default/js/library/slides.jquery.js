@@ -295,7 +295,7 @@
 			
 			// make sure overflow is hidden, width is set
 			$('.' + option.container, elem).css({
-				overflow: 'hidden',
+				//overflow: 'hidden',
 				// fix for ie
 				position: 'relative'
 			});
