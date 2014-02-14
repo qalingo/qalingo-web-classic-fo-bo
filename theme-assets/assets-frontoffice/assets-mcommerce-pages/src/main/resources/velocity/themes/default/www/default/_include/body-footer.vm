@@ -15,7 +15,7 @@
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 							#foreach($footerMenu in $footerMenus)
-								#if($footerMenu.type = 'MENU_TYPE_CUSTOMER_CARE')
+								#if($footerMenu.type == 'MENU_TYPE_CUSTOMER_CARE')
 								<li><a href="$footerMenu.url" alt="$footerMenu.name">$footerMenu.name</a></li>
 								#end
 							#end
@@ -37,7 +37,7 @@
 						<div class="clear border-btm"></div>
 						<ul class="footer-nav">
 						#foreach($footerMenu in $footerMenus)
-							#if($footerMenu.type = 'MENU_TYPE_OUR_COMPANY')
+							#if($footerMenu.type == 'MENU_TYPE_OUR_COMPANY')
 							<li><a href="$footerMenu.url" alt="$footerMenu.name">$footerMenu.name</a></li>
 							#end
 						#end
