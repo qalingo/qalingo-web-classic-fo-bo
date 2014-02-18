@@ -9,6 +9,11 @@
 
 <script type="text/javascript">
 	function startupPage(){
+		$script(['library/lazyload/jquery.lazyload.min'], function(){
+			$("img.lazy").lazyload({
+                threshold : 200
+            });    		
+    	});
 		$('#featured-products').slides({
 			preload: true,
 			generateNextPrev: true,
@@ -198,7 +203,10 @@
 			#foreach($productMarketing in $catalogCategory.productMarketings)
 			<li class="item span3">
 				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
-					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
+					<span>
+						<img class="lazy" data-original="${productMarketing.carouselImage}" src="/assets/images/placeholder.jpg" alt="${productMarketing.i18nName}"/>
+						<noscript><img src="${productMarketing.carouselImage}"></noscript>
+					</span>
 				</a>
 				<a href="${productMarketing.detailsUrl}" class="product-name">
 				#if($productMarketing.i18nName.length() > 31)
