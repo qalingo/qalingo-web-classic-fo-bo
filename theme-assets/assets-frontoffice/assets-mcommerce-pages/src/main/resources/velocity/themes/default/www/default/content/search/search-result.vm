@@ -81,11 +81,14 @@
 				#foreach( $searchProductItem in $pagedListHolder.pageList)
 				<li class="item span3">
 					<a href="$searchProductItem.productDetailsUrl" class="product-image">
-						<span><img src="${searchProductItem.carouselImage}" alt="${searchProductItem.name}"/></span>
+						<span>
+							<img class="lazy" data-original="${searchProductItem.carouselImage}" src="/assets/images/placeholder.jpg" alt="${searchProductItem.name}"/>
+							<noscript><img src="${searchProductItem.carouselImage}"></noscript>
+						</span>
 					</a>					
 					<div class="product-info-wrap">
 						<a href="$searchProductItem.productDetailsUrl" class="product-name">${searchProductItem.name}</a>
-						<span class="rating-stars star-4">&nbsp;</span>
+						<span class="rating-stars star-$!searchProductItem.customerProductRates.avgRateStar">&nbsp;</span>
 						<p class="product-short-des hide-as-grid">${searchProductItem.description}</p>
 						<p class="product-price">$!searchProductItem.priceWithCurrencySign</p>
 						<a href="$searchProductItem.addToCartUrl" class="cart-btn1">
@@ -110,7 +113,10 @@
 
 <script type="text/javascript">
 	function startupPage(){
-    	$script(['library/jsrender/jsrender.min','page.search-result'], function(){
+    	$script(['library/jsrender/jsrender.min','library/lazyload/jquery.lazyload.min','page.search-result'], function(){
+			$("img.lazy").lazyload({
+                threshold : 200
+            });
     		$.qalingo.search({
 				params: {
 					text: "$!searchText",
