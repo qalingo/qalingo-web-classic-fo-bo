@@ -1,0 +1,33 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($head_meta = "../content/retailer/store-details_meta.vm")
+#set ($page_title = $seoPageTitle)
+#set ($breadcrumbWording = $!store.name + '<span class="glyphicons certificate"><i></i></span>')
+#set ($footer_script_content = "../content/retailer/store-details_script.vm")
+
+<article>
+	<div>
+					$!store.businessName ($!store.code)
+
+					<address>
+					($!store.address.address1 || $!store.address.city || $!store.address.countryLabel)
+					#if($!store.address.address1)$!store.address.address1#end#if($!store.address.city), $!store.address.postalCode $!store.address.city#end#if($!store.address.countryLabel), $!store.address.countryLabel <img src="${common.themeResourcePrefixPath}/img/icons/flag/16x16/$!{store.address.countryCode.toLowerCase()}.png">#end</dd>			
+					</address>
+
+					#if($!store.address.email)
+					<a href="mailto:$!store.address.email"></i>$!store.address.email</a>
+					#end
+					#if($!store.address.phone)
+					<i class="icon-phone-sign"></i> <a href="tel:$!store.address.phone"></i>$!store.address.phone</a>
+					#end
+					#if($!store.address.website)
+					<i class="icon-globe"></i> <a href="#">$!store.address.website</a>
+					#end
+
+    </div>
+	
+	<div class="clear border-btm"></div>
+	<div id="map-store" style="clear: both; width: 1170px; height: 400px;"></div>
+
+					
+</article>
+

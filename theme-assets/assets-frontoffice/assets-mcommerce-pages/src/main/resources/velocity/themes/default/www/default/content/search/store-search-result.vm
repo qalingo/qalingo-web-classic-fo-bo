@@ -6,33 +6,7 @@
 	<div class="side-bar span3">
 		<span class="section-title sidebar-title">Custom search</span>
 		<div class="nav-category search-result-custom">
-			#if ($facetFieldList.size() > 0 && $facetFieldList[0].values.size() > 0)
-			<label>Filter by category</label>			
-			<ul class="filter-category-slt">
-				#foreach($facetField in $facetFieldList)
-					#if($facetField.name == 'catalogCategories')
-						#foreach($value in $facetField.values)
-    						<li class="level0 parent">
-    							<input type="checkbox" #if("$!categoriesFilter"=="")checked#end name="catalog-categories" id="catalog-categories-$value.key" data-field="$facetField.name" value="$value.key">&nbsp;$value.value
-    						</li>
-						#end
-					#end
-				#end
-			</ul>
-			#end
-			<label>Filter by Price</label>
-			#set ($priceStart = $price.start)
-			#set ($priceEnd = $price.end)
-			#if ("$!price.start" == "")
-				#set ($priceStart = 0)
-			#end
-			#if ("$!price.end" == "")
-				#set ($priceEnd = 500)
-			#end
-			
-			<div class="x-ui-slider x-ui-slider-horizontal">
-			</div>				
-			<p class="search-price-caption">From <strong> $priceStart$</strong> to <strong>$priceEnd$</strong></p>
+
 			
 			<button class="search-result-custom-btn" id="search-filter"><i class="icon-search">&nbsp;</i> Filter</button>
 		</div>
@@ -60,7 +34,7 @@
 				#if ("$!searchText" != "")
 				<h2 class="result-title">$!pagedListHolder.nrOfElements result(s) for <strong>"$!searchText"</strong></h2>
 				#end
-				<form id="search-form" class="search-result-form" method="GET" action="$urlSubmitQuickSearch">
+				<form id="search-form" class="search-result-form" method="GET" action="">
 					<input type="text" name="text" value="$!searchText" placeholder="$wording.get("fo.search.form_search_label_text")" class="result-search-textbox">
 					<button class="result-search-btn"><i class="icon-search">&nbsp;</i></button>
 					<input type="hidden" name="pageSize" value="$!pageSize"/>
@@ -72,31 +46,21 @@
 				</form>
 			</div>
 
-			<!-- filter-bar -->
 			#parse("../../_include/search-result-toolbar.vm")
-			<!-- //filter bar -->
-			
-			
-			<ul class="products-grid row list-view">
-				#foreach( $searchProductItem in $pagedListHolder.pageList)
+						
+			<ul class="stores-grid row list-view">
+				#foreach( $searchItem in $pagedListHolder.pageList)
 				<li class="item span3">
-					<a href="$searchProductItem.productDetailsUrl" class="product-image">
+					<a href="$searchItem.detailsUrl" class="store-image">
 						<span>
-							<img class="lazy" data-original="${searchProductItem.carouselImage}" src="/assets/images/placeholder.jpg" alt="${searchProductItem.name}"/>
-							<noscript><img src="${searchProductItem.carouselImage}"></noscript>
+							<img class="lazy" data-original="${searchItem.carouselImage}" src="/assets/images/placeholder.jpg" alt="${searchItem.name}"/>
+							<noscript><img src="${searchItem.carouselImage}"></noscript>
 						</span>
 					</a>					
-					<div class="product-info-wrap">
-						<a href="$searchProductItem.productDetailsUrl" class="product-name">${searchProductItem.name}</a>
-						<span class="rating-stars star-$!searchProductItem.customerProductRates.avgRateStar">&nbsp;</span>
-						<p class="product-short-des hide-as-grid">${searchProductItem.description}</p>
-						<p class="product-price">$!searchProductItem.priceWithCurrencySign</p>
-						<a href="$searchProductItem.addToCartUrl" class="cart-btn1">
-							<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-						<a href="#" class="wishlist-btn1">
-							<i class="icon-heart"></i>
-							<span class="wishlist-btn-des">Add to wishlist</span>
-						</a>
+					<div class="store-info-wrap">
+						<a href="$searchItem.detailsUrl" class="store-name">${searchItem.name}</a>
+						<p class="store-short-des hide-as-grid">${searchItem.description}</p>
+						<a href="$searchItem.detailsUrl">details</a>
 					</div>
 				</li>
 				#end

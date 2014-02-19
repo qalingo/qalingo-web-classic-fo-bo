@@ -1,0 +1,4 @@
+
+<meta property="og:title" content="$!store.metaShareTitle" />
+<meta property="og:description" content="$!store.metaShareDescription" />
+<meta property="og:image" content="$!store.metaShareImage" />

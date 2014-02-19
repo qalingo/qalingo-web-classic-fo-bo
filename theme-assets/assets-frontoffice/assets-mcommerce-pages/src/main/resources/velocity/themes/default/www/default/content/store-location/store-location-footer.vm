@@ -19,11 +19,12 @@
 <script id="marketTemplate" type="text/x-jsrender">
 <div id="store-info-{{:code}}" class="location-popup" style="display: block;">
 	<span class="location-popup-thumb">
-		<img src="{{:iconImage}}">
+		<a href="{{:detailsUrl}}" target="_blank"><img src="{{:iconImage}}"></a>
 	</span>
 	<span class="location-popup-info">
 		<h2 class="store-list-title">{{:businessName}}</h2>
 		<p>{{:address1}}<br>{{:city}}<br>{{:country}}<br></p>
+		<p><a href="{{:detailsUrl}}" target="_blank">store details</a></p>
 	</span>
 </div>
 </script>
