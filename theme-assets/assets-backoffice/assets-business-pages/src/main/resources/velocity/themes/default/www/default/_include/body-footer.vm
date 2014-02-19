@@ -21,10 +21,12 @@
 								<h4>Support</h4>
 								<ul>
 									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/issues?state=open" alt="Report a bug" target="_blank">Report a bug</a></li>
-									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="Wiki" target="_blank">Wiki</a></li>
+									<li><a href="http://wiki.qalingo.com" alt="Wiki" target="_blank">Wiki</a></li>
+									<li><a href="http://forum.qalingo.com" alt="Forum" target="_blank">Forum</a></li>
+									<li><a href="http://documents.qalingo.com" alt="Documents" target="_blank">Documents</a></li>
 									<li><a href="http://www.twitter.com/QalingoEco" alt="Wiki" target="_blank">Feedback</a></li>
 								</ul>
-							</div> <!-- /span3 -->
+							</div>
 					
 							<div class="span3">
 								<h4>About Hoteia</h4>
@@ -35,7 +37,7 @@
 									<li><a href="http://www.faceboook.com/hoteia" alt="Hoteia on Facebook" target="_blank">Facebook</a></li>
 									<li><a href="https://plus.google.com/111065382984549498585" alt="Hoteia on Google+" target="_blank">Google+</a></li>
 								</ul>
-							</div> <!-- /span3 -->
+							</div>
 							
 							<div class="span3">
 								<h4>About Qalingo</h4>
@@ -43,15 +45,15 @@
 									<li><a href="http://www.qalingo.com" alt="Qalingo.com" target="_blank">Qalingo.com</a></li>
 									<li><a href="http://www.twitter.com/QalingoEco" alt="Qalingo on Twitter" target="_blank">Twitter</a></li>
 								</ul>
-							</div> <!-- /span3 -->
+							</div>
 							
-						</div> <!-- /row -->
+						</div>
 
-					</div> <!-- /container -->
+					</div>
 
-				</div> <!-- /extra-inner -->
+				</div>
 
-			</div> <!-- /extra -->
+			</div>
 			<div class="footer">
 				<div class="footer-inner">
 					<div class="container">
@@ -63,9 +65,9 @@
 								<div style="float: right;">
 									<img src="${common.themeResourcePrefixPath}/img/footer-ico.png" width="40px" height="40px" />
 								</div>
-							</div> <!-- /span12 -->
-						</div> <!-- /row -->
-					</div> <!-- /container -->
-				</div> <!-- /footer-inner -->
-			</div> <!-- /footer -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
         </footer>

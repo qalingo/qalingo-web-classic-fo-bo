@@ -1,5 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($footer_script_content = "../content/catalog/catalog-footer-script.vm")
+#set ($footer_script_content = "../content/catalog/catalog-manage-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 <style>
@@ -49,7 +49,7 @@
 #macro( process $categories ) 
 	#foreach( $category in $categories ) 
 	<li>
-		<a href="#$category.code" class="find-products">$category.businessName <span class="counter">($category.countProduct)</span></a>
+		<a href="#$category.code" class="find-products">$category.name <span class="counter">($category.countProduct)</span></a>
 		#if( $category.subCategories )
 		<ul>
 			#process( $category.subCategories )
