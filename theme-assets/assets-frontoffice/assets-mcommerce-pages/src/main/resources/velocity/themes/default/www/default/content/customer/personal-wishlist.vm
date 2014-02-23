@@ -3,14 +3,14 @@
 
 
 
-		<link href="${common.themeResourcePrefixPath}/js/library/wishlist-slide/wishlist-slide.css" rel="stylesheet" type="text/css">
+		<link href="${common.themeResourcePrefixPath}/library/wishlist-slide/wishlist-slide.css" rel="stylesheet" type="text/css">
 
 <style type="text/css" >
 #featured li.ui-tabs-selected, #featured li.ui-tabs-active{ 
-	background:url('${common.themeResourcePrefixPath}/js/library/wishlist-slide/images/selected-item.gif') top left no-repeat;  
+	background:url('${common.themeResourcePrefixPath}/library/wishlist-slide/images/selected-item.gif') top left no-repeat;  
 }
 #featured .ui-tabs-panel .info{ 
-	background: url('${common.themeResourcePrefixPath}/js/library/wishlist-slide/images/transparent-bg.png'); 
+	background: url('${common.themeResourcePrefixPath}/library/wishlist-slide/images/transparent-bg.png'); 
 }
 </style>
 <script type="text/javascript">

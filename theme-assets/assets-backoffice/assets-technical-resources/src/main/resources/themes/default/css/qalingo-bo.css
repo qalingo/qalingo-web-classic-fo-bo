@@ -78,6 +78,10 @@ h1 {
 	Navbar content
 *****************************************************************************/
 
+.navbar {
+    border: 0px solid transparent;
+}
+	
 .navbar .container {
 	position: relative;
 }

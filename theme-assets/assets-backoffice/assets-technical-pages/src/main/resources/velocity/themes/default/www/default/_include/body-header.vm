@@ -5,9 +5,9 @@
 			<div class="container">
 				
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<span class="fa fa-bar"></span>
+					<span class="fa fa-bar"></span>
+					<span class="fa fa-bar"></span>
 				</a>
 				
 				<a class="brand" href="$!common.homeUrl">$!appNameHtml</a>
@@ -28,7 +28,7 @@
 							<li class="dropdown">
 								
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="icon-cog"></i>
+									<i class="fa fa-cog"></i>
 									$wording.get("bo.header_menu.settings")
 									<b class="caret"></b>
 								</a>
@@ -45,7 +45,7 @@
 							#if($!user)
 							<li class="dropdown">								
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="icon-user"></i> 
+									<i class="fa fa-user"></i> 
 									$!user.lastname $!user.firstname
 									<b class="caret"></b>
 								</a>
@@ -65,9 +65,7 @@
 					</div>						
 				</div>
 				<div id="app-env" style="clear: both;">
-					<div>
-
-					</div>
+					<div></div>
 					<div style="float: right;">
 						<form action="$!quickSearch.urlFormSubmit" class="navbar-search pull-right" method="POST">
 							<input id="global-search-txt" name="global-search-txt" type="text" class="search-query" placeholder="$wording.get("bo.search.form_search_label_text")">

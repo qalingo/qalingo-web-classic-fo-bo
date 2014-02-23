@@ -5,11 +5,11 @@
 <link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/default/default.css" type="text/css">
 <link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-<link href="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
+<link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
 	function startupPage(){
-		$script(['library/lazyload/jquery.lazyload.min'], function(){
+		$script(['/library/lazyload/jquery.lazyload.min'], function(){
 			$("img.lazy").lazyload({
                 threshold : 200
             });    		

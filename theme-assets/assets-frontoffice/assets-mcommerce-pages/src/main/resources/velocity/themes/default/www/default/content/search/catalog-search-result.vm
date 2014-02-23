@@ -37,9 +37,9 @@
 			<button class="search-result-custom-btn" id="search-filter"><i class="icon-search">&nbsp;</i> Filter</button>
 		</div>
 		
-		#parse("../../_include/sidebar-recent-products.vm")
+		#parse("../../_include/body-sidebar-recent-products.vm")
 		
-		#parse("../../_include/sidebar-light-cart-view.vm")
+		#parse("../../_include/body-sidebar-light-cart-view.vm")
 		
 		<a href="" class="sidebar-banner">
 			<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">
@@ -73,7 +73,7 @@
 			</div>
 
 			<!-- filter-bar -->
-			#parse("../../_include/search-result-toolbar.vm")
+			#parse("../../_include/body-search-result-toolbar.vm")
 			<!-- //filter bar -->
 			
 			
@@ -103,7 +103,7 @@
 			</ul>
 
 			<!-- filter bar  -->
-			#parse("../../_include/search-result-toolbar.vm")
+			#parse("../../_include/body-search-result-toolbar.vm")
 			<!-- //filter bar -->
 
 		</div>

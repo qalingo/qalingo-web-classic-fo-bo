@@ -11,16 +11,12 @@
 				var $$ = $(this).addClass('tree');
 				var dragged = false;
 
-				// Applique la classe 'file' aux "li" qui n'ont pas d'enfants
 				$('li:not(:has(ul))', $$).addClass('file');
 
-				// Applique la classe 'folder' aux "li" qui ont des enfants
 				$('li:has(ul)', $$).addClass('folder');
 
-				// Masque tous les "ul" sous les dossiers
 				$('.folder ul', $$).hide();
 
-				// Active le déplacement des "li"
 				$('li', $$).draggable({
 					zIndex: 9999,
 					distance: 20,
@@ -31,7 +27,6 @@
 					}
 				}).disableSelection();
 
-				// Active le dépôt des "li" déplacés
 				$('.folder', $$).droppable({
 					accept: 'li',
 					greedy: true,
@@ -45,15 +40,11 @@
 					}
 				});
 
-				// Fonction comptant les enfants et affichant le compteur
 				function addCounters() {
 					// Nothing
 				}
 				addCounters();
 
-				// Affiche/masque le "ul" sous le folder lorsqu'il est cliqué
-				// et y  ajoute/supprime la classe "open" puis stoppe la propagation
-				// pour que les dossiers supérieurs ne "recoivent pas" le clic
 				$('.folder', $$).click(function(e) {
 					$('ul:first', this).slideToggle();
 					$(this).toggleClass('open');
@@ -61,15 +52,10 @@
 					return false;
 				});
 
-				// Stoppe la propagation du clic sur les fichiers
-				// pour que les dossiers supérieurs ne "reçoivent pas" le clic
-				// et se ferment
 				$('.file', $$).click(function(e) {
 					e.stopPropagation();
 				});
 
-				// Ouvre les éventuels dossiers (et les dossiers parents)
-				// précisés en option
 				$(options.expand, $$).each(function() {
 					$('ul:first', this).show();
 					$(this).addClass('open');
@@ -77,19 +63,16 @@
 					$(this).parents('.folder').addClass('open');
 				});
 
-				// Ajoute un lien "delete" à tous les fichiers
 				$('.file > a', $$).after(function() {
 					return ' <a href="#" class="delete" style="color: red;">supprimer</a>';
 				});    
 
-				// Les liens "delete" ne s'affiche que lorsque le "li" est survolé
 				$('.file').hover(function() {
 					if (!dragged) $('.delete', this).show();
 				}, function() {
 					$('.delete', this).hide();
 				});
 
-				// Lors que "delete" est cliqué, une fois confirmé, le "li" parent est détruit
 				$('.delete').click(function() {
 					if (confirm('Etes-vous sur ?')) {
 						$(this).parent().remove();

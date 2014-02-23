@@ -45,11 +45,6 @@ public class DozerBeanMapperFactoryBean implements FactoryBean<Mapper>,
   private Map<String, BeanFactory> factories;
   private ApplicationContext applicationContext;
 
-
-  public void setCustomFieldMapper(CustomFieldMapper customFieldMapper) {
-    this.customFieldMapper = customFieldMapper;
-  }
-  
   /**
    * Spring resources definition for providing mapping file location.
    * Could be used for loading all mapping files by wildcard definition for example
@@ -70,6 +65,9 @@ public class DozerBeanMapperFactoryBean implements FactoryBean<Mapper>,
       this.mappingBuilders = mappingBuilders;
   }
 
+  public void setCustomFieldMapper(CustomFieldMapper customFieldMapper) {
+      this.customFieldMapper = customFieldMapper;
+    }
 
   public final void setCustomConverters(final List<CustomConverter> customConverters) {
     this.customConverters = customConverters;

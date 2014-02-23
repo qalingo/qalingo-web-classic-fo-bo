@@ -1,15 +1,14 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/font/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/default/default.css" type="text/css">
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/default/default.css" type="text/css">
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-<link href="${common.themeResourcePrefixPath}/js/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
+<link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
 	function startupPage(){
-		$script(['library/lazyload/jquery.lazyload.min'], function(){
+		$script(['/library/lazyload/jquery.lazyload.min'], function(){
 			$("img.lazy").lazyload({
                 threshold : 200
             });    		
@@ -99,9 +98,9 @@
 		#end
 	</ul>
 	
-	#parse("../../_include/sidebar-recent-products.vm")
+	#parse("../../_include/body-sidebar-recent-products.vm")
 	
-	#parse("../../_include/sidebar-light-cart-view.vm")
+	#parse("../../_include/body-sidebar-light-cart-view.vm")
 	
 	<a href="" class="sidebar-banner">
 		<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">

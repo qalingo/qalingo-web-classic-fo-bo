@@ -32,7 +32,7 @@
 						
 						<li class="dropdown">					
 							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-								<i class="icon-share-alt"></i>
+								<i class="fa fa-share"></i>
 								<span>$wording.get("bo.header_menu.more_pages")</span>
 								<b class="caret"></b>
 							</a>

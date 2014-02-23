@@ -3,7 +3,7 @@
 
 				<section id="login">
 					<div class="page-header"></div>
-					<div style="padding-bottom: 50px;">
+					<div style="padding-top: 50px;">
 						<div>
 							#parse("_include/body-form-login.vm")
 						</div>
