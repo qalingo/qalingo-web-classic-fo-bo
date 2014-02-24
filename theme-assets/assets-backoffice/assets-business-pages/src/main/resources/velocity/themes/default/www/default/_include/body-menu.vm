@@ -40,8 +40,7 @@
 								#foreach($morePageMenu in $morePageMenus)
 								<li class="${morePageMenu.cssClass}">
 									<a href="${morePageMenu.url}">
-										<i class="${morePageMenu.cssIcon}"></i>
-										<span>${morePageMenu.name}</span>
+										<i class="${morePageMenu.cssIcon}"></i>&nbsp;<span>${morePageMenu.name}</span>
 									</a>	    				
 								</li>
 								#end

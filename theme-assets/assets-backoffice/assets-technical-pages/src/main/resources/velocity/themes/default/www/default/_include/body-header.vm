@@ -33,11 +33,11 @@
 									<b class="caret"></b>
 								</a>
 								
-								<ul class="dropdown-menu">
-									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.account_settings")">$wording.get("bo.header_menu.account_settings")</a></li>
+								<ul class="dropdown-menu" style="text-align: left;">
+									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.account_settings")">$wording.get("bo.header_menu.account_settings")</a><i class="fa fa-user"></i>&nbsp;</li>
 									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.privacy_settings")">$wording.get("bo.header_menu.privacy_settings")</a></li>
 									<li class="divider"></li>
-									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="$wording.get("bo.header_menu.wiki")" target="_blank">$wording.get("bo.header_menu.wiki")</a></li>
+									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="$wording.get("bo.header_menu.wiki")" target="_blank"><i class="fa fa-file-text-o "></i>&nbsp;$wording.get("bo.header_menu.wiki")</a></li>
 								</ul>
 								
 							</li>
@@ -49,12 +49,12 @@
 									$!user.lastname $!user.firstname
 									<b class="caret"></b>
 								</a>
-								<ul class="dropdown-menu">
-									<li><a href="$!common.personalDetailsUrl">$wording.get("bo.header_menu.my_profile")</a></li>
-									<li><a href="$!common.personalDetailsUrl">$wording.get("bo.header_menu.my_groups")</a></li>
+								<ul class="dropdown-menu" style="text-align: left;">
+									<li><a href="$!common.personalDetailsUrl"><i class="fa fa-user"></i>&nbsp;$wording.get("bo.header_menu.my_profile")</a></li>
+									<li><a href="$!common.personalDetailsUrl"><i class="fa fa-cogs"></i>&nbsp;$wording.get("bo.header_menu.my_groups")</a></li>
 
 									<li class="divider"></li>
-									<li><a href="$!common.logoutUrl">$wording.get("bo.auth.header_title_logout")</a></li>
+									<li><a href="$!common.logoutUrl"><i class="fa fa-lock"></i>&nbsp;$wording.get("bo.auth.header_title_logout")</a></li>
 								</ul>
 							</li>
 							#end
