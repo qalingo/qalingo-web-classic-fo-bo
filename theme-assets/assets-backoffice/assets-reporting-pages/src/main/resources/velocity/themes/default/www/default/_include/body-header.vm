@@ -12,8 +12,7 @@
 				
 				<a class="brand" href="$!common.homeUrl">$!appNameHtml</a>
 				
-				<div class="nav-collapse" style="text-align: center;">
-
+				<div class="nav-collapse">
 					<div style="float: right;">
 						<ul class="nav pull-right">
 							<li class="dropdown">
