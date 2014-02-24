@@ -18,6 +18,10 @@ h1 {
     font-size: 25.5px;
 }
 
+.input-append .add-on, .input-prepend .add-on {
+	height: auto;
+}
+
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
     width: 1080px;
 }

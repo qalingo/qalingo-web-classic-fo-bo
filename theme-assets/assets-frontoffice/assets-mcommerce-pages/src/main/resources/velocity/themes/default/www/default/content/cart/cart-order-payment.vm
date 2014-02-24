@@ -24,10 +24,10 @@ $!tabIndex#end
 									</div>
 									<div style="float: left; padding-bottom: 5px;">
 										<span class="block paddingLeft">
-											<input type="radio" id="MASTERCARD" name="paymentType" value="MASTERCARD" tabindex="#tabIndex()" style="float: left;"> <span class="payment-type-mastercard payment-icon-sprite"></span>
-											<input type="radio" id="VISA" name="paymentType" value="VISA" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-visa payment-icon-sprite"></span>
-											<input type="radio" id="AMEX" name="paymentType" value="AMEX" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-amex payment-icon-sprite"></span>
-											<input type="radio" id="PAYPAL" name="paymentType" value="PAYPAL" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-paypal payment-icon-sprite"></span>
+											<input type="radio" id="MASTERCARD" name="paymentType" value="MASTERCARD" tabindex="#tabIndex()" style="float: left;"> <span class="payment-type-mastercard payment-fa fa-sprite"></span>
+											<input type="radio" id="VISA" name="paymentType" value="VISA" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-visa payment-fa fa-sprite"></span>
+											<input type="radio" id="AMEX" name="paymentType" value="AMEX" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-amex payment-fa fa-sprite"></span>
+											<input type="radio" id="PAYPAL" name="paymentType" value="PAYPAL" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-paypal payment-fa fa-sprite"></span>
 										</span>
 									</div>
 								</div>

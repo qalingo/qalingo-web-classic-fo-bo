@@ -17,10 +17,10 @@
 					<a href="mailto:$!store.address.email"></i>$!store.address.email</a>
 					#end
 					#if($!store.address.phone)
-					<i class="icon-phone-sign"></i> <a href="tel:$!store.address.phone"></i>$!store.address.phone</a>
+					<i class="fa fa-phone-sign"></i> <a href="tel:$!store.address.phone"></i>$!store.address.phone</a>
 					#end
 					#if($!store.address.website)
-					<i class="icon-globe"></i> <a href="#">$!store.address.website</a>
+					<i class="fa fa-globe"></i> <a href="#">$!store.address.website</a>
 					#end
 
     </div>

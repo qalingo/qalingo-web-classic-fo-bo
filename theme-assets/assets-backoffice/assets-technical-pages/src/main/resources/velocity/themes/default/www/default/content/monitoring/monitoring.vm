@@ -63,17 +63,17 @@
 										<tr>
 											<td>data flows ERP</td>
 											<td>2013/10/25 8:31 AM</td>
-											<td style="color: green; text-align: right;">is UP<i class="icon-ok"></i></td>
+											<td style="color: green; text-align: right;">is UP<i class="fa fa-ok"></i></td>
 										</tr>
 										<tr>
 											<td>data flows CMS</td>
 											<td>2013/10/25 8:31 AM</td>
-											<td style="color: red; text-align: right;">is DOWN<i class="icon-bolt"></i></td> 
+											<td style="color: red; text-align: right;">is DOWN<i class="fa fa-bolt"></i></td> 
 										</tr>
 										<tr>
 											<td>data flows Payment gateway PayPal</td>
 											<td>2013/10/25 8:31 AM</td>
-											<td style="color: green; text-align: right;">is OK<i class="icon-ok"></i></td> 
+											<td style="color: green; text-align: right;">is OK<i class="fa fa-ok"></i></td> 
 										</tr>
 									</tbody>
 								</table>
@@ -92,8 +92,8 @@
 <script>
 	$(function() {
 		var icons = {
-			header: "ui-icon-circle-plus",
-			activeHeader: "ui-icon-circle-minus"
+			header: "ui-fa fa-circle-plus",
+			activeHeader: "ui-fa fa-circle-minus"
 		};
 		$( "#accordion" ).accordion({
 			icons: icons

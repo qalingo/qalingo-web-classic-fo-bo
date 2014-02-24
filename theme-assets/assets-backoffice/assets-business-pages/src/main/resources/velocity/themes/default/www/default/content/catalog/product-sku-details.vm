@@ -15,7 +15,7 @@
 						
 						<div class="widget-header">
 							<div style="float: left;">
-								<i class="icon-pushpin"></i>
+								<i class="fa fa-pushpin"></i>
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
@@ -44,7 +44,7 @@
 					<div class="widget widget-nopad">
 							
 						<div class="widget-header">
-							<i class="icon-list-alt"></i>
+							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.global_attribute_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
@@ -79,7 +79,7 @@
 					<div class="widget widget-nopad">
 							
 						<div class="widget-header">
-							<i class="icon-list-alt"></i>
+							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.area_attribute_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
@@ -114,7 +114,7 @@
 					<div class="widget">
 							
 						<div class="widget-header">
-							<i class="icon-list-alt"></i>
+							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.asset_list_label")</h3>
 						</div> <!-- /widget-header -->
 						
@@ -155,7 +155,7 @@
 							
 						<div class="widget-header">
 							<div style="float: left;">
-								<i class="icon-list-alt"></i>
+								<i class="fa fa-list-alt"></i>
 								<h3>$wording.get("bo.product_sku.product_marketing_associated_label")</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">

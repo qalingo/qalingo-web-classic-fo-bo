@@ -8,7 +8,7 @@
 		<div class="nav-category search-result-custom">
 
 			
-			<button class="search-result-custom-btn" id="search-filter"><i class="icon-search">&nbsp;</i> Filter</button>
+			<button class="search-result-custom-btn" id="search-filter"><i class="fa fa-search">&nbsp;</i> Filter</button>
 		</div>
 		
 		#parse("../../_include/body-sidebar-recent-products.vm")
@@ -36,7 +36,7 @@
 				#end
 				<form id="search-form" class="search-result-form" method="GET" action="">
 					<input type="text" name="text" value="$!searchText" placeholder="$wording.get("fo.search.form_search_label_text")" class="result-search-textbox">
-					<button class="result-search-btn"><i class="icon-search">&nbsp;</i></button>
+					<button class="result-search-btn"><i class="fa fa-search">&nbsp;</i></button>
 					<input type="hidden" name="pageSize" value="$!pageSize"/>
     				<input type="hidden" name="sortBy" value="$!sortBy"/>
     				<input type="hidden" name="order" value="$!order"/>

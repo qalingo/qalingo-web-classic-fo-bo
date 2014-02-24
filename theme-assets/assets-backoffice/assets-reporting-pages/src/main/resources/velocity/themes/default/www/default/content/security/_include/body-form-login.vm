@@ -21,8 +21,9 @@
 								<div style="float: left; width: 100px;">
 									<label for="j_username" class="label-form">$wording.get("bo.auth.login_form_login_label")</label>
 								</div>
-								<div style="float: left;">
-									<input type="text" name="j_username" value="">
+								<div style="float: left;" class="input-prepend">
+									<span style="color: #8E959C; vertical-align: middle;" class="add-on"><i class="fa fa-user"></i></span>
+									<input type="text" name="j_username" value="" placeholder="$wording.get("bo.auth.login_form_login_placeholder_label")" style="height: 30px;">
 								</div>
 							</div>
 						</div>
@@ -32,8 +33,9 @@
 								<div style="float: left; width: 100px;">
 									<label for="j_password" class="label-form">$wording.get("bo.auth.login_form_password_label")</label>
 								</div>
-								<div style="float: left;">
-									<input type="password" name="j_password">
+								<div style="float: left;" class="input-prepend">
+									<span style="color: #8E959C; vertical-align: middle;" class="add-on"><i class="fa fa-lock"></i></span>
+									<input type="password" name="j_password" value="" placeholder="$wording.get("bo.auth.login_form_password_placeholder_label")" style="height: 30px;">
 								</div>
 							</div>
 						</div>

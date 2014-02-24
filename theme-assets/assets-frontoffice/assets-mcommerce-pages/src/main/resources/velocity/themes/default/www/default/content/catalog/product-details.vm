@@ -20,13 +20,13 @@
 				<form class="add2cart-form">
 					<label>Quantity</label>
 					<input type="text" value="" class="ql-textbox quantity">
-					<a href="$productMarketing.addToCartUrl" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+					<a href="$productMarketing.addToCartUrl" class="cart-btn1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 				</form>
 			</span>
 			<span class="product-des">
 				<p>$productMarketing.description</p>				
 			</span>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+			<a href="#" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
 		</div>
 	</div>
 	
@@ -156,8 +156,8 @@
 			<a href="#" class="product-name">$relatedProduct.i18nName</a>
 			<span class="rating-stars star-4">&nbsp;</span>
 			<p class="product-price">$relatedProduct.priceWithCurrencySign</p>
-			<a href="$relatedProduct.addToCartUrl" class="cart-btn1"><i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-			<a href="#" class="wishlist-btn1"><i class="icon-heart"></i></a>
+			<a href="$relatedProduct.addToCartUrl" class="cart-btn1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+			<a href="#" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
 		</li>	
 		#end
 	</ul>

@@ -14,7 +14,7 @@
 					#if($!retailer.defaultAddress.address1 || $!retailer.defaultAddress.city || $!retailer.defaultAddress.countryLabel)
 						<li>
 <dl class="dl-horizontal" style="margin-bottom: 5px;">
-    <dt style="width: 20px;"><i class="icon-home" style="font-size: 22px;"></i></dt>
+    <dt style="width: 20px;"><i class="fa fa-home" style="font-size: 22px;"></i></dt>
     <dd style="margin-left: 25px;">#if($!retailer.defaultAddress.address1)$!retailer.defaultAddress.address1#end#if($!retailer.defaultAddress.city), $!retailer.defaultAddress.postalCode $!retailer.defaultAddress.city#end#if($!retailer.defaultAddress.countryLabel), $!retailer.defaultAddress.countryLabel <img src="${common.themeResourcePrefixPath}/img/icons/flag/16x16/$!{retailer.defaultAddress.countryCode.toLowerCase()}.png">#end</dd>
 </dl>
 						</li>
@@ -22,7 +22,7 @@
 					#if($!retailer.defaultAddress.email)
 					<li>
 <dl class="dl-horizontal" style="margin-bottom: 5px;">
-    <dt style="width: 20px;"><i class="icon-envelope"></i></dt>
+    <dt style="width: 20px;"><i class="fa fa-envelope"></i></dt>
     <dd style="margin-left: 25px;"><a href="mailto:$!retailer.defaultAddress.email"></i>$!retailer.defaultAddress.email</a></dd>
 </dl>
 					</li>
@@ -30,7 +30,7 @@
 					#if($!retailer.defaultAddress.phone)
 					<li>
 <dl class="dl-horizontal" style="margin-bottom: 5px;">
-    <dt style="width: 20px;"><i class="icon-phone-sign"></i></dt>
+    <dt style="width: 20px;"><i class="fa fa-phone-sign"></i></dt>
     <dd style="margin-left: 25px;"><a href="tel:$!retailer.defaultAddress.phone"></i>$!retailer.defaultAddress.phone</a></dd>
 </dl>
 					</li>
@@ -38,7 +38,7 @@
 					#if($!retailer.defaultAddress.website)
 					<li>
 <dl class="dl-horizontal" style="margin-bottom: 5px;">
-    <dt style="width: 20px;"><i class="icon-globe"></i></dt>
+    <dt style="width: 20px;"><i class="fa fa-globe"></i></dt>
     <dd style="margin-left: 25px;"><a href="#">$!retailer.defaultAddress.website</a></dd>
 </dl>
 					</li>
@@ -52,24 +52,24 @@
 				#if($!retailer.qualityOfService && $!retailer.qualityOfService > 0)
 					#foreach($number in [1..$!retailer.qualityOfService])
 						#set($max = $max - 1)
-						<li><i class="icon-star"></i></li>
+						<li><i class="fa fa-star"></i></li>
 					#end
 				#end
 				#foreach($number in [0..$max])
-				<li><i class="icon-star-empty"></i></li>
+				<li><i class="fa fa-star-empty"></i></li>
 				#end
 				</a>
 			</ul>
             <ul class="unstyled inline blog-ads">
 				#if($!retailer.priceScore > 0)
 					#foreach($number in [0..$!retailer.priceScore])
-						<li><i class="icon-eur"></i></li>
+						<li><i class="fa fa-eur"></i></li>
 					#end
 				#end
 			</ul>
             <ul class="unstyled inline blog-ads">
 				#if($!retailer.reviewCount > 0)
-					<li><i class="icon-comments-alt"></i></li> $!retailer.reviewCount reviews
+					<li><i class="fa fa-comments-alt"></i></li> $!retailer.reviewCount reviews
 				#end
 			</ul>
 #*
@@ -96,7 +96,7 @@
         	<div class="headline"><h3>$wording.get("fo.retailer.tags_part_title")</h3></div>
             <ul class="unstyled inline blog-tags">
 				#foreach($tag in $retailer.tags)
-					<li><a href="$!tag.url"><i class="icon-tags"></i> $!tag.code</a></li>
+					<li><a href="$!tag.url"><i class="fa fa-tags"></i> $!tag.code</a></li>
 				#end
             </ul>
 			#end

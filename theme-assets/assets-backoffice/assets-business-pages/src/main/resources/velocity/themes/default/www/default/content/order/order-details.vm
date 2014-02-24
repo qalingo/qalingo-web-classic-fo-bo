@@ -15,7 +15,7 @@
 						
 						<div class="widget-header">
 							<div style="float: left;">
-								<i class="icon-pushpin"></i>
+								<i class="fa fa-pushpin"></i>
 								<h3>${mainContentTitle}</h3>
 							</div>
 							#*
@@ -37,7 +37,7 @@
 					<div class="widget widget-nopad">
 							
 						<div class="widget-header">
-							<i class="icon-list-alt"></i>
+							<i class="fa fa-list-alt"></i>
 							<h3>${order.xxx}</h3>
 						</div> <!-- /widget-header -->
 						

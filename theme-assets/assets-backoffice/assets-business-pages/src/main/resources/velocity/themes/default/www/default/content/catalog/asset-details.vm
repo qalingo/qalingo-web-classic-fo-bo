@@ -15,7 +15,7 @@
 						
 						<div class="widget-header">
 							<div style="float: left;">
-								<i class="icon-pushpin"></i>
+								<i class="fa fa-pushpin"></i>
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">

@@ -10,7 +10,7 @@
 						$!order.confirmationMessage
 					</div>
 					<div style="padding-top: 25px; padding-bottom: 25px; color: #2F353E; text-align: center;">
-						<a href="$!orderConfirmationPdfUrl" target="_blank" alt="Download your order confirmation" class="btn btn-primary"><i class="icon-download-alt icon-large"></i>&nbsp;Download your order confirmation</a>
+						<a href="$!orderConfirmationPdfUrl" target="_blank" alt="Download your order confirmation" class="btn btn-primary"><i class="fa fa-download-alt fa fa-large"></i>&nbsp;Download your order confirmation</a>
 					</div>
 					<div style="padding: 5px;">
 						#parse("_include/order-details.vm")

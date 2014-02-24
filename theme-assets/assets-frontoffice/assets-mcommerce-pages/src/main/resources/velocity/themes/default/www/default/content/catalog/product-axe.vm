@@ -85,8 +85,8 @@
 				<span class="rating-stars star-$!featuredProduct.customerProductRates.avgRateStar">&nbsp;</span>
 				<p class="product-price">${featuredProduct.priceWithCurrencySign}</p>
 				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
-					<i class="icon-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="${featuredProduct.addToWishlistUrl}" class="wishlist-btn1"><i class="icon-heart"></i></a>
+					<i class="fa fa-shopping-cart"></i> &nbsp;  Add to cart</a>
+				<a href="${featuredProduct.addToWishlistUrl}" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
 			</div>
 			#if($items % 4 == 0 || $size == $count)
 			#set( $items = 0 )
@@ -125,8 +125,8 @@
         			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
         			<p class="product-price">${productMarketing.priceWithCurrencySign}</p>
         			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
-        				<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-        			<a href="${productMarketing.addToWishlistUrl}" class="wishlist-btn1"><i class="icon-heart"></i></a>
+        				<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+        			<a href="${productMarketing.addToWishlistUrl}" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
         		</li>
 			#end
     	</ul>

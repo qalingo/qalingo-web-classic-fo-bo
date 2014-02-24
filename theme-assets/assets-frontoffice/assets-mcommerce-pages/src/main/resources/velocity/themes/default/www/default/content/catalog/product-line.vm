@@ -85,8 +85,8 @@
 	<span class="section-title sidebar-title">Category</span>
 	<ul class="nav-category">
 		#foreach($catalogCategory in $catalogCategories)
-	    <li class="level0 active parent">
-			<a href="${catalogCategory.productAxeUrl}" class="level-top">${catalogCategory.name}</a>
+	    <li>
+			<i class="fa fa-bars"></i>&nbsp;<a href="${catalogCategory.productAxeUrl}" class="level-top">${catalogCategory.name}</a>
 			<ul class="level0">
 			#foreach($subCategory in $catalogCategory.subCategories)
 				<li class="level1">
@@ -133,11 +133,11 @@
 						#set ($orderBy = "desc")
 					#end
 					#if($mode == "list")
-						<a href="?mode=gird&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}" title="Gird" class="grid "><i class="icon-th"></i></a>
-						<span title="List" class="list selected"><i class="icon-th-list"></i></span>
+						<a href="?mode=gird&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}" title="Gird" class="grid "><i class="fa fa-th"></i></a>
+						<span title="List" class="list selected"><i class="fa fa-th-list"></i></span>
 					#else
-						<span title="Gird" class="grid selected"><i class="icon-th"></i></span>
-						<a href="?mode=list&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}" title="List" class="list"><i class="icon-th-list"></i></a>
+						<span title="Gird" class="grid selected"><i class="fa fa-th"></i></span>
+						<a href="?mode=list&sortBy=${sortBy}&orderBy=${orderBy}&pageSize=${pageSize}" title="List" class="list"><i class="fa fa-th-list"></i></a>
 					#end
 					</p>
 
@@ -217,8 +217,8 @@
 				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
 				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
-					<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
-				<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1"><i class="icon-heart"></i></a>
+					<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+				<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
 			</li>			
 			#end
 		</ul>
@@ -235,9 +235,9 @@
 					<p class="product-short-des hide-as-grid">${productMarketing.description}</p>
 					<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
 					<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
-						<i class="icon-shopping-cart"></i>&nbsp;Add to cart</a>
+						<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 					<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1">
-						<i class="icon-heart"></i>
+						<i class="fa fa-heart"></i>
 						<span class="wishlist-btn-des">Add to wishlist</span>
 					</a>
 				</div>
