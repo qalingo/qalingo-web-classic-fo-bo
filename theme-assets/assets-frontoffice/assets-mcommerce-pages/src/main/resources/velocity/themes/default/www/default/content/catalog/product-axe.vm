@@ -1,9 +1,11 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
+#*
 <link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/font/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/default/default.css" type="text/css">
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
+*#
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/default/default.css" type="text/css">
+<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
