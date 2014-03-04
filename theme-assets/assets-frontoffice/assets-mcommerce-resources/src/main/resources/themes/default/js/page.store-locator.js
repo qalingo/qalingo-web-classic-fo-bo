@@ -41,7 +41,7 @@
 	    marker.events.register("click", marker, eventMarkerOver);
 	    marker.id = "marker"+ code ;
 	    _markers.addMarker(marker);
-	    console.log(marker);
+	    //console.log(marker);
 	},	
 	_findPopupByCode = function(code){
 	    var popups = _map.popups;

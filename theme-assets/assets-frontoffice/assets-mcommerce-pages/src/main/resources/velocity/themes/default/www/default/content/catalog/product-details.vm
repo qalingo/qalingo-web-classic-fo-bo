@@ -169,7 +169,7 @@
     
 <script type="text/javascript">
 	function startupPage(){
-    	$script(['page.product-details'], function(){
+    	$script(['/js/page.product-details'], function(){
 			$.product.details.customer();
     	});
 	}
