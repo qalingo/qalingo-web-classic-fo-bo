@@ -1669,6 +1669,9 @@ footer {
 	color: #333;
 }
 
-
+.container {
+padding-right: 0;
+padding-left: 0;
+}
 
 
