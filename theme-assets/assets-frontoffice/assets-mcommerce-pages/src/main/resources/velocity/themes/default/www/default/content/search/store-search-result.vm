@@ -6,8 +6,6 @@
 	<div class="side-bar span3">
 		<span class="section-title sidebar-title">Custom search</span>
 		<div class="nav-category search-result-custom">
-
-			
 			<button class="search-result-custom-btn" id="search-filter"><i class="fa fa-search">&nbsp;</i> Filter</button>
 		</div>
 		
