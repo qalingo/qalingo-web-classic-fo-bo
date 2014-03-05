@@ -41,7 +41,7 @@
 	    marker.events.register("click", marker, eventMarkerOver);
 	    marker.id = "marker"+ code ;
 	    _markers.addMarker(marker);
-//	    console.log(marker);
+	    //console.log(marker);
 	},	
 	_findPopupByCode = function(code){
 	    var popups = _map.popups;
@@ -81,7 +81,7 @@
 	    }
 	    _initTemplate("selectCityTemplate", "cityImpl");
     	var htmlContent = $.render.cityImpl({data:cities});
-	    $('#city').html(htmlContent);
+	    $('#city').html(html);
 	},
 	_buildSetMarkerByCoordinates = function(stores){
 	    for(var i = 0 ; i < stores.length ; i++){
@@ -123,7 +123,7 @@
 	_buildSliderStore = function(){
 		_initTemplate("storesTemplate", "storesImpl");
     	var htmlContent = $.render.storesImpl({data:_storesFound});
-    	$('#location-store-list').html(htmlContent);
+    	$('.slides_container.row.products-grid').html(htmlContent);
 		$('#location-store-list').slides({
 				preload: true,
 				generateNextPrev: true,

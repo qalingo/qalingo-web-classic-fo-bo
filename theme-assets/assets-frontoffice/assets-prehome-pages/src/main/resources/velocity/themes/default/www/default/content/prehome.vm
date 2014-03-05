@@ -10,7 +10,7 @@
 	<div style="padding-top: 20px;">
 		<ul class="nav nav-list">
 			#foreach($marketPlace in $marketPlaces)
-			<li><i class="fa fa-bars"></i>&nbsp;<a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank">$marketPlace.name</a></li>
+			<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank"><i class="fa fa-bars"></i>&nbsp;$marketPlace.name</a></li>
 			<ul>
 				#foreach($market in $marketPlace.markets)
 				<li><a href="$market.homeUrl" alt="$market.name" target="_blank">$market.name</a></li>
