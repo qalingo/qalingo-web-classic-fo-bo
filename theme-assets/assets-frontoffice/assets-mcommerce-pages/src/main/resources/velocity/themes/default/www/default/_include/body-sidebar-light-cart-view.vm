@@ -3,7 +3,7 @@
 	#if($cart.cartItems.size() > 0)
 		#foreach($cartItem in $cart.cartItems)
 		<li class="level0 parent">
-		 <a href="$cartItem.productDetailsUrl">${cartItem.i18nName}</a>
+			<a href="$cartItem.productDetailsUrl"><i class="fa fa-bars"></i>&nbsp;${cartItem.i18nName}</a>
 		</li>
 		#end
 		<a href="$cart.cartDetailsUrl"> Cart Detail</a>

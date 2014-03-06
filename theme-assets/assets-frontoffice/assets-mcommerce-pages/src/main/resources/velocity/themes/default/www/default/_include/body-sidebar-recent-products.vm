@@ -3,7 +3,7 @@
 <ul class="nav-category">
 	#foreach($recentProduct in $recentProducts)
     <li class="level0 parent">
-		<a href="${recentProduct.detailsUrl}" class="">${recentProduct.i18nName}</a>
+		<a href="${recentProduct.detailsUrl}" class=""><i class="fa fa-bars"></i>&nbsp;${recentProduct.i18nName}</a>
 	</li>
 	#end
 </ul>
