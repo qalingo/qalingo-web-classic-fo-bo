@@ -31,6 +31,7 @@
 
 <script id="storesTemplate" type="text/x-jsrender">
 {{* count = 0;}}
+<div class="slides_container row products-grid">
 {{for data}}
 	{{if #index ==0 || #index%4 == 0 }}
 		<div class="slide">       
@@ -43,10 +44,11 @@
 				</div>
 			</a>
 		</div>
-		{{if (#index + 1) % 4 == 0 }}
+		{{if (#index + 1) % 4 == 0 || #parent.data.length == (#index + 1) }}
 		</div>              
 		{{/if}}
-{{/for}}
+{{/for}} 
+</div>
 </script>
 
 <script id="selectCountryTemplate" type="text/x-jsrender"> 

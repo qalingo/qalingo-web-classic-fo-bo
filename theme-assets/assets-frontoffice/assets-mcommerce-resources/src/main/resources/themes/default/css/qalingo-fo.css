@@ -386,11 +386,20 @@ a.product-name:hover {
 }
 
 .linked-logos-slide .slides_container, .linked-logos-slide .slides_container {
-	/*width:100%;*/
+	width:100%;
 	display:none;
 	position: relative;
 	height: 111px;
 	padding-bottom: 20px;
+	float:left;
+}
+
+.linked-logos-slide .slides_container.row {
+	margin-left: 0;
+}
+
+.linked-logos-slide .slides_container.row .item:first-child {
+	margin-left: 0;
 }
 
 footer {
@@ -877,6 +886,9 @@ padding-left: 9px;
 	margin-top: 20px
 }
 
+div.location-store-list {
+	height: 256px;
+}
 
 div.location-store-list .slides_container,
 div.location-store-list .slides_container .item,
