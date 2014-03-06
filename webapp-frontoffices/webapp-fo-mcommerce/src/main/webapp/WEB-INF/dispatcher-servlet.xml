@@ -57,10 +57,12 @@
 				<property name="useCacheControlNoStore" value="true" />
 			</bean>
 		</mvc:interceptor>
+		<!--
         <mvc:interceptor>
             <mvc:mapping path="/**/*.html" />
             <bean class="org.hoteia.qalingo.core.web.mvc.interceptor.CacheInterceptor"></bean>
         </mvc:interceptor>
+		-->
 	</mvc:interceptors>
 	
 	<!-- Configures view context -->
