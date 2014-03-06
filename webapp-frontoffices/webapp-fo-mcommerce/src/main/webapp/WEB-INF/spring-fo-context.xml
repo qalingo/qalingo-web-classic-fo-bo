@@ -43,8 +43,8 @@
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
-	<import resource="classpath:conf/spring/qalingo-core-fo-cache.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-cache-common.xml" />
 	
 	<import resource="classpath:conf/spring/qalingo-core-fo-common-dozer.xml" />
 	
@@ -79,18 +79,18 @@
 	<aop:config>
         <aop:aspect id="triggerEmailNotification" ref="emailNotificationAspect">
             <aop:pointcut id="emailNotificationBusinessService" expression="execution(* org.hoteia.qalingo.core.service.EmailService.buildAndSave*(..))" />
-            <aop:before method="beforeRuning" pointcut-ref="emailNotificationBusinessService" />
-            <aop:after-returning method="afterRuning" pointcut-ref="emailNotificationBusinessService" returning="result" />
+            <aop:before method="before" pointcut-ref="emailNotificationBusinessService" />
+            <aop:after-returning method="afterReturning" pointcut-ref="emailNotificationBusinessService" returning="result" />
         </aop:aspect>
         <aop:aspect id="triggerRuleOrientedCart" ref="ruleOrientedCartAspect">
             <aop:pointcut id="ruleOrientedCartBusinessService" expression="execution(* org.hoteia.qalingo.core.service.EngineSessionService.updateAndSynchronizeEngineEcoSession*(..))" />
-            <aop:before method="beforeRuning" pointcut-ref="ruleOrientedCartBusinessService" />
-            <aop:after-returning method="afterRuning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
+            <aop:before method="before" pointcut-ref="ruleOrientedCartBusinessService" />
+            <aop:after-returning method="afterReturning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
         </aop:aspect>
         <aop:aspect id="triggerDocumentGenerator" ref="documentGeneratorAspect">
             <aop:pointcut id="documentGeneratorBusinessService" expression="execution(* org.hoteia.qalingo.core.service.OrderCustomerService.createNewOrder*(..))" />
-            <aop:before method="beforeRuning" pointcut-ref="documentGeneratorBusinessService" />
-            <aop:after-returning method="afterRuning" pointcut-ref="documentGeneratorBusinessService" returning="result" />
+            <aop:before method="before" pointcut-ref="documentGeneratorBusinessService" />
+            <aop:after-returning method="afterReturning" pointcut-ref="documentGeneratorBusinessService" returning="result" />
         </aop:aspect>
     </aop:config>
 

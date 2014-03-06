@@ -90,6 +90,10 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
+			<artifactId>qalingo-api-core-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-core-common-web-bo</artifactId>
 		</dependency>
 		<dependency>
@@ -236,16 +240,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-		
-		<!-- Cache dependencies -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-core</artifactId>
 		</dependency>
 		
 		<!-- UI Velocity framework -->

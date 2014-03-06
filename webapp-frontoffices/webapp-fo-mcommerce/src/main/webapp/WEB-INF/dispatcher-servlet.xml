@@ -21,6 +21,8 @@
 						http://www.springframework.org/schema/mvc 
 						http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <import resource="classpath:resources-config.xml" />
+	
     <context:component-scan base-package="org.hoteia.qalingo.core.web.mvc" />
     <context:component-scan base-package="org.hoteia.qalingo.web.mvc" />
 
@@ -55,12 +57,17 @@
 				<property name="useCacheControlNoStore" value="true" />
 			</bean>
 		</mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**/*.html" />
+            <bean class="org.hoteia.qalingo.core.web.mvc.interceptor.CacheInterceptor"></bean>
+        </mvc:interceptor>
 	</mvc:interceptors>
 	
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-fo-common-view.xml" />
     <import resource="classpath:conf/spring/qalingo-core-fo-mcommerce-view.xml" />
-
+    <import resource="classpath:conf/spring/qalingo-core-cache-fo.xml" />
+	
 	<!-- Override -->
     <import resource="classpath:conf/spring/ext-core-mcommerce.xml" />
     
