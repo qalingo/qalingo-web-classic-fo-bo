@@ -43,7 +43,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
-	<import resource="classpath:conf/spring/qalingo-core-bo-cache.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-cache-common.xml" />
 
     <!-- Configures view context 
     <import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />

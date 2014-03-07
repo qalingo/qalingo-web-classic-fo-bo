@@ -82,6 +82,10 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
+			<artifactId>qalingo-api-core-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>qalingo-api-core-common-web-fo</artifactId>
 		</dependency>
 		<dependency>
@@ -222,12 +226,6 @@
 		<dependency>
 			<groupId>antlr</groupId>
 			<artifactId>antlr</artifactId>
-		</dependency>
-
-		<!-- Cache dependencies -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-web</artifactId>
 		</dependency>
 		
 		<!-- UI Velocity framework -->
