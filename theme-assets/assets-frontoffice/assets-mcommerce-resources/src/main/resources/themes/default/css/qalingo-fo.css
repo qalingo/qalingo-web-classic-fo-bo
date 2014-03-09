@@ -1284,7 +1284,7 @@ input.result-search-textbox:-ms-input-placeholder {
 }
 
 #menu-nav .search-result-form {
-	width: 20%;
+	width: 150px;
 	float: right;
 	position: relative;
 }
