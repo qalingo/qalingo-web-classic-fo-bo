@@ -22,14 +22,12 @@
 								#parse("../../_include/body-pagination-pagelistholder.vm")
 								<div>
 									<div id="dialog" title="Please select one target server">
-										  <select id="choosedServer" name="please select one server name">
-											
+										<select id="choosedServer" name="please select one server name">
 											#foreach($sever in $severList) 
-											<option value="$sever.serverName" selected>$sever.serverName</option>
-
+												<option value="$sever.serverName" selected>$sever.serverName</option>
 											#end
 											<option value="">
-										  </select>
+										</select>
 									</div>
 									<table class="table" style="width: 100%">
 										<thead>
@@ -43,10 +41,8 @@
 											</tr>
 										</thead>
 										<tbody>
-											 
 											<tr>
 												<td>catalog</td>
-												
 												<td>10000</td>
 												<td>300</td>
 												<td>600</td>
@@ -57,7 +53,6 @@
 											</tr>
 											<tr>
 												<td>category</td>
-												
 												<td>10000</td>
 												<td>300</td>
 												<td>600</td>
@@ -68,7 +63,6 @@
 											</tr>
 											<tr>
 												<td>customer</td>
-												
 												<td>10000</td>
 												<td>300</td>
 												<td>600</td>
@@ -79,7 +73,6 @@
 											</tr>
 											<tr>
 												<td>product</td>
-												
 												<td>10000</td>
 												<td>300</td>
 												<td>600</td>
@@ -88,8 +81,6 @@
 													<input type="button"  onclick="flushAllServer('product');" value="flush all servers"></input>&nbsp;<input type="button"  onclick="flushSpecificServer('product');" value="flush specific server"></input>
 												</td>
 											</tr>
-											
-											
 										</tbody>  
 									</table> 
 								</div>
@@ -154,5 +145,4 @@
 			}
 		});
 	});
-	
-	</script>
+</script>
