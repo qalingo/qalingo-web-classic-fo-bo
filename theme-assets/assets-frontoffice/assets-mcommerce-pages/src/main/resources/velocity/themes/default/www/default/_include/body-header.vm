@@ -14,7 +14,7 @@
 							<i class="fa fa-reorder"></i> $wording.get("fo.common.header_menu")
 						</a>
 						<a class="brand" href="${common.homeUrl}">$wording.get("fo.common.header_website_name")</a>
-						<div class="social_btns" style="padding-top: 25px; float: right;">
+						<div class="social_btns" style="float: right;">
 							<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 								<a class="addthis_button_preferred_1"></a>
 								<a class="addthis_button_preferred_2"></a>
@@ -25,7 +25,7 @@
 							</div>
 							<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-531d99f43e881de0"></script>
-						<div>
+						</div>
 						<div style="clear: both;"></div>
 					</div>
 				</div>
