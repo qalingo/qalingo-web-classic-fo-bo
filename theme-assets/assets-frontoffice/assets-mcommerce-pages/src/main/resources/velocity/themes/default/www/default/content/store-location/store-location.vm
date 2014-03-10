@@ -25,8 +25,8 @@
 							</select>
 						</div>
 						<div class="span3 filter-search">
-							<form class="filter-search-form" onsubmit="return false">
-								<input id="search" type="text" placeholder="Search store..." class="filter-textbox">
+							<form class="filter-search-form" action="$!storeSearchUrl" method="GET">
+								<input id="search" name="text" type="text" placeholder="Search store..." class="filter-textbox">
 								<button id="bt-search" class="filter-search-btn"><i class="fa fa-search">&nbsp;</i></button>
 							</form>
 						</div>
