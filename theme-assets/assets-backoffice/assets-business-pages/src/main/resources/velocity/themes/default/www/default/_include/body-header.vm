@@ -31,7 +31,7 @@
 								</a>
 								
 								<ul class="dropdown-menu" style="text-align: left;">
-									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.account_settings")"><i class="fa fa-user"></i>&nbsp;$wording.get("bo.header_menu.account_settings")</a><i class="fa fa-user"></i>&nbsp;</li>
+									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.account_settings")"><i class="fa fa-user"></i>&nbsp;$wording.get("bo.header_menu.account_settings")</a></li>
 									<li><a href="$!common.personalDetailsUrl" alt="$wording.get("bo.header_menu.privacy_settings")"><i class="fa fa-lock"></i>&nbsp;$wording.get("bo.header_menu.privacy_settings")</a></li>
 									<li class="divider"></li>
 									<li><a href="https://github.com/qalingo/qalingo-b2c-engine/wiki" alt="$wording.get("bo.header_menu.wiki")" target="_blank"><i class="fa fa-file-text-o "></i>&nbsp;$wording.get("bo.header_menu.wiki")</a></li>

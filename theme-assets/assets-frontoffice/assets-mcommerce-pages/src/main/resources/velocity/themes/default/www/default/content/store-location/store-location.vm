@@ -12,21 +12,21 @@
 					<div style="padding-bottom: 20px;">$wording.get("fo.store_locator.content_text")</div>
 					<div class="clear border-btm margin-top10"></div>
 					<div class="row location-filter-bar">
-						<div class="span3 filter-country">
+						<div class="span4 filter-country">
 							<label>Choose country</label>
 							<select id="country" class="filter-country-slt">
 								<option value="" selected="selected">Country</option>
 							</select>
 						</div>
-						<div class="span6 filter-city">
+						<div class="span5 filter-city">
 							<label>Choose City/Province</label>
 							<select id="city" class="filter-city-slt">
 								<option value="" selected="selected">City/Province</option>
 							</select>
 						</div>
 						<div class="span3 filter-search">
-							<form class="filter-search-form" onsubmit="return false">
-								<input id="search" type="text" placeholder="Search store..." class="filter-textbox">
+							<form class="filter-search-form" action="$!storeSearchUrl" method="GET">
+								<input id="search" name="text" type="text" placeholder="Search store..." class="filter-textbox">
 								<button id="bt-search" class="filter-search-btn"><i class="fa fa-search">&nbsp;</i></button>
 							</form>
 						</div>
