@@ -2,6 +2,8 @@
 <script src="${common.themeResourcePrefixPath}/library/script-load/script.min.js" type="text/javascript"></script>
 <script src="${common.themeResourcePrefixPath}/library/jquery-1.8.2/jquery-1.8.2.js" type="text/javascript"></script>
 
+<script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.popin.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	var jsBasePath =  "${common.themeResourcePrefixPath}";
 	if(typeof $script != 'undefined'){
@@ -16,7 +18,10 @@
 					//console.log('JS is ready');
 				}
 			});	
-		});		
+		});
 	};
+	
+	plugins.Popin.init();
+
 </script>
 

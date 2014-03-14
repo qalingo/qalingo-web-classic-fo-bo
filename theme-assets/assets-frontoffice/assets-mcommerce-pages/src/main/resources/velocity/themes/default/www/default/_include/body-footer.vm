@@ -54,8 +54,8 @@
 						</ul>
 						<span class="footer-nav-title footer-social-title">$wording.get("fo.footer_menu.follow_us")</span>
 						<ul class="footer-social-list">
-							<li><a href="http://www.facebook.com" class="ql-social-icons facebook">&nbsp;</a></li>
-							<li><a href="http://www.twitter.com" class="ql-social-icons twitter">&nbsp;</a></li>
+							<li><a href="http://www.facebook.com" class="ql-social-icons facebook" target="_blank">&nbsp;</a></li>
+							<li><a href="http://www.twitter.com" class="ql-social-icons twitter" target="_blank">&nbsp;</a></li>
 						</ul>
 					</div>
 					

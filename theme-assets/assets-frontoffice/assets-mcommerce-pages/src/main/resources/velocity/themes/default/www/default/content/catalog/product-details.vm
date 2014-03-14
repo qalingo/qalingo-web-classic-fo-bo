@@ -2,6 +2,10 @@
 #set ($footer_script_content = "../content/catalog/product-details-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
+
+
+#parse("../../_include/body-popin-add-to-cart.vm")
+	
 <div class="product-detail-wrap">
 	<span class="section-title category-title"><a href="${common.homeUrl}">Home</a> › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › <a href="$catalogBreadcrumb.detailsUrl">$catalogBreadcrumb.name</a> › $productMarketing.i18nName</span>
 	<div class="clear border-btm"></div>
@@ -19,8 +23,8 @@
 				<span class="product-price">$productMarketing.priceWithCurrencySign</span>
 				<form class="add2cart-form">
 					<label>Quantity</label>
-					<input type="text" value="" class="ql-textbox quantity">
-					<a href="$productMarketing.addToCartUrl" class="cart-btn1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+					<input type="text" value="1" class="ql-textbox quantity">
+					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogBreadcrumb.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 				</form>
 			</span>
 			<span class="product-des">
