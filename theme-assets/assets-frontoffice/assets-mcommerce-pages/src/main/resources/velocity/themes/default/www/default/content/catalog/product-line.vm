@@ -216,9 +216,12 @@
 				</a>
 				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
 				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
-				<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
-					<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
-				<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+				#if($!customer)
+					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+				#else
+					<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
+				#end
 			</li>			
 			#end
 		</ul>
@@ -234,12 +237,12 @@
 					<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
 					<p class="product-short-des hide-as-grid">${productMarketing.description}</p>
 					<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
-					<a href="${productMarketing.getAddToCartUrl()}" class="cart-btn1">
-						<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
-					<a href="${productMarketing.getAddToWishlistUrl()}" class="wishlist-btn1">
-						<i class="fa fa-heart"></i>
-						<span class="wishlist-btn-des">Add to wishlist</span>
-					</a>
+					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+					#if($!customer)
+						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+					#else
+						<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
+					#end
 				</div>
 			</li>			
 			#end

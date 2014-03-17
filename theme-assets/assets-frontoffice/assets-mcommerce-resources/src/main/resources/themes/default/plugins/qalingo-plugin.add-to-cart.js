@@ -7,13 +7,14 @@
 		
         init : function() {
 			if($('#add-cart-popup').length > 0){
-				$('.trigger-add-to-cart').on('click', function() {
-					var ajaxUrls = context.urls;
-					for(var i = 0; i < ajaxUrls.length; i++){
-						if(ajaxUrls[i].code == 'ADD_TO_CART_AJAX'){
-							ADD_TO_CART_AJAX = ajaxUrls[i];
-						}
+				var ajaxUrls = context.urls;
+				for(var i = 0; i < ajaxUrls.length; i++){
+					if(ajaxUrls[i].code == 'ADD_TO_CART_AJAX'){
+						ADD_TO_CART_AJAX = ajaxUrls[i];
 					}
+				}
+					
+				$('.trigger-add-to-cart').on('click', function() {
 					var catalogCategoryCode = $(this).attr('data-value-catalog-category-code');
 					var skuCode = $(this).attr('data-value-sku-code');
 					var quantity = $(this).attr('data-value-sku-quantity');
@@ -23,7 +24,7 @@
         },
 		
         addToCartButtonAjax : function(catalogCategoryCode, skuCode, quantity) {	
-			var params = "category-code=" + catalogCategoryCode + "&cart-item-sku-code=" + skuCode + "&cart-item-sku-quantity=" + quantity;		
+			var params = "category-code=" + catalogCategoryCode + "&product-sku-code=" + skuCode + "&quantity=" + quantity;		
 			plugins.Popin.loading();
 			$.ajax({
 				url: ADD_TO_CART_AJAX.url,
@@ -47,10 +48,10 @@
         displaySuccessAddToCartCallBack : function() {
 			$('#header-cart-status').html('&nbsp;<i class="fa fa-shopping-cart"></i><a href="' + callBackData.checkoutShoppingCartUrl + '" alt="" style="padding-left:3px;">' + callBackData.checkoutShoppingCartHeaderLabel + '</a>');
 			
-				var _initTemplate = function(templateId, templateName){
-					templateId = "#" + templateId;
-					$.templates(templateName, templateId);
-				};
+			var _initTemplate = function(templateId, templateName){
+				templateId = "#" + templateId;
+				$.templates(templateName, templateId);
+			};
 	
 			_initTemplate("addToCartProductContent", "addToCartProductContent");
 			var htmlContent = $.render.addToCartProductContent(callBackData);
@@ -64,7 +65,21 @@
 		},
 		
         displayErrorAddToCartCallBack : function() {
-			$('#add-cart-popup #popup_content').html('ERROR');
+		
+			var _initTemplate = function(templateId, templateName){
+				templateId = "#" + templateId;
+				$.templates(templateName, templateId);
+			};
+	
+			_initTemplate("addToCartProductContent", "addToCartProductContent");
+			var htmlContent = $.render.addToCartProductContent(callBackData);
+				
+			$('#add-cart-popup #popup_content').html(htmlContent);
+			
+			$('.add-to-cart-continue').on('click', function() {
+				plugins.Popin.disablePopin($("#add-cart-popup"));
+			});
+			
 		}
 
     };

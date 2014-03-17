@@ -90,9 +90,7 @@ div#popup_content {
 			<div class="close"></div> 
 			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
 			<div id="popup_content">
-				<div style="background-color: #ffffff; color: red; padding: 10px;">
-					ADD TO CART
-				</div>
+				<div style="background-color: #ffffff; color: red; padding: 10px;"></div>
 			</div>
 		</div>
 		<div style="clear: both;"></div>
@@ -106,7 +104,12 @@ div#popup_content {
 		</div>
 		<div class="product-info span5">
 			<h3 class="product-name">{{:productSku.i18nName}}</h3>
-			<p style="padding-top: 5px; padding-bottom: 5px;">success message !!!! </p>
+			{{for successMessages}}
+			<p id="{{:id}}" style="color: green; padding-top: 5px; padding-bottom: 5px;">{{:message}}</p>
+			{{/for}} 
+			{{for errorMessages}}
+			<p id="{{:id}}" style="color: red; padding-top: 5px; padding-bottom: 5px;">{{:message}}</p>
+			{{/for}} 
 			<p class="product-sku" style="10px 0 15px"><strong>SKU:</strong> {{:productSku.code}}</p>
 			<span class="product-add2cart">
 				<span class="product-price">{{:productSku.priceWithStandardCurrencySign}}</span>
@@ -117,8 +120,8 @@ div#popup_content {
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: left; padding-left: 50px;" class="cart-btn1 add-to-cart-continue">continuer</div>
-			<div style="float: right; padding-right: 5px;" class="cart-btn1 add-to-cart-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart">&nbsp;finaliser</a></div>
+			<div style="float: left; margin-left: 40px;" class="cart-btn1 add-to-cart-continue">$wording.get("fo.common.popin_continue_label")</div>
+			<div style="float: right;" class="cart-btn1 go-to-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.checkout_shopping_cart.popin_go_to_cart")</a></div>
 		</div>
 	</div>
 </script>
