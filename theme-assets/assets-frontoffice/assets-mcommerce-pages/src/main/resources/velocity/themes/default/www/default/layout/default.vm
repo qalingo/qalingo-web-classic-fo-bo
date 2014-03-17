@@ -38,9 +38,10 @@
     </head>
     <body>
 	
+		
 		#* DEMO CONTEXT - START *#
 		<style>
-#backgroundPopup { 
+#background-popin { 
 	z-index:4000;
 	position: fixed;
 	display:none;
@@ -50,7 +51,7 @@
 	top:0px;  
 	left:0px;
 }
-#toPopup {
+#context-popin {
 	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
     background: none repeat scroll 0 0 #FFFFFF;
     border: 10px solid #ccc;
@@ -65,8 +66,8 @@
     width: 800px;
     z-index:4001;
 }
-div.loader {
-    background: url("../img/loading.gif") no-repeat scroll 0 0 transparent;
+div#loader-popin {
+    background: url("${common.themeResourcePrefixPath}/img/loading.gif") no-repeat scroll 0 0 transparent;
     height: 32px;
     width: 32px;
 	display: none;
@@ -76,8 +77,8 @@ div.loader {
 	position: absolute;
 	margin-left: -10px;
 }
-div.close {
-    background: url("../img/closebox.png") no-repeat scroll 0 0 transparent;
+div#popin .close {
+    background: url("${common.themeResourcePrefixPath}/img/closebox.png") no-repeat scroll 0 0 transparent;
     bottom: 24px;
     cursor: pointer;
     float: right;
@@ -86,7 +87,7 @@ div.close {
     position: relative;
     width: 30px;
 }
-span.ecs_tooltip {
+div#popin .ecs_tooltip {
     background: none repeat scroll 0 0 #000000;
     border-radius: 2px 2px 2px 2px;
     color: #FFFFFF;
@@ -101,7 +102,7 @@ span.ecs_tooltip {
     top: -51px;
     width: 93px;
 }
-span.arrow {
+div#popin .arrow {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 7px solid #000000;
@@ -112,18 +113,21 @@ span.arrow {
     top: 3px;
     width: 1px;
 }
-div#popup_content {
+div#popin-content {
     margin: 4px 7px;
 }
 		</style>
+		<div id="loader-popin"></div> 
+		<div id="background-popin"></div> 
+		
 		<div style="position: fixed; top: 40px; left: 50px; z-index:3000;">
-			<a href="#" class="btn-large btn-warning topopup" alt="Show Demo Context" >Show Demo Context</a>
+			<a href="#" class="btn-large btn-warning context-popin" alt="Show Demo Context" >Show Demo Context</a>
 		</div>
 		
-		<div id="toPopup"> 
+		<div id="context-popin" class="popin trigger-popin" data-attribute-status="0"> 
 			<div class="close"></div> 
 			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
-			<div id="popup_content">
+			<div id="popin-content">
 				<div style="background-color: #ffffff; color: red; padding: 10px;">
 					<div style="text-align: center; font-weight: bold;">Demo Context</div>
 					<div>
@@ -202,9 +206,8 @@ div#popup_content {
 				</div>
 			</div>
 		</div>
-		<div class="loader"></div> 
-		<div id="backgroundPopup"></div> 
 		<div style="clear: both;"></div>
+		
 		#* DEMO CONTEXT - END *#
 				
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -241,67 +244,12 @@ div#popup_content {
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				
-				$("a.topopup").click(function() {
-						loading();
-						setTimeout(function(){ 
-							loadPopup();
-						}, 500);
-				return false;
+				$("a.context-popin").click(function() {
+					plugins.Popin.loading();
+					setTimeout(function(){  plugins.Popin.loadPopin($("#context-popin")); }, 500);
+					return false;
 				});
 				
-				$("div.close").hover(
-								function() {
-									$('span.ecs_tooltip').show();
-								},
-								function () {
-									$('span.ecs_tooltip').hide();
-								}
-							);
-				
-				$("div.close").click(function() {
-					disablePopup();
-				});
-				
-				$(this).keyup(function(event) {
-					if (event.which == 27) { 
-						disablePopup();
-					}  	
-				});
-				
-				$("div#backgroundPopup").click(function() {
-					disablePopup();
-				});
-				
-				$('a.livebox').click(function() {
-					alert('Hello World!');
-				return false;
-				});
-
-				function loading() {
-					$("div.loader").show();  
-				}
-				function closeloading() {
-					$("div.loader").fadeOut('normal');  
-				}
-				
-				var popupStatus = 0;
-				
-				function loadPopup() { 
-					if(popupStatus == 0) {
-						closeloading();
-						$("#toPopup").fadeIn(0500);
-						$("#backgroundPopup").css("opacity", "0.7");
-						$("#backgroundPopup").fadeIn(0001); 
-						popupStatus = 1;
-					}	
-				}
-				function disablePopup() {
-					if(popupStatus == 1) {
-						$("#toPopup").fadeOut("normal");  
-						$("#backgroundPopup").fadeOut("normal");  
-						popupStatus = 0;
-					}
-				}
 			});
 		</script>
     </body>
