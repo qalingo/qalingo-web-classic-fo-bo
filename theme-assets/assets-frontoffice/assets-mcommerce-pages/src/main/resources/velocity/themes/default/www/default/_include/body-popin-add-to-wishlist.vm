@@ -1,0 +1,131 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+		#* DEMO CONTEXT - START *#
+		<style>
+#backgroundPopup { 
+	z-index:4000;
+	position: fixed;
+	display:none;
+	height:100%;
+	width:100%;
+	background:#000000;	
+	top:0px;  
+	left:0px;
+}
+#add-wishlist-popup {
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 10px solid #ccc;
+    border-radius: 3px 3px 3px 3px;
+    color: #333333;
+    display: none;
+	font-size: 14px;
+    left: 50%;
+    margin-left: -402px;
+    position: fixed;
+    top: 20%;
+    width: 800px;
+    z-index:4001;
+}
+div.loader {
+    background: url("${common.themeResourcePrefixPath}/img/loading.gif") no-repeat scroll 0 0 transparent;
+    height: 32px;
+    width: 32px;
+	display: none;
+	z-index: 9999;
+	top: 40%;
+	left: 50%;
+	position: absolute;
+	margin-left: -10px;
+}
+div.close {
+    background: url("${common.themeResourcePrefixPath}/img/closebox.png") no-repeat scroll 0 0 transparent;
+    bottom: 24px;
+    cursor: pointer;
+    float: right;
+    height: 30px;
+    left: 27px;
+    position: relative;
+    width: 30px;
+}
+span.ecs_tooltip {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    display: none;
+    font-size: 11px;
+    height: 16px;
+    opacity: 0.7;
+    padding: 4px 3px 2px 5px;
+    position: absolute;
+    right: -62px;
+    text-align: center;
+    top: -51px;
+    width: 93px;
+}
+span.arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid #000000;
+    display: block;
+    height: 1px;
+    left: 40px;
+    position: relative;
+    top: 3px;
+    width: 1px;
+}
+div#popup_content {
+    margin: 4px 7px;
+}
+		</style>
+		
+		<div id="add-wishlist-popup" class="trigger-popin" data-attribute-status="0"> 
+			<div class="close"></div> 
+			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
+			<div id="popup_content">
+				<div style="background-color: #ffffff; color: red; padding: 10px;"></div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		
+<script id="addToWishlistProductContent" type="text/x-jsrender">
+	<div class="product-detail-content row">
+		<div class="product-image-wrap span3">
+			<a class="product-image product-line-image" href="javascript:void(0);">
+				<img alt="{{:productSku.i18nName}}" src="{{:productSku.defaultPaskshotImage}}">
+			</a>
+		</div>
+		<div class="product-info span5">
+			<h3 class="product-name">{{:productSku.i18nName}}</h3>
+			{{for successMessages}}
+			<p id="{{:id}}" style="color: green; padding-top: 5px; padding-bottom: 5px;">{{:message}}</p>
+			{{/for}} 
+			{{for errorMessages}}
+			<p id="{{:id}}" style="color: red; padding-top: 5px; padding-bottom: 5px;">{{:message}}</p>
+			{{/for}} 
+			<p class="product-sku" style="10px 0 15px"><strong>SKU:</strong> {{:productSku.code}}</p>
+			<span class="product-add2cart">
+				<span class="product-price">{{:productSku.priceWithStandardCurrencySign}}</span>
+			</span>
+			<span class="product-des">
+				<p>{{:productSku.description}}</p>				
+			</span>
+		</div>
+		<div style="clear: both;">
+		<div>
+			<div style="float: left; margin-left: 40px;" class="cart-btn1 add-to-wishlist-continue">$wording.get("fo.common.popin_continue_label")</div>
+			<div style="float: right;" class="cart-btn1 go-to-wishlist"><a href="{{:wishListDetailsUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.wishlist.popin_go_to_wishlist")</a></div>
+		</div>
+	</div>
+</script>
+
+		
+
+		

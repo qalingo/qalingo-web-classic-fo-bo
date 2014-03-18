@@ -1,0 +1,139 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+		#* DEMO CONTEXT - START *#
+		<style>
+#backgroundPopup { 
+	z-index:4000;
+	position: fixed;
+	display:none;
+	height:100%;
+	width:100%;
+	background:#000000;	
+	top:0px;  
+	left:0px;
+}
+#change-context-popup {
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 10px solid #ccc;
+    border-radius: 3px 3px 3px 3px;
+    color: #333333;
+    display: none;
+	font-size: 14px;
+    left: 50%;
+    margin-left: -402px;
+    position: fixed;
+    top: 10%;
+    width: 800px;
+    z-index:4001;
+}
+div.loader {
+    background: url("${common.themeResourcePrefixPath}/img/loading.gif") no-repeat scroll 0 0 transparent;
+    height: 32px;
+    width: 32px;
+	display: none;
+	z-index: 9999;
+	top: 40%;
+	left: 50%;
+	position: absolute;
+	margin-left: -10px;
+}
+div.close {
+    background: url("${common.themeResourcePrefixPath}/img/closebox.png") no-repeat scroll 0 0 transparent;
+    bottom: 24px;
+    cursor: pointer;
+    float: right;
+    height: 30px;
+    left: 27px;
+    position: relative;
+    width: 30px;
+}
+span.ecs_tooltip {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    display: none;
+    font-size: 11px;
+    height: 16px;
+    opacity: 0.7;
+    padding: 4px 3px 2px 5px;
+    position: absolute;
+    right: -62px;
+    text-align: center;
+    top: -51px;
+    width: 93px;
+}
+span.arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid #000000;
+    display: block;
+    height: 1px;
+    left: 40px;
+    position: relative;
+    top: 3px;
+    width: 1px;
+}
+div#popup_content {
+    margin: 4px 7px;
+}
+		</style>
+		
+		<div id="change-context-popup" class="trigger-popin" data-attribute-status="0"> 
+			<div class="close"></div> 
+			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
+			<div id="popup_content">
+				<div style="background-color: #ffffff; color: red; padding: 10px;"></div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		
+<script id="change-context-content" type="text/x-jsrender">
+	<div class="change-context-content row">
+		<div style="margin-left: 100px;">
+			<div>
+				your GEOLOC Remote Address: <span style="color: #ffffff;">$!geolocRemoteAddress</span><br/>
+				your GEOLOC Country: <span style="color: #ffffff;">$!geolocCountry.isoCode | $!geolocCountry.name</span><br/>
+				your GEOLOC City: <span style="color: #ffffff;">$!geolocCity.name</span><br/>
+			</div>
+			<div style="padding-top: 20px;">
+				<ul class="nav nav-list">
+					#foreach($marketPlace in $marketPlaces)
+					<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank"><i class="fa fa-bars"></i>&nbsp;$marketPlace.name</a></li>
+					<ul>
+						#foreach($market in $marketPlace.markets)
+						<li><a href="$market.homeUrl" alt="$market.name" target="_blank">$market.name</a></li>
+						<ul>
+							#foreach($marketArea in $market.marketAreas)
+							<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank">$marketArea.name</a></li>
+							<ul>
+								#foreach($localization in $marketArea.localizations)
+								<li><a href="$localization.homeUrl" alt="$localization.name" target="_blank">$localization.name</a></li>
+								#end
+							</ul>
+							#end
+						</ul>
+						#end
+					</ul>
+					<br/><br/>
+					#end
+				</ul>
+			</div>
+		</div>
+		<div style="clear: both;">
+		<div>
+			<div style="float: right; margin-right: 15px;" class="cart-btn1 change-context-continue">$wording.get("fo.common.popin_continue_label")</div>
+		</div>
+	</div>
+</script>
+
+		
+
+		

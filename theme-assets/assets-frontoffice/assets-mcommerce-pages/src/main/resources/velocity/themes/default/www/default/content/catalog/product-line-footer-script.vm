@@ -1,0 +1,55 @@
+
+<script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.add-to-cart.js" type="text/javascript"></script>
+<script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.add-to-wishlist.js" type="text/javascript"></script>
+<script type="text/javascript">
+	plugins.AddToCart.init();
+	plugins.AddToWishlist.init();
+</script>
+
+<script type="text/javascript">
+	function startupPage(){
+		$script(['/library/lazyload/jquery.lazyload.min'], function(){
+			$("img.lazy").lazyload({
+                threshold : 200
+            });    		
+    	});
+		$('#featured-products').slides({
+			preload: true,
+			generateNextPrev: true,
+			play: 0,
+			hoverPause: true
+		});
+		
+		$('#linked-logos-slide').slides({
+			preload: true,
+			generateNextPrev: true,
+			play: 0,
+			hoverPause: true
+		});
+		
+		$('#slider').nivoSlider({
+	    	controlNav: false
+	    });
+	    $('#sortBy').change(function(){
+	    	if($(this).val() == ""){
+	    		return ;
+	    	}
+			$('form#filter').submit();
+		});
+		
+		$('input[name="page"]').change(function(){
+			$('form#filter').submit();
+		});
+		$('#orderBy').click(function(){
+			if($('input[name="orderBy"]').val() == "desc"){
+				$('input[name="orderBy"]').val("asc");
+			}else{
+				$('input[name="orderBy"]').val("desc");
+			}
+			$('form#filter').submit();
+		});
+		$('select[name="pageSize"]').change(function(){
+			$('form#filter').submit();
+		});
+	}
+</script>
