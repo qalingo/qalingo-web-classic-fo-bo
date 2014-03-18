@@ -14,6 +14,31 @@
 							<i class="fa fa-reorder"></i> $wording.get("fo.common.header_menu")
 						</a>
 						<a class="brand" href="${common.homeUrl}">$wording.get("fo.common.header_website_name")</a>
+						
+							<div class="nav-collapse">
+								<ul class="nav nav-pills market-nav" style="margin-left: 50px;">
+									<li>
+										<a href="#" class="dropdown-toggle trigger-change-context">Change country</a>
+									</li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("fo.header_menu.market_area_languages")&nbsp;<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+										#foreach($localization in $marketAreaLocalizations)
+											<li><a href="$localization.changeContextUrl" alt="$localization.name">$localization.name</a></li>
+										#end
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("fo.header_menu.market_area_currencies")&nbsp;<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+										#foreach($currency in $marketAreaCurrencies)
+											<li><a href="$currency.changeContextUrl" alt="$currency.name">$currency.name</a></li>
+										#end
+										</ul>
+									</li>
+								</ul>
+							</div>
+						
 						<div class="social_btns" style="float: right;">
 							<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 								<a class="addthis_button_preferred_1"></a>

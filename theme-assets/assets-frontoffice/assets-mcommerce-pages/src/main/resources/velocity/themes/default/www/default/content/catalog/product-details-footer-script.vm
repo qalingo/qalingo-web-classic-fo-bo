@@ -1,5 +1,4 @@
 
-<script src="${common.themeResourcePrefixPath}/library/jsrender/jsrender.min.js" type="text/javascript"></script>
 <script src="${common.themeResourcePrefixPath}/library/product-carousel/product-carousel.js" type="text/javascript"></script>
 <script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.add-to-cart.js" type="text/javascript"></script>
 <script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.add-to-wishlist.js" type="text/javascript"></script>

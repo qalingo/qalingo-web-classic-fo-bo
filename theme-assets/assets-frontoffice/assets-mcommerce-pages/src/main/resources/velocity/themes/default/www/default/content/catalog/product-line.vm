@@ -1,4 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/catalog/product-line-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 <link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/default/default.css" type="text/css">
@@ -6,55 +7,8 @@
 
 <link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-	function startupPage(){
-		$script(['/library/lazyload/jquery.lazyload.min'], function(){
-			$("img.lazy").lazyload({
-                threshold : 200
-            });    		
-    	});
-		$('#featured-products').slides({
-			preload: true,
-			generateNextPrev: true,
-			play: 0,
-			hoverPause: true
-		});
-		
-		$('#linked-logos-slide').slides({
-			preload: true,
-			generateNextPrev: true,
-			play: 0,
-			hoverPause: true
-		});
-		
-		$('#slider').nivoSlider({
-	    	controlNav: false
-	    });
-	    $('#sortBy').change(function(){
-	    	if($(this).val() == ""){
-	    		return ;
-	    	}
-			$('form#filter').submit();
-		});
-		
-		$('input[name="page"]').change(function(){
-			$('form#filter').submit();
-		});
-		$('#orderBy').click(function(){
-			if($('input[name="orderBy"]').val() == "desc"){
-				$('input[name="orderBy"]').val("asc");
-			}else{
-				$('input[name="orderBy"]').val("desc");
-			}
-			$('form#filter').submit();
-		});
-		$('select[name="pageSize"]').change(function(){
-			$('form#filter').submit();
-		});
-	}
-</script>
-
-<!-- nivo slider - top banner -->
+#parse("../../_include/body-popin-add-to-cart.vm")
+#parse("../../_include/body-popin-add-to-wishlist.vm")
 				
 <div class="slider-wrapper theme-default axe-top-slider">
     <div id="slider" class="nivoSlider">
