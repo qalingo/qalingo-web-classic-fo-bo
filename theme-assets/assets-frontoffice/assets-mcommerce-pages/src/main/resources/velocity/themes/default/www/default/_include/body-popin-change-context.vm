@@ -99,9 +99,9 @@ div#popup_content {
 	<div class="change-context-content row">
 		<div style="margin-left: 100px;">
 			<div>
-				your GEOLOC Remote Address: <span style="color: #ffffff;">$!geolocRemoteAddress</span><br/>
-				your GEOLOC Country: <span style="color: #ffffff;">$!geolocCountry.isoCode | $!geolocCountry.name</span><br/>
-				your GEOLOC City: <span style="color: #ffffff;">$!geolocCity.name</span><br/>
+				your GEOLOC Remote Address: <span style="color: #7D7E81;">$!geolocRemoteAddress</span><br/>
+				your GEOLOC Country: <span style="color: #7D7E81;">$!geolocCountry.isoCode | $!geolocCountry.name</span><br/>
+				your GEOLOC City: <span style="color: #7D7E81;">$!geolocCity.name</span><br/>
 			</div>
 			<div style="padding-top: 20px;">
 				<ul class="nav nav-list">
