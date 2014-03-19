@@ -74,7 +74,7 @@
         }
         
         // Set first background
-        var sliderImg = $('<img class="nivo-main-image" />');
+        var sliderImg = $('<img class="nivo-main-image" src="#" />');
         sliderImg.attr('src', vars.currentImage.attr('src')).show();
         slider.append(sliderImg);
 
@@ -157,9 +157,21 @@
             }
 
             //Set initial active link
-            $('a:eq('+ vars.currentSlide +')', vars.controlNavEl).addClass('active');
+            // $('a:eq('+ vars.currentSlide +')', vars.controlNavEl).addClass('active');
+            $('.store-img-nav a:eq('+ vars.currentSlide +')').addClass('active');
+            console.log(vars.currentSlide);
             
-            $('a', vars.controlNavEl).bind('click', function(){
+            // $('a', vars.controlNavEl).bind('click', function(){
+ //                if(vars.running) return false;
+ //                if($(this).hasClass('active')) return false;
+ //                clearInterval(timer);
+ //                timer = '';
+ //                sliderImg.attr('src', vars.currentImage.attr('src'));
+ //                vars.currentSlide = $(this).attr('rel') - 1;
+ //                nivoRun(slider, kids, settings, 'control');
+ //            });
+            
+            $('.store-img-nav a').bind('click', function(){
                 if(vars.running) return false;
                 if($(this).hasClass('active')) return false;
                 clearInterval(timer);
@@ -328,9 +340,18 @@
             }
             
             // Set active links
+            // if(settings.controlNav){
+            //     $('a', vars.controlNavEl).removeClass('active');
+            //     $('a:eq('+ vars.currentSlide +')', vars.controlNavEl).addClass('active');
+            // }
+
+            // Set active links
             if(settings.controlNav){
                 $('a', vars.controlNavEl).removeClass('active');
                 $('a:eq('+ vars.currentSlide +')', vars.controlNavEl).addClass('active');
+                
+                $('.store-img-nav a').removeClass('active');
+                $('.store-img-nav a:eq('+ vars.currentSlide +')').addClass('active');
             }
             
             // Process caption
