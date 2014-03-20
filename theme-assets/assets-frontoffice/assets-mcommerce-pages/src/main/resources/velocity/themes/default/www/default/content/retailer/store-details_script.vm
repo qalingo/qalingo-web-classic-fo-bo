@@ -1,10 +1,10 @@
 		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 		<script>
 		jQuery(document).ready(function($) {
-			#if($!store.address.longitude && $!store.address.longitude != '' && $!store.address.latitude && $!store.address.latitude != '')
+			#if($!store.longitude && $!store.longitude != '' && $!store.latitude && $!store.latitude != '')
 			var zoom                 = 13;
-			var lonCenter            = $!store.address.longitude;
-			var latCenter            = $!store.address.latitude;
+			var lonCenter            = $!store.longitude;
+			var latCenter            = $!store.latitude;
 			#else
 			var zoom                 = 3;
 			var lonCenter            = -30.000;
@@ -13,33 +13,31 @@
 			var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
 			var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
 			var positionCenter = new OpenLayers.LonLat(lonCenter, latCenter).transform(fromProjection, toProjection);
-
-			map = new OpenLayers.Map("map");
+			map = new OpenLayers.Map("map-store");
 			var mapnik = new OpenLayers.Layer.OSM();
 			map.addLayer(mapnik);
-
 			var markers = new OpenLayers.Layer.Markers("Markers");
 			map.addLayer(markers);
-
-			#foreach($store in $retailer.stores) 
 			marker = new OpenLayers.Marker(new OpenLayers.LonLat($store.longitude, $store.latitude).transform(fromProjection, toProjection));
-			openStoreInfo = function(evt) { 
-				$('#store-info-$store.code').dialog({
-					title: '$store.businessName informations',
-					modal: true,
-					buttons: {
-						Ok: function() {
-							$(this).dialog( "close" );
-						}
-					}
-				});
-				OpenLayers.Event.stop(evt);
-			};
-			marker.events.register('mousedown', marker, openStoreInfo);
-			markers.addMarker(marker);
-			#end
-			
+			markers.addMarker(marker);	
 			map.addControl(new OpenLayers.Control.LayerSwitcher());
 			map.setCenter(positionCenter, zoom);
+			
+			
+			
 		});
+		function startupPage(){
+			$('#location-store-list').slides({
+				preload: true,
+				generateNextPrev: true,
+				play: 0,
+				hoverPause: true
+			});
+			 $('#store-images').nivoSlider({
+		    	effect: 'sliceUpDown'
+		    });
+		     var size = $('.nivo-controlNav.store-img-nav').find(".nivo-control").size(),
+		    	widthNivoControl = $('.nivo-controlNav.store-img-nav').width();
+		    $('.nivo-controlNav.store-img-nav').find(".nivo-control").width(((100-size+1)/size)+'%');
+		}
 		</script>

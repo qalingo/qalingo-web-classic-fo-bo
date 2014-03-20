@@ -352,7 +352,7 @@ a.product-name:hover {
 	text-align: center
 }
 
-.linked-logos-slide a.prev, .linked-logos-slide a.next {
+.linked-logos-slide a.prev, .linked-logos-slide a.next, .store-images-slider.theme-default .nivo-directionNav a  {
 	display: block;
 	width: 39px;
 	height: 39px;
@@ -883,7 +883,10 @@ padding-left: 9px;
 }
 
 div.location-store-list {
-	height: 256px;
+	height: 220px;
+	margin-bottom: 35px;
+	float: left;
+	width: 100%;
 }
 
 div.location-store-list .slides_container,
@@ -1765,4 +1768,113 @@ select.cart-item-select-qty {
 
 input.input-cart-promo-code {
     width: 150px;
+}
+/*new*/
+.store-detail-wrap .product-detail-content {
+	margin-bottom: 20px;
+}
+
+.product-sku.store-detail-add {
+	margin-top: 15px;
+	color: #707070;
+}
+
+.product-name.store-name {
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.slider-wrapper.axe-top-slider.store-images-slider {
+	margin-bottom: 10px;
+}
+
+.store-images-slider.axe-top-slider .nivo-caption {
+	visibility: hidden;
+}
+
+.store-images-slider.theme-default .nivo-directionNav a {
+	opacity: 0.1;
+}
+
+.store-images-slider.theme-default:hover .nivo-directionNav a {
+	opacity: 1;
+}
+
+.theme-default .nivo-directionNav a.nivo-nextNav {
+	background-position: -39px 0;
+	right: 15px;
+}
+
+.theme-default .nivo-directionNav a.nivo-prevNav {
+	left: 15px
+}
+
+.slider-wrapper .nivo-controlNav {
+	display: none;
+}
+
+.slider-wrapper .nivo-controlNav.store-img-nav {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.store-images-slider.slider-wrapper .nivo-controlNav a.nivo-control {
+	width: 15.833333%;
+	max-width: 20%;
+	height: 150px;
+	margin-right: 1%;
+	margin-left: 0;
+	margin-bottom: 20px;
+	text-align: center;
+	display: block;
+	float: left;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+}
+
+.store-images-slider.slider-wrapper .nivo-controlNav a.nivo-control.active,
+.store-images-slider.slider-wrapper .nivo-controlNav a.nivo-control:hover {
+	background-position: 0;
+	border: 5px solid rgba(0,0,0,.8);
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	opacity: .8;
+}
+
+.store-images-slider.slider-wrapper .nivo-controlNav a.nivo-control:last-child {
+	margin-right: 0;
+}
+
+.store-detail-wrap.product-detail-wrap .product-image {
+	height: 337px;
+}
+
+.store-images-slider.slider-wrapper .nivo-controlNav-wrap {
+	width:100%;
+	overflow: hidden;
+	position: relative;
+	height: 160px;
+	margin-top: 5px;
+}
+
+.product-image-wrap.span4.fo-map {
+	height: 400px;
+}
+
+.product-detail-content.row.fo-map-wrap {
+	margin-left: 0;
+}
+
+.store-images-slider .nivoSlider {
+	float: left;
+	margin-bottom: 10px;
 }
