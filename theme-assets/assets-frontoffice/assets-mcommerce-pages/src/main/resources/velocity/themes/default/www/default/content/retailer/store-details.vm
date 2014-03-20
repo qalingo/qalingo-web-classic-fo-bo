@@ -4,30 +4,71 @@
 #set ($breadcrumbWording = $!store.name + '<span class="glyphicons certificate"><i></i></span>')
 #set ($footer_script_content = "../content/retailer/store-details_script.vm")
 
-<article>
-	<div>
-					$!store.businessName ($!store.code)
+<section id="store-locator" class="product-detail-wrap store-detail-wrap">
+<span class="section-title category-title">Home › Location ›$!store.businessName ($!store.code)</span>
+<div class="clear border-btm"></div>
+<!-- nivo slider - store images -->
 
-					<address>
-					($!store.address.address1 || $!store.address.city || $!store.address.countryLabel)
-					#if($!store.address.address1)$!store.address.address1#end#if($!store.address.city), $!store.address.postalCode $!store.address.city#end#if($!store.address.countryLabel), $!store.address.countryLabel <img src="${common.themeResourcePrefixPath}/img/icons/flag/16x16/$!{store.address.countryCode.toLowerCase()}.png">#end</dd>			
-					</address>
-
-					#if($!store.address.email)
-					<a href="mailto:$!store.address.email"></i>$!store.address.email</a>
-					#end
-					#if($!store.address.phone)
-					<i class="fa fa-phone-sign"></i> <a href="tel:$!store.address.phone"></i>$!store.address.phone</a>
-					#end
-					#if($!store.address.website)
-					<i class="fa fa-globe"></i> <a href="#">$!store.address.website</a>
-					#end
-
-    </div>
+<div class="slider-wrapper theme-default axe-top-slider store-images-slider">
+	<div id="store-images" class="nivoSlider">
+	#foreach($sliderItem in $!store.sliders)
+		<img src="$!sliderItem" alt="Slider 1" title="#htmlcaption" data-thumb="$!sliderItem"/>
+	#end
+	</div>
+	<div class="nivo-controlNav store-img-nav">
+	#set($index = 0)
+	#foreach($sliderItem in $!store.sliders)
+		#set($count_item = $index + 1) 
+		<a class="nivo-control" rel="$index" style="background-image: url($!sliderItem)">$count_item</a>
+		#set($index = $index +1)
+	#end
+	</div>
+</div>
+<!-- //nivo slider - store images -->
+<div class="clear border-btm"></div>
+<div class="product-detail-content row fo-map-wrap">
+<div id="map-store" class="product-image-wrap span4 fo-map">
 	
-	<div class="clear border-btm"></div>
-	<div id="map-store" style="clear: both; width: 1170px; height: 400px;"></div>
+</div>
+<div class="product-info span8">
+	<h3 class="product-name store-name">$!store.businessName</h3>
+	<p class="product-sku store-detail-add"><strong>Address:</strong>$!store.address1</p>
+	<span class="product-des">
+		$!store.addressAdditionalInformation
+	</span>
+</div>
+</div>
 
-					
-</article>
+<span class="section-title category-title">Other Stores</span>
+<div class="clear border-btm"></div>
+<!-- slide location list  -->
+<div id="location-store-list" class="linked-logos-slide location-store-list">
+<div class="slides_container products-grid row">
 
+#set($count = 0)
+#foreach($store in $otherStores)
+#if($count%4==0)
+<div class="slide">	
+#end
+<div class="item span3">
+	<a href="$store.detailsUrl" class="store-item">
+		<span class="store-thumb"><img src="$store.defaultImage" alt="Store1"></span>
+			<div class="store-item-info">
+			<h2 class="store-list-title">$store.businessName</h2>
+		<span class="store-list-address"><i class="icon-map-marker"></i> $store.address1</span>
+		</div>
+	</a>
+</div>
+#set($count = $count + 1)
+#if($count==$otherStores.size() || $count%4==0)
+</div>
+#end
+
+#end
+
+
+
+</div>
+<!-- //slide featured products -->
+</div>
+<!-- //slide location list  -->
