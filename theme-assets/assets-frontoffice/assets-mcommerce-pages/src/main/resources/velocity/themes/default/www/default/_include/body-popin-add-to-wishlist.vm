@@ -19,7 +19,7 @@
 	top:0px;  
 	left:0px;
 }
-#add-cart-popup {
+#add-wishlist-popup {
 	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
     background: none repeat scroll 0 0 #FFFFFF;
     border: 10px solid #ccc;
@@ -86,7 +86,7 @@ div#popup_content {
 }
 		</style>
 		
-		<div id="add-cart-popup" class="trigger-popin" data-attribute-status="0"> 
+		<div id="add-wishlist-popup" class="trigger-popin" data-attribute-status="0"> 
 			<div class="close"></div> 
 			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
 			<div id="popup_content">
@@ -95,7 +95,7 @@ div#popup_content {
 		</div>
 		<div style="clear: both;"></div>
 		
-<script id="addToCartProductContent" type="text/x-jsrender">
+<script id="addToWishlistProductContent" type="text/x-jsrender">
 	<div class="product-detail-content row">
 		<div class="product-image-wrap span3">
 			<a class="product-image product-line-image" href="javascript:void(0);">
@@ -120,8 +120,8 @@ div#popup_content {
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: left; margin-left: 40px;" class="cart-btn1 add-to-cart-continue">$wording.get("fo.common.popin_continue_label")</div>
-			<div style="float: right;" class="cart-btn1 go-to-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.checkout_shopping_cart.popin_go_to_cart")</a></div>
+			<div style="float: left; margin-left: 40px;" class="cart-btn1 add-to-wishlist-continue">$wording.get("fo.common.popin_continue_label")</div>
+			<div style="float: right;" class="cart-btn1 go-to-wishlist"><a href="{{:wishListDetailsUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.wishlist.popin_go_to_wishlist")</a></div>
 		</div>
 	</div>
 </script>

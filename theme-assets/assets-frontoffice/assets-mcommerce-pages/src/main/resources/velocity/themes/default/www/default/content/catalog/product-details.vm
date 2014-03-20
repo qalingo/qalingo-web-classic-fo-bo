@@ -3,8 +3,8 @@
 #set ($page_title = $seoPageTitle)
 
 
-
 #parse("../../_include/body-popin-add-to-cart.vm")
+#parse("../../_include/body-popin-add-to-wishlist.vm")
 	
 <div class="product-detail-wrap">
 	<span class="section-title category-title"><a href="${common.homeUrl}">Home</a> › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › <a href="$catalogBreadcrumb.detailsUrl">$catalogBreadcrumb.name</a> › $productMarketing.i18nName</span>
@@ -30,7 +30,11 @@
 			<span class="product-des">
 				<p>$productMarketing.description</p>				
 			</span>
-			<a href="#" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+			#if($!customer)
+				<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+			#else
+				<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+			#end
 		</div>
 	</div>
 	

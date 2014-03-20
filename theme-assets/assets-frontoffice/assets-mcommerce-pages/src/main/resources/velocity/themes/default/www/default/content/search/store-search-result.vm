@@ -75,7 +75,7 @@
 
 <script type="text/javascript">
 	function startupPage(){
-    	$script(['/library/jsrender/jsrender.min','/library/lazyload/jquery.lazyload.min','/js/page.search-result'], function(){
+    	$script(['/library/lazyload/jquery.lazyload.min','/js/page.search-result'], function(){
 			$("img.lazy").lazyload({
                 threshold : 200
             });
