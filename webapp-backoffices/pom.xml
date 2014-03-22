@@ -17,6 +17,8 @@
 
 	<modules>
 		<module>webapp-bo-business</module>
+		<module>webapp-bo-reporting</module>
+		<module>webapp-bo-technical</module>
 	</modules>
 
 	<properties>
