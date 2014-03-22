@@ -1,41 +1,35 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-			
 				<section id="warehouse">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
-					#*
 					<div>
 						#parse("../../_include/body-pagination-pagelistholder.vm")
 						<div>
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="200px">xxxx</th>
-										<th width="300px">xxxx</th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px">Actions</th>
+										<th width="200px">$wording.get("bo.warehouse.code_label")</th>
+										<th width="300px">$wording.get("bo.warehouse.name_label")</th>
+										<th width="100px">$wording.get("bo.warehouse.description_label")</th>
+										<th width="200px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
-									#foreach($shipping in $pagedListHolder.pageList)
+									#foreach($warehouse in $pagedListHolder.pageList)
 									<tr>
-										<td>${shipping.id}</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td><a href="${shipping.detailsUrl}">details</a> | <a href="${shipping.editUrl}">edit</a></td>
+										<td>${warehouse.code}</td>
+										<td>${warehouse.name}</td>
+										<td>${warehouse.description}</td>
+										<td><a href="${warehouse.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${warehouse.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  
 							</table> 
 						</div>
 					</div>
-					*#
 					
 					<div style="clear: both;"></div>
 

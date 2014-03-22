@@ -8,7 +8,7 @@
 						</div>
 						#if($!promotion.categoryDetailsUrl)
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="${promotion.categoryDetailsUrl}">${promotion.categoryDetailsLabel}</a>
+							$wording.get("bo.common.actions_label"): <a href="${promotion.categoryDetailsUrl}">${promotion.categoryDetailsLabel}</a>
 						</div>
 						#end
 					</div>

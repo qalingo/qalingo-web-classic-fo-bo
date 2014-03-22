@@ -8,7 +8,7 @@
 						</div>
 						#if($!asset.categoryDetailsUrl)
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="${asset.categoryDetailsUrl}">${asset.categoryDetailsLabel}</a>
+							$wording.get("bo.common.actions_label"): <a href="${asset.categoryDetailsUrl}">${asset.categoryDetailsLabel}</a>
 						</div>
 						#end
 					</div>

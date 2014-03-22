@@ -46,36 +46,17 @@
         #report div.up { background-position:0px 0px;}
     </style>
 	
-#macro( process $categories ) 
-	#foreach( $category in $categories ) 
-	<li>
-		<a href="#$category.code" class="find-products">$category.name <span class="counter">($category.countProduct)</span></a>
-		#if( $category.subCategories )
-		<ul>
-			#process( $category.subCategories )
-		</ul>
-		#end 
-	</li>
-	#end 
-#end 
-
 				<section id="catalog">
 					<div class="page-header">
 						<div style="float: left;">
 							<h1>${mainContentTitle}</h1>
 						</div>
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="${catalog.addRootCategoryUrl}">$wording.get("bo.catalog_category.add_master_category_label")</a>
+							Actions: <a href="#" id="add-root-category">$wording.get("bo.catalog_category.add_master_category_label")</a>
 						</div>
 					</div>
 					<div style="clear: both; float: left;">
-						<ul id="tree">
-							<li>
-								<a href="#$catalog.code">$catalog.businessName</a>
-								<ul>
-									#process($catalog.categories) 
-								</ul>
-							</li>
+						<ul id="catalog-tree" data-catalog-type="$catalogType">
 						</ul>
 					</div>
 					<div style="float: right;">

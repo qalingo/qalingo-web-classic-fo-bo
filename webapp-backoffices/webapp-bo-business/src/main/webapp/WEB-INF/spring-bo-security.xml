@@ -52,14 +52,24 @@
         <intercept-url pattern="/**/add-virtual-product-category*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         <intercept-url pattern="/**/catalog-virtual-category-form*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
-        <intercept-url pattern="/**/retailer-list*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
-        <intercept-url pattern="/**/retailer-details*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
-        <intercept-url pattern="/**/retailer-edit*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
-		
+        <intercept-url pattern="/**/product-marketing-*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
+        <intercept-url pattern="/**/product-sku-*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
+        <intercept-url pattern="/**/warehouse*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
+        <intercept-url pattern="/**/price*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
         <intercept-url pattern="/**/rule*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
-        <intercept-url pattern="/**/shipping*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
+        <intercept-url pattern="/**/delivery-method*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+
         <intercept-url pattern="/**/order*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        
         <intercept-url pattern="/**/customer*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        
+        <intercept-url pattern="/**/retailer*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        
         <intercept-url pattern="/**/faq*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 		
         <form-login authentication-failure-handler-ref="extSimpleUrlAuthenticationFailureHandler"

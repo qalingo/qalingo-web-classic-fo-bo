@@ -13,22 +13,21 @@
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="200px">xxxx</th>
-										<th width="300px">xxxx</th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px">$wording.get("bo.common.actions_label")</th>
+										<th width="150px">$wording.get("bo.order.order_number_label")</th>
+										<th width="150px">$wording.get("bo.common.date_create_label")</th>
+										<th width="100px">$wording.get("bo.order.status_label")</th>
+										<th width="200px">$wording.get("bo.order.expected_delivery_date_label")</th>
+										<th width="200px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
 									#foreach($order in $pagedListHolder.pageList)
 									<tr>
-										<td>${order.id}</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td><a href="${order.detailsUrl}">$wording.get("bo.common.details_label")</a> #*| <a href="${order.editUrl}">$wording.get("bo.common.edit_label")</a>*#</td>
+										<td>$!order.orderNum</td>
+										<td>$!order.createdDate</td>
+										<td>$!order.status</td>
+										<td>$!order.expectedDeliveryDate</td>
+										<td><a href="${order.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>#*| <a href="${order.editUrl}">$wording.get("bo.common.edit_label")</a>*#</td>
 									</tr>
 									#end
 								</tbody>  

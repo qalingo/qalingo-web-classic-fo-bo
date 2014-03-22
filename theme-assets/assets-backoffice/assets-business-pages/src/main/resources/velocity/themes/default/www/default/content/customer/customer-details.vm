@@ -19,7 +19,7 @@
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								Actions: <a href="${customer.editUrl}">${customer.editLabel}</a>
+								$wording.get("bo.common.actions_label"): <a href="${customer.editUrl}">${customer.editLabel}</a>
 							</div>
 						</div> <!-- /widget-header -->
 						

@@ -8,7 +8,7 @@
 						</div>
 						#if($!productSku.productSkuDetailsUrl)
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="${productSku.productSkuDetailsUrl}">$wording.get("bo.product_sku.details_url_label")</a>
+							$wording.get("bo.common.actions_label"): <a href="${productSku.detailsUrl}">$wording.get("bo.common.details_label")</a>
 						</div>
 						#end
 					</div>
@@ -26,8 +26,8 @@
 						#set($beanName = "productSkuForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.product_sku.back_label")</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_sku.submit_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.common.cancel_label")</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 						</div>
 						<div style="clear: both;">
 							<div style="padding-top: 5px; padding-bottom: 5px;">
@@ -35,7 +35,7 @@
 									<label for="name" class="label-form">$wording.get("bo.product_sku.business_name_label")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="name" name="name" value="${productSkuForm.name}" style="width: 150px; margin-bottom: 0px;" />
+									<input type="text" id="name" name="name" value="${productSkuForm.name}" style="width: 400px; margin-bottom: 0px;" />
 									<br/>
 									$wording.get("bo.product_sku.business_name_information")
 								</div>
@@ -45,7 +45,7 @@
 									<label for="code" class="label-form">$wording.get("bo.product_sku.code_label")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="code" name="code" value="${productSkuForm.code}" style="width: 150px; margin-bottom: 0px;" />
+									<input type="text" id="code" name="code" value="${productSkuForm.code}" style="width: 400px; margin-bottom: 0px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -69,7 +69,7 @@
 										<label for="code" class="label-form">$mapEntry.key</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="code" name="globalAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+										<input type="text" id="code" name="globalAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 400px; margin-bottom: 0px;">
 									</div>
 								</div>
 								#end
@@ -85,7 +85,7 @@
 										<label for="code" class="label-form">$mapEntry.key</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="code" name="marketAreaAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 150px; margin-bottom: 0px;">
+										<input type="text" id="code" name="marketAreaAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 400px; margin-bottom: 0px;">
 									</div>
 								</div>
 								#end
@@ -97,8 +97,8 @@
 							
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.product_sku.cancel_label")</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.product_sku.submit_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.common.cancel_label")</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 						</div>
 						</form>
 					</div>

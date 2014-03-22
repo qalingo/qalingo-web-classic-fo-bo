@@ -13,22 +13,21 @@
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="200px">xxxx</th>
-										<th width="300px">xxxx</th>
+										<th width="50px">$wording.get("bo.rule.code_label")</th>
+										<th width="150px">$wording.get("bo.rule.name_label")</th>
+										<th width="300px">$wording.get("bo.rule.description_label")</th>
 										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px">Actions</th>
+										<th width="200px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
 									#foreach($rule in $pagedListHolder.pageList)
 									<tr>
-										<td>${rule.id}</td>
+										<td>$!rule.code</td>
+										<td>$!rule.name</td>
+										<td>$!rule.description</td>
 										<td></td>
-										<td></td>
-										<td></td>
-										<td><a href="${rule.detailsUrl}">details</a> | <a href="${rule.editUrl}">edit</a></td>
+										<td><a href="$!rule.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!rule.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  

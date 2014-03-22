@@ -13,22 +13,25 @@
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="200px">xxxx</th>
-										<th width="300px">xxxx</th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px"></th>
-										<th width="100px">Actions</th>
+										<th width="100px">$wording.get("bo.customer.title_label")</th>
+										<th width="150px">$wording.get("bo.customer.lastname_label")</th>
+										<th width="150px">$wording.get("bo.customer.firstname_label")</th>
+										<th width="100px">$wording.get("bo.customer.is_active_label")</th>
+										<th width="200px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
 									#foreach($customer in $pagedListHolder.pageList)
 									<tr>
-										<td>${customer.id}</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td><a href="${customer.detailsUrl}">details</a> | <a href="${customer.editUrl}">edit</a></td>
+										<td>${customer.title}</td>
+										<td>${customer.lastname}</td>
+										<td>${customer.firstname}</td>
+										#if($customer.active)
+										<td style="color: green">$wording.get("common.common.is_default_true")</td>
+										#else
+										<td style="color: red">$wording.get("common.common.is_default_false")</td>
+										#end
+										<td><a href="${customer.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${customer.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  
