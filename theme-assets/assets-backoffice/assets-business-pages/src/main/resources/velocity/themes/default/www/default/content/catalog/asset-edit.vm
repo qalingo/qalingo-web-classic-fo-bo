@@ -6,9 +6,9 @@
 						<div style="float: left;">
 							<h1>${mainContentTitle}</h1>
 						</div>
-						#if($!asset.categoryDetailsUrl)
+						#if($!asset.detailsUrl)
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							$wording.get("bo.common.actions_label"): <a href="${asset.categoryDetailsUrl}">${asset.categoryDetailsLabel}</a>
+							$wording.get("bo.common.actions_label"): <a href="${asset.detailsUrl}">$wording.get("bo.common.details_label")</a>
 						</div>
 						#end
 					</div>
@@ -27,8 +27,8 @@
 						#set($beanName = "assetForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.asset.cancel_label")</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.asset.submit_label")</button>
+							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 						</div>
 						<div style="clear: both;">
 							<div style="padding-top: 5px; padding-bottom: 5px;">
@@ -91,7 +91,7 @@
 						</div>
 							
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$wording.get("bo.asset.cancel_label")</button>
+							<a href="$!urlBack" class="btn">$wording.get("bo.asset.cancel_label")</a>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.asset.submit_label")</button>
 						</div>
 						</form>

@@ -8,7 +8,7 @@
 
 					<div class="form-horizontal well">
 						<div style="text-align: right;">
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.back_label")</button>
+							<a href="$!urlBack" class="btn">$wording.get("bo.common.back_label")</a>
 							<a href="$!paymentGateway.editUrl" alt="edit" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 						</div>
 						<div style="clear: both; padding-top: 10px;">
@@ -43,7 +43,7 @@
 							</div>
 						</div>
 						<div style="clear: both; padding-top: 10px; text-align: right;">
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.back_label")</button>
+							<a href="$!urlBack" class="btn">$wording.get("bo.common.back_label")</a>
 							<a href="$!paymentGateway.editUrl" alt="edit" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 						</div>
 					</div>

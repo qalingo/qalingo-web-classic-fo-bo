@@ -21,7 +21,7 @@
 
 	
 							<div>
-								<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.cancel_label")</button>
+								<a href="$!urlBack" class="btn">$wording.get("bo.common.back_label")</a>
 								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 							</div>
 							<div style="clear: both; padding-top: 15px;">
@@ -48,7 +48,7 @@
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 15px;">
-								<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.cancel_label")</button>
+								<a href="$!urlBack" class="btn">$wording.get("bo.common.back_label")</a>
 								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 							</div>
 						</form>

@@ -19,7 +19,7 @@
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								$wording.get("bo.common.actions_label"): <a href="${asset.editUrl}">$wording.get("bo.asset.edit_url_label")</a>
+								$wording.get("bo.common.actions_label"): <a href="${asset.editUrl}">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div> <!-- /widget-header -->
 						

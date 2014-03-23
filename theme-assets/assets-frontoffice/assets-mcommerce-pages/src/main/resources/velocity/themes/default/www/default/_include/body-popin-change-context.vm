@@ -106,16 +106,16 @@ div#popup_content {
 			<div style="padding-top: 20px;">
 				<ul class="nav nav-list">
 					#foreach($marketPlace in $marketPlaces)
-					<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank"><i class="fa fa-bars"></i>&nbsp;$marketPlace.name</a></li>
+					<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name" target="_blank"><i class="fa fa-list"></i>&nbsp;$marketPlace.name</a></li>
 					<ul>
 						#foreach($market in $marketPlace.markets)
-						<li><a href="$market.homeUrl" alt="$market.name" target="_blank">$market.name</a></li>
+						<li><a href="$market.homeUrl" alt="$market.name" target="_blank" style="padding-left:30px;"><i class="fa fa-tasks"></i>&nbsp;$market.name</a></li>
 						<ul>
 							#foreach($marketArea in $market.marketAreas)
-							<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank">$marketArea.name</a></li>
+							<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank" style="padding-left:60px;><i class="fa fa-bars"></i>&nbsp;$marketArea.name</a></li>
 							<ul>
 								#foreach($localization in $marketArea.localizations)
-								<li><a href="$localization.homeUrl" alt="$localization.name" target="_blank">$localization.name</a></li>
+								<li><a href="$localization.homeUrl" alt="$localization.name" target="_blank" style="padding-left:90px;><i class="fa fa-map-marker"></i>&nbsp;$localization.name</a></li>
 								#end
 							</ul>
 							#end

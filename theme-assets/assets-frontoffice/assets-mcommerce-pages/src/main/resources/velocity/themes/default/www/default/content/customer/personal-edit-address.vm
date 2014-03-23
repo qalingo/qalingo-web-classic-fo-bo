@@ -74,7 +74,7 @@
 							</div>
 						</div>
 						<div style="clear: both; width: 100%; text-align: right; padding-top: 5px; padding-bottom: 5px;">
-							<button class="btn" type="button" onclick="javascript:window.location.href='$urlBack'">$wording.get("fo.customer.form_account_label_cancel")</button>
+							<a href="$!urlBack" class="btn">$wording.get("fo.customer.form_account_label_cancel")</a>
 							<button class="btn btn-primary" type="submit">$wording.get("fo.customer.form_update_account_label_submit")</button>
 						</div>
 					</form>

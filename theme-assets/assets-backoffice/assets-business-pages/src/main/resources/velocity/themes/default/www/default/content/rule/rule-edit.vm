@@ -6,9 +6,9 @@
 						<div style="float: left;">
 							<h1>${mainContentTitle}</h1>
 						</div>
-						#if($!promotion.categoryDetailsUrl)
+						#if($!promotion.detailsUrl)
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							$wording.get("bo.common.actions_label"): <a href="${promotion.categoryDetailsUrl}">${promotion.categoryDetailsLabel}</a>
+							$wording.get("bo.common.actions_label"): <a href="${promotion.detailsUrl}">${promotion.categoryDetailsLabel}</a>
 						</div>
 						#end
 					</div>
@@ -27,8 +27,8 @@
 						#set($beanName = "promotionForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div>
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$promotion.cancelLabel</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$promotion.submitLabel</button>
+							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.details_label")</button>
 						</div>
 						<div style="clear: both;">
 							<div style="padding-top: 5px; padding-bottom: 5px;">
@@ -45,7 +45,7 @@
 						</div>
 						
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$promotion.cancelLabel</button>
+							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$promotion.submitLabel</button>
 						</div>
 						</form>
