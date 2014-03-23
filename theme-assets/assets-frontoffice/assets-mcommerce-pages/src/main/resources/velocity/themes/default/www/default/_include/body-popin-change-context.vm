@@ -112,10 +112,10 @@ div#popup_content {
 						<li><a href="$market.homeUrl" alt="$market.name" target="_blank" style="padding-left:30px;"><i class="fa fa-tasks"></i>&nbsp;$market.name</a></li>
 						<ul>
 							#foreach($marketArea in $market.marketAreas)
-							<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank" style="padding-left:60px;><i class="fa fa-bars"></i>&nbsp;$marketArea.name</a></li>
+							<li><a href="$marketArea.homeUrl" alt="$marketArea.name" target="_blank" style="padding-left:60px;"><i class="fa fa-bars"></i>&nbsp;$marketArea.name</a></li>
 							<ul>
 								#foreach($localization in $marketArea.localizations)
-								<li><a href="$localization.homeUrl" alt="$localization.name" target="_blank" style="padding-left:90px;><i class="fa fa-map-marker"></i>&nbsp;$localization.name</a></li>
+								<li><a href="$localization.homeUrl" alt="$localization.name" target="_blank" style="padding-left:90px;"><i class="fa fa-map-marker"></i>&nbsp;$localization.name</a></li>
 								#end
 							</ul>
 							#end
