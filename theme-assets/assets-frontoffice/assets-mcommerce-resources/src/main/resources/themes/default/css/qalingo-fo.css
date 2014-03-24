@@ -277,7 +277,10 @@ a.product-name:hover {
 }
 
 #featured-products, .linked-logos-slide  {
-	position: relative
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 #featured-products .slides_container {

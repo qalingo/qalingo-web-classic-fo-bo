@@ -32,7 +32,18 @@
 </div>
 <div class="product-info span8">
 	<h3 class="product-name store-name">$!store.businessName</h3>
-	<p class="product-sku store-detail-add"><strong>Address:</strong>$!store.address1</p>
+	<div class="review-rating-wrap">
+		<span class="rating-stars star-3">&nbsp;</span>
+		<a href="javascript:void(0)" class="review-rating-star star-5">&nbsp;</a>
+		<a href="javascript:void(0)" class="review-rating-star star-4">&nbsp;</a>
+		<a href="javascript:void(0)" class="review-rating-star star-3">&nbsp;</a>
+		<a href="javascript:void(0)" class="review-rating-star star-2">&nbsp;</a>
+		<a href="javascript:void(0)" class="review-rating-star star-1">&nbsp;</a>
+	</div>
+	<p class="product-sku store-detail-add">
+		<strong>Address:</strong>$!store.address1<br>
+		<strong>Operation Hour:</strong> 08:00 - 22:00
+	</p>
 	<span class="product-des">
 		$!store.addressAdditionalInformation
 	</span>
