@@ -100,7 +100,7 @@
 								</div>
 							</div>
 							<div style="width: 600px; clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
-								<button class="btn" onclick="javascript:window.location.href='$backUrl'">$wording.get("fo.retailer.form_label_cancel")</button>
+								<a href="$!urlBack" class="btn">$wording.get("fo.retailer.form_label_cancel")</a>
 								<button class="btn btn-primary" type="submit">$wording.get("fo.retailer.form_label_submit")</button>
 							</div>
 							<div style="padding-top: 15px; height: 70px;">

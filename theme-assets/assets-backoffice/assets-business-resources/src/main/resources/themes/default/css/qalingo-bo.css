@@ -9,7 +9,7 @@ body {
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
 }
-    
+
 input, button, select, textarea {
   font-family: 'Open Sans';
 }
@@ -20,6 +20,36 @@ h1 {
 
 .input-append .add-on, .input-prepend .add-on {
 	height: auto;
+}
+
+.form-horizontal select,
+.form-horizontal textarea,
+.form-horizontal input[type="text"],
+.form-horizontal input[type="password"],
+.form-horizontal input[type="datetime"],
+.form-horizontal input[type="datetime-local"],
+.form-horizontal input[type="date"],
+.form-horizontal input[type="month"],
+.form-horizontal input[type="time"],
+.form-horizontal input[type="week"],
+.form-horizontal input[type="number"],
+.form-horizontal input[type="email"],
+.form-horizontal input[type="url"],
+.form-horizontal input[type="search"],
+.form-horizontal input[type="tel"],
+.form-horizontal input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  height: 27px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555555;
+  vertical-align: middle;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
 }
 
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
@@ -781,3 +811,6 @@ h1 {
 		width: 48%;
 	}
 }
+
+
+

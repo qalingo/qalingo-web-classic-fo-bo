@@ -3,6 +3,16 @@
     xsi:schemaLocation="http://dozer.sourceforge.net
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
+    <mapping>
+        <class-a>org.hoteia.qalingo.core.domain.CatalogMaster</class-a>
+        <class-b bean-factory="org.hoteia.qalingo.core.dozer.CatalogCustomBeanFactory">org.hoteia.qalingo.core.pojo.catalog.CatalogPojo</class-b>
+    </mapping>
+    
+    <mapping>
+        <class-a>org.hoteia.qalingo.core.domain.CatalogVirtual</class-a>
+        <class-b bean-factory="org.hoteia.qalingo.core.dozer.CatalogCustomBeanFactory">org.hoteia.qalingo.core.pojo.catalog.CatalogPojo</class-b>
+    </mapping>
+    
 	<mapping>
 		<class-a>org.hoteia.qalingo.core.domain.CatalogCategoryMaster</class-a>
 		<class-b bean-factory="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">org.hoteia.qalingo.core.pojo.catalog.CatalogCategoryPojo</class-b>

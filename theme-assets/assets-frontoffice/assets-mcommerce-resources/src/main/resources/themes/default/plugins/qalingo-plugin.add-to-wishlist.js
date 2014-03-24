@@ -22,7 +22,7 @@
         },
 		
         addToWishlistButtonAjax : function(skuCode) {	
-			var params = "product-sku-code=" + skuCode;		
+			var params = "product-sku-code=" + skuCode;
 			plugins.Popin.loading();
 			$.ajax({
 				url: ADD_TO_WISHLIST_AJAX.url,

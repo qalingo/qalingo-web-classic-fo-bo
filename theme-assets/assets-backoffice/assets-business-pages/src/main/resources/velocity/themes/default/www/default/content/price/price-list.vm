@@ -18,7 +18,7 @@
 										<th width="100px"></th>
 										<th width="100px"></th>
 										<th width="100px"></th>
-										<th width="100px">Actions</th>
+										<th width="100px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>

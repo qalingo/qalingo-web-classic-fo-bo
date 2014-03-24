@@ -19,26 +19,28 @@
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								Actions: <a href="${productMarketing.productEditUrl}">$wording.get("bo.product_marketing.edit_url_label")</a>
+								$wording.get("bo.common.actions_label"): <a href="${productMarketing.editUrl}">$wording.get("bo.common.edit_label")</a>
 							</div>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								$wording.get("bo.product_marketing.business_name_label") : ${productMarketing.businessName}<br/>
-								$wording.get("bo.product_marketing.description_label") : ${productMarketing.description}<br/>
-								$wording.get("bo.product_marketing.is_default_label") : ${productMarketing.default}<br/>
-								$wording.get("bo.product_marketing.code_label") : ${productMarketing.code}<br/>
-								$wording.get("bo.product_marketing.brand_label") : ${productMarketing.brand.businessName} (${productMarketing.brand.code})<br/>
-								$wording.get("bo.product_marketing.is_default_label") : 
+								<strong>$wording.get("bo.product_marketing.business_name_label") :</strong> ${productMarketing.businessName}<br/>
+								<br/>
+								<strong>$wording.get("bo.product_marketing.description_label") :</strong><br/>
+								<br/>
+								<blockquote>${productMarketing.description}</blockquote>
+								<strong>$wording.get("bo.product_marketing.code_label") :</strong> ${productMarketing.code}<br/>
+								<strong>$wording.get("bo.product_marketing.brand_label") :</strong> ${productMarketing.brand.name} (${productMarketing.brand.code})<br/>
+								<strong>$wording.get("bo.product_marketing.is_default_label") :</strong> 
 								#if($productMarketing.active)
-								<span style="color: green">$wording.get("common.common.is_default_true")</span>
+								<span class="text-success">$wording.get("common.common.is_default_true")</span>
 								#else
-								<span style="color: red">$wording.get("common.common.is_default_false")</span>
+								<span class="text-error">$wording.get("common.common.is_default_false")</span>
 								#end								
 							</div>
 							
-						</div> <!-- /widget-content -->
+						</div>
 							
 					</div>
 					
@@ -47,7 +49,7 @@
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_marketing.global_attribute_list_label")</h3>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
@@ -73,7 +75,7 @@
 									</tbody>
 								</table>
 							</div>
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
 			
@@ -82,7 +84,7 @@
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_marketing.area_attribute_list_label")</h3>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<table class="table table-bordered table-striped">
@@ -107,7 +109,7 @@
 								</tbody>
 							</table>
 							
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
 					
@@ -134,14 +136,14 @@
 												$wording.get("bo.product_sku.business_name_label") : ${productSku.businessName} (${productSku.code})
 											</td>
 											<td class="value">
-												<a href="${productSku.productSkuDetailsUrl}">$wording.get("bo.product_sku.details_url_label")</a> | <a href="${productSku.productSkuEditUrl}">$wording.get("bo.product_sku.edit_url_label")</a>
+												<a href="${productSku.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a> | <a href="${productSku.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a>
 											</td>
 										</tr>
 										#end
 									</tbody>
 								</table>
 							</div>
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
 
@@ -150,7 +152,7 @@
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.cross_product_list_label")</h3>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
@@ -171,13 +173,13 @@
 											<td class="description">${productCrossLink.name}</td>
 											<td class="description">${productCrossLink.type}</td>
 											<td class="description">${productCrossLink.description}</td>
-											<td class="value"><a href="${productCrossLink.productDetailsUrl}">Product Details</a></td>
+											<td class="value"><a href="${productCrossLink.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a></td>
 										</tr>
 										#end
 									</tbody>
 								</table>
 							</div>
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
 
@@ -186,7 +188,7 @@
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.asset_list_label")</h3>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
@@ -210,17 +212,16 @@
 											<td class="description">${asset.description}</td>
 											<td class="description">${asset.path}</td>
 											<td class="value">
-												<a href="${asset.detailsUrl}">$wording.get("bo.asset.details_url_label")</a> | <a href="${asset.editUrl}">$wording.get("bo.asset.edit_url_label")</a>
+												<a href="${asset.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a> | <a href="${asset.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a>
 											</td>
 										</tr>
 										#end
 									</tbody>
 								</table>
 							</div>
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
 
 				</section>
-				
 
