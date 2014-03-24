@@ -1,4 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/catalog/product-axe-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 #*
@@ -9,35 +10,8 @@
 
 <link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-	function startupPage(){
-		$script(['/library/lazyload/jquery.lazyload.min'], function(){
-			$("img.lazy").lazyload({
-                threshold : 200
-            });    		
-    	});
-		
-		$('#featured-products').slides({
-			preload: true,
-			generateNextPrev: true,
-			play: 0,
-			hoverPause: true
-		});
-		
-		$('#linked-logos-slide').slides({
-			preload: true,
-			generateNextPrev: true,
-			play: 0,
-			hoverPause: true
-		});
-		
-		$('#slider').nivoSlider({
-	    	controlNav: false
-	    });
-	}
-</script>
-
-<!-- nivo slider - top banner -->
+#parse("../../_include/body-popin-add-to-cart.vm")
+#parse("../../_include/body-popin-add-to-wishlist.vm")
 				
 <div class="slider-wrapper theme-default axe-top-slider">
     <div id="slider" class="nivoSlider">
@@ -86,9 +60,12 @@
 				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
 				<span class="rating-stars star-$!featuredProduct.customerProductRates.avgRateStar">&nbsp;</span>
 				<p class="product-price">${featuredProduct.priceWithCurrencySign}</p>
-				<a href="${featuredProduct.addToCartUrl}" class="cart-btn1">
-					<i class="fa fa-shopping-cart"></i> &nbsp;  Add to cart</a>
-				<a href="${featuredProduct.addToWishlistUrl}" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$featuredProduct.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+				#if($!customer)
+					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$featuredProduct.skuCode"><i class="fa fa-heart"></i></a>
+				#else
+					<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+				#end
 			</div>
 			#if($items % 4 == 0 || $size == $count)
 			#set( $items = 0 )
@@ -126,9 +103,12 @@
       			    #if($productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
         			<p class="product-price">${productMarketing.priceWithCurrencySign}</p>
-        			<a href="${productMarketing.addToCartUrl}" class="cart-btn1">
-        				<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
-        			<a href="${productMarketing.addToWishlistUrl}" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$subcatalogCategory.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+					#if($!customer)
+						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+					#else
+						<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
+					#end
         		</li>
 			#end
     	</ul>

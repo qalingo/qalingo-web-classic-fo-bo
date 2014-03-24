@@ -1,5 +1,4 @@
 <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-<script src="${common.themeResourcePrefixPath}/library/jsrender/jsrender.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function startupPage(){
 		var dataOSM = $storeFilter.toJSON();

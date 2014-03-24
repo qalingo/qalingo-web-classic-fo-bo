@@ -8,6 +8,11 @@
 		<class-b bean-factory="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">org.hoteia.qalingo.core.pojo.catalog.CatalogCategoryPojo</class-b>
 	</mapping>
 	
+	<mapping>
+		<class-a>org.hoteia.qalingo.core.domain.CatalogCategoryVirtual</class-a>
+		<class-b bean-factory="org.hoteia.qalingo.core.dozer.CatalogCategoryCustomBeanFactory">org.hoteia.qalingo.core.pojo.catalog.CatalogCategoryPojo</class-b>
+	</mapping>
+	
     <mapping>
         <class-a>org.hoteia.qalingo.core.domain.ProductMarketing</class-a>
         <class-b bean-factory="org.hoteia.qalingo.core.dozer.ProductMarketingCustomBeanFactory">org.hoteia.qalingo.core.pojo.product.ProductMarketingPojo</class-b>
