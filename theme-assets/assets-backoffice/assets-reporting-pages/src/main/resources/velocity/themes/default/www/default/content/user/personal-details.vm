@@ -105,9 +105,9 @@
 								#set ($userConnectionLog = $user.userConnectionLogs) 
 								#foreach ($userConnectionLog in $user.userConnectionLogs) 
 									<tr style="border-bottom: 1px solid #000000;">
-										<td style="padding: 5px; border-left: 1px solid #000000;">$userConnectionLog.date</td>
-										<td style="padding: 5px; border-left: 1px solid #000000;">$userConnectionLog.host</td>
-										<td style="padding: 5px; border-left: 1px solid #000000;">$userConnectionLog.address</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$!userConnectionLog.date</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$!userConnectionLog.host</td>
+										<td style="padding: 5px; border-left: 1px solid #000000;">$!userConnectionLog.address</td>
 									</tr>
 								#end
 								</table>

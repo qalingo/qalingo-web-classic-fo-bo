@@ -14,7 +14,7 @@
 								<thead>
 									<tr>
 										<th width="150px">$wording.get("bo.order.order_number_label")</th>
-										<th width="150px">$wording.get("bo.common.date_create_label")</th>
+										<th width="150px">$wording.get("bo.order.date_create_label")</th>
 										<th width="100px">$wording.get("bo.order.status_label")</th>
 										<th width="200px">$wording.get("bo.order.expected_delivery_date_label")</th>
 										<th width="200px">$wording.get("bo.common.actions_label")</th>

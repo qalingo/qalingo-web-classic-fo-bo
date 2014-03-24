@@ -3,6 +3,66 @@
 
 				<section id="warehouse-details">
 				
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") ${warehouse.dateCreate} | $wording.get("bo.common.date_update_label") ${warehouse.dateUpdate}
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+
+					<div class="widget">
+						
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="fa fa-pushpin"></i>
+								<h3>${mainContentTitle}</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								$wording.get("bo.common.actions_label") <a href="${warehouse.editUrl}">$wording.get("bo.common.edit_label")</a>
+							</div>
+						</div>
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								<strong>$wording.get("bo.warehouse.code_label") :</strong> $!warehouse.code
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.warehouse.name_label") :</strong> $!warehouse.name
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.warehouse.description_label") :</strong> $!warehouse.description
+							</div>
+
+						</div>
+							
+					</div>
+			
+					#*
+					<div class="widget widget-nopad">
+							
+						<div class="widget-header">
+							<i class="fa fa-list-alt"></i>
+							<h3>${warehouse.xxx}</h3>
+						</div>
+						
+						<div class="widget-content">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th style="width: 50%;">Key</th>
+										<th style="width: 50%;">Value</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+							
+						</div>
+					
+					</div>
+					*#
+
 				</section>
 				
 

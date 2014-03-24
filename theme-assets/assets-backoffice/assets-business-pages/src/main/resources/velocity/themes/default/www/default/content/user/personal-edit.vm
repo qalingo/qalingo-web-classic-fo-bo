@@ -12,8 +12,8 @@
 						#set($beanName = "userForm")
 						#parse("../../_include/body-form-error-message.vm")
 						<div style="float: left; width: 50%;">
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.user.form_cancel_label")</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.user.form_submit_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.cancel_label")</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 							<br/><br/>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 								<div style="float: left; width: 100px;">
@@ -62,8 +62,8 @@
 							
 						</div>
 						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.user.form_cancel_label")</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.user.form_submit_label")</button>
+							<button class="btn" onclick="javascript:window.location.href='$!urlBack'">$wording.get("bo.common.cancel_label")</button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 						</div>
 						</form>
 					</div>

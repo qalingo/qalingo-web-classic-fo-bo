@@ -11,9 +11,9 @@
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="200px">$wording.get("bo.warehouse.code_label")</th>
-										<th width="300px">$wording.get("bo.warehouse.name_label")</th>
-										<th width="100px">$wording.get("bo.warehouse.description_label")</th>
+										<th width="150px">$wording.get("bo.warehouse.code_label")</th>
+										<th width="200px">$wording.get("bo.warehouse.name_label")</th>
+										<th width="350px">$wording.get("bo.warehouse.description_label")</th>
 										<th width="200px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
