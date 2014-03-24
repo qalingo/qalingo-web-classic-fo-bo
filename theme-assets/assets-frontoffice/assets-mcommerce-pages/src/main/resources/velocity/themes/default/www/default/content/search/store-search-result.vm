@@ -6,6 +6,29 @@
 	<div class="side-bar span3">
 		<span class="section-title sidebar-title">Custom search</span>
 		<div class="nav-category search-result-custom">
+				#foreach($facetField in $facetFieldList)
+    				#if($facetField.name == 'city')
+    				<label>Filter by city</label>			
+					 <ul class="filter-category-slt">
+						#foreach($value in $facetField.values)
+    						<li class="level0 parent city">
+    							<input type="checkbox" #if("$!citiesFilter"=="")checked#end name="city-filter" id="catalog-categories-$value.key" data-field="$facetField.name" value="$value.key">&nbsp;$value.value
+    						</li>
+						#end
+					  </ul>
+					#end
+					#if($facetField.name == 'countrycode')
+						<label>Filter by Country</label>			
+					 	<ul class="filter-category-slt">
+						#foreach($value in $facetField.values)
+    						<li class="level0 parent country">
+    							<input type="checkbox" #if("$!citiesFilter"=="")checked#end name="country-filter" id="catalog-categories-$value.key" data-field="$facetField.name" value="$value.key">&nbsp;$value.value
+    						</li>
+						#end
+						</ul>
+					#end	
+				#end
+			
 			<button class="search-result-custom-btn" id="search-filter"><i class="fa fa-search">&nbsp;</i> Filter</button>
 		</div>
 		
@@ -38,9 +61,8 @@
 					<input type="hidden" name="pageSize" value="$!pageSize"/>
     				<input type="hidden" name="sortBy" value="$!sortBy"/>
     				<input type="hidden" name="order" value="$!order"/>
-					<input type="hidden" id="priceStartParam" name="price.start" value="$!priceStart"/>
-					<input type="hidden" id="priceEndParam" name="price.end" value="$!priceEnd"/>
-					<input type="hidden" name="categoriesFilter" value="$!categoriesFilter"/>
+					<input type="hidden" name="cities" value="$!citiesFilter"/>
+					<input type="hidden" name="countries" value="$!countriesFilter"/>
 				</form>
 			</div>
 
@@ -75,31 +97,23 @@
 
 <script type="text/javascript">
 	function startupPage(){
-    	$script(['/library/jsrender/jsrender.min','/library/lazyload/jquery.lazyload.min','/js/page.search-result'], function(){
+    	$script(['/library/jsrender/jsrender.min','/library/lazyload/jquery.lazyload.min','/js/page.store.search-result'], function(){
 			$("img.lazy").lazyload({
                 threshold : 200
             });
-    		$.qalingo.search({
+    		$.store.search({
 				params: {
 					text: "$!searchText",
 					sortBy: "$!sortBy",
 					order: "$!order",
-					price:{
-						start : $priceStart,
-						end   : $priceEnd,
-						min   : 0,
-						max   : 500
-					},
 					pageSize: $pagedListHolder.pageSize,
 					page: $pagedListHolder.page
 				}
 			});
-			$.qalingo.filter({
-				categoriesFilter: "$!categoriesFilter"
+			$.store.filter({
+				categoriesFilter: "$!citiesFilter",
+				countriesFilter:"$countriesFilter"
 			});
     	});
 	}
-</script>
-<script id="caption" type="text/x-jsrender">
-From <strong>{{:priceStart}}$</strong> to <strong> {{:endStart}}$</strong> 
 </script>
