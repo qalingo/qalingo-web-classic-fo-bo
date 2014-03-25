@@ -8,7 +8,8 @@
 			form: "#search-form",
 			filter: "#search-filter",
 			cityFilter: "input[name=city-filter]",
-			countryFilter:"input[name=country-filter]"
+			countryFilter:"input[name=country-filter]",
+			btnSubmit : "#search-form .result-search-btn"
 		},
 		params: {
 			pageSize: 9,
@@ -19,12 +20,10 @@
 			categoriesFilter: ""
 		}		
 	},
+	_isFliter = true;
 	_FILTER_DEFAULTS = {
 		categoriesFilter: "",
-		countriesFilter:"",
-		controls: {
-			catagoriesFilter: "#catalog-categories-"
-		}
+		countriesFilter:""
 	},
 	_settings = {},
 	_filterSettings = {};
@@ -35,6 +34,16 @@
 		$(_settings.controls.order).click(_onOrderChange);
 		$(_settings.controls.form).submit(_onSearchFormSubmit);
 		$(_settings.controls.filter).click(_onSearchFilter);
+		$(_settings.controls.btnSubmit).click(_onButtonSubmitClick);
+		$(_settings.controls.text).keypress(_onInputEnter);
+	},
+	_onInputEnter = function(event){
+		if(event.keyCode === 13){
+			_isFliter = false;
+		}
+	},
+	_onButtonSubmitClick = function(){
+		_isFliter = false;
 	},
 	_onSearchFilter = function(){
 		var $form = $(_settings.controls.form);
@@ -58,8 +67,13 @@
 		$form.find("input[name=order]").val(_settings.params.order);
 		$form.find("input[name=sortBy]").val(_settings.params.sortBy);
 		$form.find("input[name=page]").val(_settings.params.page);
-		$form.find("input[name=cities]").val(_getCities());
-		$form.find("input[name=countries]").val(_getCountries());
+		if(_isFliter== true){
+			$form.find("input[name=cities]").val(_getCities());
+			$form.find("input[name=countries]").val(_getCountries());
+		}else{
+			$form.find("input[name=cities]").val('');
+			$form.find("input[name=countries]").val('');
+		}
 		return true;
 	},	
 	_submitSearchForm = function(){
