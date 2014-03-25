@@ -22,46 +22,46 @@
 					</div>
 					<div class="form-horizontal well">
 						<form id="warehouseForm" name="warehouseForm" action="" method="POST">
-						<input type="hidden" id="id" name="id" value="$!warehouseForm.id" />
-						#set($beanName = "warehouseForm")
-						#parse("../../_include/body-form-error-message.vm")
-						<div>
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-						</div>
-						<div style="clear: both;">
-							<div style="padding-top: 5px; padding-bottom: 5px;">
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="code" class="label-form">$wording.get("bo.warehouse.code_label")</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="code" name="code" value="$!warehouseForm.code" style="width: 150px; margin-bottom: 0px;" />
-								</div>
+							<input type="hidden" id="id" name="id" value="$!warehouseForm.id" />
+							#set($beanName = "warehouseForm")
+							#parse("../../_include/body-form-error-message.vm")
+							<div>
+								<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="name" class="label-form">$wording.get("bo.warehouse.name_label")</label>
+							<div style="clear: both;">
+								<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="code" class="label-form">$wording.get("bo.warehouse.code_label")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="code" value="$!warehouseForm.code" style="width: 150px; margin-bottom: 0px;" />
+									</div>
 								</div>
-								<div style="float: left;">
-									<input type="text" id="name" name="name" value="$!warehouseForm.name" style="width: 150px; margin-bottom: 0px;" />
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="name" class="label-form">$wording.get("bo.warehouse.name_label")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="name" name="name" value="$!warehouseForm.name" style="width: 150px; margin-bottom: 0px;" />
+									</div>
 								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="description" class="label-form">$wording.get("bo.warehouse.description_label")</label>
+									</div>
+									<div style="float: left;">
+										<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">$!warehouseForm.description</textarea>
+									</div>
+								</div>
+								
 							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="description" class="label-form">$wording.get("bo.warehouse.description_label")</label>
-								</div>
-								<div style="float: left;">
-									<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">$!warehouseForm.description</textarea>
-								</div>
+											
+							<div style="clear: both; padding-top: 15px;">
+								<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 							</div>
-							
-						</div>
-										
-						<div style="clear: both; padding-top: 15px;">
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-						</div>
 						</form>
 					</div>
 				</section>

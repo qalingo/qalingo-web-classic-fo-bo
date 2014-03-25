@@ -41,6 +41,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-context.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-cache-common.xml" />
+    <import resource="classpath:conf/spring/qalingo-core-cache-aop.xml" />
 
 	<!-- JMS : CONFIG -->
 	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />

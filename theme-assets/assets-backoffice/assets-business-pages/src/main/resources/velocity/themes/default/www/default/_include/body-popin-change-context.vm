@@ -40,11 +40,6 @@
 <script id="change-context-content" type="text/x-jsrender">
 	<div class="change-context-content row">
 		<div style="margin-left: 100px;">
-			<div>
-				your GEOLOC Remote Address: <span style="color: #7D7E81;">$!geolocRemoteAddress</span><br/>
-				your GEOLOC Country: <span style="color: #7D7E81;">$!geolocCountry.isoCode | $!geolocCountry.name</span><br/>
-				your GEOLOC City: <span style="color: #7D7E81;">$!geolocCity.name</span><br/>
-			</div>
 			<div style="padding-top: 20px;">
 				<ul class="nav nav-list">
 					#foreach($marketPlace in $marketPlaces)
@@ -71,7 +66,7 @@
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: right; margin-right: 15px;" class="cart-btn1 change-context-continue">$wording.get("fo.common.popin_continue_label")</div>
+			<div style="float: right; margin-right: 15px;" class="cart-btn1 change-context-continue">$wording.get("bo.common.popin_continue_label")</div>
 		</div>
 	</div>
 </script>

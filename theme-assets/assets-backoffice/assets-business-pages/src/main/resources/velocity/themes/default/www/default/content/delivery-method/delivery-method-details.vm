@@ -6,7 +6,7 @@
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label"): ${deliveryMethod.createdDate} | $wording.get("bo.common.date_update_label"): ${deliveryMethod.updatedDate}
+							$wording.get("bo.common.date_create_label") ${deliveryMethod.dateCreate} | $wording.get("bo.common.date_update_label") ${deliveryMethod.dateUpdate}
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -21,17 +21,22 @@
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
 								$wording.get("bo.common.actions_label"): <a href="${deliveryMethod.editUrl}">$wording.get("bo.common.edit_label")</a>
 							</div>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								${deliveryMethod.id}
+								<strong>$wording.get("bo.delivery_method.code_label") :</strong> $!deliveryMethod.code
 							</div>
-							
-						</div> <!-- /widget-content -->
+							<div style="width: 100%">
+								<strong>$wording.get("bo.delivery_method.name_label") :</strong> $!deliveryMethod.name
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.delivery_method.description_label") :</strong> $!deliveryMethod.description
+							</div>							
+						</div>
 							
 					</div>
-			
+					#*
 					<div class="widget widget-nopad">
 							
 						<div class="widget-header">
@@ -51,9 +56,10 @@
 								</tbody>
 							</table>
 							
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
+					*#
 
 				</section>
 				
