@@ -23,7 +23,10 @@
 											<label for="email" class="label-form">$wording.get("fo.follow_us.form_label_email")</label>
 										</div>
 										<div style="float: left;">
-											<input type="text" id="email" name="email" value="" style="width: 200px; height: 20px;" />
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+												<input id="email" name="email" type="text" class="form-control" placeholder="@" style="width: 300px; height: 37px;">
+											</div>
 										</div>
 									</div>
 									<div style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
