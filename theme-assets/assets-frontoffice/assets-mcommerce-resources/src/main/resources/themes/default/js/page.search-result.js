@@ -8,7 +8,8 @@
 			form: "#search-form",
 			priceRange: "#price-slider",
 			filter: "#search-filter",
-			categoriesFilter: "input[name=catalog-categories]"
+			categoriesFilter: "input[name=catalog-categories]",
+			btnSubmit : "#search-form .result-search-btn"
 		},
 		params: {
 			pageSize: 9,
@@ -25,6 +26,7 @@
 			categoriesFilter: ""
 		}		
 	},
+	_isFliter = true,
 	_FILTER_DEFAULTS = {
 		categoriesFilter: "",
 		controls: {
@@ -39,7 +41,18 @@
 		$(_settings.controls.sortBy).change(_onSortByChange);
 		$(_settings.controls.order).click(_onOrderChange);
 		$(_settings.controls.form).submit(_onSearchFormSubmit);
-		$(_settings.controls.filter).click(_onSearchFilter);
+		$(_settings.controls.filter).click(_onSearchFilter);	
+		$(_settings.controls.btnSubmit).click(_onButtonSubmitClick);
+		$(_settings.controls.text).keypress(_onInputEnter);
+		
+	},
+	_onInputEnter = function(event){
+		if(event.keyCode === 13){
+			_isFliter = false;
+		}
+	},
+	_onButtonSubmitClick = function(){
+		_isFliter = false;
 	},
 	_onSearchFilter = function(){
 		var $form = $(_settings.controls.form);
@@ -63,7 +76,13 @@
 		$form.find("input[name=order]").val(_settings.params.order);
 		$form.find("input[name=sortBy]").val(_settings.params.sortBy);
 		$form.find("input[name=page]").val(_settings.params.page);
-		$form.find("input[name=categoriesFilter]").val(_getCatalogCategories());
+		if(_isFliter== true){
+			$form.find("input[name=categoriesFilter]").val(_getCatalogCategories());
+		}else{
+			$form.find("input[name=categoriesFilter]").val('');
+			$form.find('#priceStartParam').val( _settings.params.price.min );
+	        $form.find('#priceEndParam').val( _settings.params.price.max );
+		}
 		return true;
 	},	
 	_submitSearchForm = function(){
