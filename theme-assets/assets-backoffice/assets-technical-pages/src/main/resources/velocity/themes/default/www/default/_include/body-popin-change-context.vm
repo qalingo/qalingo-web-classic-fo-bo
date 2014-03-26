@@ -1,0 +1,76 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+			<style>
+			div#change-context-popup {
+				font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+				background: none repeat scroll 0 0 #FFFFFF;
+				border: 10px solid #ccc;
+				border-radius: 3px 3px 3px 3px;
+				color: #333333;
+				display: none;
+				font-size: 14px;
+				left: 50%;
+				margin-left: -402px;
+				position: fixed;
+				top: 10%;
+				width: 800px;
+				z-index:4001;
+			}
+			div#popup_content {
+				margin: 4px 7px;
+			}
+		</style>
+		
+		<div id="change-context-popup" class="trigger-popin" data-attribute-status="0"> 
+			<div class="close"></div> 
+			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
+			<div id="popup_content">
+				<div style="background-color: #ffffff; color: red; padding: 10px;"></div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		
+<script id="change-context-content" type="text/x-jsrender">
+	<div class="change-context-content row">
+		<div style="margin-left: 100px;">
+			<div style="padding-top: 20px;">
+				<ul class="nav nav-list">
+					#foreach($marketPlace in $marketPlaces)
+					<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name"><i class="fa fa-bars"></i>&nbsp;$marketPlace.name</a></li>
+					<ul>
+						#foreach($market in $marketPlace.markets)
+						<li><a href="$market.homeUrl" alt="$market.name">$market.name</a></li>
+						<ul>
+							#foreach($marketArea in $market.marketAreas)
+							<li><a href="$marketArea.homeUrl" alt="$marketArea.name">$marketArea.name</a></li>
+							<ul>
+								#foreach($localization in $marketArea.localizations)
+								<li><a href="$localization.homeUrl" alt="$localization.name">$localization.name</a></li>
+								#end
+							</ul>
+							#end
+						</ul>
+						#end
+					</ul>
+					<br/><br/>
+					#end
+				</ul>
+			</div>
+		</div>
+		<div style="clear: both;">
+		<div>
+			<div style="float: right; margin-right: 15px;" class="cart-btn1 change-context-continue">$wording.get("bo.common.popin_continue_label")</div>
+		</div>
+	</div>
+</script>
+
+		
+
+		

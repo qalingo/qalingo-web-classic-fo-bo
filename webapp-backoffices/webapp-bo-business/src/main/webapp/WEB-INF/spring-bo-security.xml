@@ -58,7 +58,7 @@
 
         <intercept-url pattern="/**/warehouse*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
-        <intercept-url pattern="/**/price*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/tax*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 
         <intercept-url pattern="/**/rule*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 

@@ -30,6 +30,8 @@
 
 	</head>
 	<body>
+		<div id="loader-popin"></div> 
+		<div id="background-popin"></div> 
 
 		#parse("../_include/body-header.vm")
 			

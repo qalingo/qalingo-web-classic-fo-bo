@@ -1,7 +1,7 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="deliveryMethod">
+				<section id="delivery-method-list">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>

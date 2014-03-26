@@ -49,10 +49,10 @@
 							<table class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th width="200px">$wording.get("bo.delivery_method.code_label")</th>
-										<th width="300px">$wording.get("bo.delivery_method.name_label")</th>
-										<th width="100px">$wording.get("bo.delivery_method.description_label")</th>
-										<th width="200px">$wording.get("bo.common.actions_label")</th>
+										<th width="150px">$wording.get("bo.delivery_method.code_label")</th>
+										<th width="200px">$wording.get("bo.delivery_method.name_label")</th>
+										<th width="300px">$wording.get("bo.delivery_method.description_label")</th>
+										<th width="150px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -61,7 +61,7 @@
 										<td>${deliveryMethod.code}</td>
 										<td>${deliveryMethod.name}</td>
 										<td>${deliveryMethod.description}</td>
-										<td><a href="${deliveryMethod.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${deliveryMethod.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
+										<td><a href="${deliveryMethod.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a></td>
 									</tr>
 									#end
 								</tbody> 
