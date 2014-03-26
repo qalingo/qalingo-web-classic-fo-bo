@@ -41,7 +41,6 @@
 	    marker.events.register("click", marker, eventMarkerOver);
 	    marker.id = "marker"+ code ;
 	    _markers.addMarker(marker);
-	    //console.log(marker);
 	},	
 	_findPopupByCode = function(code){
 	    var popups = _map.popups;
@@ -73,25 +72,21 @@
 	_buildSelectCityAndSetMarker = function( dataJson, indexCountry ){
 	    var country = dataJson[indexCountry] ;
 	    var cities = country.cities ;
-	    var html ="<option value =''>All</option>";
-	    for(var i = 0; i < cities.length ; i++){
-	        html += "<option value ='"+ i +"'>"+ cities[i].name +"</option>";
-	        var stores = cities[i].stores;
-	        _buildSetMarkerByCoordinates(stores);
+//	    var html ="<option value =''>All</option>";
+	    if(null != cities && typeof cities != 'undefined' ){
+		    for(var i = 0; i < cities.length ; i++){
+	//	        html += "<option value ='"+ i +"'>"+ cities[i].name +"</option>";
+		        var stores = cities[i].stores;
+		        _buildSetMarkerByCoordinates(stores);
+		    }
 	    }
 	    _initTemplate("selectCityTemplate", "cityImpl");
     	var htmlContent = $.render.cityImpl({data:cities});
 	    $('#city').html(htmlContent);
+	    
 	},
 	_buildSetMarkerByCoordinates = function(stores){
-	    for(var i = 0 ; i < stores.length ; i++){
-//	         var lon = stores[i].longitude;
-//	         var lat = stores[i].latitude;
-//	         var code = stores[i].code;
-//	         var businessName = stores[i].businessName;
-//	         var address = stores[i].address1;
-//	         var city = stores[i].city;
-//	         var country = stores[i].country;	         
+	    for(var i = 0 ; i < stores.length ; i++){ 
 	         _setMarker(stores[i]);
 	         _buildStoreFound(stores[i]);
 	    }
@@ -100,22 +95,26 @@
 	    for(var i = 0; i < dataJson.length; i++){
 	        var country = dataJson[i] ;
 	        var cities = country.cities ;
-	        for(var j = 0; j < cities.length ; j++){
-	            var coordinates = cities[j].stores;
-	            _buildSetMarkerByCoordinates(coordinates);
-	        }   
+	        if(null != cities && typeof cities != 'undefined'){
+		        for(var j = 0; j < cities.length ; j++){
+		            var coordinates = cities[j].stores;
+		            _buildSetMarkerByCoordinates(coordinates);
+		        }
+	        }
 	    }
 	    _buildSliderStore();
 	    _setCenter();
 	    _map.zoomToMaxExtent();
 	},
 	_buildSetAllMarkerByCountry = function(indexCountry){
-	        var country = _dataOSM[indexCountry] ;
-	        var cities = country.cities ;
+	    var country = _dataOSM[indexCountry] ;
+	    var cities = country.cities ;
+	    if(null != cities && typeof cities != 'undefined'){
 	        for(var j = 0; j < cities.length ; j++){
 	            var stores = cities[j].stores;
 	            _buildSetMarkerByCoordinates(stores);
 	        }
+	    }
 	},
 	_buildStoreFound = function(store){
 		_storesFound.push(store);
@@ -149,30 +148,34 @@
     },
     _searchAll = function(dataSearch,textSearch){
     	var positionFound = [];
-    	 for(var i = 0 ; i < dataSearch.length ; i++){
+    	for(var i = 0 ; i < dataSearch.length ; i++){
              var cities = dataSearch[i].cities;
-             for(var j = 0 ; j< cities.length; j++){
-                 var stores = cities[j].stores;
-                 for(var k = 0; k< stores.length; k++){
-                     if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
-                     positionFound.push(stores[k]);
-                 }
-             }
-         }
-     }
-	 return positionFound;
+             if(null != cities && typeof cities != 'undefined'){
+	             for(var j = 0 ; j< cities.length; j++){
+	                 var stores = cities[j].stores;
+	                 for(var k = 0; k< stores.length; k++){
+	                     if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
+	                     positionFound.push(stores[k]);
+	                     }
+	                 }
+	             }
+             }     
+    	}
+    	return positionFound;
 	},
 	_searchByCountry = function(dataSearch, indexCountry, textSearch){
 		 var positionFound = [];
 		 var cities = dataSearch[indexCountry].cities;
-	     for(var j = 0 ; j< cities.length; j++){
-	         var stores = cities[j].stores;
-	         for(var k = 0; k< stores.length; k++){
-	             if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
-	                 positionFound.push(stores[k]);
-	             }
-	         }
-	     }
+		 if(null != cities && typeof cities != 'undefined'){
+		     for(var j = 0 ; j< cities.length; j++){
+		         var stores = cities[j].stores;
+		         for(var k = 0; k< stores.length; k++){
+		             if(stores[k].businessName.search(new RegExp(textSearch,"i") ) !== -1){
+		                 positionFound.push(stores[k]);
+		             }
+		         }
+		     }
+		 }
 	     return positionFound;
 	},
 	_searchByCity = function(dataSearch, indexCountry, indexCity,textSearch){
