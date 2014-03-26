@@ -36,7 +36,7 @@
 										<label for="code" class="label-form">$wording.get("bo.tax.code_label")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="code" name="code" value="$!taxForm.code" style="width: 150px; margin-bottom: 0px;" />
+										<input type="text" id="code" name="code" value="$!taxForm.code" style="width: 300px; margin-bottom: 0px;" />
 									</div>
 								</div>
 								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -44,7 +44,7 @@
 										<label for="name" class="label-form">$wording.get("bo.tax.name_label")</label>
 									</div>
 									<div style="float: left;">
-										<input type="text" id="name" name="name" value="$!taxForm.name" style="width: 150px; margin-bottom: 0px;" />
+										<input type="text" id="name" name="name" value="$!taxForm.name" style="width: 300px; margin-bottom: 0px;" />
 									</div>
 								</div>
 								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -52,7 +52,7 @@
 										<label for="description" class="label-form">$wording.get("bo.tax.description_label")</label>
 									</div>
 									<div style="float: left;">
-										<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">$!taxForm.description</textarea>
+										<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 300px;">$!taxForm.description</textarea>
 									</div>
 								</div>
 								

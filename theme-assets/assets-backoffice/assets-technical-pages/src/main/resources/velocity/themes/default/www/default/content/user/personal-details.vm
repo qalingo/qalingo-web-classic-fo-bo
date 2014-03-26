@@ -32,9 +32,9 @@
 								<b>Password</b> : *****************<br/><br/>
 								<b>Active</b> : 
 								#if($user.active)
-									<span style="color: green">active</span>
+									<span style="color: green">$wording.get("common.common.is_active_true")</span>
 								#else
-									<span style="color: red">not active</span>
+									<span style="color: red">$wording.get("common.common.is_not_active_true")</span>
 								#end
 								<br/><br/>
 								<b>Create</b> : ${user.dateCreate}

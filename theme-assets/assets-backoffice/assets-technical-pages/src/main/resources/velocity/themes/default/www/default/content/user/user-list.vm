@@ -18,16 +18,16 @@
 
 					<div style="float: left; width: 80%;" class="form-horizontal well">
 						<div>
-							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
+							<div style="width: 800px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
 								#parse("../../_include/body-pagination-pagelistholder.vm")
 								<div>
 									<table class="table" style="width: 100%">
 										<thead>
 											<tr>
-												<th width="300px">Firstname</th>
-												<th width="300px">Lastname</th>
-												<th width="100px">is active ?</th>
-												<th width="150px"></th>
+												<th width="150px">$wording.get("bo.user.firstname_label")</th>
+												<th width="150px">$wording.get("bo.user.lastname_label")</th>
+												<th width="50px">$wording.get("bo.user.active_label")</th>
+												<th width="150px">$wording.get("bo.common.actions_label")</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -35,16 +35,15 @@
 											<tr>
 												<td>${user.firstname}</td>
 												<td>${user.lastname}</td>
-
 												<td>
-												      #if($user.active)
-															<span style="color: green">active</span>
-														#else
-															<span style="color: red">not active</span>
-														#end
+												  #if($user.active)
+														<span style="color: green">$wording.get("common.common.active_value_true")</span>
+													#else
+														<span style="color: red">$wording.get("common.common.active_value_false")</span>
+													#end
 												</td>
 												<td>
-													<a class="btn" href="$user.userDetailsUrl" alt="">details</a>&nbsp;<a class="btn" href="$user.userEditUrl" alt="">edit</a>
+													<a class="btn" href="$user.userDetailsUrl" alt="">$wording.get("bo.common.details_label")</a>&nbsp;<a class="btn" href="$user.userEditUrl" alt="">$wording.get("bo.common.edit_label")</a>
 												</td>
 											</tr>
 											#end
