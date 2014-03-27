@@ -1,73 +1,92 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="user-edit">
-					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+				<section id="personal-user-edit">
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") $!user.dateCreate | $wording.get("bo.common.date_update_label") $!user.dateUpdate
+						</div>
+						<div style="clear: both;"></div>
 					</div>
 
-					<div style="width: 100%;" class="form-horizontal well">
-						<form id="userForm" name="userForm" action="" method="POST">
-						<input type="hidden" id="id" name="id" value="${userForm.id}" />
-						#set($beanName = "userForm")
-						#parse("../../_include/body-form-error-message.vm")
-						<div style="float: left; width: 50%;">
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-							<br/><br/>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="lastname" class="label-form">$wording.get("bo.user.firstname_label")</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="lastname" name="lastname" value="${userForm.lastname}" style="width: 150px; margin-bottom: 0px;" />
-								</div>
+					<div class="widget">
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="fa fa-pushpin"></i>
+								<h3>$!mainContentTitle</h3>
 							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="firstname" class="label-form">$wording.get("bo.user.lastname_label")</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="firstname" name="firstname" value="${userForm.firstname}" style="width: 150px; margin-bottom: 0px;" />
-								</div>
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="email" class="label-form">$wording.get("bo.user.email_label")</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="email" name="email" value="${userForm.email}" style="width: 150px; margin-bottom: 0px;" />
-								</div>
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="login" class="label-form">$wording.get("bo.user.login_label")</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="login" name="login" value="${userForm.login}" style="width: 150px; margin-bottom: 0px;" />
-								</div>
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left;">
-									$wording.get("bo.user.active_label")
-									#if($userForm.active)
-										<span style="color: green">$wording.get("bo.user.active_value_true")</span>
-									#else
-										<span style="color: red">$wording.get("bo.user.active_value_false")</span>
-									#end
-								</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								<a class="btn" href="$!urlBack" alt="">$wording.get("bo.common.back_label")</a>
 							</div>
 						</div>
-						<div style="float: left; width: 50%;">
-							
+						<div class="widget-content">
+							<div class="form-horizontal well">
+							<form id="userForm" name="userForm" action="" method="POST">
+								<input type="hidden" id="id" name="id" value="$!userForm.id" />
+								#set($beanName = "userForm")
+								
+								#parse("../../_include/body-form-error-message.vm")
+								
+								<div style="float: left; width: 50%;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+									<br/><br/>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="lastname" class="label-form">$wording.get("bo.user.firstname_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="lastname" name="lastname" value="$!userForm.lastname" style="width: 150px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="firstname" class="label-form">$wording.get("bo.user.lastname_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="firstname" name="firstname" value="$!userForm.firstname" style="width: 150px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="email" class="label-form">$wording.get("bo.user.email_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="email" name="email" value="$!userForm.email" style="width: 150px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="login" class="label-form">$wording.get("bo.user.login_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="login" name="login" value="$!userForm.login" style="width: 150px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											$wording.get("bo.user.active_label")
+										</div>
+										<div style="float: left;">
+											#if($userForm.active)
+												<span style="color: green">$wording.get("common.common.active_value_true")</span>
+											#else
+												<span style="color: red">$wording.get("common.common.active_value_false")</span>
+											#end
+										</div>
+									</div>
+								</div>
+								<div style="float: left; width: 50%;">
+									
+								</div>
+								<div style="clear: both; padding-top: 15px;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+								</div>
+							</form>
+							</div>
 						</div>
-						<div style="clear: both; padding-top: 15px;">
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-						</div>
-						</form>
+						<div style="clear: both;"></div>
 					</div>
-					
-					<div style="clear: both;"></div>
-
 				</section>

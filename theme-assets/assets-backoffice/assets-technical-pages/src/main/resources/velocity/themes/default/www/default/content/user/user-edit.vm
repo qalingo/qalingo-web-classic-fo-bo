@@ -14,7 +14,7 @@
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
 								<a class="btn" href="$!urlBack" alt="">$wording.get("bo.common.back_label")</a>
@@ -34,7 +34,7 @@
 									<br/><br/>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
-											<label for="lastname" class="label-form"><b>$wording.get("bo.user.lastname_label")</b></label>
+											<label for="lastname" class="label-form">$wording.get("bo.user.lastname_label")</label>
 										</div>
 										<div style="float: left;">
 											<input type="text" id="lastname" name="lastname" value="${userForm.lastname}" style="width: 300px; margin-bottom: 0px;" />
@@ -42,7 +42,7 @@
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
-											<label for="firstname" class="label-form"><b>$wording.get("bo.user.firstname_label")</b></label>
+											<label for="firstname" class="label-form">$wording.get("bo.user.firstname_label")</label>
 										</div>
 										<div style="float: left;">
 											<input type="text" id="firstname" name="firstname" value="${userForm.firstname}" style="width: 300px; margin-bottom: 0px;" />
@@ -50,7 +50,7 @@
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
-											<label for="email" class="label-form"><b>Email</b></label>
+											<label for="email" class="label-form">$wording.get("bo.user.email_label")</label>
 										</div>
 										<div style="float: left;">
 											<input type="text" id="email" name="email" value="${userForm.email}" style="width: 300px; margin-bottom: 0px;" />
@@ -58,7 +58,7 @@
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
-											<label for="login" class="label-form"><b>Login</b></label>
+											<label for="login" class="label-form">$wording.get("bo.user.login_label")</label>
 										</div>
 										<div style="float: left;">
 											<input type="text" id="login" name="login" value="${userForm.login}" style="width: 300px; margin-bottom: 0px;" />
@@ -83,7 +83,7 @@
 								</div>
 								<div style="clear: both; padding-top: 15px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">>$wording.get("bo.common.submit_label")</button>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
 							</form>
 							</div>
