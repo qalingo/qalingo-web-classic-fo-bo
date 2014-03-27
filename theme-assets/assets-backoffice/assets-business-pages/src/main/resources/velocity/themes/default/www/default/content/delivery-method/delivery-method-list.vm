@@ -1,7 +1,7 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="deliveryMethod">
+				<section id="delivery-method-list">
 					<div class="page-header">
 						<h1>${mainContentTitle}</h1>
 					</div>
@@ -11,10 +11,10 @@
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="200px">$wording.get("bo.delivery_method.code_label")</th>
-										<th width="300px">$wording.get("bo.delivery_method.name_label")</th>
-										<th width="100px">$wording.get("bo.delivery_method.description_label")</th>
-										<th width="200px">$wording.get("bo.common.actions_label")</th>
+										<th width="120px">$wording.get("bo.delivery_method.code_label")</th>
+										<th width="200px">$wording.get("bo.delivery_method.name_label")</th>
+										<th width="350px">$wording.get("bo.delivery_method.description_label")</th>
+										<th width="130px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>

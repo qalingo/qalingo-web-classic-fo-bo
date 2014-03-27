@@ -1,0 +1,72 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="tax-edit">
+					<div class="page-header">
+						<div style="float: left;">
+							<h1>${mainContentTitle}</h1>
+						</div>
+						#if($!tax.detailsUrl)
+						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
+							$wording.get("bo.common.actions_label") <a href="${tax.detailsUrl}">$wording.get("bo.common.details_label")</a>
+						</div>
+						#end
+					</div>
+					<div style="clear: both; width: 100%; text-align: right;">
+						#if($!tax.createdDate)
+						$wording.get("bo.common.date_create_label") ${tax.createdDate} | 
+						#end
+						#if($!tax.updatedDate)
+						$wording.get("bo.common.date_update_label") ${tax.updatedDate}
+						#end
+					</div>
+					<div class="form-horizontal well">
+						<form id="taxForm" name="taxForm" action="" method="POST">
+							<input type="hidden" id="id" name="id" value="$!taxForm.id" />
+							#set($beanName = "taxForm")
+							#parse("../../_include/body-form-error-message.vm")
+							<div>
+								<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+							</div>
+							<div style="clear: both;">
+								<div style="padding-top: 5px; padding-bottom: 5px;">
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="code" class="label-form">$wording.get("bo.tax.code_label")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="code" name="code" value="$!taxForm.code" style="width: 300px; margin-bottom: 0px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="name" class="label-form">$wording.get("bo.tax.name_label")</label>
+									</div>
+									<div style="float: left;">
+										<input type="text" id="name" name="name" value="$!taxForm.name" style="width: 300px; margin-bottom: 0px;" />
+									</div>
+								</div>
+								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+									<div style="float: left; width: 100px;">
+										<label for="description" class="label-form">$wording.get("bo.tax.description_label")</label>
+									</div>
+									<div style="float: left;">
+										<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 300px;">$!taxForm.description</textarea>
+									</div>
+								</div>
+								
+							</div>
+											
+							<div style="clear: both; padding-top: 15px;">
+								<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+								<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+							</div>
+						</form>
+					</div>
+				</section>
+				
+
+
+				
+

@@ -60,7 +60,6 @@
 	<!-- Configures view context -->
 	<import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />
     <import resource="classpath:conf/spring/qalingo-core-bo-business-view.xml" />
-    <import resource="classpath:conf/spring/qalingo-core-cache-bo.xml" />
 	
 	<!-- Override -->
     <import resource="classpath:conf/spring/ext-core-business.xml" />

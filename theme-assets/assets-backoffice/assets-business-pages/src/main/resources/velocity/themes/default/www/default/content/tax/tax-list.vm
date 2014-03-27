@@ -1,0 +1,36 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="tax">
+					<div class="page-header">
+						<h1>${mainContentTitle}</h1>
+					</div>
+					<div>
+						#parse("../../_include/body-pagination-pagelistholder.vm")
+						<div>
+							<table class="table" style="width: 100%">
+								<thead>
+									<tr>
+										<th width="120px">$wording.get("bo.tax.code_label")</th>
+										<th width="200px">$wording.get("bo.tax.name_label")</th>
+										<th width="350px">$wording.get("bo.tax.description_label")</th>
+										<th width="130px">$wording.get("bo.common.actions_label")</th>
+									</tr>
+								</thead>
+								<tbody>
+									#foreach($tax in $pagedListHolder.pageList)
+									<tr>
+										<td>${tax.code}</td>
+										<td>${tax.name}</td>
+										<td>${tax.description}</td>
+										<td><a href="${tax.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${tax.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
+									</tr>
+									#end
+								</tbody>  
+							</table> 
+						</div>
+					</div>
+					
+					<div style="clear: both;"></div>
+
+				</section>

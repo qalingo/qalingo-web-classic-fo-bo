@@ -68,7 +68,20 @@
 					</div>
 				</div>
 				<div style="clear: both; color: #7D7E81;">
-					<ul class="nav nav-pills market-nav">
+					<ul class="nav nav-pills market-nav" style="width: 100%">
+						<li><a href="#" class="dropdown-toggle trigger-change-context">Change context</a></li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+							|&nbsp;$wording.get("bo.header_menu.marketplace")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketPlace.name</span></b>
+							$wording.get("bo.header_menu.market")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarket.name</span>)</b>
+							$wording.get("bo.header_menu.market_area")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketArea.name</span>)</b>
+							:&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span></b>
+							|&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span></b>
+							|&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaCurrency.name</span></b>
+							</a>
+						</li>
+
+						#*
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.marketplaces")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketPlace.name</span>)<b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -117,6 +130,7 @@
 							#end
 							</ul>
 						</li>
+						*#
 					</ul>
 				</div>
 			</div>

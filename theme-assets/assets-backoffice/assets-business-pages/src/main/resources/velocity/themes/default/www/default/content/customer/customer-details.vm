@@ -21,14 +21,14 @@
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
 								$wording.get("bo.common.actions_label"): <a href="${customer.editUrl}">${customer.editLabel}</a>
 							</div>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
 								${customer.id}
 							</div>
 							
-						</div> <!-- /widget-content -->
+						</div>
 							
 					</div>
 			
@@ -37,7 +37,7 @@
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>${customer.xxx}</h3>
-						</div> <!-- /widget-header -->
+						</div>
 						
 						<div class="widget-content">
 							<table class="table table-bordered table-striped">
@@ -51,7 +51,7 @@
 								</tbody>
 							</table>
 							
-						</div> <!-- /widget-content -->
+						</div>
 					
 					</div>
 

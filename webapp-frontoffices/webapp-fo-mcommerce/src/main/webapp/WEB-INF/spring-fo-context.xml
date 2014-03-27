@@ -45,6 +45,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-cache-common.xml" />
+	<import resource="classpath:conf/spring/qalingo-core-cache-aop.xml" />
 	
 	<import resource="classpath:conf/spring/qalingo-core-fo-common-dozer.xml" />
 	

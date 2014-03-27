@@ -1,17 +1,17 @@
 
-				<div style="clear: both; margin-top: 15px;">
+				<div id="transaction-messages" style="clear: both; margin-top: 10px;">
 					#if($!errorMessage)
-					<div class="alert alert-error">
+					<div class="alert alert-error" style="clear: both;">
 						$errorMessage
 					</div>
 					#end
 					#if($!infoMessage)
-					<div class="alert alert-info">
+					<div class="alert alert-info" style="clear: both;">
 						$infoMessage
 					</div>
 					#end
 					#if($!successMessage)
-					<div class="alert alert-success">
+					<div class="alert alert-success" style="clear: both;">
 						$successMessage
 					</div>
 					#end
