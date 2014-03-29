@@ -6,7 +6,7 @@
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label") ${deliveryMethod.dateCreate} | $wording.get("bo.common.date_update_label") ${deliveryMethod.dateUpdate}
+							$wording.get("bo.common.date_create_label") $!deliveryMethod.dateCreate | $wording.get("bo.common.date_update_label") $!deliveryMethod.dateUpdate
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -16,7 +16,7 @@
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
 								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!deliveryMethod.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
@@ -43,12 +43,10 @@
 							
 					</div>
 					<div class="widget widget-nopad">
-							
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.delivery_method.associated_warehouse_label")</h3>
 						</div>
-						
 						<div class="widget-content">
 							<table class="table table-bordered table-striped">
 								<thead>
@@ -60,17 +58,17 @@
 									</tr>
 								</thead>
 								<tbody>
-									#foreach($deliveryMethod in $deliveryMethods)
+									#foreach($warehouse in $warehouses)
 									<tr>
-										<td>${deliveryMethod.code}</td>
-										<td>${deliveryMethod.name}</td>
-										<td>${deliveryMethod.description}</td>
-										<td><a href="${deliveryMethod.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a></td>
+										<td>$!warehouse.code</td>
+										<td>$!warehouse.name</td>
+										<td>$!warehouse.description</td>
+										<td><a href="$!warehouse.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a></td>
 									</tr>
 									#end
 								</tbody> 
 							</table>							
-						</div>					
+						</div>
 					</div>
 
 				</section>

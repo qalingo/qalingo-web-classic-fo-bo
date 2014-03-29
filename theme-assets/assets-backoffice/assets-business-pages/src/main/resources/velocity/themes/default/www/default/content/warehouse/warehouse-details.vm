@@ -16,7 +16,7 @@
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
 								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!warehouse.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>

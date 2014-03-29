@@ -3,51 +3,38 @@
 
 				<section id="engine-setting-list">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
-					
-					<div style="float: left; width: 15%;">
-						<div style="text-align: right; padding-right: 5px;">
-							<form id="engineSettingQuickSearchForm" name="engineSettingQuickSearchForm" action="${quickSearch.urlEngineSettingFormSubmit}" method="POST">
-								<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-								<button class="btn btn-primary" type="submit" style="margin-top: 3px;">search</button>
-							</form>
-						</div>
-						#parse("../../_include/body-short-link-menu.vm")
+					#*
+					<div style="float: right; padding-right: 15px; font-size: 15px;">
+						<a href="$!urlAdd" class="btn btn-primary">$wording.get("bo.common.add_label")</a>
 					</div>
-
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					*#
+					<div>
+						#parse("../../_include/body-pagination-pagelistholder.vm")
 						<div>
-							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
-								#parse("../../_include/body-pagination-pagelistholder.vm")
-								<div>
-									<table class="table" style="width: 100%">
-										<thead>
-											<tr>
-												<th width="250px">Name</th>
-												<th width="250px">Description</th>
-												<th width="250px">Code</th>
-												<th width="100px"></th>
-											</tr>
-										</thead>
-										<tbody>
-											#foreach($engineSetting in $pagedListHolder.pageList)
-											<tr>
-												<td>${engineSetting.name}</td>
-												<td>${engineSetting.description}</td>
-												<td>${engineSetting.code}</td>
-												<td>
-													<a href="$engineSetting.detailsUrl" alt="" class="btn">$wording.get("bo.common.details_label")</a>
-												</td>
-											</tr>
-											#end
-										</tbody>  
-									</table> 
-								</div>
-							</div>
-						</div>					
+							<table class="table" style="width: 100%">
+								<thead>
+									<tr>
+										<th width="120px">$wording.get("bo.engine_setting.code_label")</th>
+										<th width="200px">$wording.get("bo.engine_setting.name_label")</th>
+										<th width="350px">$wording.get("bo.engine_setting.description_label")</th>
+										<th width="130px">$wording.get("bo.common.actions_label")</th>
+									</tr>
+								</thead>
+								<tbody>
+									#foreach($engineSetting in $pagedListHolder.pageList)
+									<tr>
+										<td>$!engineSetting.code</td>
+										<td>$!engineSetting.name</td>
+										<td>$!engineSetting.description</td>
+										<td><a href="$!engineSetting.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!engineSetting.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
+									</tr>
+									#end
+								</tbody>  
+							</table> 
+						</div>
 					</div>
-					
 					<div style="clear: both;"></div>
 
 				</section>

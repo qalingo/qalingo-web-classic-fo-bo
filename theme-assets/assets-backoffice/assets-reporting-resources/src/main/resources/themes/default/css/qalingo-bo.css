@@ -18,6 +18,10 @@ h1 {
     font-size: 25.5px;
 }
 
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    height: 30px;
+}
+
 /*****************************************************************************
 	POPIN
 *****************************************************************************/
@@ -465,7 +469,6 @@ span.arrow {
 	position: relative;
 	clear: both;
 	width: auto;
-	margin-bottom: 2em;
 	overflow: hidden;
 }
 	
@@ -521,6 +524,7 @@ span.arrow {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+	margin-bottom: 2em;
 }
 
 .widget-header+.widget-content {
@@ -879,3 +883,13 @@ span.arrow {
 
 
 
+.well {
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+	margin-top: 20px;
+    min-height: 20px;
+    padding: 19px;
+}

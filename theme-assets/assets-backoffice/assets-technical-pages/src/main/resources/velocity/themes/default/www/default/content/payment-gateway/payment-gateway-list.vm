@@ -1,32 +1,34 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="warehouse-list">
+				<section id="payment-gateway-list">
 					<div class="page-header">
 						<h1>$!mainContentTitle</h1>
 					</div>
+					#*
 					<div style="float: right; padding-right: 15px; font-size: 15px;">
 						<a href="$!urlAdd" class="btn btn-primary">$wording.get("bo.common.add_label")</a>
 					</div>
+					*#
 					<div>
 						#parse("../../_include/body-pagination-pagelistholder.vm")
 						<div>
 							<table class="table" style="width: 100%">
 								<thead>
 									<tr>
-										<th width="120px">$wording.get("bo.warehouse.code_label")</th>
-										<th width="200px">$wording.get("bo.warehouse.name_label")</th>
-										<th width="350px">$wording.get("bo.warehouse.description_label")</th>
+										<th width="120px">$wording.get("bo.payment_gateway.code_label")</th>
+										<th width="200px">$wording.get("bo.payment_gateway.name_label")</th>
+										<th width="350px">$wording.get("bo.payment_gateway.description_label")</th>
 										<th width="130px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
-									#foreach($warehouse in $pagedListHolder.pageList)
+									#foreach($paymentGateway in $pagedListHolder.pageList)
 									<tr>
-										<td>${warehouse.code}</td>
-										<td>${warehouse.name}</td>
-										<td>${warehouse.description}</td>
-										<td><a href="${warehouse.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${warehouse.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
+										<td>$!paymentGateway.code</td>
+										<td>$!paymentGateway.name</td>
+										<td>$!paymentGateway.description</td>
+										<td><a href="$!paymentGateway.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!paymentGateway.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  

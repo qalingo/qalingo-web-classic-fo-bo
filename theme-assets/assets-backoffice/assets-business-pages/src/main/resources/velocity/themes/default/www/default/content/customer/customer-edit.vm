@@ -23,7 +23,7 @@
 						<div class="widget-content">
 							<div class="form-horizontal well">
 							<form id="customerForm" name="customerForm" action="" method="POST">
-								<input type="hidden" id="id" name="id" value="${customerForm.id}" />
+								<input type="hidden" id="id" name="id" value="$!customerForm.id" />
 								#set($beanName = "customerForm")
 								#parse("../../_include/body-form-error-message.vm")
 								<div style="margin-bottom: 10px;">
@@ -36,7 +36,7 @@
 											<label for="lastname" class="label-form">$wording.get("bo.customer.lastname_label")</label>
 										</div>
 										<div style="float: left;">
-											<input type="text" id="lastname" name="lastname" value="${customerForm.lastname}" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="lastname" name="lastname" value="$!customerForm.lastname" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -44,7 +44,7 @@
 											<label for="firstname" class="label-form">$wording.get("bo.customer.firstname_label")</label>
 										</div>
 										<div style="float: left;">
-											<input type="text" id="firstname" name="firstname" value="${customerForm.firstname}" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="firstname" name="firstname" value="$!customerForm.firstname" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -52,7 +52,7 @@
 											<label for="email" class="label-form">$wording.get("bo.customer.email_label")</label>
 										</div>
 										<div style="float: left;">
-											<input type="text" id="email" name="email" value="${customerForm.email}" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="email" name="email" value="$!customerForm.email" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -60,16 +60,16 @@
 											<label for="login" class="label-form">$wording.get("bo.customer.login_label")</label>
 										</div>
 										<div style="float: left;">
-											<input type="text" id="login" name="login" value="${customerForm.login}" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="login" name="login" value="$!customerForm.login" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
 										  <label class="checkbox">
-											#if(${customerForm.active})
-											<input type="checkbox" id="active" name="active" value="${customerForm.active}" checked="checked" />
+											#if($!customerForm.active)
+											<input type="checkbox" id="active" name="active" value="$!customerForm.active" checked="checked" />
 											#else
-											<input type="checkbox" id="active" name="active" value="${customerForm.active}" />
+											<input type="checkbox" id="active" name="active" value="$!customerForm.active" />
 											#end
 											$wording.get("bo.customer.active_label")
 										  </label>
