@@ -34,6 +34,14 @@
 								<strong>$wording.get("bo.payment_gateway.description_label") :</strong> $!paymentGateway.description
 							</div>
 							<div style="width: 100%">
+								<strong>$wording.get("bo.payment_gateway.active_on_market_area_label")</strong> 
+								#if($paymentGateway.active)
+									<span style="color: green">$wording.get("common.common.active_value_true")</span>
+								#else
+									<span style="color: red">$wording.get("common.common.active_value_false")</span>
+								#end
+							</div>
+							<div style="width: 100%">
 								<strong>$wording.get("bo.common.date_create_label"):</strong> $!paymentGateway.dateCreate
 							</div>
 							<div style="width: 100%">
@@ -43,7 +51,7 @@
 						<div class="widget widget-nopad">
 							<div class="widget-header">
 								<i class="fa fa-list-alt"></i>
-								<h3>$wording.get("bo.payment_gateway.attribute_list_label")</h3>
+								<h3>$wording.get("bo.payment_gateway.global_attribute_list_label")</h3>
 							</div>
 							<div class="widget-content">
 								<table class="table table-bordered table-striped">
@@ -54,10 +62,34 @@
 										</tr>
 									</thead>
 									<tbody>
-										#foreach($key in $paymentGateway.attributes.keySet())
+										#foreach($key in $paymentGateway.gloabalAttributes.keySet())
 										<tr>
 											<td>$key</td>
-											<td>$!paymentGateway.attributes.get($key)</td>
+											<td>$!paymentGateway.gloabalAttributes.get($key)</td>
+										</tr>
+										#end
+									</tbody> 
+								</table>							
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.payment_gateway.marketarea_attribute_list_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.payment_gateway.attribute_code_label")</th>
+											<th width="200px">$wording.get("bo.payment_gateway.attribute_value_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($key in $paymentGateway.marketAreaAttributes.keySet())
+										<tr>
+											<td>$key</td>
+											<td>$!paymentGateway.marketAreaAttributes.get($key)</td>
 										</tr>
 										#end
 									</tbody> 

@@ -23,13 +23,14 @@
 						<div class="widget-content">
 							<form id="paymentGatewayForm" name="paymentGatewayForm" action="" method="POST">
 								<input type="hidden" id="id" name="id" value="$!paymentGatewayForm.id" />
+								<input type="hidden" value="on" name="_active"/>
 								<div>
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
 								#set($beanName = "paymentGatewayForm")
 								#parse("../../_include/body-form-error-message.vm")
-								<div class="form-horizontal well" style="margin-top: 20px;">
+								<div class="form-horizontal well">
 									<div style="clear: both;">
 										<div style="width: 100%">
 											<strong>$wording.get("bo.payment_gateway.code_label") :</strong> $!paymentGateway.code
@@ -39,6 +40,14 @@
 										</div>
 										<div style="width: 100%">
 											<strong>$wording.get("bo.payment_gateway.description_label") :</strong> $!paymentGateway.description
+										</div>
+										<div style="width: 100%">
+											#if($!paymentGatewayForm.active)
+											<input type="checkbox" id="active" name="active" checked="checked" />
+											#else
+											<input type="checkbox" id="active" name="active" />
+											#end
+											$wording.get("bo.payment_gateway.active_on_market_area_label")
 										</div>
 										<div style="width: 100%">
 											<strong>$wording.get("bo.common.date_create_label"):</strong> $!paymentGateway.dateCreate
@@ -51,7 +60,7 @@
 								<div class="widget widget-nopad">
 									<div class="widget-header">
 										<i class="fa fa-list-alt"></i>
-										<h3>$wording.get("bo.payment_gateway.attribute_list_label")</h3>
+										<h3>$wording.get("bo.payment_gateway.global_attribute_list_label")</h3>
 									</div>
 									<div class="widget-content">
 										<table class="table table-bordered table-striped">
@@ -62,10 +71,34 @@
 												</tr>
 											</thead>
 											<tbody>
-												#foreach($availablePaymentGatewayAttributeDefinition in $availablePaymentGatewayAttributeDefinitions)
+												#foreach($availablePaymentGatewayAttributeDefinition in $availablePaymentGatewayGlobaleAttributeDefinitions)
 												<tr>
 													<td>$availablePaymentGatewayAttributeDefinition.code</td>
-													<td><input type="text" id="attributeMap" name="attributeMap['$availablePaymentGatewayAttributeDefinition.code']" " value="$!paymentGateway.attributes.get($availablePaymentGatewayAttributeDefinition.code)" style="width: 300px;" /></td>
+													<td><input type="text" id="globalAttributeMap" name="globalAttributeMap['$availablePaymentGatewayAttributeDefinition.code']" " value="$!paymentGateway.globalAttributes.get($availablePaymentGatewayAttributeDefinition.code)" style="width: 300px;" /></td>
+												</tr>
+												#end
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="widget widget-nopad">
+									<div class="widget-header">
+										<i class="fa fa-list-alt"></i>
+										<h3>$wording.get("bo.payment_gateway.marketarea_attribute_list_label")</h3>
+									</div>
+									<div class="widget-content">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th width="150px">$wording.get("bo.payment_gateway.attribute_code_label")</th>
+													<th width="200px">$wording.get("bo.payment_gateway.attribute_value_label")</th>
+												</tr>
+											</thead>
+											<tbody>
+												#foreach($availablePaymentGatewayAttributeDefinition in $availablePaymentGatewayMarketAreaAttributeDefinitions)
+												<tr>
+													<td>$availablePaymentGatewayAttributeDefinition.code</td>
+													<td><input type="text" id="marketAreaAttributeMap" name="marketAreaAttributeMap['$availablePaymentGatewayAttributeDefinition.code']" " value="$!paymentGateway.marketAreaAttributes.get($availablePaymentGatewayAttributeDefinition.code)" style="width: 300px;" /></td>
 												</tr>
 												#end
 											</tbody>

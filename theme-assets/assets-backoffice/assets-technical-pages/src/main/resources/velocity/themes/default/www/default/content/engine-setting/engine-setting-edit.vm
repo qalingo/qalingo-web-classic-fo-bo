@@ -21,47 +21,46 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<div class="form-horizontal well">
 							<form id="engineSettingForm" name="engineSettingForm" action="" method="POST">
 								<input type="hidden" id="id" name="id" value="$!engineSettingForm.id" />
-								#set($beanName = "engineSettingForm")
-								#parse("../../_include/body-form-error-message.vm")
 								<div>
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
-								<div style="clear: both;">
-									<div style="width: 100%">
-										<strong>$wording.get("bo.engine_setting.code_label") :</strong> $!engineSetting.code
-									</div>
-									<div style="width: 100%">
-										<strong>$wording.get("bo.engine_setting.name_label") :</strong> $!engineSetting.name
-									</div>
-									<div style="width: 100%">
-										<strong>$wording.get("bo.engine_setting.description_label") :</strong> $!engineSetting.description
-									</div>
-									<div style="width: 100%">
-										<strong>$wording.get("bo.common.date_create_label"):</strong> $!engineSetting.dateCreate
-									</div>
-									<div style="width: 100%">
-										<strong>$wording.get("bo.common.date_update_label"):</strong> $!engineSetting.dateUpdate
-									</div>	
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
-											<label for="defaultValue" class="label-form">$wording.get("bo.engine_setting.default_value_label")</label>
+								#set($beanName = "engineSettingForm")
+								#parse("../../_include/body-form-error-message.vm")
+								<div class="form-horizontal well">
+									<div style="clear: both;">
+										<div style="width: 100%">
+											<strong>$wording.get("bo.engine_setting.code_label") :</strong> $!engineSetting.code
 										</div>
-										<div style="float: left;">
-											<input type="text" id="defaultValue" name="defaultValue" value="$!engineSettingForm.defaultValue" style="width: 300px; margin-bottom: 0px;" />
+										<div style="width: 100%">
+											<strong>$wording.get("bo.engine_setting.name_label") :</strong> $!engineSetting.name
+										</div>
+										<div style="width: 100%">
+											<strong>$wording.get("bo.engine_setting.description_label") :</strong> $!engineSetting.description
+										</div>
+										<div style="width: 100%">
+											<strong>$wording.get("bo.common.date_create_label"):</strong> $!engineSetting.dateCreate
+										</div>
+										<div style="width: 100%">
+											<strong>$wording.get("bo.common.date_update_label"):</strong> $!engineSetting.dateUpdate
+										</div>	
+										<div style="width: 100%; padding-bottom: 20px;">
+											<div style="float: left; width: 100px;">
+												<label for="defaultValue" class="label-form">$wording.get("bo.engine_setting.default_value_label")</label>
+											</div>
+											<div style="float: left;">
+												<input type="text" id="defaultValue" name="defaultValue" value="$!engineSettingForm.defaultValue" style="width: 300px; margin-bottom: 0px;" />
+											</div>
 										</div>
 									</div>
 								</div>
-												
 								<div style="clear: both; padding-top: 15px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
 							</form>
-							</div>
 						</div>
 						<div style="clear: both;"></div>
 					</div>

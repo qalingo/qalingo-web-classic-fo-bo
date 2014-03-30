@@ -1,12 +1,11 @@
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($footer_script_content = "../content/user/personal-details-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 				<section id="personal-user-details">
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label") $!user.dateCreate | $wording.get("bo.common.date_update_label") $!user.dateUpdate
+							$wording.get("bo.common.date_create_label") $!authenticatedUser.dateCreate | $wording.get("bo.common.date_update_label") $!authenticatedUser.dateUpdate
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -18,121 +17,134 @@
 								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!user.personalEditUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!authenticatedUser.personalEditUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
 						<div class="widget-content">
-							<div id="tabs-personal-details">
-								<ul>
-									<li><a href="#tabs-1">$wording.get("bo.user.user_label")</a></li>
-									<li><a href="#tabs-2">$wording.get("bo.user.groups_label")</a></li>
-									<li><a href="#tabs-3">$wording.get("bo.user.roles_label")</a></li>
-									<li><a href="#tabs-4">$wording.get("bo.user.permissions_label")</a></li>
-									<li><a href="#tabs-5">$wording.get("bo.user.last_logins_label")</a></li>
-								</ul>
-								<div id="tabs-1">
-									<div style="min-height:300px; overflow-y:auto; max-height:400px;">
-										<div style="width: 100%">
-											<strong>$wording.get("bo.user.login_label"):</strong> $!user.login
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.user.firstname_label"):</strong> $!user.firstname
-										</div>	
-										<div style="width: 100%">
-											<strong>$wording.get("bo.user.lastname_label"):</strong> $!user.lastname
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.user.email_label"):</strong> $!user.email
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.user.password_label"):</strong> *****************
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.user.active_label"):</strong> 
-											#if($user.active)
-												<span style="color: green">$wording.get("common.common.active_value_true")</span>
-											#else
-												<span style="color: red">$wording.get("common.common.active_value_false")</span>
-											#end
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.common.date_create_label"):</strong> $!user.dateCreate
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.common.date_update_label"):</strong> $!user.dateUpdate
-										</div>
-									</div>
+							<div id="tabs-user-details">
+								<div style="min-height:300px; overflow-y:auto;">
+									<strong>$wording.get("bo.user.login_label")</strong> : $!authenticatedUser.login
+									<br/><br/>
+									<strong>$wording.get("bo.user.firstname_label")</strong> : $!authenticatedUser.firstname
+									<br/><br/>
+									<strong>$wording.get("bo.user.lastname_label")</strong> : $!authenticatedUser.lastname
+									<br/><br/>
+									<strong>$wording.get("bo.user.email_label")</strong> : $!authenticatedUser.email
+									<br/><br/>
+									<strong>$wording.get("bo.user.password_label")</strong> : *****************<br/><br/>
+									<strong>$wording.get("bo.user.active_label")</strong> : 
+									#if($!authenticatedUser.active)
+										<span style="color: green">$wording.get("common.common.active_value_true")</span>
+									#else
+										<span style="color: red">$wording.get("common.common.active_value_false")</span>
+									#end
+									<br/><br/>
+									<strong>$wording.get("bo.common.date_create_label")</strong>: $!authenticatedUser.dateCreate
+									<br/><br/>
+									<strong>$wording.get("bo.common.date_update_label")</strong>: $!authenticatedUser.dateUpdate
+									<br/><br/>
 								</div>
-								<div id="tabs-2">
-									<div style="min-height:300px; overflow-y:auto;">
-										<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.permission_code_label")</td>
-												<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.permission_name_label")</td>
-											</tr>
-										#set ($map = $user.userGroups) 
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.user.groups_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.user.permission_code_label")</th>
+											<th width="200px">$wording.get("bo.user.permission_name_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#set ($map = $!authenticatedUser.userGroups) 
 										#foreach ($mapEntry in $map.entrySet()) 
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.key</td>
-												<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.value</td>
-											</tr>
+										<tr>
+											<td>$!mapEntry.key</td>
+											<td>$!mapEntry.value</td>
+										</tr>
 										#end
-										</table>
-									</div>
-								</div>
-								<div id="tabs-3">
-									<div style="min-height:300px; overflow-y:auto;">
-										<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.permission_code_label")</td>
-												<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.permission_name_label")</td>
-											</tr>
-										#set ($map = $user.userRoles) 
+									</tbody> 
+								</table>	
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.user.roles_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.user.permission_code_label")</th>
+											<th width="200px">$wording.get("bo.user.permission_name_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#set ($map = $!authenticatedUser.userRoles) 
 										#foreach ($mapEntry in $map.entrySet()) 
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.key</td>
-												<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.value</td>
-											</tr>
+										<tr>
+											<td>$!mapEntry.key</td>
+											<td>$!mapEntry.value</td>
+										</tr>
 										#end
-										</table>
-									</div>
-								</div>
-								<div id="tabs-4">
-									<div style="min-height:300px; overflow-y:auto;">
-										<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="width: 400px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.permission_code_label")</td>
-												<td style="width: 300px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.permission_name_label")</td>
-											</tr>
-										#set ($map = $user.userPermissions) 
-										#foreach ($mapEntry in $map.entrySet()) 
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.key</td>
-												<td style="padding: 5px; border-left: 1px solid #000000;">$mapEntry.value</td>
-											</tr>
+									</tbody> 
+								</table>	
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.user.permissions_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.user.permission_code_label")</th>
+											<th width="200px">$wording.get("bo.user.permission_name_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#set ($map = $!authenticatedUser.userPermissions) 
+										#foreach ($mapEntry in $map.entrySet())
+										<tr>
+											<td>$!mapEntry.key</td>
+											<td>$!mapEntry.value</td>
+										</tr>
 										#end
-										</table>
-									</div>
-								</div>
-								<div id="tabs-5">
-									<div style="min-height:300px; overflow-y:auto;">
-										<table style="width: 95%; border-top: 1px solid #000000; border-right: 1px solid #000000;">
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="width: 260px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.last_login_date_label")</td>
-												<td style="width: 170px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.last_login_host_label")</td>
-												<td style="width: 170px; padding: 5px; border-left: 1px solid #000000;">$wording.get("bo.user.last_login_address_label")</td>
-											</tr>
-										#set ($userConnectionLog = $user.userConnectionLogs) 
-										#foreach ($userConnectionLog in $user.userConnectionLogs) 
-											<tr style="border-bottom: 1px solid #000000;">
-												<td style="padding: 5px; border-left: 1px solid #000000;">$!userConnectionLog.date</td>
-												<td style="padding: 5px; border-left: 1px solid #000000;">$!userConnectionLog.host</td>
-												<td style="padding: 5px; border-left: 1px solid #000000;">$!userConnectionLog.address</td>
-											</tr>
+									</tbody> 
+								</table>	
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.user.last_logins_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.user.last_login_date_label")</th>
+											<th width="200px">$wording.get("bo.user.last_login_host_label")</th>
+											<th width="200px">$wording.get("bo.user.last_login_address_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach ($userConnectionLog in $!authenticatedUser.userConnectionLogs) 
+										<tr>
+											<td>$!userConnectionLog.date</td>
+											<td>$!userConnectionLog.host</td>
+											<td>$!userConnectionLog.address</td>
+										</tr>
 										#end
-										</table>
-									</div>
-								</div>
+									</tbody> 
+								</table>	
 							</div>
 						</div>
 						<div style="clear: both;"></div>

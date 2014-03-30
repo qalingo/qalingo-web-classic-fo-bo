@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$( "#tabs-monitoring" ).tabs();
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var icons = {
+			header: "ui-fa fa-circle-plus",
+			activeHeader: "ui-fa fa-circle-minus"
+		};
+		$( "#accordion" ).accordion({
+			icons: icons
+		});
+		$( "#toggle" ).button().click(function() {
+			if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
+				$( "#accordion" ).accordion( "option", "icons", null );
+			} else {
+				$( "#accordion" ).accordion( "option", "icons", icons );
+			}
+		});
+	});
+</script>

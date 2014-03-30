@@ -1,0 +1,58 @@
+
+<script type="text/javascript">
+	var choosedCacheName = "";
+	function flushSpecificServer(cacheName){
+		choosedCacheName = cacheName;
+		$( "#dialog" ).dialog( "open" );
+
+	}
+	function flushAll(){ 
+		$.post("../sc/flushCache.html",{flag:'ALL'},function(result,status){
+			if('SUCCESS'==result){
+				alert('The operation was successful!');
+			}else{
+			
+				alert(result);
+			}
+		});
+	}
+	
+	function flushAllServer(){ 
+		$.post("../sc/flushCache.html",{flag:'ALLSERVER',cacheName:choosedCacheName},function(result,status){
+			if('SUCCESS'==result){
+				alert('The operation was successful!');
+			}else{
+			
+				alert(result);
+			}
+		});
+	}
+
+	$(function() {
+
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			show: {
+				effect: "blind",
+				duration: 1000
+			},
+ 			buttons: {
+				"Confirm refresh the cache?": function() {
+					var serverNameStr = $("#choosedServer").val();
+ 
+					$( this ).dialog( "close" );
+					$.post("../sc/flushCache.html",{flag:'SINGLE',cacheName:choosedCacheName,serverName:serverNameStr},function(result,status){
+						if('SUCCESS'==result){
+							alert('The operation was successful!');
+						}else{
+							alert(result);
+						}
+					},"text");
+				},
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		});
+	});
+</script>

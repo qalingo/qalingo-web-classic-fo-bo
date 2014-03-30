@@ -41,8 +41,9 @@
         
         <intercept-url pattern="/**/engine-setting*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/cache*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
-        <intercept-url pattern="/**/user*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/batch*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
+        <intercept-url pattern="/**/payment-gateway*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
+        <intercept-url pattern="/**/user*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/reference-data*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/monitoring*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
         <intercept-url pattern="/**/faq*" access="ROLE_BO_TECHNICAL_USER, ROLE_BO_TECHNICAL_ADMIN" />
