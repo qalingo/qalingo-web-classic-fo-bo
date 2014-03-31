@@ -68,71 +68,6 @@ width: auto !important
 	margin-left: -2px
 }
 
-
-/*****************************************************************************
-	POPIN
-*****************************************************************************/
-div#background-popin { 
-	z-index:4000;
-	position: fixed;
-	display:none;
-	height:100%;
-	width:100%;
-	background:#000000;	
-	top:0px;  
-	left:0px;
-}
-div#loader-popin {
-	background: url("../img/loading.gif") no-repeat scroll 0 0 transparent;
-	height: 32px;
-	width: 32px;
-	display: none;
-	z-index: 9999;
-	top: 40%;
-	left: 50%;
-	position: absolute;
-	margin-left: -10px;
-}
-div#popin .close {
-	background: url("../img/closebox.png") no-repeat scroll 0 0 transparent;
-	bottom: 24px;
-	cursor: pointer;
-	float: right;
-	height: 30px;
-	left: 27px;
-	position: relative;
-	width: 30px;
-}
-span.ecs_tooltip {
-    background: none repeat scroll 0 0 #000000;
-    border-radius: 2px 2px 2px 2px;
-    color: #FFFFFF;
-    display: none;
-    font-size: 11px;
-    height: 16px;
-    opacity: 0.7;
-    padding: 4px 3px 2px 5px;
-    position: absolute;
-    right: -62px;
-    text-align: center;
-    top: -51px;
-    width: 93px;
-}
-span.arrow {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 7px solid #000000;
-    display: block;
-    height: 1px;
-    left: 40px;
-    position: relative;
-    top: 3px;
-    width: 1px;
-}
-
-/*****************************************************************************
-	
-*****************************************************************************/
 .slider-wrapper.axe-top-slider {
 	width: 100%;
 	margin: 0 auto
@@ -1753,6 +1688,7 @@ padding-right: 0;
 padding-left: 0;
 }
 
+
 /*****************************************************************************
 	CHECKOUT
 *****************************************************************************/
@@ -1843,6 +1779,7 @@ input.input-cart-promo-code {
 
 .product-sku.store-detail-add {
 	margin-top: 15px;
+	margin-bottom: 8px;
 	color: #707070;
 }
 
@@ -1946,4 +1883,10 @@ input.input-cart-promo-code {
 	margin-bottom: 10px;
 }
 
-
+.operation-hour, .operation-hour-title {
+	color: #707070;
+}
+.operation-hour-title {margin-bottom: 7px;display: block;}
+.operation-hour {
+	border-bottom: 1px solid #ddd;
+}
