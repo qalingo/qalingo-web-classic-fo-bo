@@ -1,0 +1,135 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+
+				<section id="payment-gateway-details">
+				
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") $!paymentGateway.dateCreate | $wording.get("bo.common.date_update_label") $!paymentGateway.dateUpdate
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+
+					<div class="widget">
+						
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="fa fa-pushpin"></i>
+								<h3>$!mainContentTitle</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!paymentGateway.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
+							</div>
+						</div>
+						
+						<div class="widget-content">
+							<div style="width: 100%">
+								<strong>$wording.get("bo.payment_gateway.code_label") :</strong> $!paymentGateway.code
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.payment_gateway.name_label") :</strong> $!paymentGateway.name
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.payment_gateway.description_label") :</strong> $!paymentGateway.description
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.payment_gateway.active_on_market_area_label")</strong> 
+								#if($paymentGateway.active)
+									<span style="color: green">$wording.get("common.common.active_value_true")</span>
+								#else
+									<span style="color: red">$wording.get("common.common.active_value_false")</span>
+								#end
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_create_label"):</strong> $!paymentGateway.dateCreate
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_update_label"):</strong> $!paymentGateway.dateUpdate
+							</div>							
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.payment_gateway.global_attribute_list_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.payment_gateway.attribute_code_label")</th>
+											<th width="200px">$wording.get("bo.payment_gateway.attribute_value_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($key in $paymentGateway.gloabalAttributes.keySet())
+										<tr>
+											<td>$key</td>
+											<td>$!paymentGateway.gloabalAttributes.get($key)</td>
+										</tr>
+										#end
+									</tbody> 
+								</table>							
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.payment_gateway.marketarea_attribute_list_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.payment_gateway.attribute_code_label")</th>
+											<th width="200px">$wording.get("bo.payment_gateway.attribute_value_label")</th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($key in $paymentGateway.marketAreaAttributes.keySet())
+										<tr>
+											<td>$key</td>
+											<td>$!paymentGateway.marketAreaAttributes.get($key)</td>
+										</tr>
+										#end
+									</tbody> 
+								</table>							
+							</div>
+						</div>
+						<div class="widget widget-nopad">
+							<div class="widget-header">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.payment_gateway.option_list_label")</h3>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th width="150px">$wording.get("bo.payment_gateway.option_code_label")</th>
+											<th width="200px">$wording.get("bo.payment_gateway.option_name_label")</th>
+											<th width="50px"></th>
+										</tr>
+									</thead>
+									<tbody>
+										#foreach($availablePaymentGatewayOption in $availablePaymentGatewayOptions)
+										<tr>
+											<td>$availablePaymentGatewayOption.code</td>
+											<td>$availablePaymentGatewayOption.name</td>
+											<td>
+											#if($!paymentGateway.options.containsKey($availablePaymentGatewayOption.code))
+											<span style="color: green">$wording.get("common.common.active_value_true")</span>
+											#else
+											<span>$wording.get("common.common.active_value_false")</span>
+											#end
+										</tr>
+										#end
+									</tbody> 
+								</table>							
+							</div>
+						</div>
+					</div>
+
+
+				</section>
+				
+

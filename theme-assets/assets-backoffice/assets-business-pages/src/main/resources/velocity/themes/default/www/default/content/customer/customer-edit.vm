@@ -1,54 +1,90 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="product-category-edit">
-					<div class="page-header">
-						<div style="float: left;">
-							<h1>${mainContentTitle}</h1>
+				<section id="customer-edit">
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") $!customer.dateCreate | $wording.get("bo.common.date_update_label") $!customer.dateUpdate
 						</div>
-						#if($!customer.detailsUrl)
-						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							$wording.get("bo.common.actions_label") <a href="${customer.detailsUrl}">$wording.get("bo.common.details_label"</a>
-						</div>
-						#end
+						<div style="clear: both;"></div>
 					</div>
-					<div style="clear: both; width: 100%; text-align: right;">
-						#if($!customer.createdDate)
-						$wording.get("bo.common.date_create_label") ${customer.createdDate} | 
-						#end
-						#if($!customer.updatedDate)
-						$wording.get("bo.common.date_update_label") ${customer.updatedDate}
-						#end
-					</div>
-					#parse("../../_include/body-transaction-messages.vm")
-					<div class="form-horizontal well">
-						<form id="customerForm" name="customerForm" action="" method="POST">
-						<input type="hidden" id="id" name="id" value="${customerForm.id}" />
-						#set($beanName = "customerForm")
-						#parse("../../_include/body-form-error-message.vm")
-						<div>
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$customer.submitLabel</button>
-						</div>
-						<div style="clear: both;">
-							<div style="padding-top: 5px; padding-bottom: 5px;">
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="name" class="label-form">$customer.businessNameLabel</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="name" name="name" value="${customerForm.name}" style="width: 150px; margin-bottom: 0px;" />
-									<br/>
-									$customer.businessNameInformation
-								</div>
+
+					<div class="widget">
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="fa fa-pushpin"></i>
+								<h3>$!mainContentTitle</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								<a class="btn" href="$!urlBack" alt="">$wording.get("bo.common.back_label")</a>
 							</div>
 						</div>
-						
-						<div style="clear: both; padding-top: 15px;">
-							<button class="btn" onclick="javascript:window.location.href='$urlBack'">$customer.cancelLabel</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$customer.submitLabel</button>
+						<div class="widget-content">
+							<div class="form-horizontal well">
+							<form id="customerForm" name="customerForm" action="" method="POST">
+								<input type="hidden" id="id" name="id" value="$!customerForm.id" />
+								#set($beanName = "customerForm")
+								#parse("../../_include/body-form-error-message.vm")
+								<div style="margin-bottom: 10px;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+								</div>
+								<div style="clear: both;">
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="lastname" class="label-form">$wording.get("bo.customer.lastname_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="lastname" name="lastname" value="$!customerForm.lastname" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="firstname" class="label-form">$wording.get("bo.customer.firstname_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="firstname" name="firstname" value="$!customerForm.firstname" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="email" class="label-form">$wording.get("bo.customer.email_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="email" name="email" value="$!customerForm.email" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+											<label for="login" class="label-form">$wording.get("bo.customer.login_label")</label>
+										</div>
+										<div style="float: left;">
+											<input type="text" id="login" name="login" value="$!customerForm.login" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
+										<div style="float: left; width: 100px;">
+										  <label class="checkbox">
+											#if($!customerForm.active)
+											<input type="checkbox" id="active" name="active" value="$!customerForm.active" checked="checked" />
+											#else
+											<input type="checkbox" id="active" name="active" value="$!customerForm.active" />
+											#end
+											$wording.get("bo.customer.active_label")
+										  </label>
+										</div>
+									</div>
+								</div>
+								
+								<div style="clear: both; padding-top: 15px;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+								</div>
+							</form>
+							</div>
 						</div>
-						</form>
+						<div style="clear: both;"></div>
 					</div>
 				</section>
 				

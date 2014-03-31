@@ -1,4 +1,5 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/monitoring/monitoring-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 				<section id="monitoring">
@@ -77,28 +78,5 @@
 						</div>
 					</div>
 				</section>
-<script>
-	$(document).ready(function(){
-		$( "#tabs-monitoring" ).tabs();
-	});
-</script>
 
-<script>
-	$(document).ready(function(){
-		var icons = {
-			header: "ui-fa fa-circle-plus",
-			activeHeader: "ui-fa fa-circle-minus"
-		};
-		$( "#accordion" ).accordion({
-			icons: icons
-		});
-		$( "#toggle" ).button().click(function() {
-			if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
-				$( "#accordion" ).accordion( "option", "icons", null );
-			} else {
-				$( "#accordion" ).accordion( "option", "icons", icons );
-			}
-		});
-	});
-</script>
 	

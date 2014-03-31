@@ -11,8 +11,8 @@
 <html lang="$localeLanguageCode">
 	<head>
 		<title>${seoPageTitle}
-		#if($!user)
-			- (${user.lastname} ${user.firstname})
+		#if($!authenticatedUser)
+			- (${authenticatedUser.lastname} ${authenticatedUser.firstname})
 		#end
 		</title>
 

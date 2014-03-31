@@ -19,7 +19,7 @@
 								<h3>${mainContentTitle}</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								$wording.get("bo.common.actions_label"): <a href="${tax.editUrl}">$wording.get("bo.common.edit_label")</a>
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!tax.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
 						
@@ -32,7 +32,13 @@
 							</div>
 							<div style="width: 100%">
 								<strong>$wording.get("bo.tax.description_label") :</strong> $!tax.description
-							</div>							
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_create_label"):</strong> $!tax.dateCreate
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_update_label"):</strong> $!tax.dateUpdate
+							</div>								
 						</div>
 							
 					</div>

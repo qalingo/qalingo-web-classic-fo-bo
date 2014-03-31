@@ -2,11 +2,10 @@
 #set ($page_title = $seoPageTitle)
 
 				<section id="customer-details">
-				
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							${customer.dateCreateLabel} : ${customer.createdDate} | ${customer.dateUpdateLabel} : ${customer.updatedDate}
+							$wording.get("bo.common.date_create_label") $!customer.dateCreate | $wording.get("bo.common.date_update_label") $!customer.dateUpdate
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -16,44 +15,62 @@
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								$wording.get("bo.common.actions_label"): <a href="${customer.editUrl}">${customer.editLabel}</a>
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!customer.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								${customer.id}
+								<strong>$wording.get("bo.customer.title_label") :</strong> $!customer.title
 							</div>
-							
+							<div style="width: 100%">
+								<strong>$wording.get("bo.customer.lastname_label") :</strong> $!customer.lastname
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.customer.firstname_label") :</strong> $!customer.firstname
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.customer.login_label") :</strong> $!customer.login
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.customer.password_label") :</strong> ***************
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.customer.email_label") :</strong> $!customer.email
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.customer.active_label"):</strong> 
+								#if($customer.active)
+									<span style="color: green">$wording.get("common.common.active_value_true")</span>
+								#else
+									<span style="color: red">$wording.get("common.common.active_value_false")</span>
+								#end
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_create_label"):</strong> $!customer.dateCreate
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_update_label"):</strong> $!customer.dateUpdate
+							</div>
 						</div>
 							
 					</div>
-			
+					#*
 					<div class="widget widget-nopad">
 							
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
-							<h3>${customer.xxx}</h3>
+							<h3>xxxx</h3>
 						</div>
 						
 						<div class="widget-content">
-							<table class="table table-bordered table-striped">
-								<thead>
-									<tr>
-										<th style="width: 50%;">Key</th>
-										<th style="width: 50%;">Value</th>
-									</tr>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
-							
-						</div>
-					
+						
+						</div>					
 					</div>
+					*#
 
 				</section>
 				

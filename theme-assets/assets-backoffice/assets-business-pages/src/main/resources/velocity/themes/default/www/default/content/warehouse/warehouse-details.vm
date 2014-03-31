@@ -6,7 +6,7 @@
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label") ${warehouse.dateCreate} | $wording.get("bo.common.date_update_label") ${warehouse.dateUpdate}
+							$wording.get("bo.common.date_create_label") $!warehouse.dateCreate | $wording.get("bo.common.date_update_label") $!warehouse.dateUpdate
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -16,10 +16,10 @@
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								$wording.get("bo.common.actions_label") <a href="${warehouse.editUrl}">$wording.get("bo.common.edit_label")</a>
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!warehouse.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
 						
@@ -33,7 +33,12 @@
 							<div style="width: 100%">
 								<strong>$wording.get("bo.warehouse.description_label") :</strong> $!warehouse.description
 							</div>
-
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_create_label"):</strong> $!warehouse.dateCreate
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.common.date_update_label"):</strong> $!warehouse.dateUpdate
+							</div>
 						</div>
 							
 					</div>

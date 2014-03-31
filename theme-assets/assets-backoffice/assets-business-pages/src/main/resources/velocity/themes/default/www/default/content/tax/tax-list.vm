@@ -1,9 +1,12 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="tax">
+				<section id="tax-list">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
+					</div>
+					<div style="float: right; padding-right: 15px; font-size: 15px;">
+						<a href="$!urlAdd" class="btn btn-primary">$wording.get("bo.common.add_label")</a>
 					</div>
 					<div>
 						#parse("../../_include/body-pagination-pagelistholder.vm")

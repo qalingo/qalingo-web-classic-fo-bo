@@ -1,59 +1,50 @@
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($page_title = $seoPageTitle)
 
-				<section id="user-list">
+				<section id="engine-setting-list">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
-					
-					<div style="float: left; width: 15%;">
-						<div style="text-align: right; padding-right: 5px;">
-							<form id="userQuickSearchForm" name="userQuickSearchForm" action="${quickSearch.urlUserFormSubmit}" method="POST">
-								<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-								<button class="btn btn-primary" type="submit" style="margin-top: 3px;">search</button>
-							</form>
-						</div>
-						#parse("../../_include/body-short-link-menu.vm")
+					#*
+					<div style="float: right; padding-right: 15px; font-size: 15px;">
+						<a href="$!urlAdd" class="btn btn-primary">$wording.get("bo.common.add_label")</a>
 					</div>
-
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					*#
+					<div>
+						#parse("../../_include/body-pagination-pagelistholder.vm")
 						<div>
-							<div style="width: 800px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
-								#parse("../../_include/body-pagination-pagelistholder.vm")
-								<div>
-									<table class="table" style="width: 100%">
-										<thead>
-											<tr>
-												<th width="150px">$wording.get("bo.user.firstname_label")</th>
-												<th width="150px">$wording.get("bo.user.lastname_label")</th>
-												<th width="50px">$wording.get("bo.user.active_label")</th>
-												<th width="150px">$wording.get("bo.common.actions_label")</th>
-											</tr>
-										</thead>
-										<tbody>
-											#foreach($user in $pagedListHolder.pageList)
-											<tr>
-												<td>${user.firstname}</td>
-												<td>${user.lastname}</td>
-												<td>
-												  #if($user.active)
-														<span style="color: green">$wording.get("common.common.active_value_true")</span>
-													#else
-														<span style="color: red">$wording.get("common.common.active_value_false")</span>
-													#end
-												</td>
-												<td>
-													<a class="btn" href="$user.userDetailsUrl" alt="">$wording.get("bo.common.details_label")</a>&nbsp;<a class="btn" href="$user.userEditUrl" alt="">$wording.get("bo.common.edit_label")</a>
-												</td>
-											</tr>
+							<table class="table" style="width: 100%">
+								<thead>
+									<tr>
+										<th width="150px">$wording.get("bo.user.firstname_label")</th>
+										<th width="150px">$wording.get("bo.user.lastname_label")</th>
+										<th width="50px">$wording.get("bo.user.active_label")</th>
+										<th width="150px">$wording.get("bo.common.actions_label")</th>
+									</tr>
+								</thead>
+								<tbody>
+									#foreach($user in $pagedListHolder.pageList)
+									<tr>
+										<td>$!user.firstname</td>
+										<td>$!user.lastname</td>
+										<td>
+										  #if($!user.active)
+												<span style="color: green">$wording.get("common.common.active_value_true")</span>
+											#else
+												<span style="color: red">$wording.get("common.common.active_value_false")</span>
 											#end
-										</tbody>  
-									</table> 
-								</div>
-							</div>
-						</div>					
+										</td>
+										<td>
+											<a class="btn" href="$!user.userDetailsUrl" alt="">$wording.get("bo.common.details_label")</a>&nbsp;<a class="btn" href="$!user.userEditUrl" alt="">$wording.get("bo.common.edit_label")</a>
+										</td>
+									</tr>
+									#end
+								</tbody>  
+							</table> 
+						</div>
 					</div>
 					<div style="clear: both;"></div>
+
 				</section>
 
 				

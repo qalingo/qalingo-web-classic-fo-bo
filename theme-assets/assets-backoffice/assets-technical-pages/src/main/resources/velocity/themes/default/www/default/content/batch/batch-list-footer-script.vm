@@ -1,0 +1,12 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$( "#tabs" ).tabs();
+	$( "#tabs" ).tabs( "option", "active", ${tab} );
+});
+
+function resetProcessCount(id){
+	$("#tab").val($( "#tabs" ).tabs( "option", "active" ));
+	$("#id").val(id);
+	$("#batchForm").submit();
+}
+</script>	

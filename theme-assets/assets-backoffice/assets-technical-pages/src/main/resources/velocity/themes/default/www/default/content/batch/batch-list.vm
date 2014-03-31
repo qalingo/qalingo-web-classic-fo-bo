@@ -1,120 +1,100 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/batch/batch-list-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 				<section id="batch-list">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
 					
-					<div style="float: left; width: 15%;">
-						<div style="text-align: right; padding-right: 5px;">
-							<form id="batchQuickSearchForm" name="batchQuickSearchForm" action="${quickSearch.urlBatchFormSubmit}" method="POST">
-								<input type="text" id="text" name="text" value="" style="width: 150px; margin-bottom: 0px;" />
-								<button class="btn btn-primary" type="submit" style="margin-top: 3px;">search</button>
-							</form>
-						</div>
-						#parse("../../_include/body-short-link-menu.vm")
-					</div>
-
-					<div style="float: left; width: 80%;" class="form-horizontal well">
-						<form id="batchForm" name="batchForm" action="/bo-technical/sc/batch-list.html" method="POST">
-							<input type="hidden" id="id" name="id" value="" />
-							<input type="hidden" id="tab" name="tab" value="" />
-							<div id="tabs">
-								<ul>
-									<li><a href="#tabs-1">Success</a></li>
-									<li><a href="#tabs-2">Error</a></li> 
-								</ul>
-								<div id="tabs-1">
-									<div class="widget-content" style="min-height:300px;overflow-y:auto; max-height:300px;">
-										<table class="table table-striped table-bordered" style="width: 100%">
-											<thead>
+					<div>
+					<form id="batchForm" name="batchForm" action="/bo-technical/sc/batch-list.html" method="POST">
+						<input type="hidden" id="id" name="id" value="" />
+						<input type="hidden" id="tab" name="tab" value="" />
+						<div id="tabs">
+							<ul>
+								<li><a href="#tabs-1">Success</a></li>
+								<li><a href="#tabs-2">Error</a></li> 
+							</ul>
+							<div id="tabs-1">
+								<div class="widget-content" style="min-height:300px;overflow-y:auto; max-height:300px;">
+									<table class="table table-striped table-bordered" style="width: 100%">
+										<thead>
+											<tr>
+												<th width="60px">ID</th>
+												<th width="120px">Create Date</th>
+												<th width="120px">Update Date</th>
+												<th width="50px">Processed Count</th>
+												<th width="50px">Status</th>
+												<th width="50px">Object Type</th>
+												<th width="50px">Version</th>
+												<th width="150px">&nbsp;</th>
+											</tr>
+										</thead>
+										<tbody>
+										 #foreach($batchViewBean in $pagedListHolder.pageList)
+												#if( ${batchViewBean.status} == "SUCCESS" )
 												<tr>
-													<th width="60px">ID</th>
-													<th width="120px">Create Date</th>
-													<th width="120px">Update Date</th>
-													<th width="50px">Processed Count</th>
-													<th width="50px">Status</th>
-													<th width="50px">Object Type</th>
-													<th width="50px">Version</th>
-													<th width="150px">&nbsp;</th>
+													<td>${batchViewBean.id}</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>${batchViewBean.processedCount}</td>
+													<td>${batchViewBean.status}</td>
+													<td>${batchViewBean.typeObject}</td>
+													<td>&nbsp;</td>
+													<td>
+														<a class="btn" href="#" onclick="resetProcessCount(${batchViewBean.id});" alt="">Reset</a>&nbsp;
+													</td>
+													
 												</tr>
-											</thead>
-											<tbody>
-											 #foreach($batchViewBean in $pagedListHolder.pageList)
-													#if( ${batchViewBean.status} == "SUCCESS" )
-													<tr>
-														<td>${batchViewBean.id}</td>
-														<td>&nbsp;</td>
-														<td>&nbsp;</td>
-														<td>${batchViewBean.processedCount}</td>
-														<td>${batchViewBean.status}</td>
-														<td>${batchViewBean.typeObject}</td>
-														<td>&nbsp;</td>
-														<td>
-															<a class="btn" href="#" onclick="resetProcessCount(${batchViewBean.id});" alt="">Reset</a>&nbsp;
-														</td>
-														
-													</tr>
-													#end
 												#end
-											</tbody>
-										</table>
-									</div>
+											#end
+										</tbody>
+									</table>
 								</div>
-								<div id="tabs-2">
-									<div class="widget-content" style="min-height:300px;overflow-y:auto; max-height:300px;">
-										<table class="table table-striped table-bordered" style="width: 100%">
-											<thead>
+							</div>
+							<div id="tabs-2">
+								<div class="widget-content" style="min-height:300px;overflow-y:auto; max-height:300px;">
+									<table class="table table-striped table-bordered" style="width: 100%">
+										<thead>
+											<tr>
+												<th width="60px">ID</th>
+												<th width="120px">Create Date</th>
+												<th width="120px">Update Date</th>
+												<th width="50px">Processed Count</th>
+												<th width="50px">Status</th>
+												<th width="50px">Object Type</th>
+												<th width="50px">Version</th>
+												<th width="150px">&nbsp;</th>
+											</tr>
+										</thead>
+										<tbody>
+										 #foreach($batchViewBean in $pagedListHolder.pageList)
+												#if( ${batchViewBean.status} == "ERROR" )
 												<tr>
-													<th width="60px">ID</th>
-													<th width="120px">Create Date</th>
-													<th width="120px">Update Date</th>
-													<th width="50px">Processed Count</th>
-													<th width="50px">Status</th>
-													<th width="50px">Object Type</th>
-													<th width="50px">Version</th>
-													<th width="150px">&nbsp;</th>
+													<td>${batchViewBean.id}</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>${batchViewBean.processedCount}</td>
+													<td>${batchViewBean.status}</td>
+													<td>${batchViewBean.typeObject}</td>
+													<td>&nbsp;</td>
+													<td>
+														<a class="btn" onclick="resetProcessCount(${batchViewBean.id});" href="#" alt="">Reset</a>&nbsp;
+													</td>
+													
 												</tr>
-											</thead>
-											<tbody>
-											 #foreach($batchViewBean in $pagedListHolder.pageList)
-													#if( ${batchViewBean.status} == "ERROR" )
-													<tr>
-														<td>${batchViewBean.id}</td>
-														<td>&nbsp;</td>
-														<td>&nbsp;</td>
-														<td>${batchViewBean.processedCount}</td>
-														<td>${batchViewBean.status}</td>
-														<td>${batchViewBean.typeObject}</td>
-														<td>&nbsp;</td>
-														<td>
-															<a class="btn" onclick="resetProcessCount(${batchViewBean.id});" href="#" alt="">Reset</a>&nbsp;
-														</td>
-														
-													</tr>
-													#end
 												#end
-											</tbody>
-										</table>
-									</div>
+											#end
+										</tbody>
+									</table>
 								</div>
-							</div>			
-						</form>
+							</div>
+						</div>			
+					</form>
 					</div>
 					<div style="clear: both;"></div>
 
 				</section>
 				
-<script>
-$(document).ready(function(){
-	$( "#tabs" ).tabs();
-	$( "#tabs" ).tabs( "option", "active", ${tab} );
-});
-
-function resetProcessCount(id){
-	$("#tab").val($( "#tabs" ).tabs( "option", "active" ));
-	$("#id").val(id);
-	$("#batchForm").submit();
-}
-</script>				
+			
