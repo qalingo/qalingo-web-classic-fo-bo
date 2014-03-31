@@ -25,15 +25,15 @@
 								<tbody>
 									#foreach($customer in $pagedListHolder.pageList)
 									<tr>
-										<td>${customer.title}</td>
-										<td>${customer.lastname}</td>
-										<td>${customer.firstname}</td>
-										#if($customer.active)
+										<td>$!customer.title</td>
+										<td>$!customer.lastname</td>
+										<td>$!customer.firstname</td>
+										#if($!customer.active)
 										<td style="color: green">$wording.get("common.common.is_default_true")</td>
 										#else
 										<td style="color: red">$wording.get("common.common.is_default_false")</td>
 										#end
-										<td><a href="${customer.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="${customer.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a></td>
+										<td><a href="$!customer.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!customer.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
 									</tr>
 									#end
 								</tbody>  

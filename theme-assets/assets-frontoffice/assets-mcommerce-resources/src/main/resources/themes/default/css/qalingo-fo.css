@@ -1890,3 +1890,18 @@ input.input-cart-promo-code {
 .operation-hour {
 	border-bottom: 1px solid #ddd;
 }
+
+
+
+
+
+
+
+
+.form-horizontal .control-label {
+    float: left;
+	font-weight: bold;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+}

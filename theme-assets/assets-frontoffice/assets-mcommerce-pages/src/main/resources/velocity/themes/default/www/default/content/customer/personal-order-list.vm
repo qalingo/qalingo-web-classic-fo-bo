@@ -11,7 +11,7 @@
 						#parse("_include/customer-menu.vm")
 					</div>
 
-					<div style="float: left; width: 80%;" class="form-horizontal well">
+					<div style="float: left; width: 80%;">
 						<div>
 							<div style="width: 950px; border: 0px solid #B8B6B6; background-color: #ffffff; padding: 10px; float:left;">
 								#parse("../../_include/body-pagination-pagelistholder.vm")
