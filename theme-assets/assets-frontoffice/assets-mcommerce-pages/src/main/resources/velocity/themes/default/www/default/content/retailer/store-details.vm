@@ -41,9 +41,57 @@
 		<a href="javascript:void(0)" class="review-rating-star star-1">&nbsp;</a>
 	</div>
 	<p class="product-sku store-detail-add">
-		<strong>Address:</strong>$!store.address1<br>
-		<strong>Operation Hour:</strong> 08:00 - 22:00
+		<strong>Address:</strong> $!store.address1<br>
 	</p>
+		#if($!businessHours)
+		<strong class="operation-hour-title">Operation Hour:</strong>
+		<table class="table operation-hour">
+            <tbody>
+                <tr>
+                    <td class="small">Monday:</td>
+                    <td #if($!businessHours.monday) class="bold" #end>
+                    	#if($!businessHours.monday)<strong> $!businessHours.monday.startHour to $!businessHours.monday.endHour </strong> #else CLOSE #end 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="small">Tuesday:</td>
+                    <td #if($!businessHours.tuesday) class="bold" #end>
+                    	<strong>#if($!businessHours.tuesday) <strong>$!businessHours.tuesday.startHour to $!businessHours.tuesday.endHour </strong> #else CLOSE #end 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="small">Wednesday:</td>
+                    <td #if($!businessHours.wednesday) class="bold" #end>
+                    	#if($!businessHours.wednesday) <strong> $!businessHours.wednesday.startHour to $!businessHours.wednesday.endHour  </strong>  #else CLOSE #end
+                    </td>
+                </tr>
+                <tr>
+                    <td class="small">Thursday:</td>
+                    <td #if($!businessHours.thursday) class="bold" #end>
+                    	#if($!businessHours.thursday) <strong>$!businessHours.thursday.startHour to $!businessHours.thursday.endHour </strong> #else CLOSE #end 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="small">Friday:</td>
+                    <td #if($!businessHours.friday) class="bold" #end>
+                    	#if($!businessHours.friday) <strong>  $!businessHours.friday.startHour to $!businessHours.friday.endHour  </strong> #else CLOSE #end
+                    </td>
+                </tr>
+                <tr>
+                    <td class="small">Saturday:</td>
+                    <td #if(!$businessHours.saturday) class="bold" #end>
+                    	 #if($!businessHours.saturday) <strong>$!businessHours.saturday.startHour to $!businessHours.saturday.endHour  </strong>  #else CLOSE #end
+                    </td>
+                </tr>
+                <tr>
+                    <td class="small">Sunday:</td>
+                    <td #if($!businessHours.sunday) class="bold" #end>
+                    	#if($!businessHours.sunday) <strong>$!businessHours.sunday.startHour to $!businessHours.sunday.endHour  </strong> #else CLOSE #end 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+		#end
 	<span class="product-des">
 		$!store.addressAdditionalInformation
 	</span>
