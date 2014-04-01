@@ -908,3 +908,8 @@ span.arrow {
 .form-horizontal .form-row .form-input-column {
 	float: left;
 }
+
+.form-horizontal  textarea  {
+	width: 600px;
+	height: 300px;
+}

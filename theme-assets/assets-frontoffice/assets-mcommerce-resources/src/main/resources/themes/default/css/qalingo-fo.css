@@ -1767,6 +1767,12 @@ ul.pagination li a.active {
 
 select.cart-item-select-qty {
     width: 50px;
+	height: 20px;
+}
+
+.cart-item-image{
+    width: 150px;
+	height: 150px;
 }
 
 input.input-cart-promo-code {

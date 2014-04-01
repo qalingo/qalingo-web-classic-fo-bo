@@ -30,43 +30,43 @@
 								#set($beanName = "userForm")
 								#parse("../../_include/body-form-error-message.vm")
 								<div class="form-horizontal well">
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="lastname" class="label-form">$wording.get("bo.user.firstname_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="lastname" name="lastname" value="$!userForm.lastname" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="firstname" class="label-form">$wording.get("bo.user.lastname_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="firstname" name="firstname" value="$!userForm.firstname" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="email" class="label-form">$wording.get("bo.user.email_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="email" name="email" value="$!userForm.email" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="login" class="label-form">$wording.get("bo.user.login_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="login" name="login" value="$!userForm.login" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											$wording.get("bo.user.active_label")
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											#if($userForm.active)
 												<span style="color: green">$wording.get("common.common.active_value_true")</span>
 											#else

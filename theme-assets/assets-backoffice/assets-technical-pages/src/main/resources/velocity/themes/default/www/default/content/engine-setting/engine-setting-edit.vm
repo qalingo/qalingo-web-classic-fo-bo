@@ -30,29 +30,27 @@
 								#set($beanName = "engineSettingForm")
 								#parse("../../_include/body-form-error-message.vm")
 								<div class="form-horizontal well">
-									<div style="clear: both;">
-										<div style="width: 100%">
-											<strong>$wording.get("bo.engine_setting.code_label") :</strong> $!engineSetting.code
+									<div style="width: 100%">
+										<strong>$wording.get("bo.engine_setting.code_label") :</strong> $!engineSetting.code
+									</div>
+									<div style="width: 100%">
+										<strong>$wording.get("bo.engine_setting.name_label") :</strong> $!engineSetting.name
+									</div>
+									<div style="width: 100%">
+										<strong>$wording.get("bo.engine_setting.description_label") :</strong> $!engineSetting.description
+									</div>
+									<div style="width: 100%">
+										<strong>$wording.get("bo.common.date_create_label"):</strong> $!engineSetting.dateCreate
+									</div>
+									<div style="width: 100%">
+										<strong>$wording.get("bo.common.date_update_label"):</strong> $!engineSetting.dateUpdate
+									</div>	
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="defaultValue" class="label-form">$wording.get("bo.engine_setting.default_value_label")</label>
 										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.engine_setting.name_label") :</strong> $!engineSetting.name
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.engine_setting.description_label") :</strong> $!engineSetting.description
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.common.date_create_label"):</strong> $!engineSetting.dateCreate
-										</div>
-										<div style="width: 100%">
-											<strong>$wording.get("bo.common.date_update_label"):</strong> $!engineSetting.dateUpdate
-										</div>	
-										<div style="width: 100%; padding-top: 5px; padding-bottom: 5px;">
-											<div style="float: left; width: 100px;">
-												<label for="defaultValue" class="label-form">$wording.get("bo.engine_setting.default_value_label")</label>
-											</div>
-											<div style="float: left;">
-												<input type="text" id="defaultValue" name="defaultValue" value="$!engineSettingForm.defaultValue" style="width: 300px; margin-bottom: 0px;" />
-											</div>
+										<div class="form-input-column">
+											<input type="text" id="defaultValue" name="defaultValue" value="$!engineSettingForm.defaultValue" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
 								</div>

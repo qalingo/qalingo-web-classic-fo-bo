@@ -52,7 +52,7 @@
 											<label for="description" class="label-form">$wording.get("bo.retailer.description_label")</label>
 										</div>
 										<div class="form-input-column">
-											<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 300px;">$!retailerForm.description</textarea>
+											<textarea id="description" name="description">$!retailerForm.description</textarea>
 										</div>
 									</div>
 									

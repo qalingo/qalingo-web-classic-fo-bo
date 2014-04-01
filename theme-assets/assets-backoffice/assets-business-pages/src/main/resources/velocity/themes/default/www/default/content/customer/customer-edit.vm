@@ -31,40 +31,40 @@
 								#set($beanName = "customerForm")
 								#parse("../../_include/body-form-error-message.vm")
 								<div class="form-horizontal well">
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="lastname" class="label-form">$wording.get("bo.customer.lastname_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="lastname" name="lastname" value="$!customerForm.lastname" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="firstname" class="label-form">$wording.get("bo.customer.firstname_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="firstname" name="firstname" value="$!customerForm.firstname" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="email" class="label-form">$wording.get("bo.customer.email_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="email" name="email" value="$!customerForm.email" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 											<label for="login" class="label-form">$wording.get("bo.customer.login_label")</label>
 										</div>
-										<div style="float: left;">
+										<div class="form-input-column">
 											<input type="text" id="login" name="login" value="$!customerForm.login" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-										<div style="float: left; width: 100px;">
+									<div class="form-row">
+										<div class="form-label-column">
 										  <label class="checkbox">
 											#if($!customerForm.active)
 											<input type="checkbox" id="active" name="active" checked="checked" />

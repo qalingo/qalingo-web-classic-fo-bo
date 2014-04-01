@@ -881,8 +881,6 @@ span.arrow {
 	}
 }
 
-
-
 .well {
     background-color: #F5F5F5;
     border: 1px solid #E3E3E3;
@@ -893,4 +891,25 @@ span.arrow {
     min-height: 20px;
     padding: 19px;
 	overflow: auto;
+}
+
+
+.form-horizontal .form-row {
+	clear: both; 
+	padding-top: 5px; 
+	padding-bottom: 5px;
+}
+
+.form-horizontal .form-row .form-label-column {
+	float: left; 
+	width: 200px;
+}
+
+.form-horizontal .form-row .form-input-column {
+	float: left;
+}
+
+.form-horizontal  textarea  {
+	width: 600px;
+	height: 300px;
 }

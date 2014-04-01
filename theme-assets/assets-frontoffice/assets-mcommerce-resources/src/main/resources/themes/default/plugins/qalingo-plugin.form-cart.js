@@ -60,7 +60,7 @@
 				type: GET_CART_AJAX.method,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadCartHtml();
+					plugins.FormCart.loadCartHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -80,7 +80,7 @@
 				data: params,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadCartHtml();
+					plugins.FormCart.loadCartHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -96,7 +96,7 @@
 				data: params,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadCartHtml();
+					plugins.FormCart.loadCartHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -112,7 +112,7 @@
 				data: params,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadCartHtml();
+					plugins.FormCart.loadCartHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -132,7 +132,7 @@
 				data: params,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadDeliveryMethodsHtml();
+					plugins.FormCart.loadDeliveryMethodsHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -148,7 +148,7 @@
 				data: params,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadDeliveryMethodsHtml();
+					plugins.FormCart.loadDeliveryMethodsHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -162,7 +162,7 @@
 				type: GET_CART_AJAX.method,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadDeliveryMethodsHtml();
+					plugins.FormCart.loadDeliveryMethodsHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -179,7 +179,7 @@
 				success : function(data) {
 					checkoutData = data;
 					plugins.FormCart.loadCartHtml();
-					plugins.FormCart.loadDeliveryMethodsHtml();
+					plugins.FormCart.loadDeliveryMethodsHtml(data);
 				},
 				error : function(data) {
 					checkoutData = data;
@@ -187,21 +187,21 @@
 			});
         },
 		
-		loadCartHtml : function() {
+		loadCartHtml : function(data) {
 			var cartErrorsHtml = '';
-			for(var i = 0; i < checkoutData.errors.length; i++){
-				var error = checkoutData.errors[i];
+			for(var i = 0; i < data.errorMessages.length; i++){
+				var error = data.errorMessages[i];
 				cartErrorsHtml += '<p id="' + error.id + '">' + error.message + '</p>';
 			}			
 			$('#error-messages').html(cartErrorsHtml);
 
 			var cartItemsHtml = '';
-			if(checkoutData.cart != null){
+			if(data.cart != null){
 				var withActions = $('#cart-items').attr('with-actions') == null ? false : $('#cart-items').attr('with-actions');
-				for(var i = 0; i < checkoutData.cart.cartItems.length; i++){
-					var item = checkoutData.cart.cartItems[i];
+				for(var i = 0; i < data.cart.cartItems.length; i++){
+					var item = data.cart.cartItems[i];
 					cartItemsHtml += '<tr>';				
-					cartItemsHtml += '<td style="padding-top: 15px;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="product-image checkout-common-link"><span><img src="' + item.summaryImage + '" alt="' + item.i18nName + '" /></span></a></td>';
+					cartItemsHtml += '<td style="padding-top: 15px;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link"><img src="' + item.summaryImage + '" alt="' + item.i18nName + '" class="cart-item-image"/></a></td>';
 					cartItemsHtml += '<td><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link">' + item.i18nName + '</a></td>';
 					cartItemsHtml += '<td style="text-align: center;"><a href="' + item.productDetailsUrl + '" alt="' + item.i18nName + '" target="_blank" class="checkout-common-link">' + item.productSkuCode + '</a></td>';
 					if(withActions == 'true'){
@@ -226,12 +226,12 @@
 				}
 			}
 			$('#cart-items').find( "tbody" ).html(cartItemsHtml);
-			$('#cart-items-total').html(checkoutData.cart.cartItemTotalWithStandardCurrencySign);
+			$('#cart-items-total').html(data.cart.cartItemTotalWithStandardCurrencySign);
 			
 			var cartDeliveyMethods = '';
-			if(checkoutData.cart != null && checkoutData.cart.deliveryMethods != null && checkoutData.cart.deliveryMethods.length > 0){
-				for(var i = 0; i < checkoutData.cart.deliveryMethods.length; i++){
-					var deliveryMethod = checkoutData.cart.deliveryMethods[i];
+			if(data.cart != null && data.cart.deliveryMethods != null && data.cart.deliveryMethods.length > 0){
+				for(var i = 0; i < data.cart.deliveryMethods.length; i++){
+					var deliveryMethod = data.cart.deliveryMethods[i];
 					cartDeliveyMethods += '<tr>';
 					cartDeliveyMethods += '<td style="text-align: right;">' + deliveryMethod.name + ' (' + deliveryMethod.arrivalTime + ')</td>';
 					cartDeliveyMethods += '<td style="text-align: right;">' + deliveryMethod.priceWithStandardCurrencySign + '</td>';
@@ -239,12 +239,12 @@
 				}
 				$('#cart-delivery-methods').find( "tbody" ).html(cartDeliveyMethods);
 				$('#cart-delivery-methods').show();
-				$('#cart-delivery-methods-total').html(checkoutData.cart.deliveryMethodTotalWithStandardCurrencySign);
+				$('#cart-delivery-methods-total').html(data.cart.deliveryMethodTotalWithStandardCurrencySign);
 			}
 
-			if(checkoutData.cart != null && checkoutData.cart.taxes != null && checkoutData.cart.taxes.length > 0){
-				for(var i = 0; i < checkoutData.cart.taxes.length; i++){
-					var taxe = checkoutData.cart.taxes[i];
+			if(data.cart != null && data.cart.taxes != null && data.cart.taxes.length > 0){
+				for(var i = 0; i < data.cart.taxes.length; i++){
+					var taxe = data.cart.taxes[i];
 					cartDeliveyMethods += '<tr>';
 					cartDeliveyMethods += '<td style="text-align: right;">' + taxe.name + '</td>';
 					cartDeliveyMethods += '<td style="text-align: right;">' + taxe.priceWithStandardCurrencySign + '</td>';
@@ -252,10 +252,10 @@
 				}
 				$('#cart-taxes').find( "tbody" ).html(cartDeliveyMethods);
 				$('#cart-taxes').show();
-				$('#cart-taxes-methods-total').html(checkoutData.cart.taxTotalWithStandardCurrencySign);
+				$('#cart-taxes-methods-total').html(data.cart.taxTotalWithStandardCurrencySign);
 			}			
 
-			$('#cart-total-amount').html(checkoutData.cart.cartTotalWithStandardCurrencySign);
+			$('#cart-total-amount').html(data.cart.cartTotalWithStandardCurrencySign);
 
 			$('.trigger-delete-cart-item').on('click', function() {
 				var productSkuCode = $(this).attr('data-product-sku-code');
@@ -282,11 +282,11 @@
 			});
         },
 		
-		loadDeliveryMethodsHtml : function() {
+		loadDeliveryMethodsHtml : function(data) {
 			var deliveyMethods = '';
-			if(checkoutData.cart != null){		
-				for(var i = 0; i < checkoutData.deliveryMethodInformations.length; i++){
-					var deliveryMethodInformation = checkoutData.deliveryMethodInformations[i];
+			if(data.cart != null){		
+				for(var i = 0; i < data.deliveryMethodInformations.length; i++){
+					var deliveryMethodInformation = data.deliveryMethodInformations[i];
 					for(var j = 0; j < deliveryMethodInformation.availableDeliveryMethods.length; j++){
 						var deliveryMethod = deliveryMethodInformation.availableDeliveryMethods[j];
 						deliveyMethods += '<tr>';
