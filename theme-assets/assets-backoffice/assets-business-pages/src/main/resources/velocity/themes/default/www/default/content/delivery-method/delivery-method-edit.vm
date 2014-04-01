@@ -22,16 +22,15 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<div class="form-horizontal well">
 							<form id="deliveryMethodForm" name="deliveryMethodForm" action="" method="POST">
 								<input type="hidden" id="id" name="id" value="${deliveryMethodForm.id}" />
-								#set($beanName = "deliveryMethodForm")
-								#parse("../../_include/body-form-error-message.vm")
 								<div>
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
-								<div style="clear: both;">
+								#set($beanName = "deliveryMethodForm")
+								#parse("../../_include/body-form-error-message.vm")
+								<div class="form-horizontal well">
 									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
 											<label for="code" class="label-form">$wording.get("bo.delivery_method.code_label")</label>
@@ -56,14 +55,12 @@
 											<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 300px;">$!deliveryMethodForm.description</textarea>
 										</div>
 									</div>
-								</div>
-												
+								</div>												
 								<div style="clear: both; padding-top: 15px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
 							</form>
-							</div>
 						</div>
 						<div style="clear: both;"></div>
 					</div>

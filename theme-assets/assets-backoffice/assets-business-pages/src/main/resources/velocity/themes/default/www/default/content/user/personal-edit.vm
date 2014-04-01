@@ -62,7 +62,7 @@
 											<input type="text" id="login" name="login" value="$!userForm.login" style="width: 300px; margin-bottom: 0px;" />
 										</div>
 									</div>
-									<div style="clear: both; padding-top: 5px; padding-bottom: 20px;">
+									<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
 										<div style="float: left; width: 100px;">
 											$wording.get("bo.user.active_label")
 										</div>

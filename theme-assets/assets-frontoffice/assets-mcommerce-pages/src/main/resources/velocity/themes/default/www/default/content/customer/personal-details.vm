@@ -53,7 +53,7 @@
 							#end
 						</fieldset>
 					</div>
-					<div class="controls form-inline" style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px;">
+					<div class="controls form-inline" style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px; padding-right: 25px;">
 						<a href="$urlCustomerEdit" alt="$wording.get("fo.customer.form_edit_account_label_submit")" class="btn btn-primary">$wording.get("fo.customer.form_edit_account_label_submit")</a>
 					</div>
 					<div style="clear: both;"></div>

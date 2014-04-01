@@ -4,9 +4,11 @@
 #springBind("$beanName.*")
 #if($!status)
 	#if($!status.errors.allErrors.size() > 0)
-		<div class="alert alert-error">
+		<div class="alert alert-error" style="margin-top: 20px;">
 		#foreach($error in $status.errors.allErrors)
-			$!error.defaultMessage<br />
+			#if($!error.defaultMessage)
+				#if($!error.defaultMessage != '')$!error.defaultMessage<br />#end
+			#end
 		#end
 		</div>
 	#end

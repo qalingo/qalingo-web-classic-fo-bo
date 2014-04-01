@@ -890,6 +890,7 @@ span.arrow {
 	margin-top: 20px;
     min-height: 20px;
     padding: 19px;
+	overflow: auto;
 }
 
 .form-horizontal form .form-table {

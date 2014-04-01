@@ -10,25 +10,11 @@
 						#parse("_include/customer-menu.vm")
 					</div>
 
-					<div style="float: left; width: 80%;" class="form-horizontal well">
-						<form id="customerAddressForm" name="customerAddressForm" action="customer-add-address.html" method="POST">
-						#springBind("customerAddressForm")
-						#if($status.errors.hasErrors()) 
-						<div id="errors" class="alert alert-error">
-							## Global error messages 
-							#foreach($e in $status.errorMessages) 
-								<p>${e}</p> 
-							#end 
-							## Field error messages 
-							#foreach($fieldError in $status.errors.fieldErrors) 
-								#springBind("customerAddressForm.${fieldError.field}") 
-								#foreach($errorMessage in $status.errorMessages) 
-									${errorMessage}<br/>
-								#end 
-							#end 
-						</div>
-						#end 
-						<div>
+					<div style="float: left; width: 80%;">
+						<form id="customerAddressForm" name="customerAddressForm" action="" method="POST">
+						#set($beanName = "customerAddressForm")
+						#parse("../../_include/body-form-error-message.vm")
+						<div class="form-horizontal well">
 							<div style="float: left; width: 400px; height: 250px; border: 0px solid #B8B6B6; padding-left: 10px; margin-bottom: 50px;">
 								<div style="padding-bottom: 5px;">
 									<div style="float: left; width: 100px;">

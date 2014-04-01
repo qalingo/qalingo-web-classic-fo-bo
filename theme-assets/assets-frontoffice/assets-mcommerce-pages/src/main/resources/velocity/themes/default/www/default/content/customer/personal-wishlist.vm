@@ -2,37 +2,10 @@
 #set ($page_title = $seoPageTitle)
 
 
-
-		<link href="${common.themeResourcePrefixPath}/library/wishlist-slide/wishlist-slide.css" rel="stylesheet" type="text/css">
-
-<style type="text/css" >
-#featured li.ui-tabs-selected, #featured li.ui-tabs-active{ 
-	background:url('${common.themeResourcePrefixPath}/library/wishlist-slide/images/selected-item.gif') top left no-repeat;  
-}
-#featured .ui-tabs-panel .info{ 
-	background: url('${common.themeResourcePrefixPath}/library/wishlist-slide/images/transparent-bg.png'); 
-}
-</style>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#featured").tabs({fx:[{opacity: "toggle", duration: 'slow'}, {opacity: "toggle", duration: 'normal'}],
-			show: function(event, ui){
-			}
-		});
-		$('#featured .ui-tabs-panel a.hideshow').click(function(){
-			if($(this).text()=='Hide'){
-			}
-			else{
-			}
-			return false;
-		});
-	});
-</script>
-
-			
+	
 				<section id="customer-wishlist">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
 	
 					<div style="float: left; width: 15%;">
@@ -41,26 +14,20 @@
 
 					<div style="float: left; width: 80%;">
 					
-		<div id="featured" >
-			<ul class="ui-tabs-nav">
+		<div> 
 			#foreach($productSku in $customerWishlist.productSkus)
-				<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-1"><a href="#fragment-1"><img src="${productSku.carouselImage}" alt="${productSku.name}" width="80px" height="80px" /><span>${productSku.name}</span></a></li>
-			#end
-			</ul>
-			#foreach($productSku in $customerWishlist.productSkus)
-			<div id="fragment-$velocityCount" class="ui-tabs-panel">
-				<div class="info" >
-					<h2><a href="#" >${productSku.name}</a></h2>
-					<div>
-						<a href="${productSku.addToCartUrl}" alt="$wording.get("fo.product_marketing.product_add_to_cart")">$wording.get("fo.product_marketing.product_add_to_cart")</a><br/>
-						<a href="${productSku.removeFromWishlistUrl}" alt="$wording.get("fo.product_marketing.product_remove_from_wishlist")">$wording.get("fo.product_marketing.product_remove_from_wishlist")</a><br/>
-					</div>
-					<a class="hideshow" href="#" >Hide</a>
-				</div>
-				<div class="product-image">
-					<img src="${productSku.backgroundImage}" alt="${productSku.name}" width="600px" height="400px" />
-				</div>
+			<div style="float: left; width:150px;"> 
+				<img src="$!productSku.backgroundImage" alt="$!productSku.name" width="120px" height="120px" />
 			</div>
+			<div style="float: left; width:550px;"> 
+				<h3><a href="$!productSku.detailsUrl">$!productSku.name</a></h3>
+				<br/>
+				<p>$!productSku.description</p>
+				<br/>
+				<a href="$!productSku.addToCartUrl" alt="$wording.get("fo.product_marketing.product_add_to_cart")">$wording.get("fo.product_marketing.product_add_to_cart")</a><br/>
+				<a href="$!productSku.removeFromWishlistUrl" alt="$wording.get("fo.product_marketing.product_remove_from_wishlist")">$wording.get("fo.product_marketing.product_remove_from_wishlist")</a><br/>
+			</div>
+			<div style="clear: both;"></div>
 			#end
 		</div>
 
