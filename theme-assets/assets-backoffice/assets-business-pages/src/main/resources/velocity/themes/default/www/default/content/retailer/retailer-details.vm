@@ -6,7 +6,7 @@
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label") ${retailer.createdDate} | $wording.get("bo.common.date_update_label") ${retailer.updatedDate}
+							$wording.get("bo.common.date_create_label") ${retailer.dateCreate} | $wording.get("bo.common.date_update_label") ${retailer.dateUpdate}
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -16,24 +16,26 @@
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								$wording.get("bo.common.actions_label") <a href="${retailer.editUrl}">$wording.get("bo.common.edit_label")</a>
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!retailer.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								$!retailer.code
+								<strong>$wording.get("bo.retailer.code_label")</strong> $!retailer.code
 							</div>
 							<div style="width: 100%">
-								$!retailer.name
+								<strong>$wording.get("bo.retailer.name_label")</strong> $!retailer.name
 							</div>
 							<div style="width: 100%">
-								$!retailer.description
+								<strong>$wording.get("bo.retailer.description_label")</strong> $!retailer.description
 							</div>
-							
+							<div style="width: 100%">
+								$wording.get("bo.retailer.address_label")
+							</div>
 							<div style="width: 100%">
 								$!retailer.defaultAddress.address1
 							</div>
@@ -64,26 +66,32 @@
 					</div>
 			
 					<div class="widget widget-nopad">
-							
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
-							<h3>${retailer.xxx}</h3>
-						</div> <!-- /widget-header -->
-						
+							<h3>$wording.get("bo.retailer.customer_comments_label")</h3>
+						</div>
 						<div class="widget-content">
 							<table class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th style="width: 50%;">Key</th>
-										<th style="width: 50%;">Value</th>
+										<th width="150px">$wording.get("bo.retailer.customer_displayname_label")</th>
+										<th width="200px">$wording.get("bo.retailer.comment_label")</th>
+										<th width="300px">$wording.get("bo.common.date_create_label")</th>
+										<th width="150px">$wording.get("bo.common.actions_label")</th>
 									</tr>
 								</thead>
 								<tbody>
-								</tbody>
-							</table>
-							
+									#foreach($comment in $retailer.comments)
+									<tr>
+										<td>$!comment.customerDisplayName</td>
+										<td>$!comment.comment</td>
+										<td>$!comment.dateCreate</td>
+										<td>--</td>
+									</tr>
+									#end
+								</tbody> 
+							</table>							
 						</div>
-					
 					</div>
 
 				</section>

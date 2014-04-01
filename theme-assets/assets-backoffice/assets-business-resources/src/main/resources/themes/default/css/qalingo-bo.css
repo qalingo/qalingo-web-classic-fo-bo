@@ -893,18 +893,15 @@ span.arrow {
 	overflow: auto;
 }
 
-.form-horizontal form .form-table {
-	clear: both;
-}
 
-.form-horizontal form .form-table .form-row {
+.form-horizontal .form-row {
 	clear: both; padding-top: 5px; padding-bottom: 5px;
 }
 
-.form-horizontal form .form-table .form-row .form-label-column {
+.form-horizontal .form-row .form-label-column {
 	float: left; width: 100px;
 }
 
-.form-horizontal form .form-table .form-row .form-input-column {
+.form-horizontal .form-row .form-input-column {
 	float: left;
 }

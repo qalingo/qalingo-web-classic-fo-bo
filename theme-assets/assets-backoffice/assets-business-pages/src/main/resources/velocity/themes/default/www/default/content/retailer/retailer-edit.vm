@@ -2,217 +2,218 @@
 #set ($page_title = $seoPageTitle)
 #set ($footer_script_content = "../content/retailer/retailer-edit-footer-script.vm")
 
-<section id="product-category-edit">
-	<div class="page-header">
-		<div style="float: left;">
-			<h1>${mainContentTitle}</h1>
-		</div>
-		#if($!retailer.detailsUrl)
-		<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-			$wording.get("bo.common.actions_label") <a href="${retailer.detailsUrl}">$wording.get("bo.common.details_label")</a>
-		</div>
-		#end
-	</div>
-	<div style="clear: both; width: 100%; text-align: right;">
-		#if($!retailer.createdDate)
-		$wording.get("bo.common.date_create_label") ${retailer.createdDate} | 
-		#end
-		#if($!retailer.updatedDate)
-		$wording.get("bo.common.date_update_label") ${retailer.updatedDate}
-		#end
-	</div>
-	<div class="form-horizontal well">
-		<form id="retailerForm" name="retailerForm" action="" method="POST">
-		<input type="hidden" id="id" name="id" value="$!retailerForm.id" />
-		#set($beanName = "retailerForm")
-		#parse("../../_include/body-form-error-message.vm")
-		<div>
-			<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-			<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-		</div>
-		<div class="form-table" style="clear: both;">			
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="code" class="label-form">$wording.get("bo.retailer.code_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="code" name="code" value="$!retailerForm.code" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="name" class="label-form">$wording.get("bo.retailer.name_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="name" name="name" value="$!retailerForm.name" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="description" class="label-form">$wording.get("bo.retailer.description_label")</label>
-				</div>
-				<div class="form-input-column">
-					<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">$!retailerForm.description</textarea>
-				</div>
-			</div>
-			
-            <div class="form-row">
-                <div class="form-label-column">
-					<label class="label-form">$wording.get("bo.retailer.config_label")</label>
-				</div>
-				<div class="form-input-column">					
-					<input type="checkbox" id="brand" #if ($!retailerForm.brand) checked="checked" #end/><span>$wording.get("bo.retailer.is_brand_label")</span>
-					<input type="checkbox" id="officialRetailer" #if ($!retailerForm.officialRetailer) checked="checked" #end/><span>$wording.get("bo.retailer.is_offical_retailer_label")</span>
-					<input type="checkbox" id="ecommerce" #if ($!retailerForm.ecommerce) checked="checked" #end/><span>$wording.get("bo.retailer.is_ecommerce_label")</span>
-					<input type="checkbox" id="corner" #if ($!retailerForm.corner) checked="checked" #end/><span>$wording.get("bo.retailer.is_corner_label")</span>
-					<input type="hidden" name="brand" value="$!retailerForm.brand"/>
-					<input type="hidden" name="officialRetailer" value="$!retailerForm.officialRetailer"/>
-					<input type="hidden" name="ecommerce" value="$!retailerForm.ecommerce"/>
-					<input type="hidden" name="corner" value="$!retailerForm.ecommerce"/>
-                </div>
-			</div>							
-			
-			<div class="form-row">
-                <div class="form-label-column">
-					<label class="label-form">$wording.get("bo.retailer.warehouse_label")</label>
-				</div>
-				<div class="form-input-column">
-					<select id="warehouseId" name="warehouseId" style="width: 205px; height: 25px;" >
-						<option value="">--</option>
-						#foreach($warehouse in $warehouses)
-							#if($warehouse.key == $retailerForm.warehouseId)
-							<option value="$warehouse.key" selected="selected">$warehouse.value</option>
-							#else
-							<option value="$warehouse.key">$warehouse.value</option>
-							#end
-						#end
-					</select>
-				</div>
-			</div>
+				<section id="delivery-method-edit">
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") ${retailer.dateCreate} | $wording.get("bo.common.date_update_label") ${retailer.dateUpdate}
+						</div>
+						<div style="clear: both;"></div>
+					</div>
 
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="address1" class="label-form">$wording.get("bo.retailer.address1_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="address1" name="address1" value="$!retailerForm.address1" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="address2" class="label-form">$wording.get("bo.retailer.address2_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="address2" name="address2" value="$!retailerForm.address2" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.retailer.address_additional_information_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!retailerForm.addressAdditionalInformation" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="postalCode" class="label-form">$wording.get("bo.retailer.postal_code_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="postalCode" name="postalCode" value="$!retailerForm.postalCode" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="city" class="label-form">$wording.get("bo.retailer.city_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="city" name="city" value="$!retailerForm.city" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="country" class="label-form">$wording.get("bo.retailer.country_label")</label>
-				</div>
-				<div class="form-input-column">
-					<select id="country" name="country" style="width: 205px; height: 25px;" >
-						<option value="">--</option>
-						#foreach($country in $countries)
-							#if($country.key == $retailerForm.countryCode)
-							<option value="$country.key" selected="selected">$country.value</option>
-							#else
-							<option value="$country.key">$country.value</option>
-							#end
-						#end
-					</select>
-				</div>
-			</div>
-			
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="longitude" class="label-form">$wording.get("common.geoloc.longitude_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="longitude" name="longitude" value="$!retailerForm.longitude" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="latitude" class="label-form">$wording.get("common.geoloc.latitude_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="latitude" name="latitude" value="$!retailerForm.latitude" style="width: 150px; margin-bottom: 0px;" />
-				</div>
-			</div>
-			
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="email" class="label-form">$wording.get("bo.retailer.email_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="email" name="email" value="$!retailerForm.email" style="width: 200px; height: 20px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="phone" class="label-form">$wording.get("bo.retailer.phone_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="phone" name="phone" value="$!retailerForm.phone" style="width: 200px; height: 20px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-				<label for="fax" class="label-form">$wording.get("bo.retailer.fax_label")</label>
-				</div>
-				<div class="form-input-column">
-				<input type="text" id="fax" name="fax" value="$!retailerForm.fax" style="width: 200px; height: 20px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="mobile" class="label-form">$wording.get("bo.retailer.mobile_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="mobile" name="mobile" value="$!retailerForm.mobile" style="width: 200px; height: 20px;" />
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-label-column">
-					<label for="website" class="label-form">$wording.get("bo.retailer.website_label")</label>
-				</div>
-				<div class="form-input-column">
-					<input type="text" id="website" name="website" value="$!retailerForm.website" style="width: 200px; height: 20px;" />
-				</div>
-			</div>
-			
-		</div>
-						
-		<div style="clear: both; padding-top: 15px;">
-			<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-			<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-		</div>
-		</form>
-	</div>
-</section>			
+					<div class="widget">
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="fa fa-pushpin"></i>
+								<h3>$!mainContentTitle</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								<a class="btn" href="$!urlBack" alt="">$wording.get("bo.common.back_label")</a>
+							</div>
+						</div>
+						<div class="widget-content">
+							<form id="retailerForm" name="retailerForm" action="" method="POST">
+								<input type="hidden" id="id" name="id" value="${retailerForm.id}" />
+								<div>
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+								</div>
+								#set($beanName = "retailerForm")
+								#parse("../../_include/body-form-error-message.vm")
+								<div class="form-horizontal well">
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="code" class="label-form">$wording.get("bo.retailer.code_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="code" name="code" value="$!retailerForm.code" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="name" class="label-form">$wording.get("bo.retailer.name_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="name" name="name" value="$!retailerForm.name" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="description" class="label-form">$wording.get("bo.retailer.description_label")</label>
+										</div>
+										<div class="form-input-column">
+											<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 300px;">$!retailerForm.description</textarea>
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label class="label-form">$wording.get("bo.retailer.config_label")</label>
+										</div>
+										<div class="form-input-column">					
+											<input type="checkbox" id="brand" #if ($!retailerForm.brand) checked="checked" #end/><span>$wording.get("bo.retailer.is_brand_label")</span>
+											<input type="checkbox" id="officialRetailer" #if ($!retailerForm.officialRetailer) checked="checked" #end/><span>$wording.get("bo.retailer.is_offical_retailer_label")</span>
+											<input type="checkbox" id="ecommerce" #if ($!retailerForm.ecommerce) checked="checked" #end/><span>$wording.get("bo.retailer.is_ecommerce_label")</span>
+											<input type="checkbox" id="corner" #if ($!retailerForm.corner) checked="checked" #end/><span>$wording.get("bo.retailer.is_corner_label")</span>
+											<input type="hidden" name="brand" value="$!retailerForm.brand"/>
+											<input type="hidden" name="officialRetailer" value="$!retailerForm.officialRetailer"/>
+											<input type="hidden" name="ecommerce" value="$!retailerForm.ecommerce"/>
+											<input type="hidden" name="corner" value="$!retailerForm.ecommerce"/>
+										</div>
+									</div>							
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label class="label-form">$wording.get("bo.retailer.warehouse_label")</label>
+										</div>
+										<div class="form-input-column">
+											<select id="warehouseId" name="warehouseId" style="width: 300px; height: 30px;" >
+												<option value="">--</option>
+												#foreach($warehouse in $warehouses)
+													#if($warehouse.key == $retailerForm.warehouseId)
+													<option value="$warehouse.key" selected="selected">$warehouse.value</option>
+													#else
+													<option value="$warehouse.key">$warehouse.value</option>
+													#end
+												#end
+											</select>
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="address1" class="label-form">$wording.get("bo.retailer.address1_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="address1" name="address1" value="$!retailerForm.address1" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="address2" class="label-form">$wording.get("bo.retailer.address2_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="address2" name="address2" value="$!retailerForm.address2" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.retailer.address_additional_information_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!retailerForm.addressAdditionalInformation" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="postalCode" class="label-form">$wording.get("bo.retailer.postal_code_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="postalCode" name="postalCode" value="$!retailerForm.postalCode" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="city" class="label-form">$wording.get("bo.retailer.city_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="city" name="city" value="$!retailerForm.city" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="country" class="label-form">$wording.get("bo.retailer.country_label")</label>
+										</div>
+										<div class="form-input-column">
+											<select id="country" name="country" style="width: 300px; height: 30px;" >
+												<option value="">--</option>
+												#foreach($country in $countries)
+													#if($country.key == $retailerForm.countryCode)
+													<option value="$country.key" selected="selected">$country.value</option>
+													#else
+													<option value="$country.key">$country.value</option>
+													#end
+												#end
+											</select>
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="longitude" class="label-form">$wording.get("common.geoloc.longitude_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="longitude" name="longitude" value="$!retailerForm.longitude" style="width: 300px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="latitude" class="label-form">$wording.get("common.geoloc.latitude_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="latitude" name="latitude" value="$!retailerForm.latitude" style="width: 300px;" />
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="email" class="label-form">$wording.get("bo.retailer.email_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="email" name="email" value="$!retailerForm.email" style="width: 300px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="phone" class="label-form">$wording.get("bo.retailer.phone_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="phone" name="phone" value="$!retailerForm.phone" style="width: 300px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+										<label for="fax" class="label-form">$wording.get("bo.retailer.fax_label")</label>
+										</div>
+										<div class="form-input-column">
+										<input type="text" id="fax" name="fax" value="$!retailerForm.fax" style="width: 300px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="mobile" class="label-form">$wording.get("bo.retailer.mobile_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="mobile" name="mobile" value="$!retailerForm.mobile" style="width: 300px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="website" class="label-form">$wording.get("bo.retailer.website_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="website" name="website" value="$!retailerForm.website" style="width: 300px;" />
+										</div>
+									</div>
+									
+								</div>												
+								<div style="clear: both; padding-top: 15px;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+								</div>
+							</form>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</section>	

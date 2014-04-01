@@ -1,7 +1,9 @@
 #set ($layout = "default/www/default/layout/default.vm")
+#set ($footer_script_content = "../content/customer/personal-wishlist-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
 
+#parse("../../_include/body-popin-add-to-cart.vm")
 	
 				<section id="customer-wishlist">
 					<div class="page-header">
@@ -14,22 +16,22 @@
 
 					<div style="float: left; width: 80%;">
 					
-		<div> 
-			#foreach($productSku in $customerWishlist.productSkus)
-			<div style="float: left; width:150px;"> 
-				<img src="$!productSku.backgroundImage" alt="$!productSku.name" width="120px" height="120px" />
-			</div>
-			<div style="float: left; width:550px;"> 
-				<h3><a href="$!productSku.detailsUrl">$!productSku.name</a></h3>
-				<br/>
-				<p>$!productSku.description</p>
-				<br/>
-				<a href="$!productSku.addToCartUrl" alt="$wording.get("fo.product_marketing.product_add_to_cart")">$wording.get("fo.product_marketing.product_add_to_cart")</a><br/>
-				<a href="$!productSku.removeFromWishlistUrl" alt="$wording.get("fo.product_marketing.product_remove_from_wishlist")">$wording.get("fo.product_marketing.product_remove_from_wishlist")</a><br/>
-			</div>
-			<div style="clear: both;"></div>
-			#end
-		</div>
+						<div> 
+							#foreach($productSku in $customerWishlist.productSkus)
+							<div style="float: left; width:150px;"> 
+								<a href="$!productSku.detailsUrl"><img src="$!productSku.backgroundImage" alt="$!productSku.name" width="120px" height="120px" /></a>
+							</div>
+							<div style="float: left; width:550px;"> 
+								<h3><a href="$!productSku.detailsUrl">$!productSku.name</a></h3>
+								<br/>
+								<p>$!productSku.description</p>
+								<br/>
+								<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="" data-value-sku-code="$productSku.code" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.product_marketing.product_add_to_cart")</a>
+								<a href="$!productSku.removeFromWishlistUrl" alt="$wording.get("fo.product_marketing.product_remove_from_wishlist")">$wording.get("fo.product_marketing.product_remove_from_wishlist")</a><br/>
+							</div>
+							<div style="clear: both;"></div>
+							#end
+						</div>
 
 					</div>
 					<div style="clear: both;"></div>

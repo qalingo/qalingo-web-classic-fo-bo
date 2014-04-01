@@ -11,6 +11,9 @@
 							</form>
 						</div>
 					<div>
+					<div style="float: right; padding-right: 15px; font-size: 15px;">
+						<a href="$!urlAdd" class="btn btn-primary">$wording.get("bo.common.add_label")</a>
+					</div>
 						#parse("../../_include/body-pagination-pagelistholder.vm")
 						<div>
 							<table class="table" style="width: 100%">
