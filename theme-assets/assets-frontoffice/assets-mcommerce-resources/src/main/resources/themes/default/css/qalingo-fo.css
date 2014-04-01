@@ -282,7 +282,6 @@ margin-top: -19px;
 }
 
 .product-image span img {
-	width: 100%
 }
 
 .product-name {
@@ -1976,4 +1975,30 @@ input.input-cart-promo-code {
     padding-top: 5px;
     text-align: right;
     width: 160px;
+}
+
+/*****************************************************************************
+	POPIN ADD TO CART - WISHLIST
+*****************************************************************************/
+.popin-product-image {
+	width: 100%;
+	border: 1px solid #d7d7d7;
+	height: 222px;
+	padding: 5px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	display: block;
+	text-align: center;
+}
+
+.popin-product-image span {
+	height: 212px;
+	overflow: hidden;
+	display: block
+}
+
+.popin-product-image span img {
+	height: 200px;
 }

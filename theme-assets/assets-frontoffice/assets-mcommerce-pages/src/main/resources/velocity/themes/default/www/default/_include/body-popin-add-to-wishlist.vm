@@ -40,8 +40,8 @@
 <script id="addToWishlistProductContent" type="text/x-jsrender">
 	<div class="product-detail-content row">
 		<div class="product-image-wrap span3">
-			<a class="product-image product-line-image" href="javascript:void(0);">
-				<img alt="{{:productSku.i18nName}}" src="{{:productSku.defaultPaskshotImage}}">
+			<a class="popin-product-image" href="javascript:void(0);">
+				<span><img alt="{{:productSku.i18nName}}" src="{{:productSku.defaultPaskshotImage}}"></span>
 			</a>
 		</div>
 		<div class="product-info span5">
