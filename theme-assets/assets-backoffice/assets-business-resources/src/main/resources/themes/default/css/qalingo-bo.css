@@ -881,8 +881,6 @@ span.arrow {
 	}
 }
 
-
-
 .well {
     background-color: #F5F5F5;
     border: 1px solid #E3E3E3;
@@ -892,4 +890,20 @@ span.arrow {
 	margin-top: 20px;
     min-height: 20px;
     padding: 19px;
+}
+
+.form-horizontal form .form-table {
+	clear: both;
+}
+
+.form-horizontal form .form-table .form-row {
+	clear: both; padding-top: 5px; padding-bottom: 5px;
+}
+
+.form-horizontal form .form-table .form-row .form-label-column {
+	float: left; width: 100px;
+}
+
+.form-horizontal form .form-table .form-row .form-input-column {
+	float: left;
 }

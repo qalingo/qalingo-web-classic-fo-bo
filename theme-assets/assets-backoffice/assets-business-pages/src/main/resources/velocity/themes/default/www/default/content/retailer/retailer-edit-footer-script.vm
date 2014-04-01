@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$("#brand, #officialRetailer, #ecommerce, #corner").click(function(){
+			var $this = $(this);
+			var id = $this.attr("id");
+			if($this.is(":checked")){
+				$("input[name="+id+"]").val(true);
+			}else{
+				$("input[name="+id+"]").val(false);
+			}
+		});
+	});	
+</script>
