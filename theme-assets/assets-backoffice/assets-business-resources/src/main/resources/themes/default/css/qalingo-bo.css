@@ -895,11 +895,14 @@ span.arrow {
 
 
 .form-horizontal .form-row {
-	clear: both; padding-top: 5px; padding-bottom: 5px;
+	clear: both; 
+	padding-top: 5px; 
+	padding-bottom: 5px;
 }
 
 .form-horizontal .form-row .form-label-column {
-	float: left; width: 100px;
+	float: left; 
+	width: 200px;
 }
 
 .form-horizontal .form-row .form-input-column {

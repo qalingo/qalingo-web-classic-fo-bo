@@ -1,0 +1,6 @@
+
+<script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.add-to-cart.js" type="text/javascript"></script>
+<script type="text/javascript">
+	plugins.AddToCart.init();
+</script>
+

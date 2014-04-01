@@ -6,7 +6,7 @@
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label") ${retailer.dateCreate} | $wording.get("bo.common.date_update_label") ${retailer.dateUpdate}
+							$wording.get("bo.common.date_create_label") $!retailer.dateCreate | $wording.get("bo.common.date_update_label") $!retailer.dateUpdate
 						</div>
 						<div style="clear: both;"></div>
 					</div>
@@ -61,10 +61,10 @@
 											<label class="label-form">$wording.get("bo.retailer.config_label")</label>
 										</div>
 										<div class="form-input-column">					
-											<input type="checkbox" id="brand" #if ($!retailerForm.brand) checked="checked" #end/><span>$wording.get("bo.retailer.is_brand_label")</span>
-											<input type="checkbox" id="officialRetailer" #if ($!retailerForm.officialRetailer) checked="checked" #end/><span>$wording.get("bo.retailer.is_offical_retailer_label")</span>
-											<input type="checkbox" id="ecommerce" #if ($!retailerForm.ecommerce) checked="checked" #end/><span>$wording.get("bo.retailer.is_ecommerce_label")</span>
-											<input type="checkbox" id="corner" #if ($!retailerForm.corner) checked="checked" #end/><span>$wording.get("bo.retailer.is_corner_label")</span>
+											<input type="checkbox" id="brand" #if ($!retailerForm.brand) checked="checked" #end/>&nbsp;<span>$wording.get("bo.retailer.is_brand_label")</span>&nbsp;
+											<input type="checkbox" id="officialRetailer" #if ($!retailerForm.officialRetailer) checked="checked" #end/>&nbsp;<span>$wording.get("bo.retailer.is_offical_retailer_label")</span>&nbsp;
+											<input type="checkbox" id="ecommerce" #if ($!retailerForm.ecommerce) checked="checked" #end/>&nbsp;<span>$wording.get("bo.retailer.is_ecommerce_label")</span>&nbsp;
+											<input type="checkbox" id="corner" #if ($!retailerForm.corner) checked="checked" #end/>&nbsp;<span>$wording.get("bo.retailer.is_corner_label")</span>&nbsp;
 											<input type="hidden" name="brand" value="$!retailerForm.brand"/>
 											<input type="hidden" name="officialRetailer" value="$!retailerForm.officialRetailer"/>
 											<input type="hidden" name="ecommerce" value="$!retailerForm.ecommerce"/>
