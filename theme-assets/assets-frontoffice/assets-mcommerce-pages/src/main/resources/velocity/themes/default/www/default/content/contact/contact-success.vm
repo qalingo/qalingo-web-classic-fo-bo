@@ -4,7 +4,7 @@
 			
 				<section id="contact-us">
 					<div class="page-header">
-						<h1>$wording.get("fo.contact.header_title")</h1>
+						<h1>$wording.get("fo.header_title.contact")</h1>
 					</div>
 
 					<div>$wording.get("fo.contact.form_success_message")</div>
