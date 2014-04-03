@@ -893,7 +893,6 @@ span.arrow {
 	overflow: auto;
 }
 
-
 .form-horizontal .form-row {
 	clear: both; 
 	padding-top: 5px; 
@@ -912,4 +911,9 @@ span.arrow {
 .form-horizontal  textarea  {
 	width: 600px;
 	height: 300px;
+}
+
+#retailerForm .retialer-icon img {
+	width: 128px;
+	height: 128px;
 }

@@ -22,7 +22,7 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<form id="retailerForm" name="retailerForm" action="" method="POST">
+							<form id="retailerForm" name="retailerForm" action="" method="POST" enctype="multipart/form-data">
 								<input type="hidden" id="id" name="id" value="${retailerForm.id}" />
 								<div>
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
@@ -89,6 +89,18 @@
 											</select>
 										</div>
 									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="file" class="label-form">$wording.get("bo.retailer.logo_label")</label>
+										</div>
+										<div class="form-input-column">
+											<span class="btn btn-file">Upload<input type="file" name="file" /></span>
+											<span class="retialer-icon">
+												<img src="/assets/images/retailer_store/icon/$!retailer.img"/>
+											</span>
+										</div>
+									</div>									
 
 									<div class="form-row">
 										<div class="form-label-column">
