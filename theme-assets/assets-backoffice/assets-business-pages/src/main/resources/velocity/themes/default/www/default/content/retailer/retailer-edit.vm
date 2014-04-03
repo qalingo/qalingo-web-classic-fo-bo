@@ -99,6 +99,8 @@
 											<span class="retialer-icon">
 												<img src="/assets/images/retailer_store/icon/$!retailer.img"/>
 											</span>
+											<img src="$!retailer.img" /><br/>
+											$!retailer.img
 										</div>
 									</div>									
 
