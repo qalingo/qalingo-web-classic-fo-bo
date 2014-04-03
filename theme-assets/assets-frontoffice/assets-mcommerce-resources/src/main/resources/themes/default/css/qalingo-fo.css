@@ -670,17 +670,17 @@ border: 1px solid #dadada;
 }
 
 .product-detail-wrap {
-	padding-top: 20px
+	padding-top: 20px;
 }
 
 .product-detail-wrap .product-image {
 	height: 370px;
 	text-align: center;
-	overflow: hidden
+	overflow: hidden;
 }
 
 .product-detail-wrap .product-image img {
-	width: 100%
+	height: 250px;
 }
 
 .product-detail-content {

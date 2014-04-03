@@ -3,7 +3,7 @@
 
 				<section id="conditions-of-use">
 					<div class="page-header">
-						<h1>$wording.get("fo.conditions_of_use.header_title")</h1>
+						<h1>$wording.get("fo.header_title.conditions_of_use")</h1>
 					</div>
 					<div style="padding-bottom: 50px;">$wording.get("fo.conditions_of_use.content_text")</div>
 				</section>

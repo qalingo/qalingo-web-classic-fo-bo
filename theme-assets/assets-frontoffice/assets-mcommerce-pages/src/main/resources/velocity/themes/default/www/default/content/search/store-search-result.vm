@@ -4,7 +4,7 @@
 <div class="row">
 	<!-- category sidebar-->
 	<div class="side-bar span3">
-		<span class="section-title sidebar-title">Custom search</span>
+		<span class="section-title sidebar-title">$wording.get("fo.header_title.store_search")</span>
 		<div class="nav-category search-result-custom">
 				#foreach($facetField in $facetFieldList)
     				#if($facetField.name == 'city')
