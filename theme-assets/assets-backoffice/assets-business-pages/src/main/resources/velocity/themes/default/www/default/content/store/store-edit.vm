@@ -1,0 +1,168 @@
+#set ($layout = "default/www/default/layout/default.vm")
+#set ($page_title = $seoPageTitle)
+#set ($footer_script_content = "../content/store/store-edit-footer-script.vm")
+
+<section id="delivery-method-edit">
+	<div class="page-header" style="border-bottom: 0px;">
+		<div style="float: left; font-size: 18px;"></div>
+		<div style="float: right; text-align: right; font-size: 15px;">
+			$wording.get("bo.common.date_create_label") $!store.dateCreate | $wording.get("bo.common.date_update_label") $!store.dateUpdate
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+
+	<div class="widget">
+		<div class="widget-header">
+			<div style="float: left;">
+				<i class="fa fa-pushpin"></i>
+				<h3>$!mainContentTitle</h3>
+			</div>
+			<div style="float: right; padding-right: 15px; font-size: 15px;">
+				<a class="btn" href="$!urlBack" alt="">$wording.get("bo.common.back_label")</a>
+			</div>
+		</div>
+		<div class="widget-content">
+			<form id="storeForm" name="storeForm" action="" method="POST" enctype="multipart/form-data">
+				<input type="hidden" id="id" name="id" value="${storeForm.id}" />
+				<div>
+					<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+					<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+				</div>
+				#set($beanName = "storeForm")
+				#parse("../../_include/body-form-error-message.vm")
+				<div class="form-horizontal well">
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="code" class="label-form">$wording.get("bo.store.code_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="code" name="code" value="$!storeForm.code" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="name" class="label-form">$wording.get("bo.store.name_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="name" name="name" value="$!storeForm.name" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-label-column">
+							<label class="label-form">$wording.get("bo.store.retailer_label")</label>
+						</div>
+						<div class="form-input-column">
+							<select id="retailerId" name="retailerId" style="width: 300px; height: 30px;" >
+								<option value="">--</option>
+								#foreach($retailer in $retailers)
+									#if($retailer.key == $storeForm.retailerId)
+									<option value="$retailer.key" selected="selected">$retailer.value</option>
+									#else
+									<option value="$retailer.key">$retailer.value</option>
+									#end
+								#end
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="file" class="label-form">$wording.get("bo.store.defaultImage_label")</label>
+						</div>
+						<div class="form-input-column">							
+							<span class="store-icon">
+								<img src="$!store.iconImage"/>								
+							</span>
+							<span class="store-default-image">
+								<img src="$!store.defaultImage"/>
+							</span>
+						</div>
+					</div>									
+
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="address1" class="label-form">$wording.get("bo.store.address1_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="address1" name="address1" value="$!storeForm.address1" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="address2" class="label-form">$wording.get("bo.store.address2_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="address2" name="address2" value="$!storeForm.address2" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.store.address_additional_information_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!storeForm.addressAdditionalInformation" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="postalCode" class="label-form">$wording.get("bo.store.postal_code_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="postalCode" name="postalCode" value="$!storeForm.postalCode" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="city" class="label-form">$wording.get("bo.store.city_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="city" name="city" value="$!storeForm.city" style="width: 300px; margin-bottom: 0px;" />
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="country" class="label-form">$wording.get("bo.store.country_label")</label>
+						</div>
+						<div class="form-input-column">
+							<select id="country" name="country" style="width: 300px; height: 30px;" >
+								<option value="">--</option>
+								#foreach($country in $countries)
+									#if($country.key == $storeForm.countryCode)
+									<option value="$country.key" selected="selected">$country.value</option>
+									#else
+									<option value="$country.key">$country.value</option>
+									#end
+								#end
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="longitude" class="label-form">$wording.get("common.geoloc.longitude_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="longitude" name="longitude" value="$!storeForm.longitude" style="width: 300px;" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-label-column">
+							<label for="latitude" class="label-form">$wording.get("common.geoloc.latitude_label")</label>
+						</div>
+						<div class="form-input-column">
+							<input type="text" id="latitude" name="latitude" value="$!storeForm.latitude" style="width: 300px;" />
+						</div>
+					</div>
+					
+				</div>												
+				<div style="clear: both; padding-top: 15px;">
+					<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+					<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+				</div>
+			</form>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+</section>	

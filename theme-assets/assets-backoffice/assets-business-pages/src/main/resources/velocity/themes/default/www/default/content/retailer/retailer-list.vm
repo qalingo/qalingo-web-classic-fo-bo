@@ -24,6 +24,7 @@
 									<th width="250px">$wording.get("bo.retailer.description_label")</th>
 									<th width="200px">$wording.get("bo.retailer.address_label")</th>
 									<th width="150px">$wording.get("bo.retailer.website_label")</th>
+									<th width="150px">$wording.get("bo.retailer.stores_label")</th>
 									<th width="200px">$wording.get("bo.common.actions_label")</th>
 								</tr>
 							</thead>
@@ -35,6 +36,7 @@
 									<td>$!retailer.description</td>
 									<td>$!retailer.defaultAddress.cityLabel $!retailer.defaultAddress.countryLabel </td>
 									<td>$!retailer.website</td>
+									<td><a href="$!storeListUrl?retailerId=$!retailer.id">$wording.get("bo.retailer.stores_label")</a></td>
 									<td><a href="$!retailer.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!retailer.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
 								</tr>
 								#end
