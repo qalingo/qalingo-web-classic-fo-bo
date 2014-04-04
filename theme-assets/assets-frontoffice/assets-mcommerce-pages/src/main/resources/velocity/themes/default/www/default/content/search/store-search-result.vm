@@ -73,7 +73,7 @@
 				<li class="item span3">
 					<a href="$searchItem.detailsUrl" class="store-image">
 						<span>
-							<img class="lazy" data-original="${searchItem.carouselImage}" src="/assets/images/placeholder.jpg" alt="${searchItem.name}"/>
+							<img class="lazy" data-original="${searchItem.carouselImage}" src="${common.themeResourcePrefixPath}/img/placeholder.jpg" alt="${searchItem.name}"/>
 							<noscript><img src="${searchItem.carouselImage}"></noscript>
 						</span>
 					</a>					

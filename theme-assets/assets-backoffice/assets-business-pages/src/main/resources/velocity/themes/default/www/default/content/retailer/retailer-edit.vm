@@ -68,7 +68,7 @@
 											<input type="hidden" name="brand" value="$!retailerForm.brand"/>
 											<input type="hidden" name="officialRetailer" value="$!retailerForm.officialRetailer"/>
 											<input type="hidden" name="ecommerce" value="$!retailerForm.ecommerce"/>
-											<input type="hidden" name="corner" value="$!retailerForm.ecommerce"/>
+											<input type="hidden" name="corner" value="$!retailerForm.corner"/>
 										</div>
 									</div>							
 									

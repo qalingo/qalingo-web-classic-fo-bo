@@ -53,7 +53,7 @@
 			<div class="item span3">
 				<a href="${featuredProduct.detailsUrl}" class="product-image product-line-image">
 					<span>
-						<img class="lazy" data-original="${featuredProduct.carouselImage}" src="/assets/images/placeholder.jpg" alt="${featuredProduct.i18nName}"/>
+						<img class="lazy" data-original="${featuredProduct.carouselImage}" src="${common.themeResourcePrefixPath}/img/placeholder.jpg" alt="${featuredProduct.i18nName}"/>
 						<noscript><img src="${featuredProduct.carouselImage}"></noscript>
 					</span>
 				</a>
@@ -90,7 +90,7 @@
 				<li class="item span3">
         			<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
         				<span>
-							<img class="lazy" data-original="${productMarketing.carouselImage}" src="/assets/images/placeholder.jpg" alt="${productMarketing.i18nName}"/>
+							<img class="lazy" data-original="${productMarketing.carouselImage}" src="${common.themeResourcePrefixPath}/img/placeholder.jpg" alt="${productMarketing.i18nName}"/>
 							<noscript><img src="${productMarketing.carouselImage}"></noscript>
 						</span>
         			</a>
