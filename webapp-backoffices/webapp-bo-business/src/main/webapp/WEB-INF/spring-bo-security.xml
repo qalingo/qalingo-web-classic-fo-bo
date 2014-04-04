@@ -69,6 +69,7 @@
         <intercept-url pattern="/**/customer*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         
         <intercept-url pattern="/**/retailer*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
+        <intercept-url pattern="/**/store*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
         
         <intercept-url pattern="/**/faq*" access="ROLE_BO_BUSINESS_USER, ROLE_BO_BUSINESS_ADMIN" />
 		

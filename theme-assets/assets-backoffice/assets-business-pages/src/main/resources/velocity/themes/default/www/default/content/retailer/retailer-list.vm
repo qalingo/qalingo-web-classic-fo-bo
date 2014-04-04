@@ -19,12 +19,11 @@
 						<table class="table" style="width: 100%">
 							<thead>
 								<tr>
-									<th width="50px">$wording.get("bo.retailer.code_label")</th>
-									<th width="250px">$wording.get("bo.retailer.name_label")</th>
-									<th width="250px">$wording.get("bo.retailer.description_label")</th>
-									<th width="200px">$wording.get("bo.retailer.address_label")</th>
-									<th width="150px">$wording.get("bo.retailer.website_label")</th>
-									<th width="150px">$wording.get("bo.retailer.stores_label")</th>
+									<th width="70px">$wording.get("bo.retailer.code_label")</th>
+									<th width="150px">$wording.get("bo.retailer.name_label")</th>
+									<th width="240px">$wording.get("bo.retailer.description_label")</th>
+									<th width="100px">$wording.get("bo.retailer.address_label")</th>
+									<th width="100px">$wording.get("bo.retailer.website_label")</th>
 									<th width="200px">$wording.get("bo.common.actions_label")</th>
 								</tr>
 							</thead>
@@ -36,8 +35,7 @@
 									<td>$!retailer.description</td>
 									<td>$!retailer.defaultAddress.cityLabel $!retailer.defaultAddress.countryLabel </td>
 									<td>$!retailer.website</td>
-									<td><a href="$!storeListUrl?retailerId=$!retailer.id">$wording.get("bo.retailer.stores_label")</a></td>
-									<td><a href="$!retailer.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!retailer.editUrl" class="btn">$wording.get("bo.common.edit_label")</a></td>
+									<td><a href="$!retailer.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!retailer.editUrl" class="btn">$wording.get("bo.common.edit_label")</a>&nbsp;<a href="$!retailer.storeListUrl" class="btn">$wording.get("bo.retailer.stores_label")</a></td>
 								</tr>
 								#end
 							</tbody>  
