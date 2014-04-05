@@ -54,6 +54,83 @@
 											<textarea id="description" name="description">$!warehouseForm.description</textarea>
 										</div>
 									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="address1" class="label-form">$wording.get("bo.common.address1_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="address1" name="address1" value="$!warehouseForm.address1" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="address2" class="label-form">$wording.get("bo.common.address2_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="address2" name="address2" value="$!warehouseForm.address2" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.common.address_additional_information_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!warehouseForm.addressAdditionalInformation" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="postalCode" class="label-form">$wording.get("bo.common.postal_code_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="postalCode" name="postalCode" value="$!warehouseForm.postalCode" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="city" class="label-form">$wording.get("bo.common.city_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="city" name="city" value="$!warehouseForm.city" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="country" class="label-form">$wording.get("bo.common.country_label")</label>
+										</div>
+										<div class="form-input-column">
+											<select id="country" name="country" style="width: 300px; height: 30px;" >
+												<option value="">--</option>
+												#foreach($country in $countries)
+													#if($country.key == $warehouseForm.countryCode)
+													<option value="$country.key" selected="selected">$country.value</option>
+													#else
+													<option value="$country.key">$country.value</option>
+													#end
+												#end
+											</select>
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="longitude" class="label-form">$wording.get("common.geoloc.longitude_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="longitude" name="longitude" value="$!warehouseForm.longitude" style="width: 300px;" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="latitude" class="label-form">$wording.get("common.geoloc.latitude_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="latitude" name="latitude" value="$!warehouseForm.latitude" style="width: 300px;" />
+										</div>
+									</div>
+					
 								</div>
 								<div style="clear: both; padding-top: 15px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>

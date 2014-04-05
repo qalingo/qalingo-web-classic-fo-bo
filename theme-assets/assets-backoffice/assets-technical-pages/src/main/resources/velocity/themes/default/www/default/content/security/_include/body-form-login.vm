@@ -7,7 +7,7 @@
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
-				<div class="well" style="width: 450px; height: 250px; margin: auto; padding: auto; text-align: left;">
+				<div class="well" style="width: 450px; margin: auto; padding: auto; text-align: left;">
 					<div style="color: #787878; border-bottom: solid 1px #CCCCCC; text-transform: uppercase;">
 						<h3>$wording.get("bo.auth.login_form_login_title")</h3>
 					</div>

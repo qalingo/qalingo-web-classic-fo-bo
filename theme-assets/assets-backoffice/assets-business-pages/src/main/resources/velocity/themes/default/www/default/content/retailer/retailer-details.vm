@@ -21,6 +21,9 @@
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
 								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!retailer.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								<a href="$!retailer.storeListUrl" class="btn">$wording.get("bo.retailer.stores_label")</a>
+							</div>
 						</div>
 						
 						<div class="widget-content">

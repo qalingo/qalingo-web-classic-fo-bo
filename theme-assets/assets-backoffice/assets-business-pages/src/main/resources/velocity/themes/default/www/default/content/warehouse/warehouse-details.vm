@@ -34,6 +34,24 @@
 								<strong>$wording.get("bo.warehouse.description_label") :</strong> $!warehouse.description
 							</div>
 							<div style="width: 100%">
+								<strong>$wording.get("bo.common.address_label")</strong> 
+							</div>
+							<div style="width: 100%">
+								$!warehouse.address1
+							</div>
+							<div style="width: 100%">
+								$!warehouse.postalCode $!warehouse.city
+							</div>
+							<div style="width: 100%">
+								$!warehouse.country
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("common.geoloc.longitude_label")</strong> $!warehouse.longitude
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("common.geoloc.latitude_label")</strong> $!warehouse.latitude
+							</div>
+							<div style="width: 100%">
 								<strong>$wording.get("bo.common.date_create_label"):</strong> $!warehouse.dateCreate
 							</div>
 							<div style="width: 100%">
