@@ -34,6 +34,9 @@
 								<strong>$wording.get("bo.tax.description_label") :</strong> $!tax.description
 							</div>
 							<div style="width: 100%">
+								<strong>$wording.get("bo.tax.percent_label") :</strong> $!tax.percent
+							</div>
+							<div style="width: 100%">
 								<strong>$wording.get("bo.common.date_create_label"):</strong> $!tax.dateCreate
 							</div>
 							<div style="width: 100%">

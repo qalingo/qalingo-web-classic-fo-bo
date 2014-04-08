@@ -3,40 +3,39 @@
 #set ($page_title = $seoPageTitle)
 
 #*
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/css/font/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="$!common.themeResourcePrefixPath/css/font/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">
 *#
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/default/default.css" type="text/css">
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="$!common.themeResourcePrefixPath/library/nivo-slider/default/default.css" type="text/css">
+<link rel="stylesheet" href="$!common.themeResourcePrefixPath/library/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
 #parse("../../_include/body-popin-add-to-cart.vm")
+
 #parse("../../_include/body-popin-add-to-wishlist.vm")
 				
 <div class="slider-wrapper theme-default axe-top-slider">
     <div id="slider" class="nivoSlider">
-		#set( $subcatalogCategoryCounter = 1 )
-		#foreach($subcatalogCategory in $catalogCategory.subCategories)
-			<img src="${subcatalogCategory.slideshowImage}" alt="${subcatalogCategory.name}" title="#htmlcaption${subcatalogCategoryCounter}"/>
-			#set( $subcatalogCategoryCounter = $subcatalogCategoryCounter + 1 )
+		#set( $subCatalogCategoryCounter = 1 )
+		#foreach($subCatalogCategory in $!catalogCategory.subCategories)
+			<img src="$!subCatalogCategory.slideshowImage" alt="$!subCatalogCategory.name" title="#htmlcaption$!subCatalogCategoryCounter"/>
+			#set( $subCatalogCategoryCounter = $subCatalogCategoryCounter + 1 )
 		#end		
     </div>
-	#set( $subcatalogCategoryCounter = 1 )
-	#foreach($subcatalogCategory in $catalogCategory.subCategories)
-	<div id="htmlcaption${subcatalogCategoryCounter}" class="nivo-html-caption">
-        <span class="banner-title">${subcatalogCategory.name}</span> 
+	#set( $subCatalogCategoryCounter = 1 )
+	#foreach($subCatalogCategory in $!catalogCategory.subCategories)
+	<div id="htmlcaption${subCatalogCategoryCounter}" class="nivo-html-caption">
+        <span class="banner-title">$!subCatalogCategory.name</span> 
 		<span class="rating-stars star-5">&nbsp;</span>
-		<p class="banner-des">${subcatalogCategory.description} [...]</p>
+		<p class="banner-des">$!subCatalogCategory.description [...]</p>
 		<a href="#" class="banner-readmore">Readmore</a>
     </div>
-	#set( $subcatalogCategoryCounter = $subcatalogCategoryCounter + 1 )
+	#set( $subCatalogCategoryCounter = $subCatalogCategoryCounter + 1 )
 	#end    
 </div>
-<!-- //nivo slider - top banner -->
 
 <div style="clear: both;"></div>
 
-<!-- slide featured products  -->
 #if($catalogCategory.featuredProductMarketings.size() > 0)
 <div id="featured-products" class="featured-products">
 	<span class="section-title featured-title category-title">Featured Products</span>
@@ -51,18 +50,18 @@
 			#end
 			#set( $items = $items + 1 )
 			<div class="item span3">
-				<a href="${featuredProduct.detailsUrl}" class="product-image product-line-image">
+				<a href="$!featuredProduct.detailsUrl" class="product-image product-line-image">
 					<span>
-						<img class="lazy" data-original="${featuredProduct.carouselImage}" src="${common.themeResourcePrefixPath}/img/placeholder.jpg" alt="${featuredProduct.i18nName}"/>
-						<noscript><img src="${featuredProduct.carouselImage}"></noscript>
+						<img class="lazy" data-original="$!featuredProduct.carouselImage" src="$!common.themeResourcePrefixPath/img/placeholder.jpg" alt="$!featuredProduct.i18nName"/>
+						<noscript><img src="$!featuredProduct.carouselImage"></noscript>
 					</span>
 				</a>
-				<a href="${featuredProduct.detailsUrl}" class="product-name">${featuredProduct.i18nName}</a>
+				<a href="$!featuredProduct.detailsUrl" class="product-name">$!featuredProduct.i18nName</a>
 				<span class="rating-stars star-$!featuredProduct.customerProductRates.avgRateStar">&nbsp;</span>
-				<p class="product-price">${featuredProduct.priceWithCurrencySign}</p>
-				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$featuredProduct.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+				<p class="product-price">$!featuredProduct.priceWithCurrencySign</p>
+				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$!catalogCategory.code" data-value-sku-code="$!featuredProduct.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 				#if($!customer)
-					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$featuredProduct.skuCode"><i class="fa fa-heart"></i></a>
+					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$!featuredProduct.skuCode"><i class="fa fa-heart"></i></a>
 				#else
 					<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
 				#end
@@ -74,38 +73,36 @@
 			#set( $count = $count + 1 )
 		#end
 	</div>
-	<!-- //slide featured products -->
 </div>
 #end	
 <div class="clear border-btm"></div>
 
-<!-- Products -->
-#foreach($subcatalogCategory in $catalogCategory.subCategories)
-	#if($subcatalogCategory.productMarketings.size() > 0)
+#foreach($subCatalogCategory in $!catalogCategory.subCategories)
+	#if($subCatalogCategory.productMarketings.size() > 0)
 	<div class="product-section">
-    	<span class="section-title category-title">${subcatalogCategory.name}</span>
+    	<span class="section-title category-title">$!subCatalogCategory.name</span>
     	<div class="clear border-btm"></div>
     	<ul class="row  products-grid">
-			#foreach($productMarketing in $subcatalogCategory.productMarketings)
+			#foreach($productMarketing in $!subCatalogCategory.productMarketings)
 				<li class="item span3">
-        			<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
+        			<a href="$!productMarketing.detailsUrl" class="product-image product-line-image">
         				<span>
-							<img class="lazy" data-original="${productMarketing.carouselImage}" src="${common.themeResourcePrefixPath}/img/placeholder.jpg" alt="${productMarketing.i18nName}"/>
-							<noscript><img src="${productMarketing.carouselImage}"></noscript>
+							<img class="lazy" data-original="$!productMarketing.carouselImage" src="$!common.themeResourcePrefixPath/img/placeholder.jpg" alt="$!productMarketing.i18nName"/>
+							<noscript><img src="$!productMarketing.carouselImage"></noscript>
 						</span>
         			</a>
-        			<a href="${productMarketing.detailsUrl}" class="product-name">
-        			#if($productMarketing.i18nName.length() > 31)
-    					$productMarketing.i18nName.substring(0,27)...
+        			<a href="$!productMarketing.detailsUrl" class="product-name">
+        			#if($!productMarketing.i18nName.length() > 31)
+    					$!productMarketing.i18nName.substring(0,27)...
     				#else
-    					${productMarketing.i18nName}
+    					$!productMarketing.i18nName
     				#end
-      			    #if($productMarketing.isFeatured())*#end</a>
+      			    #if($!productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
-        			<p class="product-price">${productMarketing.priceWithCurrencySign}</p>
-					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$subcatalogCategory.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+        			<p class="product-price">$!productMarketing.priceWithCurrencySign</p>
+					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$subCatalogCategory.code" data-value-sku-code="$!productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 					#if($!customer)
-						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$!productMarketing.skuCode"><i class="fa fa-heart"></i></a>
 					#else
 						<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
 					#end
@@ -116,6 +113,5 @@
 	#end
 #end
 <div class="clear border-btm"></div>
-<!-- End Products -->
 
 #parse("_include/brands.vm")

@@ -2,49 +2,48 @@
 #set ($footer_script_content = "../content/catalog/product-line-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/default/default.css" type="text/css">
-<link rel="stylesheet" href="${common.themeResourcePrefixPath}/library/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="$!common.themeResourcePrefixPath/library/nivo-slider/default/default.css" type="text/css">
+<link rel="stylesheet" href="$!common.themeResourcePrefixPath/library/nivo-slider/nivo-slider.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-<link href="${common.themeResourcePrefixPath}/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
+<link href="$!common.themeResourcePrefixPath/library/axe-carousel/axe-carousel.css" rel="stylesheet" type="text/css">
 
 #parse("../../_include/body-popin-add-to-cart.vm")
+
 #parse("../../_include/body-popin-add-to-wishlist.vm")
 				
 <div class="slider-wrapper theme-default axe-top-slider">
     <div id="slider" class="nivoSlider">
 		#set( $subProductCategoryCounter = 1 )
-		#foreach($subProductCategory in $productCategory.subCategories)
-			<img src="${subProductCategory.backgroundImage}" alt="${subProductCategory.name}" title="#htmlcaption${subProductCategoryCounter}"/>
+		#foreach($subProductCategory in $catalogCategory.subCategories)
+			<img src="$!subProductCategory.backgroundImage" alt="$!subProductCategory.name" title="#htmlcaption$!subProductCategoryCounter"/>
 			#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
-		#end		
+		#end
     </div>
 	#set( $subProductCategoryCounter = 1 )
-	#foreach($subProductCategory in $productCategory.subCategories)
-	<div id="htmlcaption${subProductCategoryCounter}" class="nivo-html-caption">
-        <span class="banner-title">${subProductCategory.name}</span> 
+	#foreach($subProductCategory in $catalogCategory.subCategories)
+	<div id="htmlcaption$!subProductCategoryCounter" class="nivo-html-caption">
+        <span class="banner-title">$!subProductCategory.name</span> 
 		<span class="rating-stars star-5">&nbsp;</span>
-		<p class="banner-des">${subProductCategory.description} [...]</p>
+		<p class="banner-des">$!subProductCategory.description [...]</p>
 		<a href="#" class="banner-readmore">Readmore</a>
     </div>
 	#set( $subProductCategoryCounter = $subProductCategoryCounter + 1 )
 	#end    
 </div>
-<!-- //nivo slider - top banner -->
 
 <div style="clear: both;"></div>
 	
 <div class="row">	
-<!-- category sidebar-->
 <div class="side-bar span3">
 	<span class="section-title sidebar-title">Category</span>
 	<ul class="nav-category">
 		#foreach($catalogCategory in $catalogCategories)
 	    <li>
-			<i class="fa fa-bars"></i>&nbsp;<a href="${catalogCategory.productAxeUrl}" class="level-top">${catalogCategory.name}</a>
+			<i class="fa fa-bars"></i>&nbsp;<a href="$!catalogCategory.productAxeUrl" class="level-top">$!catalogCategory.name</a>
 			<ul class="level0">
 			#foreach($subCategory in $catalogCategory.subCategories)
 				<li class="level1">
-					<a href="${subCategory.productLineUrl}">${subCategory.name}</a>
+					<a href="$!subCategory.productLineUrl">$!subCategory.name</a>
 				</li>
 			#end
 			</ul>
@@ -57,7 +56,7 @@
 	#parse("../../_include/body-sidebar-light-cart-view.vm")
 	
 	<a href="" class="sidebar-banner">
-		<img src="${common.themeResourcePrefixPath}/img/ads-banner1.jpg" alt="Ads Banner1">
+		<img src="$!common.themeResourcePrefixPath/img/ads-banner1.jpg" alt="Ads Banner1">
 	</a>
 </div>
 <!-- //category sidebar-->
@@ -66,7 +65,7 @@
 <!-- category product section -->
 <div class="span9">
 	<div class="product-section">
-		<span class="section-title category-title"><a href="${common.homeUrl}">Home</a> › <a href="$catalogBreadcrumb.defaultParentCategory.detailsUrl">$catalogBreadcrumb.defaultParentCategory.name</a> › $catalogBreadcrumb.name</span>
+		<span class="section-title category-title"><a href="${common.homeUrl}">Home</a> › <a href="$!catalogBreadcrumb.defaultParentCategory.detailsUrl">$!catalogBreadcrumb.defaultParentCategory.name</a> › $!catalogBreadcrumb.name</span>
 		<div class="clear border-btm"></div>
 		<form id="filter" method="get">
 		<div class="filter-toolbar">
@@ -108,11 +107,11 @@
 						<input name="mode" value="$mode" type="hidden" />
 						#if($orderBy == "asc")
 						<a id="orderBy" href="javascript:void(0)" title="Set Descending Direction">
-							<img src="${common.themeResourcePrefixPath}/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
+							<img src="$!common.themeResourcePrefixPath/img/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle">
 						</a>
 						#else
 						<a id="orderBy" href="javascript:void(0)" title="Set Ascending Direction">
-							<img src="${common.themeResourcePrefixPath}/img/i_desc_arrow.gif" alt="Set Ascending Direction" class="v-middle">
+							<img src="$!common.themeResourcePrefixPath/img/i_desc_arrow.gif" alt="Set Ascending Direction" class="v-middle">
 						</a>
 						#end
 						
@@ -155,13 +154,13 @@
 		<ul class="products-grid row">
 			#foreach($productMarketing in $catalogCategory.productMarketings)
 			<li class="item span3">
-				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
+				<a href="$!productMarketing.detailsUrl" class="product-image product-line-image">
 					<span>
-						<img class="lazy" data-original="${productMarketing.carouselImage}" src="${common.themeResourcePrefixPath}/img/placeholder.jpg" alt="${productMarketing.i18nName}"/>
-						<noscript><img src="${productMarketing.carouselImage}"></noscript>
+						<img class="lazy" data-original="$!productMarketing.carouselImage" src="$!common.themeResourcePrefixPath/img/placeholder.jpg" alt="$!productMarketing.i18nName"/>
+						<noscript><img src="$!productMarketing.carouselImage"></noscript>
 					</span>
 				</a>
-				<a href="${productMarketing.detailsUrl}" class="product-name">
+				<a href="$!productMarketing.detailsUrl" class="product-name">
 				#if($productMarketing.i18nName.length() > 31)
 					$productMarketing.i18nName.substring(0,27)...
 				#else
@@ -169,10 +168,10 @@
 				#end
 				</a>
 				<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
-				<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
-				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+				<p class="product-price">$!productMarketing.getPriceWithCurrencySign()</p>
+				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$!productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 				#if($!customer)
-					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$!productMarketing.skuCode"><i class="fa fa-heart"></i></a>
 				#else
 					<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
 				#end
@@ -183,17 +182,17 @@
 		<ul class="products-grid row list-view">
 			#foreach($productMarketing in $catalogCategory.productMarketings)
 			<li class="item span3">
-				<a href="${productMarketing.detailsUrl}" class="product-image product-line-image">
-					<span><img src="${productMarketing.carouselImage}" alt="${productMarketing.i18nName}"></span>
+				<a href="$!productMarketing.detailsUrl" class="product-image product-line-image">
+					<span><img src="$!productMarketing.carouselImage" alt="$!productMarketing.i18nName"></span>
 				</a>
 				<div class="product-info-wrap">
-					<a href="${productMarketing.detailsUrl}" class="product-name">${productMarketing.i18nName}</a>
+					<a href="$!productMarketing.detailsUrl" class="product-name">$!productMarketing.i18nName</a>
 					<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
-					<p class="product-short-des hide-as-grid">${productMarketing.description}</p>
-					<p class="product-price">${productMarketing.getPriceWithCurrencySign()}</p>
-					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+					<p class="product-short-des hide-as-grid">$!productMarketing.description</p>
+					<p class="product-price">$!productMarketing.getPriceWithCurrencySign()</p>
+					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$catalogCategory.code" data-value-sku-code="$!productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 					#if($!customer)
-						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$!productMarketing.skuCode"><i class="fa fa-heart"></i></a>
 					#else
 						<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
 					#end
@@ -204,7 +203,6 @@
 		#end
 	</div>
 </div>
-<!-- //category product section -->
 
 </div>
 

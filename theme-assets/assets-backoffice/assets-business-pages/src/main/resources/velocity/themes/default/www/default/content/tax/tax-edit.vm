@@ -54,6 +54,14 @@
 											<textarea id="description" name="description">$!taxForm.description</textarea>
 										</div>
 									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="percent" class="label-form">$wording.get("bo.tax.percent_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="percent" name="percent" value="$!taxForm.percent" style="width: 300px; margin-bottom: 0px;" />
+										</div>
+									</div>
 								</div>		
 								<div style="clear: both; padding-top: 15px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
