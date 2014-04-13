@@ -25,10 +25,10 @@
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								$wording.get("bo.catalog_category.business_name_label") : ${catalogCategory.businessName}<br/>
+								$wording.get("bo.catalog_category.business_name_label") : ${catalogCategory.name}<br/>
 								$wording.get("bo.catalog_category.description_label"): ${catalogCategory.description}<br/>
 								$wording.get("bo.catalog_category.code_label") : ${catalogCategory.code}<br/>
-								$wording.get("bo.catalog_category.default_parent_category_label") : $!{catalogCategory.defaultParentCategory.businessName} ($!{catalogCategory.defaultParentCategory.code})<br/>
+								$wording.get("bo.catalog_category.default_parent_category_label") : $!{catalogCategory.defaultParentCategory.name} ($!{catalogCategory.defaultParentCategory.code})<br/>
 								$wording.get("bo.catalog_category.is_default_label") : 
 								#if($catalogCategory.active)
 								<span style="color: green">$wording.get("common.common.is_default_true")</span>
@@ -169,7 +169,7 @@
 										#foreach ($productMarketing in $catalogCategory.productMarketings)
 										<tr>
 											<td class="description">
-												$productMarketing.businessName ($productMarketing.code)
+												$productMarketing.name ($productMarketing.code)
 											</td>
 											<td class="value">
 												<a href="${productMarketing.productDetailsUrl}">${productMarketing.productDetailsLabel}</a> | <a href="${productMarketing.productEditUrl}">${productMarketing.productEditLabel}</a>
@@ -203,7 +203,7 @@
 										#foreach ($subCategory in $catalogCategory.subCategories)
 										<tr>
 											<td class="description">
-												$subCategory.businessName ($subCategory.code)
+												$subCategory.name ($subCategory.code)
 											</td>
 											<td class="value">
 												<a href="${subCategory.categoryDetailsUrl}">$wording.get("bo.catalog_category.details_url_label")</a> | <a href="${subCategory.categoryEditUrl}">$wording.get("bo.catalog_category.edit_url_label")</a>

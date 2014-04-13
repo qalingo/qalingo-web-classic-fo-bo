@@ -56,7 +56,7 @@
 						</div>
 					</div>
 					<div style="clear: both; float: left;">
-						<ul id="catalog-tree" data-catalog-type="$catalogType">
+						<ul id="catalog-tree" data-catalog-type="$!catalogType">
 						</ul>
 					</div>
 					<div style="float: right;">

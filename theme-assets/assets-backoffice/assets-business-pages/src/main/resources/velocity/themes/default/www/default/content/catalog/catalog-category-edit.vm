@@ -69,9 +69,9 @@
 										<option value=""></option>
 									#foreach($category in $categories)
 										#if($category.code == $productCategoryForm.defaultParentCategoryCode)
-										<option value="$category.code" selected="selected">$category.businessName</option>
+										<option value="$category.code" selected="selected">$category.name</option>
 										#else
-										<option value="$category.code">$category.businessName</option>
+										<option value="$category.code">$category.name</option>
 										#end
 									#end
 									</select>

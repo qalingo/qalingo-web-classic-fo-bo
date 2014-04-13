@@ -21,7 +21,7 @@
 			<a href="{{:detailsUrl}}" target="_blank"><img src="{{:iconImage}}"></a>
 		</span>
 		<span class="location-popup-info">
-			<h2 class="store-list-title">{{:businessName}}</h2>
+			<h2 class="store-list-title">{{:name}}</h2>
 			<p>{{:address1}}<br>{{:city}}<br>{{:country}}<br></p>
 			<p><a href="{{:detailsUrl}}" target="_blank">store details</a></p>
 		</span>
@@ -37,8 +37,8 @@
 		{{/if}}
 		<div class="item span3">
 			<a data-code="{{:code}}" data-lon="{{:longitude}}" data-lat="{{:latitude }}" href="javascript:void(0)" class="store-item">
-				<span class="store-thumb"><img src="{{:defaultImage}}" alt="{{:businessName}}"></span>
-				<div class="store-item-info"><h2 class="store-list-title">{{:businessName}}</h2>
+				<span class="store-thumb"><img src="{{:defaultImage}}" alt="{{:name}}"></span>
+				<div class="store-item-info"><h2 class="store-list-title">{{:name}}</h2>
 					<span class="store-list-address"><i class="fa fa-map-marker" style="padding-right: 5px;"></i>{{:address1}}</span>
 				</div>
 			</a>

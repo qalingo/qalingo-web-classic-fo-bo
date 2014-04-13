@@ -44,8 +44,8 @@
         loadCatalogHtml : function(catalog) {
 			$("#add-root-category").attr('href', catalog.addRootCategoryUrl);
 		
-			var html = '<li><a href="#' + catalog.code + '">' + catalog.businessName + '</a><ul>';
-			var  catalogCategories = catalog.catalogCategories;
+			var html = '<li><a href="#' + catalog.code + '">' + catalog.name + '</a><ul>';
+			var  catalogCategories = catalog.sortedRootCatalogCategories;
 			html = html + plugins.CatalogTree.loadCatalogCategoryTree(catalogCategories);
 			html = html + '</ul></li>';
 			$('#catalog-tree').html(html);
@@ -60,9 +60,9 @@
 			var html =	'';
 			for(var i = 0; i < catalogCategories.length; i++){
 				var category = catalogCategories[i];
-				html = html + '<li><a href="#" class="find-products" data-category-code="' + category.code + '">' + category.businessName + '</a>';
-				if(category.catalogCategories != null && category.catalogCategories.length > 0){
-					html = html + '<ul>' + plugins.CatalogTree.loadCatalogCategoryTree(category.catalogCategories) + '</ul>';
+				html = html + '<li><a href="#" class="find-products" data-category-code="' + category.code + '">' + category.name + '</a>';
+				if(category.sortedChildCatalogCategories != null && category.sortedChildCatalogCategories.length > 0){
+					html = html + '<ul>' + plugins.CatalogTree.loadCatalogCategoryTree(category.sortedChildCatalogCategories) + '</ul>';
 				}
 				html = html + '</li>';
 			}
@@ -85,11 +85,11 @@
         },
 		
         loadProductListHtml : function(category) {	
-			$("#category-name").html(category.businessName);
+			$("#category-name").html(category.name);
 			$("#category-urls").html("<a href=\"" + category.addChildCategoryUrl + "\">add child category</a> | <a href=\"" + category.detailsUrl + "\">details</a> | <a href=\"" + category.editUrl + "\">edit</a>");
 			var html = "";
 			$.each(category.productMarketings, function(i, item){
-				html = html + "<tr><td>" + item.code + "</td><td>" + item.businessName + "</td><td>" + item.position + "</td><td>" + item.productSkus.length + "</td><td><a href=\"" + item.detailsUrl + "\">détails</a> | <a href=\"" + item.editUrl + "\">éditer</a></td></tr>";
+				html = html + "<tr><td>" + item.code + "</td><td>" + item.name + "</td><td>" + item.ranking + "</td><td>" + item.productSkus.length + "</td><td><a href=\"" + item.detailsUrl + "\">détails</a> | <a href=\"" + item.editUrl + "\">éditer</a></td></tr>";
 			});
 			$("#product-list tbody").html(html);
 		},

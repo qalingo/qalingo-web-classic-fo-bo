@@ -25,7 +25,7 @@
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								<strong>$wording.get("bo.product_marketing.business_name_label") :</strong> ${productMarketing.businessName}<br/>
+								<strong>$wording.get("bo.product_marketing.business_name_label") :</strong> ${productMarketing.name}<br/>
 								<br/>
 								<strong>$wording.get("bo.product_marketing.description_label") :</strong><br/>
 								<br/>
@@ -133,7 +133,7 @@
 										#foreach($productSku in $productMarketing.productSkus) 
 										<tr>
 											<td class="description">
-												$wording.get("bo.product_sku.business_name_label") : ${productSku.businessName} (${productSku.code})
+												$wording.get("bo.product_sku.business_name_label") : ${productSku.name} (${productSku.code})
 											</td>
 											<td class="value">
 												<a href="${productSku.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a> | <a href="${productSku.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a>

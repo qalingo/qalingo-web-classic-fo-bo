@@ -25,7 +25,7 @@
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								<strong>$wording.get("bo.product_sku.business_name_label") :</strong> ${productSku.businessName}<br/>
+								<strong>$wording.get("bo.product_sku.business_name_label") :</strong> ${productSku.name}<br/>
 								<br/>
 								<strong>$wording.get("bo.product_sku.description_label") :</strong> <br/>
 								<br/>
@@ -168,7 +168,7 @@
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								$wording.get("bo.product_marketing.business_name_label") : ${productSku.productMarketing.businessName}<br/>
+								$wording.get("bo.product_marketing.business_name_label") : ${productSku.productMarketing.name}<br/>
 								$wording.get("bo.product_marketing.code_label") : ${productSku.productMarketing.code}<br/>								
 							</div>
 						</div>

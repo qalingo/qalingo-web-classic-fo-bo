@@ -25,7 +25,7 @@
 			marker = new OpenLayers.Marker(new OpenLayers.LonLat($store.longitude, $store.latitude).transform(fromProjection, toProjection));
 			openStoreInfo = function(evt) { 
 				$('#store-info-$store.code').dialog({
-					title: '$store.businessName informations',
+					title: '$store.name informations',
 					modal: true,
 					buttons: {
 						Ok: function() {
