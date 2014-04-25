@@ -39,8 +39,8 @@
 		
 <script id="change-context-content" type="text/x-jsrender">
 	<div class="change-context-content row">
-		<div style="margin-left: 100px;">
-			<div style="padding-top: 20px;">
+		<div style="margin-left: 40px; padding-top: 20px;">
+			<div style="float: left;">
 				<ul class="nav nav-list">
 					#foreach($marketPlace in $marketPlaces)
 					<li><a href="$marketPlace.homeUrl" alt="$marketPlace.name"><i class="fa fa-bars"></i>&nbsp;$marketPlace.name</a></li>
@@ -62,6 +62,20 @@
 					<br/><br/>
 					#end
 				</ul>
+			</div>
+			<div style="float: left;">
+				<div>Current Context :</div>
+				<div>
+					$wording.get("bo.header_menu.marketplace")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketPlace.name</span><br/>
+					$wording.get("bo.header_menu.market")&nbsp;<span style="color: #a1cd44;">$!common.currentMarket.name</span><br/>
+					$wording.get("bo.header_menu.market_area")&nbsp;<span style="color: #a1cd44;">$!common.currentMarketArea.name</span><br/>
+					&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span><br/>
+					&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span><br/>
+					&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaCurrency.name</span><br/>
+				</div>
+				<div>available localizations</div>
+				<div>available currencies</div>
+				<div>available retailers</div>
 			</div>
 		</div>
 		<div style="clear: both;">

@@ -3,9 +3,11 @@
 *****************************************************************************/
 
 body {
-	font: 13px/1.7em 'Open Sans';
+	font-size: 13px;
+	font-family: 'Open Sans',sans-serif;
 }
-    
+  
+/*  
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
 }
@@ -13,6 +15,7 @@ p {
 input, button, select, textarea {
   font-family: 'Open Sans';
 }
+*/
 
 h1 {
     font-size: 25.5px;

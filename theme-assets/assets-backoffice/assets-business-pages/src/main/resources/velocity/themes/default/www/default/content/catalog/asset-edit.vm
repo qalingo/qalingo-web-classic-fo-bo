@@ -22,7 +22,7 @@
 					</div>
 					#parse("../../_include/body-transaction-messages.vm")
 					<div class="form-horizontal well">
-						<form id="assetForm" name="assetForm" action="" method="POST" enctype="multipart/form-data">
+						<form id="assetForm" name="assetForm" action="" method="POST" enctype="multipart/form-data" class="form-edit">
 						<input type="hidden" id="id" name="id" value="${assetForm.id}" />
 						#set($beanName = "assetForm")
 						#parse("../../_include/body-form-error-message.vm")

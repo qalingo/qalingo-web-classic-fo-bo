@@ -2,105 +2,116 @@
 #set ($page_title = $seoPageTitle)
 
 				<section id="product-sku-edit">
-					<div class="page-header">
-						<div style="float: left;">
-							<h1>${mainContentTitle}</h1>
+					<div class="page-header" style="border-bottom: 0px;">
+						<div style="float: left; font-size: 18px;"></div>
+						<div style="float: right; text-align: right; font-size: 15px;">
+							$wording.get("bo.common.date_create_label") $!productSku.dateCreate | $wording.get("bo.common.date_update_label") $!productSku.dateUpdate
 						</div>
-						#if($!productSku.detailsUrl)
-						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							$wording.get("bo.common.actions_label"): <a href="${productSku.detailsUrl}">$wording.get("bo.common.details_label")</a>
-						</div>
-						#end
+						<div style="clear: both;"></div>
 					</div>
-					<div style="clear: both; width: 100%; text-align: right;">
-						#if($!productSku.createdDate)
-						$wording.get("bo.common.date_create_label") : ${productSku.createdDate} | 
-						#end
-						#if($!productSku.updatedDate)
-						$wording.get("bo.common.date_update_label") : ${productSku.updatedDate}
-						#end
-					</div>
-					<div class="form-horizontal well">
-						<form id="productSkuForm" name="productSkuForm" action="" method="POST">
-						<input type="hidden" id="id" name="id" value="${productSkuForm.id}" />
-						#set($beanName = "productSkuForm")
-						#parse("../../_include/body-form-error-message.vm")
-						<div>
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+
+					<div class="widget">
+						<div class="widget-header">
+							<div style="float: left;">
+								<i class="fa fa-pushpin"></i>
+								<h3>$!mainContentTitle</h3>
+							</div>
+							<div style="float: right; padding-right: 15px; font-size: 15px;">
+								<a class="btn" href="$!urlBack" alt="">$wording.get("bo.common.back_label")</a>
+							</div>
 						</div>
-						<div style="clear: both;">
-							<div style="padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="name" class="label-form">$wording.get("bo.product_sku.business_name_label")</label>
+						<div class="widget-content">
+							<form id="productSkuForm" name="productSkuForm" action="" method="POST" class="form-edit">
+								<input type="hidden" id="id" name="id" value="$!productSkuForm.id" />
+								<div style="margin-bottom: 10px;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
 								</div>
-								<div style="float: left;">
-									<input type="text" id="name" name="name" value="${productSkuForm.name}" style="width: 400px; margin-bottom: 0px;" />
-									<br/>
-									$wording.get("bo.product_sku.business_name_information")
-								</div>
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="code" class="label-form">$wording.get("bo.product_sku.code_label")</label>
-								</div>
-								<div style="float: left;">
-									<input type="text" id="code" name="code" value="${productSkuForm.code}" style="width: 400px; margin-bottom: 0px;" />
-								</div>
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								<div style="float: left; width: 100px;">
-									<label for="description" class="label-form">$wording.get("bo.product_sku.description_label")</label>
-								</div>
-								<div style="float: left;">
-									<textarea id="description" name="description" cols="40" rows="5" style="width: 400px; height: 150px;">${productSkuForm.description}</textarea>
-									<br/>
-									$wording.get("bo.product_sku.description_information")
-								</div>
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-							$wording.get("bo.product_sku.global_attribute_list_label")
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								#set ($map = ${productSkuForm.globalAttributes} )
-								#foreach ($mapEntry in $map.entrySet())
-								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-									<div style="float: left; width: 400px;">
-										<label for="code" class="label-form">$mapEntry.key</label>
+								#set($beanName = "productSkuForm")
+								#parse("../../_include/body-form-error-message.vm")
+								
+								<div class="form-horizontal well">
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="code" class="label-form">$wording.get("bo.product_sku.code_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="code" name="code" value="$!productSkuForm.code" />
+										</div>
 									</div>
-									<div style="float: left;">
-										<input type="text" id="code" name="globalAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 400px; margin-bottom: 0px;">
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="name" class="label-form">$wording.get("bo.product_sku.name_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="name" name="name" value="$!productSkuForm.name" />
+											<br/>
+											$wording.get("bo.product_sku.name_information")
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="description" class="label-form">$wording.get("bo.product_sku.description_label")</label>
+										</div>
+										<div class="form-input-column">
+											<textarea id="description" name="description">$!productSkuForm.description</textarea>
+										</div>
+									</div>								
+								</div>
+								
+								<div class="widget widget-nopad stacked">						
+									<div class="widget-header">
+										<i class="fa fa-cog"></i><h3>$wording.get("bo.catalog_category.global_attribute_list_label")</h3>
+									</div>
+									<div class="widget-content">
+										#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
+										<div class="widget-map-row">
+											<div class="widget-map-column-label">
+												<label for="code" class="label-form">$availableAttributeDefinition.code</label>
+											</div>
+											<div class="widget-map-column-value">
+												#set ($attributeValue = $!productSku.getGlobalAttribute($availableAttributeDefinition.code) )
+												#if($availableAttributeDefinition.attributeType == '2')
+												<textarea id="$availableAttributeDefinition.code" name="globalAttributes['$availableAttributeDefinition.code']">$!attributeValue.value</textarea> 
+												#else
+												<input type="text" id="$availableAttributeDefinition.code" name="globalAttributes['$availableAttributeDefinition.code']" value="$!attributeValue.value">
+												#end
+											</div>
+										</div>
+										#end
 									</div>
 								</div>
-								#end
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-							$wording.get("bo.product_sku.area_attribute_list_label")
-							</div>
-							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-								#set ($map = ${productSkuForm.marketAreaAttributes} )
-								#foreach ($mapEntry in $map.entrySet())
-								<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
-									<div style="float: left; width: 400px;">
-										<label for="code" class="label-form">$mapEntry.key</label>
+
+								<div class="widget widget-nopad stacked">						
+									<div class="widget-header">
+										<i class="fa fa-cog"></i><h3>$wording.get("bo.catalog_category.area_attribute_list_label")</h3>
 									</div>
-									<div style="float: left;">
-										<input type="text" id="code" name="marketAreaAttributes['$mapEntry.key']" value="$mapEntry.value" style="width: 400px; margin-bottom: 0px;">
+									<div class="widget-content">
+										#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
+										<div class="widget-map-row">
+											<div class="widget-map-column-label">
+												<label for="$availableAttributeDefinition.code" class="label-form">$availableAttributeDefinition.code</label>
+											</div>
+											<div class="widget-map-column-value">
+												#set ($attributeValue = $!productSku.getGlobalAttribute($availableAttributeDefinition.code) )
+												#if($availableAttributeDefinition.attributeType == '2')
+												<textarea id="$availableAttributeDefinition.code" name="marketAreaAttributes['$availableAttributeDefinition.code']">$!attributeValue.value</textarea> 
+												#else
+												<input type="text" id="$availableAttributeDefinition.code" name="marketAreaAttributes['$availableAttributeDefinition.code']" value="$!attributeValue.value">
+												#end
+											</div>
+										</div>
+										#end
 									</div>
 								</div>
-								#end
-							</div>
-							#*
-	${productSku.descriptionLabel} : ${productSku.description}
-	${productSku.isDefaultLabel} : ${productSku.default}
-							*#
-							
+						
+								<div style="clear: both; padding-top: 15px;">
+									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
+									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
+								</div>
+							</form>
 						</div>
-						<div style="clear: both; padding-top: 15px;">
-							<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
-						</div>
-						</form>
+						<div style="clear: both;"></div>
 					</div>
 				</section>
 				

@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<form id="taxForm" name="taxForm" action="" method="POST">
+							<form id="taxForm" name="taxForm" action="" method="POST" class="form-edit">
 								<input type="hidden" id="id" name="id" value="$!taxForm.id" />
 								<div style="margin-bottom: 10px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
@@ -35,7 +35,7 @@
 											<label for="code" class="label-form">$wording.get("bo.tax.code_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="code" name="code" value="$!taxForm.code" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="code" name="code" value="$!taxForm.code" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -43,7 +43,7 @@
 											<label for="name" class="label-form">$wording.get("bo.tax.name_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="name" name="name" value="$!taxForm.name" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="name" name="name" value="$!taxForm.name" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -59,7 +59,7 @@
 											<label for="percent" class="label-form">$wording.get("bo.tax.percent_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="percent" name="percent" value="$!taxForm.percent" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="percent" name="percent" value="$!taxForm.percent" />
 										</div>
 									</div>
 								</div>		

@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="widget-content">
-							<form id="customerForm" name="customerForm" action="" method="POST">
+							<form id="customerForm" name="customerForm" action="" method="POST" class="form-edit">
 								<input type="hidden" id="id" name="id" value="$!customerForm.id" />
 								<input type="hidden" value="on" name="_active"/>
 								<div style="margin-bottom: 10px;">
@@ -36,7 +36,7 @@
 											<label for="lastname" class="label-form">$wording.get("bo.customer.lastname_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="lastname" name="lastname" value="$!customerForm.lastname" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="lastname" name="lastname" value="$!customerForm.lastname" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -44,7 +44,7 @@
 											<label for="firstname" class="label-form">$wording.get("bo.customer.firstname_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="firstname" name="firstname" value="$!customerForm.firstname" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="firstname" name="firstname" value="$!customerForm.firstname" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -52,7 +52,7 @@
 											<label for="email" class="label-form">$wording.get("bo.customer.email_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="email" name="email" value="$!customerForm.email" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="email" name="email" value="$!customerForm.email" />
 										</div>
 									</div>
 									<div class="form-row">
@@ -60,7 +60,7 @@
 											<label for="login" class="label-form">$wording.get("bo.customer.login_label")</label>
 										</div>
 										<div class="form-input-column">
-											<input type="text" id="login" name="login" value="$!customerForm.login" style="width: 300px; margin-bottom: 0px;" />
+											<input type="text" id="login" name="login" value="$!customerForm.login" />
 										</div>
 									</div>
 									<div class="form-row">

@@ -2,57 +2,53 @@
 #set ($page_title = $seoPageTitle)
 
 				<section id="product-sku-details">
-				
 					<div class="page-header" style="border-bottom: 0px;">
 						<div style="float: left; font-size: 18px;"></div>
 						<div style="float: right; text-align: right; font-size: 15px;">
-							$wording.get("bo.common.date_create_label") : ${productSku.createdDate} | $wording.get("bo.common.date_update_label") : ${productSku.updatedDate}
+							$wording.get("bo.common.date_create_label") $!productSku.dateCreate | $wording.get("bo.common.date_update_label") $!productSku.dateUpdate
 						</div>
 						<div style="clear: both;"></div>
 					</div>
-					
-					<div class="widget">
-						
+
+					<div class="widget">						
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-pushpin"></i>
-								<h3>${mainContentTitle}</h3>
+								<h3>$!mainContentTitle</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								$wording.get("bo.common.actions_label"): <a href="${productSku.editUrl}">$wording.get("bo.common.edit_label")</a>
+								<a href="$!urlBack" alt="" class="btn">$wording.get("bo.common.back_label")</a>&nbsp;<a href="$!productSku.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
 						
 						<div class="widget-content">
 							<div style="width: 100%">
-								<strong>$wording.get("bo.product_sku.business_name_label") :</strong> ${productSku.name}<br/>
-								<br/>
-								<strong>$wording.get("bo.product_sku.description_label") :</strong> <br/>
-								<br/>
-								<blockquote>${productSku.description}</blockquote>
-								<strong>$wording.get("bo.product_sku.is_default_label") :</strong> ${productSku.default}<br/>
-								<strong>$wording.get("bo.product_sku.code_label") :</strong> ${productSku.code}<br/>
-								<strong>$wording.get("bo.product_sku.is_default_label") :</strong> 
+								<strong>$wording.get("bo.product_sku.code_label") :</strong> $!productSku.code
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.product_sku.name_label") :</strong> $!productSku.name
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.product_sku.description_label") :</strong><br/>
+								<blockquote>$!productSku.description</blockquote>
+							</div>
+							<div style="width: 100%">
+								<strong>$wording.get("bo.product_sku.is_default_label") :</strong>
 								#if($productSku.active)
 								<span style="color: green">$wording.get("common.common.is_default_true")</span>
 								#else
 								<span style="color: red">$wording.get("common.common.is_default_false")</span>
-								#end										
+								#end
 							</div>
-							
 						</div>
-							
 					</div>
 					
 					<div class="widget widget-nopad">
-							
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.global_attribute_list_label")</h3>
 						</div>
-						
 						<div class="widget-content">
-
 							<table class="table table-bordered table-striped">
 								<thead>
 									<tr>
@@ -61,33 +57,24 @@
 									</tr>
 								</thead>
 								<tbody>
-									#set ($map = ${productSku.globalAttributes} )
-									#foreach ($mapEntry in $map.entrySet())
+									#set ($mapGlobalAttributes = $!productSku.globalAttributes )
+									#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 									<tr>
-										<td class="description">
-											$mapEntry.key
-										</td>
-										<td class="value">
-											$mapEntry.value
-										</td>
+										<td class="description">$availableAttributeDefinition.code</td>
+										<td class="value">$!mapGlobalAttributes.get($availableAttributeDefinition.code)</td>
 									</tr>
 									#end
 								</tbody>
 							</table>
-							
 						</div>
-					
 					</div>
 					
 					<div class="widget widget-nopad">
-							
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.area_attribute_list_label")</h3>
 						</div>
-						
 						<div class="widget-content">
-						
 							<table class="table table-bordered table-striped">
 								<thead>
 									<tr>
@@ -96,31 +83,23 @@
 									</tr>
 								</thead>
 								<tbody>
-									#set ($map = ${productSku.marketAreaAttributes} )
-									#foreach ($mapEntry in $map.entrySet())
+									#set ($mapMarketAreaAttributes = $!productSku.marketAreaAttributes )
+									#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 									<tr>
-										<td class="description">
-											$mapEntry.key
-										</td>
-										<td class="value">
-											$mapEntry.value
-										</td>
+										<td class="description">$availableAttributeDefinition.code</td>
+										<td class="value">$!mapMarketAreaAttributes.get($availableAttributeDefinition.code)</td>
 									</tr>
 									#end
 								</tbody>
 							</table>
-								
 						</div>
-					
 					</div>
 					
 					<div class="widget">
-							
 						<div class="widget-header">
 							<i class="fa fa-list-alt"></i>
 							<h3>$wording.get("bo.product_sku.asset_list_label")</h3>
 						</div>
-						
 						<div class="widget-content">
 							<div style="width: 100%">
 								<table class="table table-bordered table-striped">
@@ -137,13 +116,13 @@
 									<tbody>
 										#foreach($asset in $productSku.assets) 
 										<tr>
-											<td class="description">${asset.name}</td>
-											<td class="description">${asset.code}</td>
-											<td class="description">${asset.type}</td>
-											<td class="description">${asset.description}</td>
-											<td class="description">${asset.path}</td>
+											<td class="description">$!asset.name</td>
+											<td class="description">$!asset.code</td>
+											<td class="description">$!asset.type</td>
+											<td class="description">$!asset.description</td>
+											<td class="description">$!asset.path</td>
 											<td class="value">
-												<a href="${asset.detailsUrl}" class="btn">$wording.get("bo.common.details_label")</a> | <a href="${asset.editUrl}" class="btn">$wording.get("bo.common.edit_label")</a>
+												<a href="$!asset.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a> <a href="$!asset.editUrl" class="btn">$wording.get("bo.common.edit_label")</a>
 											</td>
 										</tr>
 										#end
@@ -151,28 +130,24 @@
 								</table>
 							</div>
 						</div>
-					
 					</div>
 
 					<div class="widget">
-							
 						<div class="widget-header">
 							<div style="float: left;">
 								<i class="fa fa-list-alt"></i>
 								<h3>$wording.get("bo.product_sku.product_marketing_associated_label")</h3>
 							</div>
 							<div style="float: right; padding-right: 15px; font-size: 15px;">
-								<a href="${productSku.productMarketing.detailsUrl}">$wording.get("bo.common.details_label")</a> | <a href="${productSku.productMarketing.editUrl}">$wording.get("bo.common.edit_label")</a>
+								<a href="$!productSku.productMarketing.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a> <a href="$!productSku.productMarketing.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 							</div>
 						</div>
-						
 						<div class="widget-content">
 							<div style="width: 100%">
-								$wording.get("bo.product_marketing.business_name_label") : ${productSku.productMarketing.name}<br/>
-								$wording.get("bo.product_marketing.code_label") : ${productSku.productMarketing.code}<br/>								
+								<strong>$wording.get("bo.product_marketing.name_label") :</strong> $!productSku.productMarketing.name<br/>
+								<strong>$wording.get("bo.product_marketing.code_label") :</strong> $!productSku.productMarketing.code<br/>								
 							</div>
 						</div>
-					
 					</div>
 				</section>
 				

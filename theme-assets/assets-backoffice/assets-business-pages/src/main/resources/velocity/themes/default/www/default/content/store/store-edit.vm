@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="widget-content">
-			<form id="storeForm" name="storeForm" action="" method="POST" enctype="multipart/form-data">
+			<form id="storeForm" name="storeForm" action="" method="POST" enctype="multipart/form-data" class="form-edit">
 				<input type="hidden" id="id" name="id" value="${storeForm.id}" />
 				<div>
 					<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
@@ -36,7 +36,7 @@
 							<label for="code" class="label-form">$wording.get("bo.store.code_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="code" name="code" value="$!storeForm.code" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="code" name="code" value="$!storeForm.code" />
 						</div>
 					</div>
 					<div class="form-row">
@@ -44,7 +44,7 @@
 							<label for="name" class="label-form">$wording.get("bo.store.name_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="name" name="name" value="$!storeForm.name" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="name" name="name" value="$!storeForm.name" />
 						</div>
 					</div>
 					
@@ -85,7 +85,7 @@
 							<label for="address1" class="label-form">$wording.get("bo.common.address1_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="address1" name="address1" value="$!storeForm.address1" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="address1" name="address1" value="$!storeForm.address1" />
 						</div>
 					</div>
 					<div class="form-row">
@@ -93,7 +93,7 @@
 							<label for="address2" class="label-form">$wording.get("bo.common.address2_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="address2" name="address2" value="$!storeForm.address2" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="address2" name="address2" value="$!storeForm.address2" />
 						</div>
 					</div>
 					<div class="form-row">
@@ -101,7 +101,7 @@
 							<label for="addressAdditionalInformation" class="label-form">$wording.get("bo.common.address_additional_information_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!storeForm.addressAdditionalInformation" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="addressAdditionalInformation" name="addressAdditionalInformation" value="$!storeForm.addressAdditionalInformation" />
 						</div>
 					</div>
 					<div class="form-row">
@@ -109,7 +109,7 @@
 							<label for="postalCode" class="label-form">$wording.get("bo.common.postal_code_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="postalCode" name="postalCode" value="$!storeForm.postalCode" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="postalCode" name="postalCode" value="$!storeForm.postalCode" />
 						</div>
 					</div>
 					<div class="form-row">
@@ -117,7 +117,7 @@
 							<label for="city" class="label-form">$wording.get("bo.common.city_label")</label>
 						</div>
 						<div class="form-input-column">
-							<input type="text" id="city" name="city" value="$!storeForm.city" style="width: 300px; margin-bottom: 0px;" />
+							<input type="text" id="city" name="city" value="$!storeForm.city" />
 						</div>
 					</div>
 					

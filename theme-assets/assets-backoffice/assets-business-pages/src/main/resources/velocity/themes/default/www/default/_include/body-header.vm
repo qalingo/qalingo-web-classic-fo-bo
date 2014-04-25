@@ -73,11 +73,11 @@
 						<li>
 							<a href="#" class="dropdown-toggle">
 							|&nbsp;$wording.get("bo.header_menu.marketplace")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketPlace.name</span></b>
-							$wording.get("bo.header_menu.market")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarket.name</span>)</b>
-							$wording.get("bo.header_menu.market_area")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketArea.name</span>)</b>
-							:&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span></b>
-							|&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span></b>
-							|&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaCurrency.name</span></b>
+							$wording.get("bo.header_menu.market")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarket.name</span>)
+							$wording.get("bo.header_menu.market_area")&nbsp;(<span style="color: #a1cd44;">$!common.currentMarketArea.name</span>)
+							:&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaLocalization.name</span>
+							|&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaRetailer.name</span>
+							|&nbsp;<span style="color: #a1cd44;">$!common.currentMarketAreaCurrency.name</span>
 							</a>
 						</li>
 

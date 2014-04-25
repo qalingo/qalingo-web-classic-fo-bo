@@ -3,9 +3,11 @@
 *****************************************************************************/
 
 body {
-	font: 13px/1.7em 'Open Sans';
+	font-size: 13px;
+	font-family: 'Open Sans',sans-serif;
 }
-    
+  
+/*  
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
 }
@@ -13,6 +15,7 @@ p {
 input, button, select, textarea {
   font-family: 'Open Sans';
 }
+*/
 
 h1 {
     font-size: 25.5px;
@@ -20,6 +23,14 @@ h1 {
 
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
     height: 30px;
+}
+
+blockquote {
+    border-left: 5px solid #EEEEEE;
+    font-size: 12.5px;
+    margin: 0 0 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /*****************************************************************************
@@ -893,6 +904,24 @@ span.arrow {
 	overflow: auto;
 }
 
+.widget-map-row {
+	clear: both; 
+	padding-top: 5px; 
+	padding-bottom: 5px;
+	overflow: auto;
+}
+
+.widget-map-column-label {
+	float: left; 
+	width: 400px; 
+	padding-top: 5px; 
+	padding-left: 15px;
+}
+
+.widget-map-column-value {
+	float: left; 
+}
+
 .form-horizontal .form-row {
 	clear: both; 
 	padding-top: 5px; 
@@ -908,7 +937,16 @@ span.arrow {
 	float: left;
 }
 
-.form-horizontal  textarea  {
+.form-edit  select  {
+	width: 400px;
+}
+
+.form-edit  input  {
+	width: 400px;
+	margin-bottom: 0px;
+}
+
+.form-edit  textarea  {
 	width: 600px;
 	height: 300px;
 }

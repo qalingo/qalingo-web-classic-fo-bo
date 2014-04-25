@@ -20,7 +20,6 @@
 
 		<!-- style -->
 		<link href="${common.themeResourcePrefixPath}/library/jquery-ui-1.9.1/css/smoothness/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" type="text/css">
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 
 		<link href="${common.themeResourcePrefixPath}/library/bootstrap-3.1.0/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="${common.themeResourcePrefixPath}/library/bootstrap-3.1.0/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
