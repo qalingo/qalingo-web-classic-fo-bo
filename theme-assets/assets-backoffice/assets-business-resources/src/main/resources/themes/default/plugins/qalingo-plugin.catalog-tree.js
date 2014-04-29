@@ -86,12 +86,13 @@
 		
         loadProductListHtml : function(category) {	
 			$("#category-name").html(category.name);
-			$("#category-urls").html("<a href=\"" + category.addChildCategoryUrl + "\">add child category</a> | <a href=\"" + category.detailsUrl + "\">details</a> | <a href=\"" + category.editUrl + "\">edit</a>");
+			$("#category-urls").html("<a href=\"" + category.addChildCategoryUrl + "\">add child category</a> | <a href=\"" + category.detailsUrl + "\">details</a> | <a href=\"" + category.editUrl + "\">edit</a> | <a href=\"#\" class=\"trigger-add-product-to-category\" data-category-code=\"" + category.code + "\">add a product</a>");
 			var html = "";
 			$.each(category.productMarketings, function(i, item){
 				html = html + "<tr><td>" + item.code + "</td><td>" + item.name + "</td><td>" + item.ranking + "</td><td>" + item.productSkus.length + "</td><td><a href=\"" + item.detailsUrl + "\">détails</a> | <a href=\"" + item.editUrl + "\">éditer</a></td></tr>";
 			});
 			$("#product-list tbody").html(html);
+			plugins.AddProductToCatalogCategory.init();
 		},
 		
     };

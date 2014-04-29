@@ -1,0 +1,48 @@
+#*
+ * Most of the code in the Qalingo project is copyrighted Hoteia and licensed
+ * under the Apache License Version 2.0 (release version 0.7.3-SNAPSHOT)
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                   Copyright (c) Hoteia, 2012-2013
+ * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
+ *
+ *#
+		<style>
+			div#add-product-to-catalog-category-popup {
+				font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+				background: none repeat scroll 0 0 #FFFFFF;
+				border: 10px solid #ccc;
+				border-radius: 3px 3px 3px 3px;
+				color: #333333;
+				display: none;
+				font-size: 14px;
+				left: 50%;
+				margin-left: -402px;
+				position: fixed;
+				top: 20%;
+				width: 800px;
+				z-index:4001;
+			}
+			div#popup_content {
+				margin: 4px 7px;
+			}
+		</style>
+		
+		<div id="add-product-to-catalog-category-popup" class="trigger-popin" data-attribute-status="0"> 
+			<div class="close"></div> 
+			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
+			<div id="popup_content">
+				<div style="background-color: #ffffff; color: red; padding: 10px;"></div>
+			</div>
+		</div>
+		<div style="clear: both;"></div>
+		
+<script id="addToCartProductContent" type="text/x-jsrender">
+	<div class="product-detail-content row">
+		xxxxx
+	</div>
+</script>
+
+		
+
+		

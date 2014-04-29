@@ -35,13 +35,13 @@
 								<strong>$wording.get("bo.product_marketing.brand_label") :</strong> $!productMarketing.brand.name #if($!productMarketing.brand.code)($!productMarketing.brand.code)#end
 							</div>
 							<div style="width: 100%">
-								<strong>$wording.get("bo.product_marketing.is_default_label") :</strong>
-								#if($productMarketing.active)
+								<strong>$wording.get("bo.product_marketing.is_salable_label") :</strong>
+								#if($productMarketing.salable)
 								<span class="text-success">$wording.get("common.common.is_default_true")</span>
 								#else
 								<span class="text-error">$wording.get("common.common.is_default_false")</span>
 								#end
-							</div>							
+							</div>
 						</div>
 					</div>
 					
@@ -60,11 +60,11 @@
 										</tr>
 									</thead>
 									<tbody>
-										#set ($mapGlobalAttributes = $!catalogCategory.globalAttributes )
 										#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 										<tr>
-											<td class="description">$availableAttributeDefinition.code</td>
-											<td class="value">$!mapGlobalAttributes.get($availableAttributeDefinition.code)</td>
+											#set ($attributeValue = $!productMarketing.getGlobalAttribute($availableAttributeDefinition.code) )
+											<td class="description">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</td>
+											<td class="value">$!attributeValue.value</td>
 										</tr>
 										#end
 									</tbody>
@@ -87,11 +87,11 @@
 									</tr>
 								</thead>
 								<tbody>
-									#set ($mapMarketAreaAttributes = $!catalogCategory.marketAreaAttributes )
 									#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 									<tr>
-										<td class="description">$availableAttributeDefinition.code</td>
-										<td class="value">$!mapMarketAreaAttributes.get($availableAttributeDefinition.code)</td>
+										#set ($attributeValue = $!productMarketing.getMarketAreaAttribute($availableAttributeDefinition.code) )
+										<td class="description">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</td>
+										<td class="value">$!attributeValue.value</td>
 									</tr>
 									#end
 								</tbody>
@@ -101,9 +101,15 @@
 					
 					<div class="widget widget-nopad">
 						<div class="widget-header">
-							<i class="fa fa-list-alt"></i>
-							<h3>$wording.get("bo.product_marketing.sku_list_label")</h3>
+							<div style="float: left;">
+								<i class="fa fa-list-alt"></i>
+								<h3>$wording.get("bo.product_marketing.sku_list_label")</h3>
+							</div>
+							<div style="float: right; text-align: right; padding-right: 20px;">
+								<a href="$!productMarketing.addSkuUrl" class="btn btn-primary">$wording.get("bo.common.add_sku_label")</a>
+							</div>
 						</div>
+						<div style="clear: both;"></div>
 						<div class="widget-content">
 							<div style="width: 100%">
 								<table class="table table-bordered table-striped">
@@ -122,7 +128,7 @@
 												$wording.get("bo.product_sku.name_label") : $!productSku.name ($!productSku.code)
 											</td>
 											<td class="value">
-												<a href="$!productSku.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a> <a href="$!productSku.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
+												<a href="$!productSku.detailsUrl" class="btn">$wording.get("bo.common.details_label")</a>&nbsp;<a href="$!productSku.editUrl" class="btn btn-primary">$wording.get("bo.common.edit_label")</a>
 											</td>
 										</tr>
 										#end

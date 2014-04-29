@@ -2,6 +2,8 @@
 #set ($footer_script_content = "../content/catalog/catalog-manage-footer-script.vm")
 #set ($page_title = $seoPageTitle)
 
+#parse("../../_include/body-popin-add-product-to-catalog-category.vm")
+
 <style>
 .tree {
   margin:0;
@@ -52,28 +54,27 @@
 							<h1>${mainContentTitle}</h1>
 						</div>
 						<div style="float: right; line-height: 40px; margin: 10px 0; font-size: 18px;">
-							Actions: <a href="#" id="add-root-category">$wording.get("bo.catalog_category.add_master_category_label")</a>
+							Actions: <a href="#" id="add-root-category">$wording.get("bo.catalog_category.add_root_category_label")</a>
 						</div>
 					</div>
 					<div style="clear: both; float: left;">
-						<ul id="catalog-tree" data-catalog-type="$!catalogType">
-						</ul>
+						<ul id="catalog-tree" data-catalog-type="$!catalogType"></ul>
 					</div>
 					<div style="float: right;">
-<div>Product list for category : <span id="category-name" style="font-weight: bold;"></span>&nbsp;&nbsp;&nbsp;<span id="category-urls" style="font-weight: bold;"></span></div>				
-<table id="product-list" class="tablesorter" style="with: 700px;"> 
-<thead> 
-<tr> 
-    <th style="width: 100px; text-align: left;">Code</th> 
-    <th style="width: 200px; text-align: left;">Name</th>
-    <th style="width: 100px; text-align: left;">Position</th>
-    <th style="width: 100px; text-align: left;">Sku count</th> 
-    <th style="width: 200px; text-align: left;"></th> 
-</tr> 
-</thead> 
-<tbody>
-</tbody> 
-</table> 
+						<div>Product list for category : <span id="category-name" style="font-weight: bold;"></span>&nbsp;&nbsp;&nbsp;<span id="category-urls" style="font-weight: bold;"></span></div>	
+						<table id="product-list" class="tablesorter" style="with: 700px;"> 
+							<thead> 
+								<tr> 
+									<th style="width: 100px; text-align: left;">Code</th> 
+									<th style="width: 200px; text-align: left;">Name</th>
+									<th style="width: 100px; text-align: left;">Position</th>
+									<th style="width: 100px; text-align: left;">Sku count</th> 
+									<th style="width: 200px; text-align: left;"></th> 
+								</tr> 
+							</thead> 
+							<tbody>
+							</tbody> 
+						</table> 
 					</div>
 				</section>
 				

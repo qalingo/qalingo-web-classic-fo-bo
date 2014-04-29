@@ -33,11 +33,11 @@
 								<blockquote>$!productSku.description</blockquote>
 							</div>
 							<div style="width: 100%">
-								<strong>$wording.get("bo.product_sku.is_default_label") :</strong>
-								#if($productSku.active)
-								<span style="color: green">$wording.get("common.common.is_default_true")</span>
+								<strong>$wording.get("bo.product_sku.is_salable_label") :</strong>
+								#if($productMarketing.salable)
+								<span class="text-success">$wording.get("common.common.is_default_true")</span>
 								#else
-								<span style="color: red">$wording.get("common.common.is_default_false")</span>
+								<span class="text-error">$wording.get("common.common.is_default_false")</span>
 								#end
 							</div>
 						</div>
@@ -57,11 +57,11 @@
 									</tr>
 								</thead>
 								<tbody>
-									#set ($mapGlobalAttributes = $!productSku.globalAttributes )
 									#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 									<tr>
-										<td class="description">$availableAttributeDefinition.code</td>
-										<td class="value">$!mapGlobalAttributes.get($availableAttributeDefinition.code)</td>
+										#set ($attributeValue = $!productSku.getGlobalAttribute($availableAttributeDefinition.code) )
+										<td class="description">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</td>
+										<td class="value">$!attributeValue.value</td>
 									</tr>
 									#end
 								</tbody>
@@ -83,11 +83,11 @@
 									</tr>
 								</thead>
 								<tbody>
-									#set ($mapMarketAreaAttributes = $!productSku.marketAreaAttributes )
 									#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 									<tr>
-										<td class="description">$availableAttributeDefinition.code</td>
-										<td class="value">$!mapMarketAreaAttributes.get($availableAttributeDefinition.code)</td>
+										#set ($attributeValue = $!productSku.getMarketAreaAttribute($availableAttributeDefinition.code) )
+										<td class="description">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</td>
+										<td class="value">$!attributeValue.value</td>
 									</tr>
 									#end
 								</tbody>
@@ -144,8 +144,8 @@
 						</div>
 						<div class="widget-content">
 							<div style="width: 100%">
-								<strong>$wording.get("bo.product_marketing.name_label") :</strong> $!productSku.productMarketing.name<br/>
 								<strong>$wording.get("bo.product_marketing.code_label") :</strong> $!productSku.productMarketing.code<br/>								
+								<strong>$wording.get("bo.product_marketing.name_label") :</strong> $!productSku.productMarketing.name<br/>
 							</div>
 						</div>
 					</div>

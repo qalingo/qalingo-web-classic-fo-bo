@@ -64,14 +64,18 @@
 										<i class="fa fa-cog"></i><h3>$wording.get("bo.product_marketing.global_attribute_list_label")</h3>
 									</div>
 									<div class="widget-content">
-										#set ($mapGlobalAttributes = $!productMarketing.globalAttributes )
 										#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 										<div class="widget-map-row">
 											<div class="widget-map-column-label">
-												<label for="code" class="label-form">$availableAttributeDefinition.code</label>
+												<label for="code" class="label-form">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</label>
 											</div>
 											<div class="widget-map-column-value">
-												<input type="text" id="code" name="globalAttributes['$availableAttributeDefinition.code']" value="$!mapMarketAreaAttributes.get($availableAttributeDefinition.code)">
+												#set ($attributeValue = $!productMarketing.getGlobalAttribute($availableAttributeDefinition.code) )
+												#if($availableAttributeDefinition.attributeType == '2')
+												<textarea id="$availableAttributeDefinition.code" name="globalAttributes['$availableAttributeDefinition.code']">$!attributeValue.value</textarea> 
+												#else
+												<input type="text" id="$availableAttributeDefinition.code" name="globalAttributes['$availableAttributeDefinition.code']" value="$!attributeValue.value">
+												#end
 											</div>
 										</div>
 										#end
@@ -83,14 +87,18 @@
 										<i class="fa fa-cog"></i><h3>$wording.get("bo.product_marketing.area_attribute_list_label")</h3>
 									</div>
 									<div class="widget-content">
-										#set ($mapMarketAreaAttributes = $!productMarketing.marketAreaAttributes )
 										#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 										<div class="widget-map-row">
 											<div class="widget-map-column-label">
-												<label for="code" class="label-form">$availableAttributeDefinition.code</label>
+												<label for="$availableAttributeDefinition.code" class="label-form">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</label>
 											</div>
 											<div class="widget-map-column-value">
-												<input type="text" id="code" name="marketAreaAttributes['$availableAttributeDefinition.code']" value="$!mapMarketAreaAttributes.get($availableAttributeDefinition.code)">
+												#set ($attributeValue = $!productMarketing.getMarketAreaAttribute($availableAttributeDefinition.code) )
+												#if($availableAttributeDefinition.attributeType == '2')
+												<textarea id="$availableAttributeDefinition.code" name="marketAreaAttributes['$availableAttributeDefinition.code']">$!attributeValue.value</textarea> 
+												#else
+												<input type="text" id="$availableAttributeDefinition.code" name="marketAreaAttributes['$availableAttributeDefinition.code']" value="$!attributeValue.value">
+												#end
 											</div>
 										</div>
 										#end

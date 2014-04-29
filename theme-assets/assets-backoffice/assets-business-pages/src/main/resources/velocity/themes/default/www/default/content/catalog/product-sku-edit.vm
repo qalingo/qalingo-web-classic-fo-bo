@@ -23,6 +23,7 @@
 						<div class="widget-content">
 							<form id="productSkuForm" name="productSkuForm" action="" method="POST" class="form-edit">
 								<input type="hidden" id="id" name="id" value="$!productSkuForm.id" />
+								<input type="hidden" id="productMarketingId" name="productMarketingId" value="$!productSkuForm.productMarketingId" />
 								<div style="margin-bottom: 10px;">
 									<a href="$!urlBack" class="btn">$wording.get("bo.common.cancel_label")</a>
 									<button class="btn btn-primary" type="submit" style="margin-top: 0px;">$wording.get("bo.common.submit_label")</button>
@@ -67,7 +68,7 @@
 										#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 										<div class="widget-map-row">
 											<div class="widget-map-column-label">
-												<label for="code" class="label-form">$availableAttributeDefinition.code</label>
+												<label for="code" class="label-form">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</label>
 											</div>
 											<div class="widget-map-column-value">
 												#set ($attributeValue = $!productSku.getGlobalAttribute($availableAttributeDefinition.code) )
@@ -90,10 +91,10 @@
 										#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 										<div class="widget-map-row">
 											<div class="widget-map-column-label">
-												<label for="$availableAttributeDefinition.code" class="label-form">$availableAttributeDefinition.code</label>
+												<label for="$availableAttributeDefinition.code" class="label-form">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</label>
 											</div>
 											<div class="widget-map-column-value">
-												#set ($attributeValue = $!productSku.getGlobalAttribute($availableAttributeDefinition.code) )
+												#set ($attributeValue = $!productSku.getMarketAreaAttribute($availableAttributeDefinition.code) )
 												#if($availableAttributeDefinition.attributeType == '2')
 												<textarea id="$availableAttributeDefinition.code" name="marketAreaAttributes['$availableAttributeDefinition.code']">$!attributeValue.value</textarea> 
 												#else

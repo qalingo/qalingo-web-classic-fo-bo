@@ -1,16 +1,13 @@
 
 
+<script src="${common.themeResourcePrefixPath}/library/tablesorter/jquery.tablesorter.js" type="text/javascript" ></script> 
 <script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.catalog-tree.js" type="text/javascript"></script>
+<script src="${common.themeResourcePrefixPath}/plugins/qalingo-plugin.add-product-to-catalog-category.js" type="text/javascript"></script>
 <script type="text/javascript">
 	plugins.CatalogTree.init();
+	plugins.AddProductToCatalogCategory.init();
 </script>
 
-<script src="${common.themeResourcePrefixPath}/library/tablesorter/jquery.tablesorter.js" type="text/javascript" ></script> 
 
-<script type="text/javascript">
-
-
-
-</script>
 
 

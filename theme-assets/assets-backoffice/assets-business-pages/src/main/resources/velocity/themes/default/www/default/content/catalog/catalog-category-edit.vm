@@ -33,16 +33,6 @@
 								<div class="form-horizontal well">
 									<div class="form-row">
 										<div class="form-label-column">
-											<label for="name" class="label-form">$wording.get("bo.catalog_category.name_label")</label>
-										</div>
-										<div class="form-input-column">
-											<input type="text" id="name" name="name" value="${catalogCategoryForm.name}" />
-											<br/>
-											$wording.get("bo.catalog_category.name_information")
-										</div>
-									</div>
-									<div class="form-row">
-										<div class="form-label-column">
 											<label for="code" class="label-form">$wording.get("bo.catalog_category.code_label")</label>
 										</div>
 										<div class="form-input-column">
@@ -52,6 +42,35 @@
 											#end
 											<input type="text" id="code" name="code" value="${catalogCategoryForm.code}" $!categoryCodeDisabled/>
 											$!messageAboutCategoryCodeDisabled
+										</div>
+									</div>
+									#if($!catalogCategory.withMasterCategory)
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="masterCategoryId" class="label-form">$wording.get("bo.catalog_category.master_category_label")</label>
+										</div>
+										<div class="form-input-column">
+											<select id="masterCategoryId" name="masterCategoryId">
+												<option value=""></option>
+											#foreach($category in $masterCategories)
+												#if($category.id == $catalogCategoryForm.masterCategoryId)
+												<option value="$category.id" selected>$category.name</option>
+												#else
+												<option value="$category.id">$category.name</option>
+												#end
+											#end
+											</select>
+										</div>
+									</div>
+									#end
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="name" class="label-form">$wording.get("bo.catalog_category.name_label")</label>
+										</div>
+										<div class="form-input-column">
+											<input type="text" id="name" name="name" value="${catalogCategoryForm.name}" />
+											<br/>
+											$wording.get("bo.catalog_category.name_information")
 										</div>
 									</div>
 									<div class="form-row">
@@ -64,16 +83,24 @@
 									</div>
 									<div class="form-row">
 										<div class="form-label-column">
-											<label for="description" class="label-form">$wording.get("bo.catalog_category.default_parent_category_label")</label>
+											<label for="ranking" class="label-form">$wording.get("bo.catalog_category.ranking_label")</label>
 										</div>
 										<div class="form-input-column">
-											<select id="defaultParentCategoryCode" name="defaultParentCategoryCode">
+											<input type="text" id="ranking" name="ranking" value="${catalogCategoryForm.ranking}" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-label-column">
+											<label for="defaultParentCategoryId" class="label-form">$wording.get("bo.catalog_category.default_parent_category_label")</label>
+										</div>
+										<div class="form-input-column">
+											<select id="defaultParentCategoryId" name="defaultParentCategoryId">
 												<option value=""></option>
 											#foreach($category in $categories)
-												#if($category.code == $catalogCategoryForm.defaultParentCategoryCode)
-												<option value="$category.code" selected>$category.name</option>
+												#if($category.id == $catalogCategoryForm.defaultParentCategoryId)
+												<option value="$category.id" selected>$category.name</option>
 												#else
-												<option value="$category.code">$category.name</option>
+												<option value="$category.id">$category.name</option>
 												#end
 											#end
 											</select>
@@ -89,7 +116,7 @@
 										#foreach($availableAttributeDefinition in $availableGlobaleAttributeDefinitions)
 										<div class="widget-map-row">
 											<div class="widget-map-column-label">
-												<label for="code" class="label-form">$availableAttributeDefinition.code</label>
+												<label for="code" class="label-form">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</label>
 											</div>
 											<div class="widget-map-column-value">
 												#set ($attributeValue = $!catalogCategory.getGlobalAttribute($availableAttributeDefinition.code) )
@@ -112,10 +139,10 @@
 										#foreach($availableAttributeDefinition in $availableMarketAreaAttributeDefinitions)
 										<div class="widget-map-row">
 											<div class="widget-map-column-label">
-												<label for="$availableAttributeDefinition.code" class="label-form">$availableAttributeDefinition.code</label>
+												<label for="$availableAttributeDefinition.code" class="label-form">$availableAttributeDefinition.code #if($!availableAttributeDefinition.localizable)($!common.currentMarketAreaLocalization.code)#end</label>
 											</div>
 											<div class="widget-map-column-value">
-												#set ($attributeValue = $!catalogCategory.getGlobalAttribute($availableAttributeDefinition.code) )
+												#set ($attributeValue = $!catalogCategory.getMarketAreaAttribute($availableAttributeDefinition.code) )
 												#if($availableAttributeDefinition.attributeType == '2')
 												<textarea id="$availableAttributeDefinition.code" name="marketAreaAttributes['$availableAttributeDefinition.code']">$!attributeValue.value</textarea> 
 												#else

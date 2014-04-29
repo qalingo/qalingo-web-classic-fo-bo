@@ -37,6 +37,9 @@
 								<strong>$wording.get("bo.catalog_category.default_parent_category_label") :</strong> $!catalogCategory.defaultParentCategory.name #if($!catalogCategory.defaultParentCategory.code)($!catalogCategory.defaultParentCategory.code)#end
 							</div>
 							<div style="width: 100%">
+								<strong>$wording.get("bo.catalog_category.ranking_label") :</strong> $!catalogCategory.ranking
+							</div>
+							<div style="width: 100%">
 								<strong>$wording.get("bo.catalog_category.is_default_label") : </strong>
 								#if($!catalogCategory.active)
 								<span style="color: green">$wording.get("common.common.is_default_true")</span>
