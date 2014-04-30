@@ -156,7 +156,7 @@
 			<li class="item span3">
 				<a href="$!productMarketing.detailsUrl" class="product-image product-line-image">
 					<span>
-						<img class="lazy" data-original="$!productMarketing.carouselImage" src="$!common.themeResourcePrefixPath/img/placeholder.jpg" alt="$!productMarketing.i18nName"/>
+						<img class="lazy" data-original="$!productMarketing.carouselImage" src="$!common.themeResourcePrefixPath/img/product-asset-loader.gif" alt="$!productMarketing.i18nName"/>
 						<noscript><img src="$!productMarketing.carouselImage"></noscript>
 					</span>
 				</a>
