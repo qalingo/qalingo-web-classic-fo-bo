@@ -61,21 +61,34 @@
 						<ul id="catalog-tree" data-catalog-type="$!catalogType"></ul>
 					</div>
 					<div style="float: right;">
-						<div>Product list for category : <span id="category-name" style="font-weight: bold;"></span>&nbsp;&nbsp;&nbsp;<span id="category-urls" style="font-weight: bold;"></span></div>	
-						<table id="product-list" class="tablesorter" style="with: 700px;"> 
-							<thead> 
-								<tr> 
-									<th style="width: 100px; text-align: left;">Code</th> 
-									<th style="width: 200px; text-align: left;">Name</th>
-									<th style="width: 100px; text-align: left;">Position</th>
-									<th style="width: 100px; text-align: left;">Sku count</th> 
-									<th style="width: 200px; text-align: left;"></th> 
-								</tr> 
-							</thead> 
-							<tbody>
-							</tbody> 
-						</table> 
+						<div id="header-category-details" style="padding-bottom: 15px;"></div>
+						<ul id="product-list" class="tablesorter" style="width: 650px; list-style: none;"></ul> 
 					</div>
 				</section>
+				
+				
+<script id="HeaderCategoryDetailsContent" type="text/x-jsrender">
+	Product list for category : <span id="category-name" style="font-weight: bold;">{{:name}}</span>&nbsp;&nbsp;&nbsp;
+	<span id="category-urls" style="font-weight: bold;">
+	<a href="{{:detailsUrl}}" class="btn btn-primary" target="_blank">$wording.get("bo.common.details_label")</a>&nbsp;
+	<a href="{{:editUrl}}" class="btn" target="_blank">$wording.get("bo.common.edit_label")</a>&nbsp;
+	<a href="{{:addChildCategoryUrl}}" class="btn" target="_blank">$wording.get("bo.catalog_category.add_child_category_label")</a>&nbsp;
+	<a href="#" class="btn trigger-add-product-to-category" data-category-code="{{:code}}">$wording.get("bo.catalog_category.add_a_product_label")</a>
+	</span>
+</script>
+	
+<script id="ProductListContent" type="text/x-jsrender">
+	{{for productMarketings}}
+	<li class="product-item" style="height: 35px; border-bottom: solid 1px #ACACAC; margin-bottom: 5px;">
+		<div style="clear: both; float: left;">{{:name}} ({{:code}}) Ranking: {{:ranking}}</div><div style="float: right;"><a href="{{:detailsUrl}}" class="btn btn-primary" target="_blank">$wording.get("bo.common.details_label")</a>&nbsp;<a href="{{:editUrl}}" class="btn" target="_blank">$wording.get("bo.common.edit_label")</a>&nbsp;<a href="#" class="btn trigger-show-skus">$wording.get("bo.common.sku_list_label") ({{:productSkus.length}})</a></div>
+		<ul class="sku-list" style="padding-top: 5px; display: none; list-style: none;">
+		{{for productSkus}}
+			<li class="sku-item" style="height: 35px;"><div style="clear: both; float: left;">{{:name}} ({{:code}}) {{:ranking}} </div><div style="float: right;"><a href="{{:detailsUrl}}" class="btn btn-primary" target="_blank">$wording.get("bo.common.details_label")</a>&nbsp;<a href="{{:editUrl}}" class="btn" target="_blank">$wording.get("bo.common.edit_label")</a></li></div>
+		{{/for}} 
+		</ul>
+	</li>
+	{{/for}} 
+</script>
+
 				
 

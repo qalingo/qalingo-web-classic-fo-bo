@@ -7,39 +7,109 @@
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
-		<style>
-			div#add-product-to-catalog-category-popup {
-				font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
-				background: none repeat scroll 0 0 #FFFFFF;
-				border: 10px solid #ccc;
-				border-radius: 3px 3px 3px 3px;
-				color: #333333;
-				display: none;
-				font-size: 14px;
-				left: 50%;
-				margin-left: -402px;
-				position: fixed;
-				top: 20%;
-				width: 800px;
-				z-index:4001;
-			}
-			div#popup_content {
-				margin: 4px 7px;
-			}
-		</style>
+<style>
+	div#add-product-to-catalog-category-popup {
+		font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+		background: none repeat scroll 0 0 #FFFFFF;
+		border: 10px solid #ccc;
+		border-radius: 3px 3px 3px 3px;
+		color: #333333;
+		display: none;
+		font-size: 14px;
+		left: 50%;
+		margin-left: -402px;
+		position: fixed;
+		top: 20%;
+		width: 800px;
+		z-index:4001;
+	}
+	div#popup_content {
+		margin: 4px 7px;
+	}
+</style>
+		
+<style type="text/css">
+	h1, h2,ul {
+		clear: both;
+	}
+	ul.paging li {
+		padding: 10px;
+		background: #3A3A3A;
+		font-size: 24px;
+		color: #fff;
+		line-height: 1;
+		width: 180px;
+		margin-bottom: 1px;
+	}
+	ul.red {
+		outline:10px solid red;
+	}
+	ul.simplePagerNav li{
+		display:block;
+		floaT: left;
+		padding: 8px;
+		margin-bottom: 10px;
+		font-family: georgia;
+	}
+	ul.simplePagerNav li a{
+		color: #333;
+		text-decoration: none;
+	}
+	li.currentPage {
+		background: red;
+		background: #3A3A3A;	
+	}
+	ul.simplePagerNav li.currentPage a {
+		color: #fff;	
+	}
+	table.pageme {
+		border-collapse: collapse;
+		border: 1px solid #ccc;
+	}  
+	table.pageme td {
+		border-collapse: collapse;
+		border: 1px solid #ccc;
+	}      
+</style>
 		
 		<div id="add-product-to-catalog-category-popup" class="trigger-popin" data-attribute-status="0"> 
 			<div class="close"></div> 
 			<span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span> 
 			<div id="popup_content">
-				<div style="background-color: #ffffff; color: red; padding: 10px;"></div>
+				
 			</div>
 		</div>
 		<div style="clear: both;"></div>
 		
-<script id="addToCartProductContent" type="text/x-jsrender">
-	<div class="product-detail-content row">
-		xxxxx
+<script id="addProductToCategoryContent" type="text/x-jsrender">
+	<div class="product-list-content row">
+		<div style="margin-left: 40px;">
+			<h3 class="product-name">Product can be added to: {{:name}}</h3>
+			{{for successMessages}}
+			<p id="{{:id}}" style="color: green; padding-top: 5px; padding-bottom: 5px;">{{:message}}</p>
+			{{/for}} 
+			{{for errorMessages}}
+			<p id="{{:id}}" style="color: red; padding-top: 5px; padding-bottom: 5px;">{{:message}}</p>
+			{{/for}} 
+
+			<div>
+			<ul id="product-list-paging" class="trigger-product-list-paging" style="list-style: none;">
+			{{for productMarketings}}
+				<li class="product-marketing"><input type="checkbox" name="productMarketings" value="{{:code}}" class="trigger-product-marketing-checkbox"> pm {{:code}}
+					<ul style="display: none; list-style: none;">
+					{{for productSkus}}
+					<li class="product-sku"><input type="checkbox" name="productSkus" value="{{:code}}"> sku {{:code}}</li>
+					{{/for}} 
+					</ul>
+				</li>
+			{{/for}} 
+			</div>
+		</div>
+		<div style="clear: both;">
+		<div>
+			<div style="float: left; margin-left: 40px;" class="popin-btn trigger-cancel-button">$wording.get("bo.common.cancel_label")</div>
+			<div style="float: right; margin-right: 20px;" class="popin-btn"><a href="#" class="trigger-submit-product-selection" data-category-code="{{:code}}">$wording.get("bo.common.submit_label")</a></div>
+		</div>
 	</div>
 </script>
 

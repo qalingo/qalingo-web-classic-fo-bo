@@ -66,7 +66,7 @@
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: right; margin-right: 15px;" class="cart-btn1 change-context-continue">$wording.get("bo.common.popin_continue_label")</div>
+			<div style="float: right; margin-right: 15px;" class="popin-btn change-context-continue">$wording.get("bo.common.popin_continue_label")</div>
 		</div>
 	</div>
 </script>

@@ -59,11 +59,11 @@
 				<a href="$!featuredProduct.detailsUrl" class="product-name">$!featuredProduct.i18nName</a>
 				<span class="rating-stars star-$!featuredProduct.customerProductRates.avgRateStar">&nbsp;</span>
 				<p class="product-price">$!featuredProduct.priceWithCurrencySign</p>
-				<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$!catalogCategory.code" data-value-sku-code="$!featuredProduct.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+				<a href="#" class="cart-btn trigger-add-to-cart" data-value-catalog-category-code="$!catalogCategory.code" data-value-sku-code="$!featuredProduct.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 				#if($!customer)
-					<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$!featuredProduct.skuCode"><i class="fa fa-heart"></i></a>
+					<a href="#" class="wishlist-btn trigger-add-to-wishlist" data-value-sku-code="$!featuredProduct.skuCode"><i class="fa fa-heart"></i></a>
 				#else
-					<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i></a>
+					<a href="$common.loginUrl" class="wishlist-btn"><i class="fa fa-heart"></i></a>
 				#end
 			</div>
 			#if($items % 4 == 0 || $size == $count)
@@ -100,11 +100,11 @@
       			    #if($!productMarketing.isFeatured())*#end</a>
         			<span class="rating-stars star-$!productMarketing.customerProductRates.avgRateStar">&nbsp;</span>
         			<p class="product-price">$!productMarketing.priceWithCurrencySign</p>
-					<a href="#" class="cart-btn1 trigger-add-to-cart" data-value-catalog-category-code="$subCatalogCategory.code" data-value-sku-code="$!productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+					<a href="#" class="cart-btn trigger-add-to-cart" data-value-catalog-category-code="$subCatalogCategory.code" data-value-sku-code="$!productMarketing.skuCode" data-value-sku-quantity="1"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
 					#if($!customer)
-						<a href="#" class="wishlist-btn1 trigger-add-to-wishlist" data-value-sku-code="$!productMarketing.skuCode"><i class="fa fa-heart"></i></a>
+						<a href="#" class="wishlist-btn trigger-add-to-wishlist" data-value-sku-code="$!productMarketing.skuCode"><i class="fa fa-heart"></i></a>
 					#else
-						<a href="$common.loginUrl" class="wishlist-btn1"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
+						<a href="$common.loginUrl" class="wishlist-btn"><i class="fa fa-heart"></i><span class="wishlist-btn-des">Add to wishlist</span></a>
 					#end
         		</li>
 			#end

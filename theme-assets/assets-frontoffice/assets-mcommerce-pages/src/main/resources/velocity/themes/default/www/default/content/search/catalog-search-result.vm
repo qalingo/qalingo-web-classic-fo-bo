@@ -91,9 +91,9 @@
 						<span class="rating-stars star-$!searchItem.customerProductRates.avgRateStar">&nbsp;</span>
 						<p class="product-short-des hide-as-grid">${searchItem.description}</p>
 						<p class="product-price">$!searchItem.priceWithCurrencySign</p>
-						<a href="$searchItem.addToCartUrl" class="cart-btn1">
+						<a href="$searchItem.addToCartUrl" class="cart-btn">
 							<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
-						<a href="#" class="wishlist-btn1">
+						<a href="#" class="wishlist-btn">
 							<i class="fa fa-heart"></i>
 							<span class="wishlist-btn-des">Add to wishlist</span>
 						</a>

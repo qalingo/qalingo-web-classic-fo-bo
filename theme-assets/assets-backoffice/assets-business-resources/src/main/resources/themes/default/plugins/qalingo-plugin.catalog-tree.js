@@ -84,14 +84,21 @@
 			});
         },
 		
-        loadProductListHtml : function(category) {	
-			$("#category-name").html(category.name);
-			$("#category-urls").html("<a href=\"" + category.addChildCategoryUrl + "\">add child category</a> | <a href=\"" + category.detailsUrl + "\">details</a> | <a href=\"" + category.editUrl + "\">edit</a> | <a href=\"#\" class=\"trigger-add-product-to-category\" data-category-code=\"" + category.code + "\">add a product</a>");
-			var html = "";
-			$.each(category.productMarketings, function(i, item){
-				html = html + "<tr><td>" + item.code + "</td><td>" + item.name + "</td><td>" + item.ranking + "</td><td>" + item.productSkus.length + "</td><td><a href=\"" + item.detailsUrl + "\">détails</a> | <a href=\"" + item.editUrl + "\">éditer</a></td></tr>";
+        loadProductListHtml : function(category) {
+			$('#header-category-details').html($("#HeaderCategoryDetailsContent").render(category));
+			$('#product-list').html($("#ProductListContent").render(category));
+			$('.trigger-show-skus').on('click', function() {
+				// RESET ALL
+				$(".product-item").css("height", "35px");
+				$(".sku-list").css("display", "none");
+				
+				// SET SPECIFIC ITEM
+				var countSkuItem = $(this).parents(".product-item").find(".sku-list .sku-item").length;
+				var productItemHeight = 35 + countSkuItem * 35;
+				$(this).parents(".product-item").css("height", productItemHeight + "px");
+				$(this).parents(".product-item").find(".sku-list").css("display", "block");
 			});
-			$("#product-list tbody").html(html);
+			
 			plugins.AddProductToCatalogCategory.init();
 		},
 		

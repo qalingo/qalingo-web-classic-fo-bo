@@ -62,8 +62,8 @@
 		</div>
 		<div style="clear: both;">
 		<div>
-			<div style="float: left; margin-left: 40px;" class="cart-btn1 add-to-cart-continue">$wording.get("fo.common.popin_continue_label")</div>
-			<div style="float: right;" class="cart-btn1 go-to-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.checkout_shopping_cart.popin_go_to_cart")</a></div>
+			<div style="float: left; margin-left: 40px;" class="popin-btn add-to-cart-continue">$wording.get("fo.common.popin_continue_label")</div>
+			<div style="float: right;" class="popin-btn go-to-checkout"><a href="{{:checkoutShoppingCartUrl}}"><i class="fa fa-shopping-cart"></i>&nbsp;$wording.get("fo.checkout_shopping_cart.popin_go_to_cart")</a></div>
 		</div>
 	</div>
 </script>

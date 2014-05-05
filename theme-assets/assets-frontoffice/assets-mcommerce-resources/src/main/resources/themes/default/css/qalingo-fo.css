@@ -310,7 +310,7 @@ a.product-name:hover {
 	display: block
 }
 
-.cart-btn1, .wishlist-btn1, .wishlist-btn1 .wishlist-btn-des {
+.cart-btn, .wishlist-btn, .wishlist-btn .wishlist-btn-des {
 	color: #9a9a9a;
 	font-size: 18px;
 	border: 1px solid #d7d7d7;
@@ -318,17 +318,30 @@ a.product-name:hover {
 	display: inline-block;
 }
 
-.cart-btn1 {
+.cart-btn {
 	padding: 5px 12px;
 }
 
-.wishlist-btn1 {
+.wishlist-btn {
 	padding: 5px 9px;
 	text-align: center;
 	position: relative;
 }
 
-.cart-btn1:hover, .wishlist-btn1:hover {
+.cart-btn:hover, .wishlist-btn:hover {
+	color: #aaa;
+}
+
+.popin-btn {
+	color: #9a9a9a;
+	font-size: 18px;
+	border: 1px solid #d7d7d7;
+	margin: 5px 0;
+	display: inline-block;
+	padding: 5px 12px;
+}
+
+.popin-btn:hover {
 	color: #aaa;
 }
 
@@ -825,7 +838,7 @@ border: 1px solid #dadada;
 	display: block;
 }
 
-.wishlist-btn1 .wishlist-btn-des {
+.wishlist-btn .wishlist-btn-des {
 	position: absolute;
 	right: -171px;
 	width: 150px;
@@ -838,12 +851,12 @@ border: 1px solid #dadada;
 	opacity: 0;
 }
 
-.wishlist-btn1:hover .wishlist-btn-des {
+.wishlist-btn:hover .wishlist-btn-des {
 	display: block;
 	opacity: 1;
 }
 
-.wishlist-btn1 .wishlist-btn-des:before {
+.wishlist-btn .wishlist-btn-des:before {
 	display: block;
 	position: absolute;
 	width: 10px;
