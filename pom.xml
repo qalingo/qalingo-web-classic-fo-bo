@@ -22,7 +22,6 @@
 	
 	<properties>
 		<root.basedir>${project.basedir}</root.basedir> 
-		<qalingo.engine.version>0.7.1-SNAPSHOT</qalingo.engine.version> 
 		<packaging.excludes>WEB-INF/classes/*.properties</packaging.excludes>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<solr.server.url>http://localhost:14080/solr</solr.server.url>
@@ -59,28 +58,28 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-common-shared-configuration</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 				<classifier>resources</classifier>
 				<type>zip</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-backoffice-shared-configuration</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 				<classifier>resources</classifier>
 				<type>zip</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-frontoffice-shared-configuration</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 				<classifier>resources</classifier>
 				<type>zip</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-common</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 				<exclusions>
 					<exclusion>
 						<artifactId>log4j</artifactId>
@@ -91,17 +90,17 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-common-web-bo</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-common-web-fo</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-core-drools</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
@@ -121,32 +120,32 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-bo-technical</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-bo-business</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-bo-reporting</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-fo-prehome</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-api-web-fo-mcommerce</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>qalingo-i18n-properties</artifactId>
-				<version>${qalingo.engine.version}</version>
+				<version>${project.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.apache.poi</groupId>
