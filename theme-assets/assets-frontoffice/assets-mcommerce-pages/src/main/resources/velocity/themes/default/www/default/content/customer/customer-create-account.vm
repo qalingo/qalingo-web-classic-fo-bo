@@ -14,7 +14,7 @@
 			<section id="customer-create-account">
 				#parse("../cart/_include/checkout-steps.vm")
 				<div class="page-header">
-					<h1>$wording.get("fo.customer.header_title_customer_create_account")</h1>
+					<h1>$wording.get("fo.header_title.customer_create_account")</h1>
 				</div>
 				<form id="createAccountForm" name="createAccountForm" action="customer-create-account.html" method="POST">
 				#set($beanName = "createAccountForm")
