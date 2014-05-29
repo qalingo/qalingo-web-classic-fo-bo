@@ -187,7 +187,7 @@
 				data: params,
 				success : function(data) {
 					checkoutData = data;
-					plugins.FormCart.loadCartHtml();
+					plugins.FormCart.loadCartHtml(data);
 					plugins.FormCart.loadDeliveryMethodsHtml(data);
 				},
 				error : function(data) {
