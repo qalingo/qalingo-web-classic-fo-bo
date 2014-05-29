@@ -21,8 +21,8 @@
 							<div style="float: left; width: 100px;">
 								<label for="j_username" class="label-form">$wording.get("fo.auth.login_form_login_label")</label>
 							</div>
-							<div class="input-prepend" style="float: left;">
-								<span class="add-on"><i class="fa fa-user"></i></span>
+							<div class="input-group" style="float: left; width: 50%;">
+								<span class="input-group-addon"><i class="fa fa-user"></i></span>
 								<input type="text" name="j_username" placeholder="$wording.get("fo.auth.login_form_login_label")" value="">
 							</div>
 						</div>
@@ -33,8 +33,8 @@
 							<div style="float: left; width: 100px;">
 								<label for="j_password" class="label-form">$wording.get("fo.auth.login_form_password_label")</label>
 							</div>
-							<div class="input-prepend" style="float: left;">
-								<span class="add-on"><i class="fa fa-lock"></i></span>
+							<div class="input-group" style="float: left; width: 50%;">
+								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 								<input type="password" name="j_password" placeholder="$wording.get("fo.auth.login_form_password_label")">
 							</div>
 						</div>

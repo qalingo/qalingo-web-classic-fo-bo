@@ -25,7 +25,7 @@
 									<label for="lastname" class="label-form">$wording.get("fo.contact.form_label_lastname")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="lastname" name="lastname" value="" style="width: 200px; height: 20px;" />
+									<input type="text" id="lastname" name="lastname" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -33,7 +33,7 @@
 									<label for="firstname" class="label-form">$wording.get("fo.contact.form_label_firstname")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="firstname" name="firstname" value="" style="width: 200px; height: 20px;" />
+									<input type="text" id="firstname" name="firstname" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -58,7 +58,7 @@
 									<label for="email" class="label-form">$wording.get("fo.contact.form_label_email")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="email" name="email" value="" style="width: 200px; height: 20px;" />
+									<input type="text" id="email" name="email" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -66,7 +66,7 @@
 									<label for="phone" class="label-form">$wording.get("fo.contact.form_label_phone")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="phone" name="phone" value="" style="width: 200px; height: 20px;" />
+									<input type="text" id="phone" name="phone" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -74,7 +74,7 @@
 								<label for="fax" class="label-form">$wording.get("fo.contact.form_label_fax")</label>
 								</div>
 								<div style="float: left;">
-								<input type="text" id="fax" name="fax" value="" style="width: 200px; height: 20px;" />
+								<input type="text" id="fax" name="fax" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -82,7 +82,7 @@
 									<label for="mobile" class="label-form">$wording.get("fo.contact.form_label_mobile")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="mobile" name="mobile" value="" style="width: 200px; height: 20px;" />
+									<input type="text" id="mobile" name="mobile" value="" style="width: 200px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">
@@ -90,7 +90,7 @@
 									<label for="website" class="label-form">$wording.get("fo.contact.form_label_website")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="website" name="website" value="" style="width: 200px; height: 20px;" />
+									<input type="text" id="website" name="website" value="" style="width: 200px;" />
 								</div>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 									<label for="subject" class="label-form">$wording.get("fo.contact.form_label_subject")</label>
 								</div>
 								<div style="float: left;">
-									<input type="text" id="subject" name="subject" value="" style="width: 400px; height: 20px;" />
+									<input type="text" id="subject" name="subject" value="" style="width: 400px;" />
 								</div>
 							</div>
 							<div style="clear: both; padding-top: 5px; padding-bottom: 5px;">

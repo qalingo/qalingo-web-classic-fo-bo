@@ -14,7 +14,7 @@
 		<section id="cart-delivery-order-information">
 			#parse("_include/checkout-steps.vm")
 			<div id="checkout-addresses" style="margin-top: 15px; margin-bottom: 15px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">
-				<div style="margin-top: 15px;"><h3>$wording.get("fo.checkout_shopping_cart.shoppingcart_addresses")</h3></div>
+				<div style="margin-top: 15px; margin-bottom: 30px;"><h3>$wording.get("fo.checkout_shopping_cart.shoppingcart_addresses")</h3></div>
 				<div id="error-messages"></div>
 				<form id="cartForm" name="cartForm" action="" method="POST">
 					#springBind("cartForm")

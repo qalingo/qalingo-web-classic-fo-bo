@@ -33,10 +33,24 @@ $!tabIndex#end
 									</div>
 									<div style="float: left; padding-bottom: 5px;">
 										<span class="block paddingLeft">
-											<input type="radio" id="MASTERCARD" name="paymentType" value="MASTERCARD" tabindex="#tabIndex()" style="float: left;"> <span class="payment-type-mastercard payment-fa fa-sprite"></span>
-											<input type="radio" id="VISA" name="paymentType" value="VISA" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-visa payment-fa fa-sprite"></span>
-											<input type="radio" id="AMEX" name="paymentType" value="AMEX" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-amex payment-fa fa-sprite"></span>
-											<input type="radio" id="PAYPAL" name="paymentType" value="PAYPAL" tabindex="#tabIndex()" style="float: left;">  <span class="payment-type-paypal payment-fa fa-sprite"></span>
+											<ul>
+												<li style="float: left;">
+													<input type="radio" id="MASTERCARD" name="paymentType" value="MASTERCARD" tabindex="#tabIndex()" style="float: left;">
+													<img alt="Master Card" src="/fo-mcommerce-resources/default/img/payment/mastercard.jpg" class="payment-img" width="32px" height="20px">
+												</li>
+												<li style="float: left;">
+													<input type="radio" id="VISA" name="paymentType" value="VISA" tabindex="#tabIndex()" style="float: left;">
+													<img alt="Visa" src="/fo-mcommerce-resources/default/img/payment/visa.jpg" class="payment-img" width="32px" height="20px">
+												</li>
+												<li style="float: left;">
+													<input type="radio" id="AMEX" name="paymentType" value="AMEX" tabindex="#tabIndex()" style="float: left;">
+													<img alt="American Express" src="/fo-mcommerce-resources/default/img/payment/american-express.jpg" class="payment-img" width="32px" height="20px">
+												</li>
+												<li style="float: left;">
+													<input type="radio" id="PAYPAL" name="paymentType" value="PAYPAL" tabindex="#tabIndex()" style="float: left;">
+													<img alt="CB" src="/fo-mcommerce-resources/default/img/payment/common-card.jpg" class="payment-img" width="32px" height="20px">
+												</li>
+											</ul>
 										</span>
 									</div>
 								</div>

@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	<name>qalingo-web-classic-fo-bo</name>
 	<description>{Q} Commerce Solution Project</description>
-	<url>http://www.hoteia.com</url>
+	<url>http://www.qalingo.com</url>
 	<inceptionYear>2012-2014</inceptionYear>
 	<organization>
 		<name>Hoteia</name>
@@ -49,8 +49,6 @@
 	</properties>
 
 	<modules>
-		<module>theme-assets</module>
-		<module>webapp-backoffices</module>
 		<module>webapp-frontoffices</module>
 	</modules>
 	

@@ -1433,8 +1433,10 @@ input[type=text],
 input[type=time],
 input[type=url],
 input[type=week] {
-    width: 90%;
+
+	height: 30px;
 	margin-bottom: 0px;
+	padding: 0px 6px;
 }
 
 .login {
@@ -1853,7 +1855,7 @@ ul.pagination li a.active {
 
 select.cart-item-select-qty {
     width: 50px;
-	height: 20px;
+	height: 30px;
 }
 
 .cart-item-image{
