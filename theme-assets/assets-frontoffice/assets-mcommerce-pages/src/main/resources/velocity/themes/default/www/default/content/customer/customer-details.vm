@@ -13,7 +13,7 @@
 
 				<section id="customer-details">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
 
 					#parse("_include/customer-menu.vm")

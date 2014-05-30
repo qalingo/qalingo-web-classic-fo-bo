@@ -12,7 +12,7 @@
 
 				<section id="customer-add-address">
 					<div class="page-header">
-						<h1>${mainContentTitle}</h1>
+						<h1>$!mainContentTitle</h1>
 					</div>
 	
 					<div style="float: left; width: 15%;">
