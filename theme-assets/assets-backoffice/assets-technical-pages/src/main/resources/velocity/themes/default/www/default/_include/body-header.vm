@@ -28,7 +28,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">$wording.get("bo.header_menu.backoffice_languages")&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 								#foreach($localization in $backofficeLocalizations)
-									<li><a href="$!localization.url" alt="$!localization.name">$!localization.name</a></li>
+									<li><a href="$!localization.changeBackofficeLanguageUrl" alt="$!localization.name">$!localization.name</a></li>
 								#end
 								</ul>
 							</li>
