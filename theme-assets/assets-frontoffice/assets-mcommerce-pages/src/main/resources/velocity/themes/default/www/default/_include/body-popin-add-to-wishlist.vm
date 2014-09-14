@@ -41,7 +41,7 @@
 	<div class="product-detail-content row">
 		<div class="product-image-wrap span3">
 			<a class="popin-product-image" href="javascript:void(0);">
-				<span><img alt="{{:productSku.i18nName}}" src="{{:productSku.defaultPaskshotImage}}"></span>
+				<span><img alt="{{:productSku.i18nName}}" src="{{:productSku.defaultPackshotImage}}"></span>
 			</a>
 		</div>
 		<div class="product-info span5">
