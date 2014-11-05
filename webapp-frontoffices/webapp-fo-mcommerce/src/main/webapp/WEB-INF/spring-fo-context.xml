@@ -75,8 +75,10 @@
 	
     <!-- AOP -->
 	<context:component-scan base-package="org.hoteia.qalingo.core.jms.notification.producer" />
+    <context:component-scan base-package="org.hoteia.qalingo.core.aop.notification" />
 	<context:component-scan base-package="org.hoteia.qalingo.core.jms.document.producer" />
-	<context:component-scan base-package="org.hoteia.qalingo.core.aop" />
+	<context:component-scan base-package="org.hoteia.qalingo.core.aop.document" />
+    <context:component-scan base-package="org.hoteia.qalingo.core.aop.rule" />
 	<aop:config>
         <aop:aspect id="triggerEmailNotification" ref="emailNotificationAspect">
             <aop:pointcut id="emailNotificationBusinessService" expression="execution(* org.hoteia.qalingo.core.service.EmailService.buildAndSave*(..))" />
