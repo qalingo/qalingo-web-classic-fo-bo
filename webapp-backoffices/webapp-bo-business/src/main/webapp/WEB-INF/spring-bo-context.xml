@@ -54,10 +54,6 @@
             <aop:pointcut id="engineSettingServicePointcut" expression="execution(* org.hoteia.qalingo.core.service.EngineSettingService.get*(..))" />
             <aop:around method="around" pointcut-ref="engineSettingServicePointcut" />
         </aop:aspect>
-        <aop:aspect id="triggerCacheGroupRoleService" ref="cacheManagementAspect">
-            <aop:pointcut id="groupRoleServicePointcut" expression="execution(* org.hoteia.qalingo.core.service.GroupRoleService.get*(..))" />
-            <aop:around method="around" pointcut-ref="groupRoleServicePointcut" />
-        </aop:aspect>
         <aop:aspect id="triggerCacheLocalizationService" ref="cacheManagementAspect">
             <aop:pointcut id="localizationServicePointcut" expression="execution(* org.hoteia.qalingo.core.service.LocalizationService.get*(..))" />
             <aop:around method="around" pointcut-ref="localizationServicePointcut" />

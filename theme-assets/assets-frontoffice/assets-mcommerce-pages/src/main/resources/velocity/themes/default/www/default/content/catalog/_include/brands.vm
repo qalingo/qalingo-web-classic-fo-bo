@@ -7,14 +7,14 @@
  * http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
  *
  *#
-#if($!productBrandViewBeans && $!productBrandViewBeans.size() > 0)
+#if($!productBrands && $!productBrands.size() > 0)
 <!-- slide logo  -->
 <div id="linked-logos-slide" class="linked-logos-slide">	
 	<div class="slides_container row  products-grid">
 		#set( $count1 = 0 )
 		#set( $items1 = 0 )
-		#set( $size1 = $productBrandViewBeans.size() - 1)
-		#foreach($productBrand in $productBrandViewBeans)
+		#set( $size1 = $productBrands.size() - 1)
+		#foreach($productBrand in $productBrands)
 			#if($count1 % 4 == 0)
 			<div class="slide">
 			#end
