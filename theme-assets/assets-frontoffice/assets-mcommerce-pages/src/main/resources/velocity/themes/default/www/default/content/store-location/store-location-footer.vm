@@ -10,7 +10,7 @@
 <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 <script type="text/javascript">
 	function startupPage(){
-		var dataOSM = $storeFilter.toJSON();
+		var dataOSM = $!jsonStores;
 		$script(['/js/page.store-locator'], function(){
 			$.qalingo.storeLocator({
 				data: dataOSM,
