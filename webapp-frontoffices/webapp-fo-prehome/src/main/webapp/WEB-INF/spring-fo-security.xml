@@ -57,8 +57,8 @@
 				invalidate-session="false" />
         <remember-me />
 		<access-denied-handler ref="accessDeniedHandler" />
-		<session-management session-fixation-protection="migrateSession" >
-		</session-management>
+		<session-management session-fixation-protection="none" ></session-management>
+
 	</http>
 	
 	<beans:bean id="accessDeniedHandler" class="org.hoteia.qalingo.core.web.handler.security.ExtAccessDeniedHandlerImpl" />

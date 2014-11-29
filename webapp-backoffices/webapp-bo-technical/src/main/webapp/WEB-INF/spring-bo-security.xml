@@ -58,8 +58,7 @@
 				invalidate-session="false" />
         <remember-me />
 		<access-denied-handler ref="accessDeniedHandler" />
-		<session-management session-fixation-protection="migrateSession" ><!-- invalid-session-url="" session-authentication-error-url="" -->
-		</session-management>
+		<session-management session-fixation-protection="none" ></session-management>
 		<!--
 		<session-management session-authentication-strategy-ref="sas" />
 		-->

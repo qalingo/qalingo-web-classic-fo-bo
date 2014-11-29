@@ -8,7 +8,7 @@
  *
  *#
 #if($!productBrands && $!productBrands.size() > 0)
-<!-- slide logo  -->
+
 <div id="linked-logos-slide" class="linked-logos-slide">	
 	<div class="slides_container row  products-grid">
 		#set( $count1 = 0 )
@@ -31,8 +31,7 @@
 			#set( $count1 = $count1 + 1 )
 		#end				
 	</div>
-	<!-- //slide featured products -->
 </div>
-<!-- //slide logo  -->
+
 <div class="clear border-btm"></div>
 #end
