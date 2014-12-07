@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="$localeLanguageCode">
 	<head>
-		<title>${seoPageTitle}
+		<title>${!seoData.pageTitle}
 		#if($!authenticatedUser)
 			- (${authenticatedUser.lastname} ${authenticatedUser.firstname})
 		#end

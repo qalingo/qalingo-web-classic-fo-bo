@@ -13,7 +13,7 @@
 <!--[if IE 9]><html lang="$!localeLanguageCode" class="ie9"><![endif]-->  
 <!--[if !IE]><!--><html lang="$!localeLanguageCode"><!--<![endif]-->  
     <head>
-		<title>$!seoPageTitle
+		<title>$!seoData.pageTitle
 		#if($!customer)
 			- ($customer.lastname $customer.firstname)
 		#end

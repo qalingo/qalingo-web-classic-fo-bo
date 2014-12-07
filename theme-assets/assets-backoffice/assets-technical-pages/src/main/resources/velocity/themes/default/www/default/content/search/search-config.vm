@@ -8,7 +8,7 @@
  *
  *#
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($page_title = $seoPageTitle)
+
 			
 				<section id="batch-list">
 					<div class="page-header">

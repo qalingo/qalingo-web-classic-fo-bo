@@ -8,7 +8,7 @@
  *
  *#
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($page_title = $seoPageTitle)
+
 
 			<form id="retailerCommentForm" name="retailerCommentForm" action="$!urlSubmit" method="POST">
 			<input type="hidden" id="retailerCode" name="retailerCode" value="$!retailerContactForm.retailerCode">

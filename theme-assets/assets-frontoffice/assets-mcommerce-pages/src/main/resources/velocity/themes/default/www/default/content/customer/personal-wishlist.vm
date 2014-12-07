@@ -9,7 +9,7 @@
  *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($footer_script_content = "../content/customer/personal-wishlist-footer-script.vm")
-#set ($page_title = $seoPageTitle)
+
 
 
 #parse("../../_include/body-popin-add-to-cart.vm")

@@ -10,9 +10,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-		<meta name="author" content="$seoPageMetaAuthor" />
-		<meta name="keywords" content="$seoPageMetaKeywords" />
-		<meta name="description" content="$seoPageMetaDescription" />
+		<meta name="author" content="$!seoData.metaAuthor" />
+		<meta name="keywords" content="$!seoData.metaKeywords" />
+		<meta name="description" content="$!seoData.metaDescription" />
 		<meta name="imagetoolbar" content="no" />
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />

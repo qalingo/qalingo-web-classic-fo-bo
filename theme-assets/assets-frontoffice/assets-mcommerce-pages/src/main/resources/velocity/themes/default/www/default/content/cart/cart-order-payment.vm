@@ -9,7 +9,7 @@
  *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($footer_script_content = "../content/cart/cart-order-payment-footer-script.vm")
-#set ($page_title = $seoPageTitle)
+
 
 #macro (tabIndex)
 #if($!tabIndex)#set($tabIndex = $tabIndex + 1)#else#set($tabIndex = 1)#end

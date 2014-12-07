@@ -9,7 +9,7 @@
  *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($footer_script_content = "../content/batch/batch-list-footer-script.vm")
-#set ($page_title = $seoPageTitle)
+
 
 				<section id="batch-list">
 					<div class="page-header">

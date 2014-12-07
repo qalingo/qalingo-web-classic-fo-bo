@@ -9,7 +9,7 @@
  *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($footer_script_content = "../content/catalog/category-axe-footer-script.vm")
-#set ($page_title = $seoPageTitle)
+
 
 #*
 <link rel="stylesheet" href="$!common.themeResourcePrefixPath/css/font/font-awesome.css" type="text/css" media="screen" title="no title" charset="utf-8">

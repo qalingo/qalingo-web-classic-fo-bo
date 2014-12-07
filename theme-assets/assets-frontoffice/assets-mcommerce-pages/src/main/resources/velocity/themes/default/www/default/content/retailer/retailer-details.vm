@@ -9,7 +9,7 @@
  *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($head_meta = "../content/retailer/retailer-details_meta.vm")
-#set ($page_title = $seoPageTitle)
+
 #set ($breadcrumbWording = $!retailer.name + '<span class="glyphicons certificate"><i></i></span>')
 #set ($footer_script_content = "../content/retailer/retailer-details_script.vm")
 

@@ -8,7 +8,7 @@
  *
  *#
 #set ($layout = "default/www/default/layout/default.vm")
-#set ($page_title = $seoPageTitle)
+
 #set ($footer_script_content = "../content/store/store-edit-footer-script.vm")
 
 <section id="delivery-method-edit">

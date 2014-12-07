@@ -9,7 +9,7 @@
  *#
 #set ($layout = "default/www/default/layout/default.vm")
 #set ($footer_script_content = "../content/cart/cart-delivery-order-information-footer-script.vm")
-#set ($page_title = $seoPageTitle)
+
 
 		<section id="cart-delivery-order-information">
 			#parse("_include/checkout-steps.vm")
