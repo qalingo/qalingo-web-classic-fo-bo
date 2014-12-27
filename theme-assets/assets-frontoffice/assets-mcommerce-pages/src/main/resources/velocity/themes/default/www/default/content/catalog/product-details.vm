@@ -150,11 +150,11 @@
 		</table>
 	</div>
 </div>
-<form id="productCommentForm" name="productCommentForm" action="$!productCommentUrl" method="POST">
-	<input type="hidden" id="productCommentForm_productCode" name="productCommentForm.productCode" value="$!productCommentForm.productCode"/>
-	<input type="hidden" id="productCommentForm_qualityOfService" name="productCommentForm.qualityOfService" value="$!productCommentForm.qualityOfService"/>
-	<input type="hidden" id="productCommentForm_ratioQualityPrice" name="productCommentForm.ratioQualityPrice" value="$!productCommentForm.ratioQualityPrice"/>
-	<input type="hidden" id="productCommentForm_priceScore" name="productCommentForm.priceScore" value="$!productCommentForm.priceScore"/>
+<form id="customerCommentForm" name="customerCommentForm" action="$!productCommentUrl" method="POST">
+	<input type="hidden" id="productCode" name="productCode" value="$!productCommentForm.productCode"/>
+	<input type="hidden" id="qualityOfService" name="qualityOfService" value="$!productCommentForm.qualityOfService"/>
+	<input type="hidden" id="ratioQualityPrice" name="ratioQualityPrice" value="$!productCommentForm.ratioQualityPrice"/>
+	<input type="hidden" id="priceScore" name="priceScore" value="$!productCommentForm.priceScore"/>
 </form>
 <!-- //product detail content -->
 

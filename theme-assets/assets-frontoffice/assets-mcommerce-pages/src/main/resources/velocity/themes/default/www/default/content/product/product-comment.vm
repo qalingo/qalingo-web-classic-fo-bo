@@ -10,9 +10,9 @@
 #set ($layout = "default/www/default/layout/default.vm")
 
 
-			<form id="productCommentForm" name="productCommentForm" action="" method="POST">
-			<input type="hidden" id="productCode" name="productCode" value="$!productCommentForm.productCode">
-			#set($beanName = "productCommentForm")
+			<form id="customerCommentForm" name="customerCommentForm" action="" method="POST">
+			<input type="hidden" id="productCode" name="productCode" value="$!customerCommentForm.productCode">
+			#set($beanName = "customerCommentForm")
 			#parse("../../_include/body-form-error-message.vm")
             <div class="post-comment">
             	<h3 class="color-green">$wording.get("fo.product.vote_part_title")</h3>
