@@ -59,13 +59,13 @@
 	</bean>
 	
 	<!-- JMS : LISTEN ALL ACTION FOR CACHE SERVEUR MANAGER -->
-	<context:component-scan base-package="org.hoteia.qalingo.core.jms.cacheserveurmanagement.listener" />
+	<context:component-scan base-package="org.hoteia.qalingo.core.jms.cachemanagement.listener" />
 	<jms:listener-container 
 		container-type="default"
 		concurrency="1-5" 
 		connection-factory="connectionFactory" 
 		acknowledge="transacted">
-		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheServeurManagementQueueListener"></jms:listener>
+		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheManagementQueueListener"></jms:listener>
 	</jms:listener-container>
 	
 	<!-- Override -->
