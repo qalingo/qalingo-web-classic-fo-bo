@@ -100,7 +100,7 @@
 		concurrency="1-5" 
 		connection-factory="connectionFactory" 
 		acknowledge="transacted">
-		<jms:listener destination="${cache.serveur.management.queue.name}" ref="cacheManagementQueueListener"></jms:listener>
+		<jms:listener destination="${cache.serveur.management.trigger.queue.name}" ref="cacheManagementQueueListener"></jms:listener>
 	</jms:listener-container>
 
     <!-- Override -->
