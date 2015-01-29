@@ -72,7 +72,7 @@
 							</fieldset>
 						</div>
 						<div class="controls form-inline" style="clear: both; text-align: right; padding-top: 5px; padding-bottom: 5px; overflow: auto;">
-							#if($velocityCount > 1)
+							#if($foreach.count > 1)
 							<span style="float: left;">
 								<a href="$customerAdress.deleteUrl" alt="$wording.get("fo.customer.form_address_label_delete")" class="btn btn-primary">$wording.get("fo.customer.form_address_label_delete")</a>
 							</span>
