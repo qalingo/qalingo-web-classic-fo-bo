@@ -91,7 +91,7 @@
             <aop:after-returning method="afterReturning" pointcut-ref="ruleOrientedCartBusinessService" returning="result" />
         </aop:aspect>
         <aop:aspect id="triggerDocumentGenerator" ref="documentGeneratorAspect">
-            <aop:pointcut id="documentGeneratorBusinessService" expression="execution(* org.hoteia.qalingo.core.service.OrderCustomerService.createNewOrder*(..))" />
+            <aop:pointcut id="documentGeneratorBusinessService" expression="execution(* org.hoteia.qalingo.core.service.OrderPurchaseService.createNewOrder*(..))" />
             <aop:before method="before" pointcut-ref="documentGeneratorBusinessService" />
             <aop:after-returning method="afterReturning" pointcut-ref="documentGeneratorBusinessService" returning="result" />
         </aop:aspect>
