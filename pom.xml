@@ -3,7 +3,7 @@
 
 	<groupId>org.hoteia.qalingo</groupId>
 	<artifactId>qalingo-web-classic-fo-bo</artifactId>
-	<version>0.9.0-SNAPSHOT</version>
+	<version>0.9.0</version>
 	<packaging>pom</packaging>
 	<name>qalingo-web-classic-fo-bo</name>
 	<description>{Q} Commerce Solution Project</description>
@@ -719,7 +719,7 @@
 		<connection>scm:git:git@github.com:qalingo/qalingo-web-classic-fo-bo.git</connection>
 		<developerConnection>scm:git:git@github.com:qalingo/qalingo-web-classic-fo-bo.git</developerConnection>
 		<url>scm:git:git@github.com:qalingo/qalingo-web-classic-fo-bo.git</url>
-		<tag>HEAD</tag>
+		<tag>qalingo-web-classic-fo-bo-0.9.0</tag>
 	</scm>
 	
 	<distributionManagement>

@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.hoteia.qalingo</groupId>
 		<artifactId>qalingo-web-classic-fo-bo</artifactId>
-		<version>0.9.0-SNAPSHOT</version>
+		<version>0.9.0</version>
 	</parent>
 	<artifactId>qalingo-themes-assets</artifactId>
 	<packaging>pom</packaging>
