@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.hoteia.qalingo</groupId>
 		<artifactId>qalingo-assets-frontoffice</artifactId>
-		<version>0.8.1-SNAPSHOT</version>
+		<version>0.9.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>qalingo-assets-prehome-resources</artifactId>
 	<packaging>pom</packaging>
