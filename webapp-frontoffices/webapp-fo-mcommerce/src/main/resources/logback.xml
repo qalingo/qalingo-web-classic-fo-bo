@@ -20,6 +20,18 @@
 		</encoder>
 	</appender>
 	
+	<appender name="DATABASE-SETTING-FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${catalina.home}/logs/database-setting.log</file>
+		<append>true</append>
+		<encoder>
+			 <pattern>[qalingo-webapp-fo-mcommerce] %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+    <logger name="org.hibernate.tool.hbm2ddl.SchemaUpdate" level="DEBUG">
+        <appender-ref ref="DATABASE-SETTING-FILE" />
+    </logger>
+	
     <logger name="org.hibernate" level="WARN">
         <appender-ref ref="STDOUT" />
     </logger>

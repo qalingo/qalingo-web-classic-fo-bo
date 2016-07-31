@@ -67,7 +67,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-fo-common-view.xml" />
     <import resource="classpath:conf/spring/qalingo-core-fo-prehome-view.xml" />
 
-    <import resource="classpath:conf/spring/qalingo-core-cache-fo.xml" />
+    <import resource="classpath:conf/spring/qalingo-core-cache-view-fo.xml" />
 	
 	<!-- Override -->
     <import resource="classpath:conf/spring/ext-core-prehome.xml" />

@@ -60,7 +60,7 @@
 	<!-- Configures view context -->
     <import resource="classpath:conf/spring/qalingo-core-bo-common-view.xml" />
     <import resource="classpath:conf/spring/qalingo-core-bo-reporting-view.xml" />
-    <import resource="classpath:conf/spring/qalingo-core-cache-bo.xml" />
+    <import resource="classpath:conf/spring/qalingo-core-cache-view-bo.xml" />
 	
 	<!-- Override -->
     <import resource="classpath:conf/spring/ext-core-reporting.xml" />

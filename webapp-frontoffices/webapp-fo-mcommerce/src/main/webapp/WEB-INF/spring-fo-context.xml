@@ -52,7 +52,7 @@
 	<!-- JMS : CONFIG -->
 	<import resource="classpath:conf/spring/qalingo-core-jms.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-jms-template.xml" />
-	<!-- QUARTZ/JMS : SYNC SERVER STATUS -->
+	<!-- QUARTZ/JMS : SYNC SERVER STATUS
 	<import resource="classpath:conf/spring/qalingo-core-jms-quartz-sync-server-status.xml" />
 
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
@@ -62,6 +62,7 @@
             </list>
         </property>
     </bean>
+	-->
 
 	<!-- JMS : LISTEN ALL ACTION FOR CACHE SERVEUR MANAGER -->
 	<context:component-scan base-package="org.hoteia.qalingo.core.jms.cacheflush.listener" />
