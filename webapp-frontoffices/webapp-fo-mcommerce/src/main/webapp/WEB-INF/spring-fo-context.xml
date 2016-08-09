@@ -44,6 +44,7 @@
 	<import resource="classpath:conf/spring/qalingo-core-solr.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-drools.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-fo-openid.xml" />
+
 	<import resource="classpath:conf/spring/qalingo-core-cache-common.xml" />
 	<import resource="classpath:conf/spring/qalingo-core-cache-aop.xml" />
 	
@@ -64,7 +65,7 @@
     </bean>
 	-->
 
-	<!-- JMS : LISTEN ALL ACTION FOR CACHE SERVEUR MANAGER -->
+	<!-- JMS : LISTEN ALL ACTION FOR CACHE SERVEUR MANAGER 
 	<context:component-scan base-package="org.hoteia.qalingo.core.jms.cacheflush.listener" />
 	<jms:listener-container 
 		container-type="default"
@@ -73,6 +74,7 @@
 		acknowledge="transacted">
 		<jms:listener destination="${cache.serveur.management.trigger.queue.name}" ref="cacheFlushQueueListener"></jms:listener>
 	</jms:listener-container>
+	-->
 	
     <!-- AOP -->
 	<context:component-scan base-package="org.hoteia.qalingo.core.jms.notification.producer" />

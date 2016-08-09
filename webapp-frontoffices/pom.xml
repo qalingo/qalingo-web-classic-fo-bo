@@ -17,7 +17,9 @@
 
 	<modules>
 		<module>webapp-fo-mcommerce</module>
+		<!--
 		<module>webapp-fo-prehome</module>
+		-->
 	</modules>
 
 	<properties>

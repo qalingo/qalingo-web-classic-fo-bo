@@ -13,8 +13,7 @@
 <configuration>
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-		<!-- encoders are assigned the type
-		 ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
 		<encoder>
 			 <pattern>[qalingo-webapp-fo-mcommerce] %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
@@ -27,14 +26,32 @@
 			 <pattern>[qalingo-webapp-fo-mcommerce] %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
+	
+	<appender name="CACHE-INFO-FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${catalina.home}/logs/cache-info.log</file>
+		<append>true</append>
+		<encoder>
+			 <pattern>[qalingo-webapp-fo-mcommerce] %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
 
-    <logger name="org.hibernate.tool.hbm2ddl.SchemaUpdate" level="DEBUG">
+	<!--
+    <logger name="org.hibernate.tool.hbm2ddl" level="DEBUG">
         <appender-ref ref="DATABASE-SETTING-FILE" />
     </logger>
+	-->
 	
+
+    <logger name="org.hoteia.qalingo.core.aop.cache.CacheManagementAspect" level="DEBUG">
+        <appender-ref ref="CACHE-INFO-FILE" />
+    </logger>
+
+	
+	<!--
     <logger name="org.hibernate" level="WARN">
         <appender-ref ref="STDOUT" />
     </logger>
+	-->
 	
     <logger name="org.hoteia.qalingo" level="WARN">
         <appender-ref ref="STDOUT" />

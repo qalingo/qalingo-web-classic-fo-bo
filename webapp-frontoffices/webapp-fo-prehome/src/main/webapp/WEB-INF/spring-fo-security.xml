@@ -2,10 +2,10 @@
 <!--
 
     Most of the code in the Qalingo project is copyrighted Hoteia and licensed
-    under the Apache License Version 2.0 (release version 0.7.0)
+    under the Apache License Version 2.0 (release version 0.8.0)
             http://www.apache.org/licenses/LICENSE-2.0
 
-                      Copyright (c) Hoteia, 2012-2013
+                      Copyright (c) Hoteia, 2012-2014
     http://www.hoteia.com - http://twitter.com/hoteia - contact@hoteia.com
 
 
@@ -16,96 +16,46 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context" 
 	xsi:schemaLocation="
-		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
-		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		">
 
 	<!-- Don't scan security.* ! We need to exclude BO userDetailsService -->
 	<context:component-scan base-package="org.hoteia.qalingo.core.security.helper" />
 	<context:component-scan base-package="org.hoteia.qalingo.core.security.util" />
-	<context:component-scan base-package="org.hoteia.qalingo.core.security.service.fo" />
+	<context:component-scan base-package="org.hoteia.qalingo.core.security.fo" />
 	
-    <global-method-security pre-post-annotations="enabled" />
-
-    <http pattern="/index.html**"       security="none" />
-    <http pattern="/welcome.html**"     security="none" />
-    <http pattern="/home.html**"        security="none" />
-
-   <http entry-point-ref="extLoginUrlAuthenticationEntryPoint">
-        <intercept-url pattern="/**/cart-delivery-order-information*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/cart-order-confirmation*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/cart-order-payment*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-details*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-details-form*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-address-list*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-add-address-form*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-add-address*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-edit-address-form*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-edit-address*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/customer-wishlist*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/remove-from-wishlist*" access="ROLE_FO_CUSTOMER" />
-        <intercept-url pattern="/**/add-to-wishlist*" access="ROLE_FO_CUSTOMER" />
-
-        <form-login authentication-failure-handler-ref="extSimpleUrlAuthenticationFailureHandler"
-					authentication-success-handler-ref="extSimpleUrlAuthenticationSuccessHandler"
-		/>
-
-        <logout logout-url="/logout-session.html"
-				success-handler-ref="extLogoutSuccessHandler"
-				invalidate-session="false" />
-        <remember-me />
-		<access-denied-handler ref="accessDeniedHandler" />
-		<session-management session-fixation-protection="none" ></session-management>
-
-	</http>
+    <authentication-manager>
+       <authentication-provider user-service-ref="userDetailsService"> 
+			 <password-encoder ref="passwordEncoder" />
+        </authentication-provider>
+    </authentication-manager>
 	
-	<beans:bean id="accessDeniedHandler" class="org.hoteia.qalingo.core.web.handler.security.ExtAccessDeniedHandlerImpl" />
-
-	<beans:bean id="extLoginUrlAuthenticationEntryPoint" class="org.hoteia.qalingo.core.web.handler.security.ExtLoginUrlAuthenticationEntryPoint">
-		<beans:property name="urlService" ref="urlService" />
-		<beans:property name="requestUtil" ref="requestUtil" />
-		<beans:property name="redirectStrategy" ref="redirectStrategy" />
-		<beans:property name="loginFormUrl" value="/sc/login.html" />
+	<beans:bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+		<beans:constructor-arg>
+			<beans:list>
+				<beans:ref bean="daoAuthenticationProvider"/>
+			</beans:list>
+		</beans:constructor-arg>
 	</beans:bean>
 	
-	<beans:bean id="redirectStrategy" class="org.hoteia.qalingo.core.web.handler.security.ExtRedirectStrategy">
-		<beans:property name="contextRelative" value="${spring.security.context.relative}" />
-	</beans:bean>
-
 	<beans:bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
 		<beans:property name="userDetailsService" ref="userDetailsService" />
 	</beans:bean>
-
-	<beans:bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
-		<beans:property name="providers">
-			<beans:list>
-				<beans:ref local="daoAuthenticationProvider" />
-			</beans:list>
-		</beans:property>
-	</beans:bean>
-
-    <authentication-manager>
-       <authentication-provider user-service-ref="userDetailsService"> 
-			 <password-encoder ref="encoder" />
-        </authentication-provider>
-    </authentication-manager>
-
-	<beans:bean id="authenticationFilter" class="org.hoteia.qalingo.core.web.handler.security.ExtUsernamePasswordAuthenticationFilter">
-		<beans:property name="authenticationManager" ref="authenticationManager" />
-		<beans:property name="filterProcessesUrl" value="/j_spring_security_check" />
-		<beans:property name="continueChainBeforeSuccessfulAuthentication" value="true" />
+	
+	<beans:bean id="loginUrlAuthenticationEntryPoint" class="org.hoteia.qalingo.core.security.fo.component.LoginUrlAuthenticationEntryPoint">
+		<beans:constructor-arg value="/sc/login.html" />
+		<beans:property name="urlService" ref="urlService" />
+		<beans:property name="requestUtil" ref="requestUtil" />
+		<beans:property name="redirectStrategy" ref="redirectStrategy" />
 	</beans:bean>
 	
-	<beans:bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"></beans:bean>
-
-	<beans:bean id="securityContextPersistenceFilter" class="org.springframework.security.web.context.SecurityContextPersistenceFilter"> 
-		<beans:property name="securityContextRepository"> 
-			<beans:bean class="org.springframework.security.web.context.HttpSessionSecurityContextRepository"> 
-				<beans:property name="allowSessionCreation" value="false" /> 
-			</beans:bean> 
-		</beans:property> 
+	<beans:bean id="redirectStrategy" class="org.hoteia.qalingo.core.security.RedirectStrategy">
+		<beans:property name="contextRelative" value="${spring.security.context.relative}" />
 	</beans:bean>
-
+	
+	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"></beans:bean>
+	
 </beans:beans>

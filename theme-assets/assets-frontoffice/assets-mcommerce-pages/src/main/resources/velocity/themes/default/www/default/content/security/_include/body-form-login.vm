@@ -19,11 +19,11 @@
 					<div>
 						<div style="padding-top: 5px; padding-bottom: 5px;">
 							<div style="float: left; width: 100px;">
-								<label for="j_username" class="label-form">$wording.get("fo.auth.login_form_login_label")</label>
+								<label for="username" class="label-form">$wording.get("fo.auth.login_form_login_label")</label>
 							</div>
 							<div class="input-group" style="float: left; width: 50%;">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" name="j_username" placeholder="$wording.get("fo.auth.login_form_login_label")" value="">
+								<input type="text" name="username" placeholder="$wording.get("fo.auth.login_form_login_label")" value="">
 							</div>
 						</div>
 					</div>
@@ -31,11 +31,11 @@
 					<div>
 						<div style="padding-top: 5px; padding-bottom: 5px;">
 							<div style="float: left; width: 100px;">
-								<label for="j_password" class="label-form">$wording.get("fo.auth.login_form_password_label")</label>
+								<label for="password" class="label-form">$wording.get("fo.auth.login_form_password_label")</label>
 							</div>
 							<div class="input-group" style="float: left; width: 50%;">
 								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<input type="password" name="j_password" placeholder="$wording.get("fo.auth.login_form_password_label")">
+								<input type="password" name="password" placeholder="$wording.get("fo.auth.login_form_password_label")">
 							</div>
 						</div>
 					</div>
