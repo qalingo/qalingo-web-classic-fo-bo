@@ -23,6 +23,8 @@
 
 		<qalingo.engine.version>0.9.1-SNAPSHOT</qalingo.engine.version> 
 
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
 	</properties>
 
 	<modules>
